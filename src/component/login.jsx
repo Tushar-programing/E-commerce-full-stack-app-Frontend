@@ -31,6 +31,8 @@ function login() {
               withCredentials: true
             })
             if (session) {
+              console.log("this is working");
+              console.log("this is apiurl", conf.apiUrl)
                 const userData = await axios.post(`${conf.apiUrl}/users/getCurrentUser`, {}, {
                   withCredentials: true
                 })
