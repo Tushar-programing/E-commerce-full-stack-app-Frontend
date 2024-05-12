@@ -32,8 +32,7 @@ function allpost() {
 
     useEffect(() => {
       try {
-        console.log("is it working")
-        axios.post(`http://localhost:5173/product/products`, {}, {
+        axios.post(`${conf.apiUrl}/product/products`, {}, {
           withCredentials: true,
       }).then((post) => setPosts(post.data.data))
       } catch (error) {

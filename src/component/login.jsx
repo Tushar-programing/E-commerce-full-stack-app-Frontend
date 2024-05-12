@@ -27,7 +27,7 @@ function login() {
     }, 200); 
         setError("")
         try {
-            const session = await axios.post(`${conf.apiUrl}/users/login`, data, {
+            const session = await axios.post(`http://localhost:8000/api/v1/users/login`, data, {
               withCredentials: true
             })
             if (session) {
