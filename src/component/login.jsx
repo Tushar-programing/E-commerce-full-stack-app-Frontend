@@ -1,0 +1,95 @@
+import React, { useState } from 'react'
+import { Input, Button } from '.'
+import {Link, useNavigate} from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import { login as authlogin } from '../store/authslice';
+import axios from 'axios'
+// const apiUrl = import.meta.env.VITE_API_URL;
+import conf from "./conf/conf"
+import './signup.css'
+
+import { toast } from 'react-toastify';
+
+function login() {
+    const[error, setError] = useState("")
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const {register, handleSubmit} =  useForm()
+    const [size, setSize] = useState(false)
+
+    // console.log(conf.apiUrl);
+
+    const already = async(data) => {
+      setSize(true)
+      setTimeout(() => {
+        setSize(false);
+    }, 200); 
+        setError("")
+        try {
+            const session = await axios.post(`${conf.apiUrl}/users/login`, data, {
+              withCredentials: true
+            })
+            if (session) {
+                const userData = await axios.post(`${conf.apiUrl}/users/getCurrentUser`, {}, {
+                  withCredentials: true
+                })
+                if (userData) dispatch(authlogin(userData.data.data))
+                console.log(userData)
+                navigate("/")
+            }
+        } catch (error) {
+            toast.error(error.message)
+            toast.success(error.response.data.message)
+            console.log(error.response.data.message)
+
+        }
+    }
+
+  return (
+    <>
+    <div className='text-2xl text-gray-800 font-semibold mt-5 ml-24 '>Login account</div>
+    <div className='w-48 ml-24 bg-gray-600 mt-2 h-0.5'></div>
+    <div  className='flex justify-center mt-16'>
+
+      <form onSubmit={handleSubmit(already)} id='form'>
+      <div>{error && <p className='text-red-600 mb-5 text-center'>{error}</p>}</div>
+        <div className=''></div>
+        <Input 
+        className1=" mb-5"
+        className2=" mb-8 focus:outline-none focus:ring-2 focus:ring-violet-900 focus:border-violet-900"
+        type="email"
+        label="Enter e-mail: "
+        placeholder="Email address"
+        {...register("email", {
+        required: true,
+        validate: {
+            matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+            "Email address must be a valid address",
+        }
+        })}
+        />
+        <Input 
+        type="password"
+        label="Password:"
+        placeholder="*************"
+        className1=" mb-5"
+        className2=" mb-8 focus:outline-none focus:ring-2 focus:ring-violet-900 focus:border-violet-900"
+        {...register("password", {
+            required: true,
+        })}
+        />
+        <div className='flex justify-center mt-2 mb-7'><p className='text-xl font-normal'>Don't have an Account? <Link className='font-semibold' to="/signup">Sign up</Link></p></div>
+        <div className='flex justify-center'>
+        <Button
+        type='submit'
+        className={`w-72 mb-16 mt-8 hover:bg-violet-800 ${size? 'transform scale-90' : ''} duration-200`}
+        >Sign in</Button>
+        </div>
+      </form>
+    </div>
+    </>
+  )
+}
+
+export default login
