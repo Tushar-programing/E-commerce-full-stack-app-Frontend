@@ -32,6 +32,7 @@ function allpost() {
 
     useEffect(() => {
       try {
+        console.log("is it working")
         axios.post(`http://localhost:5173/product/products`, {}, {
           withCredentials: true,
       }).then((post) => setPosts(post.data.data))
