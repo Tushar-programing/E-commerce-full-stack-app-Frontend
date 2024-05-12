@@ -21,7 +21,7 @@ function cartpost({_id, product_details, quantity, }) {
         }
       }  else {
         try {
-          const update = await axios.post(`http://localhost:8000/api/v1/cart/removeCart/${_id}`, {}, {
+          const update = await axios.post(`${conf.apiUrl}/cart/removeCart/${_id}`, {}, {
             withCredentials: true
           })
           if (update) {
@@ -37,7 +37,7 @@ function cartpost({_id, product_details, quantity, }) {
       if (quantity  < 20) {
         
         try {
-          const update = await axios.post(`http://localhost:8000/api/v1/cart/updateCart/${_id}`, {quantity: quantity+1}, {
+          const update = await axios.post(`${conf.apiUrl}/cart/updateCart/${_id}`, {quantity: quantity+1}, {
             withCredentials: true
           })
           if (update) {
@@ -53,7 +53,7 @@ function cartpost({_id, product_details, quantity, }) {
 
     const remove = async() => {
       try {
-        const update = await axios.post(`http://localhost:8000/api/v1/cart/removeCart/${_id}`, {}, {
+        const update = await axios.post(`${conf.apiUrl}/cart/removeCart/${_id}`, {}, {
             withCredentials: true
         })
         if (update) {
