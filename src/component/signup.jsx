@@ -16,6 +16,7 @@ function signup() {
   const create = async(data) => {
     setError("")
     try {
+      console.log("signup is working");
       const userData = await axios.post(`${conf.apiUrl}/users/register`, data, {
         withCredentials: true,
       })
