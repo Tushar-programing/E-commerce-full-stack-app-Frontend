@@ -27,6 +27,7 @@ function login() {
     }, 200); 
         setError("")
         try {
+          console.log("login trying to log user");
             const session = await axios.post(`${conf.apiUrl}/users/login`, data, {
               withCredentials: true
             })
