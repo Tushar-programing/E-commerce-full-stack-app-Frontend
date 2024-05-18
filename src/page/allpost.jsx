@@ -25,11 +25,59 @@ function allpost() {
     // console.log("posts", posts);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-    const [blockLeft, setBlockLeft] = useState(true)
-    const [blockRight, setBlockRight] = useState(false)
+    // const [blockLeft, setBlockLeft] = useState(true)
+    // const [blockRight, setBlockRight] = useState(false)
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
 
     const active = useSelector(state => state.auth.status)
+
+
+    // const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - e.currentTarget.offsetLeft);
+    setScrollLeft(e.currentTarget.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - e.currentTarget.offsetLeft;
+    const walk = (x - startX) * 3; // scroll-fast
+    e.currentTarget.scrollLeft = scrollLeft - walk;
+  };
+
+  // const handleNextSlid = () => {
+  //   if (currentIndex < posts.filter((post) => post.category === 'sensors').length - 4) {
+  //     setCurrentIndex(currentIndex + 1);
+  //   }
+  // };
+
+  // const handleBackSlid = () => {
+  //   if (currentIndex > 0) {
+  //     setCurrentIndex(currentIndex - 1);
+  //   }
+  // };
+
+  const blockLeft = currentIndex === 0;
+  const blockRight = currentIndex >= posts.filter((post) => post.category === 'sensors').length - 4;
+
+
+
+
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -213,19 +261,41 @@ const handleNextSlide = () => {
 
           
           <div className="flex overflow-hidden mt-10">
-                {/* Transition container */}
-                <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 4 * 64}px)` }}>
-                {posts.filter((post) => post.category === "sensors")
-                  .map((post) => (                     
-                        <div key={post.$id} className='w-64 h-auto border '>
-                          {/* $id, title, image, price, brand, description */}
-                          <Postcard1 {...post} />
-                        </div>
-                  ))}
-                </div>
-              {posts.filter((post) => post.category === "sensors").length > 4 && <button onClick={handleBackSlid} className={`margin absolute mt-40 bg-violet-900 ml-1 ${blockLeft? 'hidden' : ''} `}><img className='w-6 ml-2' src={slider} style={{ transform: `rotate(90deg)` }} /></button>}
-              {posts.filter((post) => post.category === "sensors").length > 4 && <button onClick={handleNextSlid} className={`margin absolute mt-40 bg-violet-900 ${blockRight? 'hidden' : ''}`}><img className='w-6 ml-3' src={slider} style={{ transform: `rotate(-90deg)` }} /></button>}
+      {/* Transition container */}
+      <div
+        className="flex transition-transform duration-500"
+        style={{ transform: `translateX(-${currentIndex * 4 * 64}px)` }}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
+        {posts
+          .filter((post) => post.category === 'sensors')
+          .map((post) => (
+            <div key={post.$id} className="w-64 h-auto border">
+              {/* $id, title, image, price, brand, description */}
+              <Postcard1 {...post} />
             </div>
+          ))}
+      </div>
+      {posts.filter((post) => post.category === 'sensors').length > 4 && (
+        <button
+          onClick={handleBackSlid}
+          className={`hidden sm:block absolute mt-40 bg-violet-900 ml-1 ${blockLeft ? 'hidden' : ''}`}
+        >
+          <img className="w-6 ml-2" src={slider} style={{ transform: `rotate(90deg)` }} />
+        </button>
+      )}
+      {posts.filter((post) => post.category === 'sensors').length > 4 && (
+        <button
+          onClick={handleNextSlid}
+          className={`hidden sm:block absolute mt-40 bg-violet-900 ${blockRight ? 'hidden' : ''}`}
+        >
+          <img className="w-6 ml-3" src={slider} style={{ transform: `rotate(-90deg)` }} />
+        </button>
+      )}
+    </div>
       </div> 
     </ div>
   )
