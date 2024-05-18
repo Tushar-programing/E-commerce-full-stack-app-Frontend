@@ -27,8 +27,22 @@ function allpost() {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
     const [blockLeft, setBlockLeft] = useState(true)
     const [blockRight, setBlockRight] = useState(false)
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
 
     const active = useSelector(state => state.auth.status)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 640);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
     useEffect(() => {
       try {
@@ -91,13 +105,13 @@ const handleNextSlide = () => {
       <LoginPopup open={active}/>
       <div className='lide w-32 absolute z-10'>
         {slides.map((slide) => (
-          <button key={slide.id} onClick={() => setCurrentSlideIndex(slide.id -1)}  className={`w-5 h-5 border border-white  rounded-2xl ml-2  ${currentSlideIndex=== (slide.id - 1) ? 'bg-white' : 'bg-gray-400'}`}></button>
+          <button key={slide.id} onClick={() => setCurrentSlideIndex(slide.id -1)}  className={`sm:w-5 w-4 sm:h-5 h-4 border border-white  rounded-2xl ml-2  ${currentSlideIndex=== (slide.id - 1) ? 'bg-white' : 'bg-gray-400'}`}></button>
         ))}
       </div>
       
-      <div className="slideshow mt-8">
-          <div className="flex overflow-hidden mt-10">
-            <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentSlideIndex * 4 * 400}px)` }}>
+      <div className="slideshow sm:mt-8 mt-0 ">
+          <div className="flex overflow-hidden sm:mt-10 mt-3">
+            <div className="flex transition-transform duration-500" style={{ transform: isSmallScreen? `translateX(-${currentSlideIndex * 4 * 96}px)` : `translateX(-${currentSlideIndex * 4 * 400}px)`}}>
               {slides.map((img) => (
                 <div key={img.id} className="outline w-screen">
                     <img src={img.image} alt={img.text} className="screen" />
@@ -109,68 +123,89 @@ const handleNextSlide = () => {
                   <img src={currentSlide.image} alt={currentSlide.text} className=" w-screen" />
               </div> */}
       </div>
-      <div className='w-full max-w-7xl mx-auto px-4'>
-        <div className=' h-72 mt-10 mb-7'>
-            <p className='text-2xl font-semibold mb-7'>Our Collections</p>
-            <div className="h-60 flex justify-between">
-            <Link to="/result?cat=drones"><div className="flex flex-col items-center ">
-                <div className="w-52 h-52 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+      <div className=' sm:max-w-7xl max-w-3xl mx-auto px-4 '>
+        <div className=' h-auto sm:mt-10 mt-5 sm:mb-7 mb-0 border '>
+            <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
+            <div className="sm:h-auto h-[320px] grid sm:grid-cols-5 grid-cols-3 ">
+              <Link to="/result?cat=drones">
+                <div className="flex flex-col items-center ">
+                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
-                        src={img4}
-                        alt="Image 1"
-                        className="w-52 h-52 object-cover"
+                      src={img4}
+                      alt="Image 1"
+                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
                     />
+                  </div>
+                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                    Drone and Rc planes <span className="font-bold">&rarr;</span>
+                  </p>
                 </div>
-                <p className="mt-4 text-gray-800 hover:text-red-600 transform hover:translate-x-[-15px] duration-300 cursor-pointer font-semibold">Drone and Rc planes <span className='font-bold'>&rarr;</span></p>
-            </div></Link>
-            <Link to="/result?cat=boards"><div className="flex flex-col items-center">
-                <div className="w-52 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+              </Link>
+              <Link to="/result?cat=boards">
+                <div className="flex flex-col items-center">
+                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
-                        src={img5}
-                        alt="Image 2"
-                        className="w-52 h-52 object-cover"
+                      src={img5}
+                      alt="Image 2"
+                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
                     />
+                  </div>
+                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                    Arduino Boards <span className="font-bold">&rarr;</span>
+                  </p>
                 </div>
-                <p className="mt-4 text-gray-800 hover:text-red-600 transform hover:translate-x-[-15px] duration-300 cursor-pointer font-semibold">Arduino Boards <span className='font-bold'>&rarr;</span></p>
-            </div></Link>
-            <Link to="/result?cat=sensors"><div className="flex flex-col items-center">
-                <div className="w-52 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+              </Link>
+              <Link to="/result?cat=sensors">
+                <div className="flex flex-col items-center">
+                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
-                        src={img6}
-                        alt="Image 3"
-                        className="w-52 h-52 object-cover"
+                      src={img6}
+                      alt="Image 3"
+                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
                     />
+                  </div>
+                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                    All type Sensors <span className="font-bold">&rarr;</span>
+                  </p>
                 </div>
-                <p className="mt-4 text-gray-800 hover:text-red-600 transform hover:translate-x-[-15px] duration-300 cursor-pointer font-semibold">All type Sensors <span className='font-bold'>&rarr;</span></p>
-            </div></Link>
-            <Link to="/result?cat=led"><div className="flex flex-col items-center">
-                <div className="w-52 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+              </Link>
+              <Link to="/result?cat=led">
+                <div className="flex flex-col items-center">
+                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
-                        src={img7}
-                        alt="Image 4"
-                        className="w-52 h-52 object-cover"
+                      src={img7}
+                      alt="Image 4"
+                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
                     />
+                  </div>
+                  <p className="sm:w-auto w-16 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                    Pixel LED's <span className="font-bold">&rarr;</span>
+                  </p>
                 </div>
-                <p className="mt-4 text-gray-800 hover:text-red-600 transform hover:translate-x-[-15px] duration-300 cursor-pointer font-semibold">Pixel LED's <span className='font-bold'>&rarr;</span></p>
-            </div></Link>
-            <Link to="/result?cat=speakers"><div className="flex flex-col items-center">
-                <div className="w-52 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
+              </Link>
+              <Link to="/result?cat=speakers">
+                <div className="flex flex-col items-center">
+                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
                     <img
-                        src={img8}
-                        alt="Image 5"
-                        className="w-52 h-52 object-cover"
+                      src={img8}
+                      alt="Image 5"
+                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
                     />
+                  </div>
+                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                    Bass and Speakers <span className="font-bold">&rarr;</span>
+                  </p>
                 </div>
-                <p className="mt-4 text-gray-800 hover:text-red-600 transform hover:translate-x-[-15px] duration-300 cursor-pointer font-semibold">Bass and Speakers <span className='font-bold'>&rarr;</span></p>
-            </div></Link>
-          </div>
+              </Link>
+            </div>
+
         </div>
 
-          <div className='flex flex-wrap mt-12'>
+          <div className='flex flex-wrap sm:mt-12 mt-6'>
                   {posts.filter((post) => post.status === true)
                   
                   .map((post) => (                     
-                      <div key={post.$id} className='p-2 w-1/4'>
+                      <div key={post.$id} className='sm:p-2 p-0 sm:w-1/4 w-1/2 '>
                           <Postcard {...post} />
                       </div>   
                   ))}

@@ -70,7 +70,7 @@ function loginPopup({open}) {
 
   return (
     <div className=''>
-        <Dialog open={isDialogOpen} onClose={closeDialog} className='w-[800px] mx-auto'>
+        <Dialog open={isDialogOpen} onClose={closeDialog} className='sm:w-[800px] w-[350px] mx-auto'>
           <DialogTitle>Login to your Account</DialogTitle>
           <DialogContent>
             <DialogContentText>

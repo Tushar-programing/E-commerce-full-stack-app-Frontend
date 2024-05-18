@@ -148,4 +148,11 @@
     margin-left: 800px;
   }
 
+  @media (max-width: 639px) {
+    .lide {
+      margin-top: 130px;
+      margin-left: 150px;
+    }
+  }
+
   
