@@ -21,8 +21,8 @@ function wishlist() {
 
   return (
     <div className='bg-gray-100 h-auto border'>
-      <div className="mx-40 h-auto mt-10 mb-2">
-          {/* wishs?.length > 0 &&  */(<div className="flex justify-around bg-white border">
+      <div className="sm:mx-40 mx-4 h-auto mt-10 mb-2">
+          {/* wishs?.length > 0 &&  */(<div className="sm:flex hidden justify-around bg-white border">
               <div className="text-black text-[20px] px-36 "><p>
                 Product</p>
               </div>
@@ -47,7 +47,7 @@ function wishlist() {
           {wishs?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
           .map((wish) => (
             // console.log(wish._id);
-              <div key={wish._id}>
+              <div key={wish._id} className=''>
                 <Wishlist {...wish} />
               </div>
           ))}
