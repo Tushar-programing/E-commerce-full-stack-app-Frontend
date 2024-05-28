@@ -49,7 +49,7 @@ function wishlist({userId, product_details, createdAt, _id}) {
         <div className='bg-white sm:h-40 h-auto sm:flex block justify-between sm:mt-2 mt-4 sm:mx-auto mx-8'>
             <Link to={`/post/${product_details?._id}`}><div className='width sm:h-40 h-auto sm:w-[450px] w-auto sm:flex sm:justify-between block'>
               <div className=' sm:w-56 w-52 overflow-hidden'>
-                <img src={product_details?.image[0]} className='sm:mx-8 mx-5 h-40   ' />
+                <img src={product_details?.image[0]} className='sm:mx-4 mx-5 h-40' />
               </div>
               <div className='w-56   '>
                 <p className='sm:mt-5 mt-1 mx-5 text-red-600'>{product_details?.title.length > 23 ? (<span>{product_details?.title.slice(0, 23)}...</span>) : (<span>{product_details?.title}</span>)}</p>
