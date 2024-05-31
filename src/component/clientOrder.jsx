@@ -8,52 +8,69 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
   const [shippingStatus, setShippingStatus] = useState(status);
   console.log(shippingStatus);
 
-    const handleChange = (e) => {
+    const handleChange = async() => {
         const selectedStatus = e.target.value;
         setShippingStatus(selectedStatus);
+        await axios.post(`${conf.apiUrl}/order/updateOrder/${_id}`, {status: e.target.value}, {
+          withCredentials: true
+        }).then((cancel) => {
+          if (cancel) {
+            toast.success("Successfully updated your order")
+            // window.location.reload()
+          }
+        })
     };
 
-  const cancel = async() => {
-    await axios.post(`${conf.apiUrl}/order/updateOrder/${_id}`, {status: shippingStatus}, {
-      withCredentials: true
-    }).then((cancel) => {
-      if (cancel) {
-        toast.success("Successfully canceled your order")
-        window.location.reload()
-      }
-    })
-  }
+    const cancel = async() => {
+      await axios.post(`${conf.apiUrl}/order/updateOrder/${_id}`, {status: "cancel"}, {
+        withCredentials: true
+      }).then((cancel) => {
+        if (cancel) {
+          toast.success("Successfully updated your order")
+          window.location.reload()
+        }
+      })
+    }
+
+    const update = async() => {
+      await axios.post(`${conf.apiUrl}/order/updateOrder/${_id}`, {status: "accept"}, {  //Accept
+        withCredentials: true
+      }).then((cancel) => {
+        if (cancel) {
+          toast.success("Successfully updated your order")
+          window.location.reload()
+        }
+      })
+    }
+
+
+
   return (
     <div>
-        <div className=' h-32 flex justify-between'>
-          <div className='border w-44 overflow-hidden'><img src={product_details?.image[0]} className='mx-auto my-auto h-32'/></div>
-          <div className='border w-64'>
-            <p className='text-red-600 text-lg mt-3 ml-5'>{product_details?.title.length > 25? <span>{product_details?.title.slice(0, 25)}...</span> : <span>{product_details?.title}</span>}</p>
-            <p className='text-violet-900 mt-2 ml-5'>Brand : {product_details?.brand.length > 30? <span className='text-gray-800'>{product_details?.brand.slice(0, 30)}...</span> : <span className='text-gray-800'>{product_details?.brand}</span>}</p>
-            <p className='text-violet-900 mt-2 ml-5'>Desc : {product_details?.description.length > 23? <span className='text-gray-800'>{product_details?.description.slice(0, 23)}...</span> : <span className='text-gray-800'>{product_details?.description}</span>}</p>
+        <div className=' h-20 flex justify-between'>
+          <div className=' w-24 overflow-hidden m-2'><img src={product_details?.image[0]} className='mx-auto my-auto h-16'/></div>
+          <div className=' w-[346px] my-auto '>
+            <p className='text-violet-900 text-base text-center'>{product_details?.title.length > 43? <span>{product_details?.title.slice(0, 43)}...</span> : <span>{product_details?.title}</span>}</p>
           </div>
-          <div className='border w-72'>
-            <p className='ml-5 mt-1 font-semibold text-gray-600'>{name}, <span className='text-red-600'>{phone}</span></p>
-            <p className='ml-5 mt-1 font-semibold text-gray-600'>{adress1},{adress2}</p>
-            <p className='ml-5 mt-1 font-semibold text-gray-600'><span className='text-violet-900'>{zip} </span>,{city}</p>
-            <p className='ml-5 mt-1 font-semibold text-gray-600'>{state},{country}</p>
+          <div className=' w-40'>
+              <p className='mt-6 ml-2 text-gray-800 text-center'>{paymentStatus}</p>
           </div>
-          <div className='border w-32 '>
-            <p className='text-center my-12'>{createdAt.slice(8, 10)}{createdAt.slice(4, 8)}{createdAt.slice(0, 4)}</p>
+          <div className=' w-40 '>
+            <p className='text-center mt-6'>{createdAt.slice(8, 10)}{createdAt.slice(4, 8)}{createdAt.slice(0, 4)}</p>
           </div>
-          <div className='border w-48'>
-            <p className='mt-5 ml-2 text-violet-900'>Payment-Status : <span className='text-gray-800'>{paymentStatus}</span></p>
-            <p className='mt-1 ml-2 '>Status : <span className={` text-xl ${status === "cancel"? 'text-red-600': 'text-green-600'}`}>{status}</span></p>
+          <div className=' w-32'>
+              <p className='mt-6 text-center text-gray-800'>₹ {product_details?.price}</p>
+            {/* <p className='mt-1 ml-2 '>Status : <span className={` text-xl ${status === "cancel"? 'text-red-600': 'text-green-600'}`}>{status}</span></p> */}
           </div>
-          <div className='border w-44'>
-            <p className='mt-3 ml-4 '>Quantity : <span className='text-violet-900'>{quantity} pcs</span></p>
-            <p className='mt-2 ml-4 '>price : <span className='text-gray-800'>₹ {product_details?.price}</span></p>
-            <p className='mt-2 ml-4'>Total : <span className='text-red-600  text-lg'>₹ {product_details.price * quantity}</span></p>
+          <div className=' w-28 '>
+            <p className='mt-6 text-green-500 text-center '>{quantity} pcs</p>
+            {/* <p className='mt-2 ml-4 '>price : <span className='text-gray-800'>₹ {product_details?.price}</span></p>
+            <p className='mt-2 ml-4'>Total : <span className='text-red-600  text-lg'>₹ {product_details.price * quantity}</span></p> */}
           </div>
-          <div className='w-20 bg-gray-100'>
+          <div className='w-44 '>
             <select
                   id="shippingStatus"
-                  className={`mb-2 mt-7 py-2 rounded-lg bg-white text-black outline-none focus:bg-gray-50 duration-200 border border-gray-200 w-full ${status === "cancel"? 'hidden': null}`}
+                  className={`mb-2 mt-7 py-1 ml-8 rounded-sm bg-white text-black outline-none focus:bg-gray-50 duration-200 border border-gray-200 w-24 ${status === "cancel"? 'hidden': null}`}
                   value={shippingStatus}
                   onChange={handleChange}
               >
@@ -61,12 +78,12 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
                 <option value="out For Delivery">Out for Delivery</option>
                 <option value="delivered">Delivered</option>
             </select>
-            <button onClick={cancel} className={`bg-green-500 w-full text-white mt-1 rounded-md mx-1 ${status === "cancel"? 'hidden': null}`}>Update</button>
+            {status === "cancel" && <div className='text-base text-red-500 font-semibold mt-7 ml-6 mx-auto'>Order Cancelled</div>}
           </div>
-        </div>
-        <div className='flex justify-between'>
-        {status === "cancel" && <div className='text-xl  text-red-500 font-semibold my-1 mx-auto'>Client canceled this order</div>}
-        <div className='bg-gray-100 w-20'></div>
+          <div className=' w-56 '>
+            <button disabled={status === "cancel"} onClick={cancel} className={`w-20 mt-7 ml-2 border py-[2px] bg-gray-50 text-red-500`}>Reject</button>
+            <button disabled={status === "cancel"} onClick={update} className={`w-20 mt-7 ml-6 border py-[2px] bg-gray-50 text-green-500`}>Accept</button>
+          </div>
         </div>
         <div className=' h-3 bg-gray-100'></div>
     </div>

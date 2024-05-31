@@ -22,17 +22,18 @@ function orderPage() {
   return (
     <div className='bg-gray-100'>
       <div className=''></div>
-      <div className='ml-40 mr-32 h-auto bg-white'>
-        <div className='text-2xl font-semibold mt-8 bg-gray-100  h-14'>Client Order History</div>
+      <div className=' mx-10 h-auto bg-white'>
+        <div className='text-2xl font-semibold mt-8 bg-gray-100 h-14'>Client Order History</div>
 
-        {order?.length > 0? <div className=' h-8 flex justify-between'>
-              <div className='border w-44 text-center'>Image</div>
-              <div className='border w-64 text-center'>Product_details</div>
-              <div className='border w-72 text-center'>Address</div>
-              <div className='border w-32 text-center'>Order Date</div>
-              <div className='border w-48 text-center'>Status</div>
-              <div className='border w-44 text-center'>Price</div>
-              <div className=' w-20 bg-gray-100'></div>
+        {order?.length > 0? 
+        <div className=' h-8 flex justify-between'>
+              <div className=' w-[470px] text-center'>Product_details</div>
+              <div className=' w-40 text-center'>Payment</div>
+              <div className=' w-40 text-center'>Date</div>
+              <div className=' w-32 text-center'>Price</div>
+              <div className=' w-28 text-center'>Quantity</div>
+              <div className=' w-44 text-center'>Action</div>
+              <div className=' w-56 text-center'></div>
         </div> : <div className='text-center text-xl text-red-600 bg-gray-100'>No client order available yet</div>}
         <div className='h-4 bg-gray-100'></div>
         {order?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)

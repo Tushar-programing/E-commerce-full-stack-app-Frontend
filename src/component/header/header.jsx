@@ -125,7 +125,7 @@ function header() {
             <ul className='flex ml-auto'>
             {navitem.map((item) =>
                 item.status ? (
-                    <li key={item.name}>
+                    <li key={item.name} className='sm:flex hidden'>
                         <button id={item.name} onClick={() => navigate(item.url)}
                         className='fancy-underline inline-block sm:mx-10 mx-1 mt-2 sm:px-6 px-3 sm:py-2 py-1 text-violet-900 font-medium sm:text-lg text-base duration-200 rounded-full'
                         >
@@ -136,7 +136,7 @@ function header() {
             )}
             {active && (
                 <>
-                    <li className='sm:mr-0 mr-1 '>
+                    <li className='sm:mr-0 mr-3 '>
                         <div className=' absolute z-20 text-red-600 sm:ml-[93px] ml-[25px] sm:mt-1 mt-0 sm:text-xl text-lg'>{post?.length}</div>
                         <div className='absolute z-10 text-red-600 rounded-full sm:w-7 w-5 sm:h-7 h-5 border bg-white sm:ml-[85px] ml-[21px] sm:mt-1 mt-1'></div>
                         <button  onClick={() => navigate("/cart")}
@@ -152,6 +152,7 @@ function header() {
                         <button className="sm:hidden sm:mr-auto mr-5 flex dropbtn text-violet-900 font-semibold">My account&nbsp;&#717;</button>
                         <div className="dropdown-content sm:w-auto ">
                           <Link to="/orderpage" className='sm:text-base text-sm'>My orders</Link>
+                          <Link to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
                           <Link to="/address" className='sm:text-base text-sm'>My address</Link>
                           <a className='sm:text-base text-sm' ><Logoutbtn /></a>
                           <Link to="/list" className='sm:text-base text-sm'>List Product</Link>
