@@ -22,6 +22,7 @@ import UserOrder from './page/userOrder.jsx';
 import ClientOrder from './page/clientOrder.jsx'
 import Result from './page/result.jsx';
 import ClientOrderPro from './page/clientOrderPro.jsx';
+import UserOrderPro from './page/userOrderPro.jsx'
 import { Authlayout } from './component/index.js'
 
 import { ToastContainer } from 'react-toastify';
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
       {
         path: "/clientpro/:slug",
         element: <ClientOrderPro />,
+      },
+      {
+        path: "/userpro/:slug",
+        element: <UserOrderPro />,
       },
       {
         path: "/result",
