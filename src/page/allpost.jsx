@@ -124,7 +124,7 @@ const handleNextSlide = () => {
               </div> */}
       </div>
       <div className=' sm:max-w-7xl max-w-3xl mx-auto px-4 '>
-        <div className=' h-auto sm:mt-10 mt-5 sm:mb-7 mb-0 border '>
+        <div className=' h-auto sm:mt-10 mt-5 sm:mb-7 mb-0 '>
             <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
             <div className="sm:h-auto h-[320px] grid sm:grid-cols-5 grid-cols-3 ">
               <Link to="/result?cat=drones">

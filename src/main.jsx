@@ -21,6 +21,7 @@ import Wishlist from './page/wishlist.jsx';
 import UserOrder from './page/userOrder.jsx';
 import ClientOrder from './page/clientOrder.jsx'
 import Result from './page/result.jsx';
+import ClientOrderPro from './page/clientOrderPro.jsx';
 import { Authlayout } from './component/index.js'
 
 import { ToastContainer } from 'react-toastify';
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path: "/clientorder",
         element: <ClientOrder />,
+      },
+      {
+        path: "/clientpro/:slug",
+        element: <ClientOrderPro />,
       },
       {
         path: "/result",
