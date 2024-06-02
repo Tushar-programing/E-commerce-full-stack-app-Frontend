@@ -8,7 +8,7 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
   const [shippingStatus, setShippingStatus] = useState(status);
   console.log(shippingStatus);
 
-    const handleChange = async() => {
+    const handleChange = async(e) => {
         const selectedStatus = e.target.value;
         setShippingStatus(selectedStatus);
         await axios.post(`${conf.apiUrl}/order/updateOrder/${_id}`, {status: e.target.value}, {
