@@ -17,40 +17,32 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
     })
   }
   return (
-    <div>
-        <div className=' h-32 flex justify-between'>
-          <Link to={`/post/${product_details._id}`}><div className=' w-44 overflow-hidden'><img src={product_details?.image[0]} className='mx-auto my-auto h-32'/></div></Link>
-          <Link to={`/post/${product_details._id}`}><div className=' w-64'>
-            <p className='text-red-600 text-lg mt-3 ml-5'>{product_details?.title.length > 25? <span>{product_details?.title.slice(0, 25)}...</span> : <span>{product_details?.title}</span>}</p>
-            <p className='text-violet-900 mt-2 ml-5'>Brand : {product_details?.brand.length > 30? <span className='text-gray-800'>{product_details?.brand.slice(0, 30)}...</span> : <span className='text-gray-800'>{product_details?.brand}</span>}</p>
-            <p className='text-violet-900 mt-2 ml-5'>Desc : {product_details?.description.length > 23? <span className='text-gray-800'>{product_details?.description.slice(0, 23)}...</span> : <span className='text-gray-800'>{product_details?.description}</span>}</p>
+    <div className='border'>
+        <div className=' h-20 flex justify-between'>
+          <Link to={`/clientpro/${_id}`}><div className=' w-24 overflow-hidden m-2'><img src={product_details?.image[0]} className='mx-auto my-auto h-16'/></div></Link>
+          <Link to={`/clientpro/${_id}`} className='my-auto'><div className=' w-[410px] my-auto '>
+            <p className='text-violet-900 text-base text-center'>{product_details?.title.length > 50? <span>{product_details?.title.slice(0, 52)}...</span> : <span>{product_details?.title}</span>}</p>
           </div></Link>
-          
-          <div className=' w-72'>
-            <p className='ml-5 mt-1 font-semibold text-gray-600'>{name}, <span className='text-red-600'>{phone}</span></p>
-            <p className='ml-5 mt-1 font-semibold text-gray-600'>{adress1},{adress2}</p>
-            <p className='ml-5 mt-1 font-semibold text-gray-600'><span className='text-violet-900'>{zip} </span>,{city}</p>
-            <p className='ml-5 mt-1 font-semibold text-gray-600'>{state},{country}</p>
+          <Link to={`/clientpro/${_id}`}><div className=' w-40'>
+              <p className='mt-6 ml-2 text-gray-800 text-center'>{paymentStatus}</p>
+          </div></Link>
+          <Link to={`/clientpro/${_id}`}><div className=' w-40 '>
+            <p className='text-center mt-6'>{createdAt.slice(8, 10)}{createdAt.slice(4, 8)}{createdAt.slice(0, 4)}</p>
+          </div></Link>
+          <Link to={`/clientpro/${_id}`}><div className=' w-32'>
+              <p className='mt-6 text-center text-gray-800'>₹ {product_details?.price}</p>
+            {/* <p className='mt-1 ml-2 '>Status : <span className={` text-xl ${status === "cancel"? 'text-red-600': 'text-green-600'}`}>{status}</span></p> */}
+          </div></Link>
+          <Link to={`/clientpro/${_id}`}><div className=' w-28 '>
+            <p className='mt-6 text-green-500 text-center '>{quantity} pcs</p>
+            {/* <p className='mt-2 ml-4 '>price : <span className='text-gray-800'>₹ {product_details?.price}</span></p>
+            <p className='mt-2 ml-4'>Total : <span className='text-red-600  text-lg'>₹ {product_details.price * quantity}</span></p> */}
+          </div></Link>
+          <div className='w-44  text-center'>
+            
+            {!(status === "cancel") ? <button className='border mt-6 w-28 py-1 text-red-600 bg-gray-100'>Cancel</button> : <div className='mt-6 text-red-500'>Order Cancelled</div>}
+
           </div>
-          <div className='  w-32 '>
-            <p className='text-center my-12 mr-3'>{createdAt.slice(8, 10)}{createdAt.slice(4, 8)}{createdAt.slice(0, 4)}</p>
-          </div>
-          <div className='  w-48'>
-            <p className='mt-5 ml-3 text-violet-900'>Payment-Status : <span className='text-gray-800'>{paymentStatus}</span></p>
-            <p className='mt-1 ml-3 '>Status : <span className={` text-xl ${status === "cancel"? 'text-red-600': 'text-green-600'}`}>{status}</span></p>
-          </div>
-          <div className='  w-44'>
-            <p className='mt-3 ml-4 '>Quantity : <span className='text-violet-900'>{quantity} pcs</span></p>
-            <p className='mt-2 ml-4 '>price : <span className='text-gray-800'>₹ {product_details?.price}</span></p>
-            <p className='mt-2 ml-4'>Total : <span className='text-red-600  text-lg'>₹ {product_details.price * quantity}</span></p>
-          </div>
-          <div className='w-20 bg-gray-100'>
-            <button onClick={cancel} className={`bg-red-600 text-white mt-9 rounded-md mx-2 ${(status === "cancel" || status === "delivered")? 'hidden': null}`}>Cancel Order</button>
-          </div>
-        </div>
-        <div className='flex justify-between'>
-        {status === "cancel" && <div className='text-xl  text-red-500 font-semibold my-1 mx-auto'>You canceled this order</div>}
-        <div className='bg-gray-100 w-20'></div>
         </div>
         <div className=' h-3 bg-gray-100'></div>
     </div>

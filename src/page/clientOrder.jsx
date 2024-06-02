@@ -17,7 +17,7 @@ function orderPage() {
         // toast.success(order.data.message)
       }
     })
-  }, [])
+    }, [])
 
   return (
     <div className='bg-gray-100'>
