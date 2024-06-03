@@ -176,10 +176,10 @@ function Orders() {
             )}
             <button onClick={create} className='w-full bg-violet-900 rounded-xl p-2 text-white font-semibold text-2xl mt-10'>Complete Orders</button>
           </div>
-          <div className=' w-2/5 mt-5 '>
+          <div className=' w-2/5 mt-5  '>
              {post?.map((pos) =>  (
-              <div key={pos?._id}>
-                <div className='border p-2 bg-gray-100 flex justify-center'>
+              <div key={pos?._id} className='mb-10'>
+                <div className='border p-2  flex justify-center'>
                     <div className='mt-1 w-28 mr-6 ml-5' ><img className='h-20 outlin mx-auto' src={pos?.product_details?.image[0]} alt="" /></div>
                     <div className='mr-6 w-60 mt-3 text-gray-700 font-semibold text-lg '>
                       <div className=''>{pos?.product_details?.title?.length > 20? (<span>{pos?.product_details?.title?.slice(0, 20)}...</span>): (<span>{pos?.product_details?.title}</span>)}</div>

@@ -55,7 +55,7 @@ function cartpost({_id, product_details, quantity, updatedAt}) {
     }
       
   return (
-    <div className='h-24 '>
+    <div className='h-24 shadow-md'>
       <div className='border h-full flex font-light'>
           <Link to={`/post/${product_details?._id}`}><div className=' w-32 h-20 my-auto mx-2 overflow-hidden '><img src={product_details?.image[0]} className='mx-auto my-auto h-20'/></div></Link>
           <Link to={`/post/${product_details?._id}`} className=' my-auto'><div className=' ml-4 w-[490px] my-auto  hover:text-red-600 transform sm:hover:translate-x-[-6px] duration-300 cursor-pointer'>{product_details?.title}</div></Link>

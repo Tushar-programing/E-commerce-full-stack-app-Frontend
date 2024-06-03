@@ -34,7 +34,7 @@ function Cart() {
     return (
         <div className={`mt-10 mx-36  ${open? 'h-screen' : null}`}>
             <div className='h-12 mx-2 mb-4'>
-                <div className='border h-full flex'>
+                <div className='border h-full flex shadow-md'>
                     <div className=' w-72  my-auto mx-2 text-center'>Product Description</div>
                     <div className=' text-center w-[330px] my-auto'></div>
                     <div className=' text-center my-auto w-40 text--900 ml-14'>Unit Price</div>
@@ -67,7 +67,7 @@ function Cart() {
                     )    
                 )}
             </div>
-            {(userData && post.length > 0)? <Cartcalc /> : null}
+            {(userData && post.length > 0)? <div className='mx-auto '><Cartcalc /></div> : null}
         </div>
        
     ); 

@@ -21,24 +21,24 @@ function wishlist() {
 
   return (
     <div className='bg-gray-100 h-auto border'>
-      <div className="sm:mx-40 mx-4 h-auto mt-10 mb-2">
-          {/* wishs?.length > 0 &&  */(<div className="sm:flex hidden justify-around bg-white border">
-              <div className="text-black text-[20px] px-36 "><p>
+      <div className="sm:mx-24 mx-4 h-auto mt-10 mb-2">
+          {/* wishs?.length > 0 &&  */(<div className="sm:flex hidden  bg-white border">
+              <div className="text-black w-[700px] py-2 text-center"><p>
                 Product</p>
               </div>
-              <div className=" text-black text-[20px] "><p>
+              <div className=" text-black w-36 py-2 text-center"><p>
                 Added on</p>
               </div>
-              <div className=" text-black text-[20px] "><p>
+              <div className=" text-black w-32 py-2 text-center"><p>
                 Unit Price</p>
               </div>
-              <div className=" text-black text-[20px] "><p>
+              <div className=" text-black w-40 py-2 text-center"><p>
                 Quantity</p>
               </div>
-              <div className=" text-black text-[20px] "><p>
+              <div className=" text-black w-40 py-2 text-center"><p>
                 Added on</p>
               </div>
-              <div className=" text-black text-[20px] "><p>
+              <div className=" text-black w-24 py-2 text-center"><p>
                 Remove</p>
               </div>
           </div>)
