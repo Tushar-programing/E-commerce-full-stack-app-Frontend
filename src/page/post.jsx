@@ -162,7 +162,7 @@ function Post() {
               <p className='mx-10 mt-8 text-red-500 text-3xl font-semibold'><span className='text-black text-2xl'>Price : </span><span className='text-gray-900'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>₹ {post.price}</p>
               <p className='text-xl mt-8 ml-10 font-semibold'>Quantity : </p> 
               <button onClick={() =>  (value > 1) ? setValue(value -1) : null} className='bg-red-600 text-white ml-10 px-4 rounded-lg pb-2 text-2xl font-bold'>-</button><input className='mx-2 mt-5 px-3 py-2 rounded-lg bg-white text-black outline-none
-              focus:bg-gray-50 duration-200 border border-gray-200' value={value} type='number' placeholder='Quantity'></input><button onClick={() => (value < 20) ? setValue(value + 1) : null} className='bg-green-600 rounded-lg  text-white px-3 pb-2 text-2xl font-bold'>+</button>
+              focus:bg-gray-50 duration-200 border border-gray-200' value={value} type='number' placeholder='Quantity'></input><button onClick={() => (value < 10) ? setValue(value + 1) : null} className='bg-green-600 rounded-lg  text-white px-3 pb-2 text-2xl font-bold'>+</button>
               <div className='mx-10 mt-10 text-xl'><button onClick={onClick} className='w-64 bg-green-600 transform hover:scale-110 duration-300 mr-5 py-2 text-white'>Add To Cart</button><button onClick={checkActive} className='w-64 bg-violet-900 transform hover:scale-110 duration-300 py-2 text-white'>Buy Now</button></div>
               <div className='mx-10 mt-10 text-2xl text-gray-700 font-semibold m-auto'><p>Description : </p></div>
               <div className='mx-10 mt-5 text-xl text-gray-700 font-semibold m-auto'>{post.description}</div>

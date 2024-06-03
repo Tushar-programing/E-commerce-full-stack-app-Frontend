@@ -1,39 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux"
 import axios from "axios"
 import conf from "./conf/conf";
+import { toast } from 'react-toastify';
 
-function cartpost({_id, product_details, quantity, }) {
-  
-    const decrease = async() => {
-      if (quantity  > 1) {
+function cartpost({_id, product_details, quantity, updatedAt}) {
 
-        try {
-          const update = await axios.post(`${conf.apiUrl}/cart/updateCart/${_id}`, {quantity: quantity-1}, {
-            withCredentials: true
-          })
-          if (update) {
-            window.location.reload();
-          } 
-        } catch (error) {
-          console.log(error.message)
-        }
-      }  else {
-        try {
-          const update = await axios.post(`${conf.apiUrl}/cart/removeCart/${_id}`, {}, {
-            withCredentials: true
-          })
-          if (update) {
-            window.location.reload();
-          }
-        } catch (error) {
-          console.log(error.message)
-        }
-      }
+  const [quant, setQuant] = useState(quantity);
+
+  const increase = async(e) => {
+    setQuant(e.target.value);
+    try {
+      const update = await axios.post(`${conf.apiUrl}/cart/updateCart/${_id}`, {quantity: e.target.value}, {
+        withCredentials: true
+      })
+      if (update) {
+        toast.success("successfully updated the cart quantity")
+      } 
+    } catch (error) {
+      console.log(error.message)
     }
+  }
 
-    const increase = async() => {
+    const incease = async() => {
       if (quantity  < 20) {
         
         try {
@@ -42,7 +32,7 @@ function cartpost({_id, product_details, quantity, }) {
           })
           if (update) {
             window.location.reload();
-          } 
+          }
         } catch (error) {
           console.log(error.message)
         }
@@ -65,26 +55,28 @@ function cartpost({_id, product_details, quantity, }) {
     }
       
   return (
-    <div className='h-36 border'>
-        {product_details? <div><Link to={`/post/${product_details?._id}`}>
-            <div className='float-left w-48 h-auto'>
-              {product_details?.image[0]? <img className='mt-5 ml-14' style={{ height: '100px', }} src={product_details?.image[0]}></img> : null}
-            </div>
-            <div className='float-left w-80 mt-3 ml-24'>
-              <div className=' text-xl text-red-600 font-semibold mb-1 '>{product_details?.title.length > 30? <span>{product_details?.title.slice(0, 30)}...</span> : <span>{product_details?.title}</span>}</div>
-              <div className=' text-lg text-gray-700 font-semibold mb-1'>Brand : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{product_details?.brand}</div>
-              <div className=' text-lg text-gray-500 font-semibold'>{product_details?.description.length > 60? <span>{product_details?.description.slice(0, 60)}...</span> : <span>{product_details?.description}</span>}</div>
-            </div>
-        </Link>
-        <div className='w-96 float-left'>
-            <p className='text-xl font-medium ml-60 mt-6'>Quantity</p>
-            <div className='text-lg mt-2 ml-56'>
-                <button onClick={() => decrease()} className='float-left px-3 mr-2 rounded-lg text-white bg-red-600'>-</button><input type="number" className='float-left w-20 outline-none border pl-3' value={quantity} readOnly/><button onClick={() => increase()} className='float-left px-2 ml-2 text-white rounded-lg bg-green-600'>+</button>
-            </div>
-            <button onClick={() => remove()} className='text-lg font-medium text-white px-3 rounded-lg mt-2 ml-60 bg-gray-600'>remove item</button>
-        </div>
-        <p className='text-xl float-left font-medium ml-24 mt-10'>₹ {product_details?.price} *  {quantity}</p>
-        <p className='text-xl float-left  ml-20 mt-5 '>Total ₹ <span className='text-red-600 font-semibold'>{product_details?.price * quantity}</span></p></div> : null}
+    <div className='h-24 '>
+      <div className='border h-full flex font-light'>
+          <Link to={`/post/${product_details?._id}`}><div className=' w-32 h-20 my-auto mx-2 overflow-hidden '><img src={product_details?.image[0]} className='mx-auto my-auto h-20'/></div></Link>
+          <Link to={`/post/${product_details?._id}`} className=' my-auto'><div className=' ml-4 w-[490px] my-auto  hover:text-red-600 transform sm:hover:translate-x-[-6px] duration-300 cursor-pointer'>{product_details?.title}</div></Link>
+          <Link to={`/post/${product_details?._id}`} className=' my-auto'><div className=' text-center my-auto w-44 text--900 ml-8'>₹ {product_details?.price}</div></Link>
+          <div className='sm:block hidden my-auto text-center w-48 '>
+              <select value={quant} onChange={increase} className='border w-24 outline-none px-4 py-1'>
+                  <option value={1} >1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                  <option value={6}>6</option>
+                  <option value={7}>7</option>
+                  <option value={8}>8</option>
+                  <option value={9}>9</option>
+                  <option value={10}>10</option>
+              </select>
+          </div>
+          <div className=' w-36 my-auto text-center'>₹ {product_details?.price * quantity}</div>
+          <div className=' w-20 my-auto text-center text-3xl'><button onClick={remove} className=' px-2'>×</button></div>
+      </div>
     </div> 
   )
 }

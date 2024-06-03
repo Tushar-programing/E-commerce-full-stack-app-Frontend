@@ -32,7 +32,17 @@ function Cart() {
     },  []);
 
     return (
-        <div className={`w-full max-w-7xl mx-auto px-4 ${open? 'h-screen' : null}`}>
+        <div className={`mt-10 mx-36  ${open? 'h-screen' : null}`}>
+            <div className='h-12 mx-2 mb-4'>
+                <div className='border h-full flex'>
+                    <div className=' w-72  my-auto mx-2 text-center'>Product Description</div>
+                    <div className=' text-center w-[330px] my-auto'></div>
+                    <div className=' text-center my-auto w-40 text--900 ml-14'>Unit Price</div>
+                    <div className=' sm:block hidden my-auto text-center w-48 '>Units</div>
+                    <div className='  w-36 my-auto text-center'>SubTotal</div>
+                    <div className='  w-20 my-auto text-center '>remove</div>
+                </div>
+            </div>
             <div className=''>
                 {open ? (
                     <Backdrop
