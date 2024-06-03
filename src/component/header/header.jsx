@@ -123,13 +123,13 @@ function header() {
             
 
             <ul className='flex ml-auto'>
-                    <li  className='sm:flex hidden'>
+                    {active && <li  className='sm:flex hidden'>
                         <button onClick={() => navigate("/wishlist")}
                         className='fancy-underline inline-block sm:mx-8 mx-1 mt-1 sm:px-6 px-3 sm:py-2 py-1 text-violet-900 font-medium sm:text-lg text-base duration-200 rounded-full'
                         >
                             Wishlist
                         </button>
-                    </li>
+                    </li>}
             {navitem.map((item) =>
                 item.status ? (
                     <li key={item.name} className=''>
