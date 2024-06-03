@@ -65,7 +65,7 @@ function header() {
         {
             name:"Wishlist",
             url: "/wishlist",
-            status: active
+            status: false
         },
         // {
         //     name:" cart",
@@ -123,9 +123,16 @@ function header() {
             
 
             <ul className='flex ml-auto'>
+                    <li  className='sm:flex hidden'>
+                        <button onClick={() => navigate("/wishlist")}
+                        className='fancy-underline inline-block sm:mx-8 mx-1 mt-1 sm:px-6 px-3 sm:py-2 py-1 text-violet-900 font-medium sm:text-lg text-base duration-200 rounded-full'
+                        >
+                            Wishlist
+                        </button>
+                    </li>
             {navitem.map((item) =>
                 item.status ? (
-                    <li key={item.name} className='sm:flex hidden'>
+                    <li key={item.name} className=''>
                         <button id={item.name} onClick={() => navigate(item.url)}
                         className='fancy-underline inline-block sm:mx-10 mx-1 mt-2 sm:px-6 px-3 sm:py-2 py-1 text-violet-900 font-medium sm:text-lg text-base duration-200 rounded-full'
                         >
@@ -134,6 +141,7 @@ function header() {
                     </li>
                 ) : null
             )}
+                    
             {active && (
                 <>
                     <li className='sm:mr-0 mr-3 '>

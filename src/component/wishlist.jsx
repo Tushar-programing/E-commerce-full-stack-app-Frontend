@@ -64,7 +64,7 @@ function wishlist({userId, product_details, createdAt, _id}) {
               <p className='sm:mt-16 mt-1 sm:mx-12 mx-4 text-green-600'>₹ {product_details?.price}</p>
             </div>
             <div className='sm:block hidden h-40 w-40 '>
-              <select value={selectedNumber} onChange={handleSelectChange} className='   mt-16 mx-8 w-24 outline-none px-4 py-1'>
+              <select value={selectedNumber} onChange={handleSelectChange} className='border mt-16 mx-8 w-24 outline-none px-4 py-1'>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
