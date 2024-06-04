@@ -178,27 +178,28 @@ function Orders() {
           </div>
           <div className=' w-2/5 mt-5  '>
              {post?.map((pos) =>  (
-              <div key={pos?._id} className='mb-10'>
-                <div className='border p-2  flex justify-center'>
-                    <div className='mt-1 w-28 mr-6 ml-5' ><img className='h-20 outlin mx-auto' src={pos?.product_details?.image[0]} alt="" /></div>
-                    <div className='mr-6 w-60 mt-3 text-gray-700 font-semibold text-lg '>
-                      <div className=''>{pos?.product_details?.title?.length > 20? (<span>{pos?.product_details?.title?.slice(0, 20)}...</span>): (<span>{pos?.product_details?.title}</span>)}</div>
-                      <div className='text-violet-900 font-semibold text-lg'>Brand : {pos?.product_details?.brand}</div>
+              <div key={pos._id}>
+                <div className="flex items-center border p-2">
+                  <div className="w-40 h-16  rounded-md mr-4 overflow-hidden"><img src={pos?.product_details?.image[0]} className='h-16 mx-auto' /></div>
+                  <div className="text-gray-700  w-full mr-8">{pos.product_details?.title}</div>
+                  <div className="ml-auto  w-24 text-end">₹ {pos.product_details.price}</div>
+
+                </div>
+                <div className="mb-4  flex">
+                  <div className='w-96 '></div>
+                  <div className='border w-52 p-2'>
+                    <div className="flex justify-between">
+                      <div className="text-gray-700">Quantity:</div>
+                      <div className="text-gray-700">{pos?.quantity}</div>
                     </div>
-                    <div className='mt-7 w-1/4 text-gray-800 font-semibold text-xl ml-4'> ₹ {pos?.product_details?.price}</div>
-                  </div>
-                <div className=''>
-                  <div className='flex justify-between mx-5 my-1 text-lg text-violet-900'>
-                    <div className=''>Quantity : </div>
-                    <div className=''>{pos?.quantity} pcs</div>
-                  </div>
-                  <div className='flex justify-between mx-5 mt-1 mb-3'>
-                    <div className=''>Subtotal : </div>
-                    <div className=''> ₹ {pos?.product_details?.price} * {pos?.quantity} = <span className='text-lg text-red-600'>{pos?.product_details?.price * (pos?.quantity)}</span></div>
+                    <div className="flex justify-between">
+                      <div className="text-gray-700">Subtotal:</div>
+                      <div className="text-gray-700">₹ {pos?.quantity * pos.product_details.price}</div>
+                    </div>
                   </div>
                 </div>
               </div>
-              ))}
+             ))}
               <div className='border bg-gray-100'>
                 <div className='flex justify-between mx-5 my-3'>
                       <div className=''>Total price of product : </div>
