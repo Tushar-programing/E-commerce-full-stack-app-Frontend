@@ -191,7 +191,9 @@ function Orders() {
                     <div className="flex justify-between">
                       <div className="text-gray-700">Quantity:</div>
                       <div className="text-gray-700">{pos?.quantity}</div>
-                    </div>
+                    </div> 
+
+                    
                     <div className="flex justify-between">
                       <div className="text-gray-700">Subtotal:</div>
                       <div className="text-gray-700">₹ {pos?.quantity * pos.product_details.price}</div>
