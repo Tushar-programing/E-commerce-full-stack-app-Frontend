@@ -3,10 +3,14 @@ import { Wishlist } from '../component';
 import axios from 'axios';
 import conf from "../component/conf/conf"
 
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
 function wishlist() {
 
   const [wishs, setWishs] = useState();
-  // console.log(wishs);
+  const [open, setOpen] = useState(true)
+  console.log(wishs);
 
   useEffect(() => {
       axios.post(`${conf.apiUrl}/wishlist/getWishlists`, {}, {
@@ -15,9 +19,21 @@ function wishlist() {
         if (post) {
           // console.log(post.data.data);
           setWishs(post.data.data)
+          setOpen(false)
         }
       })
   }, [])
+
+
+  if ( open ) {
+    return <Backdrop
+              className='w-full'
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={open}
+              ><div className='mr-5'>Fetching Cart Details</div>
+              <CircularProgress color="inherit" />
+            </Backdrop>;
+  }
 
   return (
     <div className='bg-gray-100 h-auto border'>
