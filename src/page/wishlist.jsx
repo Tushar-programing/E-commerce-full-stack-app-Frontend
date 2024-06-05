@@ -6,6 +6,9 @@ import conf from "../component/conf/conf"
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
+import { EmptyComp } from '../component';
+
+
 function wishlist() {
 
   const [wishs, setWishs] = useState();
@@ -33,6 +36,13 @@ function wishlist() {
               ><div className='mr-5'>Fetching Wishlist Details</div>
               <CircularProgress color="inherit" />
             </Backdrop></div>
+  }
+
+  // console.log(wishs?.length);
+  if ( wishs?.length <= 0 ) {
+    return  <div >
+              <EmptyComp line1="Your Wishlist is Empty" line2="You have no items in your Wishlist. Start Adding " />
+            </div>
   }
 
   return (

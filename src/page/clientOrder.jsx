@@ -42,14 +42,6 @@ function orderPage() {
             <ClientOrder {...order}/>
           </div>
         ))}
-        {/* <div className='border h-32 flex justify-between'>
-          <div className='border w-44'></div>
-          <div className='border w-72'></div>
-          <div className='border w-72'></div>
-          <div className='border w-40'></div>
-          <div className='border w-44'></div>
-          <div className='border w-40'></div>
-        </div> */}
 
       </div>
     </div>

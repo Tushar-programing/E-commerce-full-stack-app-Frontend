@@ -8,6 +8,8 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import conf from "../component/conf/conf"
 
+import { EmptyComp } from '../component';
+
 function Cart() {
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(true);
@@ -61,8 +63,7 @@ function Cart() {
                         ))
                     ) : (
                         <>
-                        <div className='my-10 text-xl text-center text-red-600'>You did not add anyhing in your cart</div>
-                        <div className=' text-center'><Link to="/"><button className='bg-green-500 text-white px-2 py-2 rounded-sm mb-8'>Go to home page</button></Link></div>
+                        <EmptyComp line1="Your wishlist is Empty" line2="You have no items in your Cart. Start Adding" />
                         </>
                     )    
                 )}

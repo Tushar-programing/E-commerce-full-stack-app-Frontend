@@ -15,6 +15,7 @@ import Order from "./userOrder";
 import ClientOrder from './clientOrder'
 import LoginPopup from "./loginPopup";
 import ResultCard from "./resultCard";
+import EmptyComp from "./emptyComp";
 
 export {
     Signup,
@@ -34,4 +35,5 @@ export {
     ClientOrder,
     LoginPopup,
     ResultCard,
+    EmptyComp,
 }
