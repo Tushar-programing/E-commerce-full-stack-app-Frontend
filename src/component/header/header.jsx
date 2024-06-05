@@ -33,6 +33,8 @@ function header() {
 
     const handleChange = (event) => {
       setAge(event.target.value);
+      navigate(`/result?cat=${event.target.value}`)
+        window.location.reload()
     };
 
 
