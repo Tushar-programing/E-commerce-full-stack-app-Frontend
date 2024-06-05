@@ -26,7 +26,7 @@ function wishlist() {
 
 
   if ( open ) {
-    return <div className='w-full h-[1000px]'><Backdrop
+    return <div className='w-full h-[800px]'><Backdrop
               className='w-full h-[800px]'
               sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
               open={open}
