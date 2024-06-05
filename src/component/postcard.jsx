@@ -103,7 +103,7 @@ function postcard({ _id, title, image, price, description}) {
         </div>
         <h2 className='sm:text-xl text-base sm:px-0 px-2 text-red-600 mb-2 font-semibold'>{title.length > 25? (<span>{title.slice(0, 25)}...</span>) : (<span>{title}</span>)}</h2>
         <h2 className='mb-2 sm:flex hidden'>{description.length > 25? (<span>{description.slice(0, 28)}...</span>) : (<span>{description}</span>)}</h2>
-        <h2 className='text-xl font-bold sm:px-0 px-2'>₹ {price}</h2>
+        <h2 className='text-xl font-semibold sm:px-0 px-2'>₹ {price}</h2>
         </Link>
         <div  className=' mt-4 flex sm:mb-0 mb-2'>
           <button onClick={() => onclick()} className=' sm:bg-green-600 bg-white transform hover:scale-110 duration-300 text-white sm:px-6 px-2 py-1 mr-1 sm:mx-0 mx-2'><p className='sm:flex hidden'>add to cart</p><img src={imgcart} className='sm:hidden flex w-6 h-6' /></button>
