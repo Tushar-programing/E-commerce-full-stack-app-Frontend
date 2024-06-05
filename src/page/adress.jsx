@@ -10,10 +10,17 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import conf from "../component/conf/conf"
 
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
+import { EmptyComp } from '../component';
+
 
 function adress() {
   // const userData = useSelector(state  => state.auth.userData);
   const navigate = useNavigate();
+
+  const [open, setOpen] = useState(true)
 
   const [posts, setPosts] = useState([]);
   console.log("this is adrees data", posts);
@@ -47,10 +54,22 @@ function adress() {
     }).then((datas) => {
       if (datas) {
         setPosts(datas.data.data);
+        setOpen(false)
       }
     })
   }, [isDialogOpen])
   // console.log("post", posts);
+
+  if ( open ) {
+    return <div className='w-full h-[800px]'><Backdrop
+              className='w-full h-[800px]'
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={open}
+              ><div className='mr-5'>Fetching Adress Details</div>
+              <CircularProgress color="inherit" />
+            </Backdrop></div>
+  }
+
 
 
   return (
@@ -132,7 +151,8 @@ function adress() {
           <div key={post.$id} className='p-2 w-1/4'>
             <Adress  {...post}/>
           </div>
-        )): <div className='text-xl text-red-600 text-center mb-3 w-full'>You have no adress yet</div>
+        )): <div className=' ml-[410px]'><EmptyComp size="w-0" line1="Your Adress is Empty" line2="You have no Adress in your Adress Page. Start Adding " /></div>
+
         }
       </div>
     </div>

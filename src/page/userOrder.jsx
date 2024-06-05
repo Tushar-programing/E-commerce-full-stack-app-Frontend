@@ -5,9 +5,16 @@ import { Order } from '../component';
 import { Link} from 'react-router-dom';
 import conf from "../component/conf/conf"
 
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
+import { EmptyComp } from '../component';
+
 
 function orderPage() {
   const [order, setOrder] = useState();
+
+  const [open, setOpen] = useState(true)
   console.log(order);
 
   useEffect(() => {
@@ -16,10 +23,28 @@ function orderPage() {
     }).then((order) => {
       if (order) {
         setOrder(order.data.data)
+        setOpen(false)
         // toast.success(order.data.message)
       }
     })
   }, [])
+
+  if ( open ) {
+    return <div className='w-full h-[800px]'><Backdrop
+              className='w-full h-[800px]'
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={open}
+              ><div className='mr-5'>Fetching your Order Details</div>
+              <CircularProgress color="inherit" />
+            </Backdrop></div>
+  }
+
+  // console.log(wishs?.length);
+  if ( order?.length <= 0 ) {
+    return  <div >
+              <EmptyComp size="w-36" title="Your Orders" line1="Your Order is Empty" line2="You have no orders in your orderPage. Start Adding " />
+            </div>
+  }
 
   return (
     <div className='bg-gray-100'>

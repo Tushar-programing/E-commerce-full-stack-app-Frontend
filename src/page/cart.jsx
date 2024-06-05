@@ -63,7 +63,7 @@ function Cart() {
                         ))
                     ) : (
                         <>
-                        <EmptyComp line1="Your wishlist is Empty" line2="You have no items in your Cart. Start Adding" />
+                        <EmptyComp size="w-0" line1="Your Cart is Empty" line2="You have no items in your Cart. Start Adding" />
                         </>
                     )    
                 )}

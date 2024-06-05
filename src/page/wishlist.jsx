@@ -41,7 +41,7 @@ function wishlist() {
   // console.log(wishs?.length);
   if ( wishs?.length <= 0 ) {
     return  <div >
-              <EmptyComp line1="Your Wishlist is Empty" line2="You have no items in your Wishlist. Start Adding " />
+              <EmptyComp size="w-0" line1="Your Wishlist is Empty" line2="You have no items in your Wishlist. Start Adding " />
             </div>
   }
 
