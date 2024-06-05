@@ -11,6 +11,10 @@ import './signup.css'
 
 import { toast } from 'react-toastify';
 
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
+
 function login() {
     const[error, setError] = useState("")
     const dispatch = useDispatch()
@@ -18,9 +22,11 @@ function login() {
     const {register, handleSubmit} =  useForm()
     const [size, setSize] = useState(false)
 
+    const [working, setWorking] = useState(false);
     // console.log(conf.apiUrl);
 
     const already = async(data) => {
+      setWorking(true)
       setSize(true)
       setTimeout(() => {
         setSize(false);
@@ -39,14 +45,26 @@ function login() {
                 })
                 if (userData) dispatch(authlogin(userData.data.data))
                 console.log(userData)
+                setWorking(false)
                 navigate("/")
             }
         } catch (error) {
-            toast.error(error.message)
-            toast.success(error.response.data.message)
+            // toast.error(error.message)
+            toast.error(error.response.data.message)
             console.log(error.response.data.message)
+            setWorking(false)
 
         }
+    }
+
+    if (working) {
+      return <div className='w-full h-[800px]'><Backdrop
+                className='w-full h-[800px]'
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={open}
+                ><div className='mr-5'>Please wait while we processing your data</div>
+                <CircularProgress color="inherit" />
+              </Backdrop></div>
     }
 
   return (

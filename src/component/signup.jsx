@@ -7,13 +7,20 @@ import { Input, Button } from './index';
 import conf from "./conf/conf";
 import './signup.css'
 
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
+
 function signup() {
   const {register, handleSubmit} = useForm()
   const navigate = useNavigate();
   const [error, setError] = useState("")
   const  dispatch = useDispatch()
 
+  const [working, setWorking] = useState(false);
+
   const create = async(data) => {
+    setWorking(true)
     setError("")
     try {
       console.log("signup is working");
@@ -24,11 +31,23 @@ function signup() {
         console.log(userData);
         // if (userData) dispatch(login(userData))
         navigate("/login")
+        setWorking(false);
       }
     } catch (error) {
       console.log(error);
       setError(error.response.data.message);
+      setWorking(false)
     }
+  }
+
+  if (working) {
+    return <div className='w-full h-[800px]'><Backdrop
+              className='w-full h-[800px]'
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={open}
+              ><div className='mr-5'>Please wait while we processing your data</div>
+              <CircularProgress color="inherit" />
+            </Backdrop></div>
   }
   
   return (

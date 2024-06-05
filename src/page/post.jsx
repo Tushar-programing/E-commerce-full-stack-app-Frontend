@@ -11,6 +11,11 @@ import del from "../component/images/delete1.png"
 import { toast } from 'react-toastify';
 import conf from "../component/conf/conf"
 
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
+import { EmptyComp } from '../component';
+
 
 function Post() {
   const userData = useSelector(state => state.auth.userData)
@@ -113,7 +118,13 @@ function Post() {
   
   if (!post) {
     // If post is still being fetched or is undefined, you can show a loading state
-    return <p>Loading...</p>;
+    return <div className='w-full h-[800px]'><Backdrop
+              className='w-full h-[800px]'
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={open}
+              ><div className='mr-5'>Please wait while we fetching Product</div>
+              <CircularProgress color="inherit" />
+            </Backdrop></div>;
   } else {
     // console.log('post', post)
   }
