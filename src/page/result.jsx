@@ -6,6 +6,11 @@ import Slider from '@mui/material/Slider';
 import { ResultCard } from '../component';
 import conf from "../component/conf/conf"
 
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
+import { EmptyComp } from '../component';
+
 
 function result() {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -14,6 +19,8 @@ function result() {
     const location = useLocation();
 
     const [products, setProducts] = useState();
+
+    const [open, setOpen] = useState(true)
 
     const [priceRange, setPriceRange] = useState({ min: 0, max: 5000 });
 
@@ -66,6 +73,7 @@ function result() {
             });
             if (response) {
                 setProducts(response.data.data);
+                setOpen(false)
             }
             
         } catch (error) {
@@ -112,9 +120,24 @@ function result() {
         fetchProducts();
     };
 
-    // const str = "Arduino uno || Boards || open source Board ||"
+    
 
-    // console.log(str.length);
+    if ( open ) {
+        return <div className='w-full h-[800px]'><Backdrop
+                  className='w-full h-[800px]'
+                  sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                  open={open}
+                  ><div className='mr-5'>Please wait while searching the product</div>
+                  <CircularProgress color="inherit" />
+                </Backdrop></div>
+      }
+    
+      // console.log(wishs?.length);
+      if (products?.length <= 0 ) {
+        return  <div >
+                  <EmptyComp size="w-0" line1="No Product Found" line2="No product found with these keywords " />
+                </div>
+      }
 
 
   return (
