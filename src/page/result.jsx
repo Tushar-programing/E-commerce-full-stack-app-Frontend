@@ -133,11 +133,10 @@ function result() {
       }
     
       // console.log(wishs?.length);
-      if (products?.length <= 0 ) {
-        return  <div >
-                  <EmptyComp size="w-0" line1="No Product Found" line2="No product found with these keywords " />
-                </div>
-      }
+    //   if (products?.length <= 0 ) {
+    //     return  <div >
+    //             </div>
+    //   }
 
 
   return (
@@ -276,7 +275,8 @@ function result() {
                         <div key={pro._id}>
                             <ResultCard {...pro}/>
                         </div>
-                    )) : (<div className='text-2xl text-red-600 text-center mt-72'>No result data Found for this search or Filter</div>)}
+                    )) : (<EmptyComp size="w-0" line1="No Product Found" line2="No product found with these keywords " />
+                )}
                 </div>
             </div>
         </div>
