@@ -26,13 +26,13 @@ function wishlist() {
 
 
   if ( open ) {
-    return <Backdrop
-              className='w-full'
+    return <div className='w-full h-[1000px]'><Backdrop
+              className='w-full h-[800px]'
               sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
               open={open}
-              ><div className='mr-5'>Fetching Cart Details</div>
+              ><div className='mr-5'>Fetching Wishlist Details</div>
               <CircularProgress color="inherit" />
-            </Backdrop>;
+            </Backdrop></div>
   }
 
   return (
