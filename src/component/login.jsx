@@ -49,8 +49,9 @@ function login() {
                 navigate("/")
             }
         } catch (error) {
-            // toast.error(error.message)
+            toast.error("email id or password must be valid")
             toast.error(error.response.data.message)
+
             console.log(error.response.data.message)
             setWorking(false)
 

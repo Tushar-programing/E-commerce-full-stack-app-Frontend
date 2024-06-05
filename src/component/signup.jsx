@@ -7,6 +7,8 @@ import { Input, Button } from './index';
 import conf from "./conf/conf";
 import './signup.css'
 
+import { toast } from 'react-toastify';
+
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -37,6 +39,8 @@ function signup() {
       console.log(error);
       setError(error.response.data.message);
       setWorking(false)
+      toast.error("this user is already exist with this email")
+
     }
   }
 
