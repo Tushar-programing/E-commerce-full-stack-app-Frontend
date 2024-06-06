@@ -26,7 +26,7 @@ function postcard1({image, title, description, price, _id }) {
     const onclick = async() => {
       setSize(true)
       setTimeout(() => {
-        setIsSmall(false);
+        setSize(false);
     }, 200);  
     if (active === true) {
       try {
@@ -105,7 +105,7 @@ function postcard1({image, title, description, price, _id }) {
         {/* <div className='mx-5 mr-12 mt-1'>{description.length > 25? (<span>{description.slice(0, 25)}...</span>) : (<span>{description}</span>)}</div> */}
         </Link>
         <p className='mx-5 text-xl text-black mt-3 mb-5 font-light'>₹ {price}</p>
-        <button onClick={() => onclick()} className={`flex rounded-t-none rounded-2xl mx-5 w-52 bg-gray-900 hover:bg-black mb-2 h-11 text-white text-center  font-semibold transition-transform ${size? 'transform scale-90' : ''} duration-200`}><img src={img2} className='w-8 h-8  my-auto ml-8 mr-2' /><span className=' my-auto'>Add to Cart</span></button>
+        <button onClick={() => onclick()} className={`flex rounded-t-none rounded-2xl mx-5 w-52 bg-gray-900 hover:bg-black mb-2 h-11 text-white text-center font-semibold transition-transform ${size? 'transform scale-90' : ''} duration-200`}><img src={img2} className='w-8 h-8  my-auto ml-8 mr-2' /><span className=' my-auto'>Add to Cart</span></button>
     </div>
   )
 }
