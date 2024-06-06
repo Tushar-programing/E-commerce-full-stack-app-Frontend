@@ -77,7 +77,7 @@ function wishlist({userId, product_details, createdAt, _id}) {
             </div>
             <div className=' flex justify-between'>
               <div className='  sm:h-20 h-auto w-40'>
-                <button onClick={() => onclick()} className='sm:mt-6 mt-1 w-28 ml-6 bg-gray-50 text-green-500 py-[2px] font-medium border'>Add to Cart</button>
+                <button onClick={() => onclick()} className='sm:mt-6 mt-1 w-28 ml-6 bg-gray-50 text-black py-[2px] font-medium border'>Add to Cart</button>
               </div> 
               <div className=' sm:h-20 h-auto sm:w-24 w-16 sm:mr-auto mr-2 text-center'>
                 <button onClick={() => delt()} className=' text-4xl mt-5'>×</button>

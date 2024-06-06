@@ -10,6 +10,8 @@ import axios from 'axios';
 import conf from "./conf/conf";
 import imgcart from "./images/cart.png"
 
+import cart from "./images/cart1.png"
+
 
 function postcard({ _id, title, image, price, description}) {
   // console.log(image);
@@ -95,19 +97,20 @@ function postcard({ _id, title, image, price, description}) {
   }
 
   return (
-      <div className='w-full bg-white sm:rounded-md rounded-none sm:p-4 p-0 border'>
-        <button className='sm:ml-60 ml-[140px] mt-4' onClick={() => wish()}><img src={like? img1 : img} className='w-5'/></button>
+      <div className='w-full bg-white sm:rounded-md rounded-none sm:p-4 p-0 border sm:mt-0 mt-4'>
+        <button className='sm:ml-60 ml-[140px] my-1' onClick={() => wish()}><img src={like? img1 : img} className='w-5'/></button>
         <Link to={`/post/${_id}`}>
-        <div id='postcard' className='w-full justify-center mb-7 overflow-hidden sm:max-h-56 max-h-36'>
-          <img src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} className='rounded-lg w-full sm:h-56 h-36'></img>
+        <div id='postcard' className='w-full justify-center mb-7 overflow-hidden sm:max-h-56 max-h-36 '>
+          <img src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} className='rounded-lg sm:h-48 h-36  mx-auto mt-4'></img>
         </div>
-        <h2 className='sm:text-xl text-base sm:px-0 px-2 text-red-600 mb-2 font-semibold'>{title.length > 25? (<span>{title.slice(0, 25)}...</span>) : (<span>{title}</span>)}</h2>
-        <h2 className='mb-2 sm:flex hidden'>{description.length > 25? (<span>{description.slice(0, 28)}...</span>) : (<span>{description}</span>)}</h2>
-        <h2 className='text-xl font-semibold sm:px-0 px-2'>₹ {price}</h2>
+        <h2 className='sm:text-lg text-base sm:px-0 px-2 text-gray-800 mb-2 font-semibold'>{title.length > 25? (<span>{title.slice(0, 25)}...</span>) : (<span>{title}</span>)}</h2>
+        {/* <h2 className='mb-2 sm:flex hidden'>{description.length > 25? (<span>{description.slice(0, 28)}...</span>) : (<span>{description}</span>)}</h2> */}
+        <h2 className='text-lg sm:px-0 px-2 font-light'>₹ {price}</h2>
         </Link>
-        <div  className=' mt-4 flex sm:mb-0 mb-2'>
-          <button onClick={() => onclick()} className=' sm:bg-green-600 bg-white transform hover:scale-110 duration-300 text-white sm:px-6 px-2 py-1 mr-1 sm:mx-0 mx-2'><p className='sm:flex hidden'>add to cart</p><img src={imgcart} className='sm:hidden flex w-6 h-6' /></button>
-          <button onClick={checkActive} className='sm:bg-violet-900 bg-green-500 transform hover:scale-110 duration-300 text-white ml-2 sm:px-8 px-4 py-1 '>Buy now</button>
+        <hr className='mt-2 border border-gray-200' />
+        <div  className=' mt-4 flex sm:mb-0 mb-2 '>
+            <button onClick={() => onclick()} className=' bg-white transform hover:scale-110 duration-300 text-white w-1/4 '><img src={cart} className=' w-8 h-9  mx-auto' /></button>
+            <button onClick={checkActive} className='rounded-r-none rounded-lg bg-black  transform hover:scale-105 duration-300 text-white sm:px-8 px-4 py-[0px] sm:ml-9 ml-4 sm:w-36 w-24'>Buy now</button>
         </div>
       </div>
   )

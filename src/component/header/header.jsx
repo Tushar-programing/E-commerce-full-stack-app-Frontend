@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import  {Logoutbtn}  from '../index';
 import SearchIcon from '@mui/icons-material/Search';
-import cart from "../images/cart.png"
+import cart from "../images/cart1.png"
 import wish from "../images/whishlist1.png"
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -95,39 +95,39 @@ function header() {
         
         <div className='w-full py-2 sm:pt-4 pt-1 pl-3 bg-gray-100 flex'>
             
-        <Link to="/"><img src={img}  alt="logo" className='sm:mr-36 mr-24 sm:ml-6 ml-2 sm:mt-4 mt-4 sm:mb-3 mb-2 sm:w-36 w-24'/></Link>
+        <Link to="/"><img src={img}  alt="logo" className='sm:mr-36 mr-24 sm:ml-6 ml-2 sm:mt-4 mt-4 sm:mb-3 mb-2 sm:w-36 w-28'/></Link>
             
-            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='sm:block hidden sm:p-1 p-0 mt-3 sm:w-80 w-24 sm:h-10 h-9 border outline-none sm:pl-3 pl-1 focus:outline-none focus:ring-2 focus:ring-violet-900 focus:border-violet-900'/>
-            <div className='sm:block hidden border h-10 mt-3 border-violet-900'></div>
+            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='sm:block hidden sm:p-1 p-0 mt-3 sm:w-80 w-24 sm:h-10 h-9 border outline-none sm:pl-3 pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
+            <div className='sm:block hidden border h-10 mt-3 border-black'></div>
             <select
                 id="age-select"
                 value={age}
                 onChange={handleChange}
                 onKeyPress={handleKeyPress}
-                className="sm:block hidden sm:w-auto w-20 h-10 mt-3 border border-gray-300 bg-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-violet-900 focus:border-violet-900"
+                className="sm:block hidden sm:w-auto w-20 h-10 mt-3 border border-gray-300 bg-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
             >
-            <option className='text-violet-900' value="">Browse by Category</option>
-            <option className='text-violet-900' value="boards">Arduino Boards</option>
-            <option className='text-violet-900' value="sensors">Sensors</option>
-            <option className='text-violet-900' value="motors">Dc motors</option>
-            <option className='text-violet-900' value="speakers">Buzzers & Speakers</option>
-            <option className='text-violet-900' value="batteries">Batteries</option>
-            <option className='text-violet-900' value="chargers">Chargers</option>
-            <option className='text-violet-900' value="bluthooth">Bluetooth module</option>
-            <option className='text-violet-900' value="capacitors">Capacitors & Transistors</option>
-            <option className='text-violet-900' value="led">LED's</option>
-            <option className='text-violet-900' value="drones">Drones</option>
-            <option className='text-violet-900' value="cars">Rc cars</option>
-            <option className='text-violet-900' value="other">other's</option>
+            <option className='text-black' value="">Browse by Category</option>
+            <option className='text-black' value="boards">Arduino Boards</option>
+            <option className='text-black' value="sensors">Sensors</option>
+            <option className='text-black' value="motors">Dc motors</option>
+            <option className='text-black' value="speakers">Buzzers & Speakers</option>
+            <option className='text-black' value="batteries">Batteries</option>
+            <option className='text-black' value="chargers">Chargers</option>
+            <option className='text-black' value="bluthooth">Bluetooth module</option>
+            <option className='text-black' value="capacitors">Capacitors & Transistors</option>
+            <option className='text-black' value="led">LED's</option>
+            <option className='text-black' value="drones">Drones</option>
+            <option className='text-black' value="cars">Rc cars</option>
+            <option className='text-black' value="other">other's</option>
             </select>
         
-            <button onClick={addtodo} className='mt-3 bg-violet-900 sm:inline-block hidden duration-200 w-11 h-10 rounded-tr-md rounded-br-md '><SearchIcon fontSize="large" color="primary" style={{ padding: '1px', color: 'white' }}/></button>
+            <button onClick={addtodo} className='mt-3 bg-black sm:inline-block hidden duration-200 w-11 h-10 rounded-tr-md rounded-br-md '><SearchIcon fontSize="large" color="primary" style={{ padding: '1px', color: 'white' }}/></button>
             
 
             <ul className='flex ml-auto'>
                     {active && <li  className='sm:flex hidden'>
                         <button onClick={() => navigate("/wishlist")}
-                        className='fancy-underline inline-block sm:mx-8 mx-1 mt-1 sm:px-6 px-3 sm:py-2 py-1 text-violet-900 font-medium sm:text-lg text-base duration-200 rounded-full'
+                        className='fancy-underline inline-block sm:mx-8 mx-1 mt-1 sm:px-6 px-3 sm:py-2 py-1 text-black font-medium sm:text-lg text-base duration-200 rounded-full'
                         >
                             Wishlist
                         </button>
@@ -147,18 +147,18 @@ function header() {
             {active && (
                 <>
                     <li className='sm:mr-0 mr-3 '>
-                        <div className=' absolute z-20 text-red-600 sm:ml-[93px] ml-[25px] sm:mt-1 mt-0 sm:text-xl text-lg'>{post?.length}</div>
+                        <div className=' absolute z-20 text-green-600 sm:ml-[93px] ml-[25px] sm:mt-1 mt-0 sm:text-xl text-lg'>{post?.length}</div>
                         <div className='absolute z-10 text-red-600 rounded-full sm:w-7 w-5 sm:h-7 h-5 border bg-white sm:ml-[85px] ml-[21px] sm:mt-1 mt-1'></div>
                         <button  onClick={() => navigate("/cart")}
-                        className=' fancy-underline inline-block sm:mx-10 mx-1 sm:mr-20 mr-2 sm:mt-2 mt-1 sm:px-6  py-2 text-blue-600  duration-200 rounded-2xl sm:w-auto w-6'
+                        className=' fancy-underline inline-block sm:mx-10 mx-1 sm:mr-20 mr-2 sm:mt-2 mt-1 sm:px-6  py-2 text-blue-600  duration-200 rounded-2xl sm:w-auto w-10'
                         >
-                            <img src={cart} className='sm:w-8 '/>
+                            <img src={cart} className='sm:w-10 '/>
                         </button>
                     </li>
                     <div className='sm:mr-14 mr-0 text-base sm:ml-4 ml-2'> 
-                      {userData && (<p className='sm:flex hidden text-red-500 font-medium sm:text-lg text-sm'>Hey {userData?.fullName}</p>)}
+                      {userData && (<p className='sm:flex hidden text-green-500 font-medium sm:text-lg text-sm'>Hey {userData?.fullName}</p>)}
                       <div className="dropdown">
-                        <button className="sm:flex hidden dropbtn text-violet-900 font-semibold">My account&nbsp;&#717;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                        <button className="sm:flex hidden dropbtn text-black font-semibold">My account&nbsp;&#717;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                         <button className="sm:hidden sm:mr-auto mr-5 flex dropbtn text-violet-900 font-semibold">My account&nbsp;&#717;</button>
                         <div className="dropdown-content sm:w-auto ">
                           <Link to="/orderpage" className='sm:text-base text-sm'>My orders</Link>
@@ -177,31 +177,31 @@ function header() {
         </div>
         <div className='h-auto sm:hidden  flex'>
             <div className='flex mx-auto py-2'>
-            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='p-0 w-36 h-9 border outline-none pl-1 focus:outline-none focus:ring-2 focus:ring-violet-900 focus:border-violet-900'/>
-            <div className='border h-9 border-violet-900'></div>
+            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='p-0 w-36 h-9 border outline-none pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
+            <div className='border h-9 border-black'></div>
             <select
                 id="age-select"
                 value={age}
                 onChange={handleChange}
                 onKeyPress={handleKeyPress}
-                className="block w-28 h-9 border border-gray-300 bg-white py-2 px-1 focus:outline-none focus:ring-2 focus:ring-violet-900 focus:border-violet-900"
+                className="block w-28 h-9 border border-gray-300 bg-white py-2 px-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
             >
-            <option className='text-violet-900' value="">Browse by Category</option>
-            <option className='text-violet-900' value="boards">Arduino Boards</option>
-            <option className='text-violet-900' value="sensors">Sensors</option>
-            <option className='text-violet-900' value="motors">Dc motors</option>
-            <option className='text-violet-900' value="speakers">Buzzers & Speakers</option>
-            <option className='text-violet-900' value="batteries">Batteries</option>
-            <option className='text-violet-900' value="chargers">Chargers</option>
-            <option className='text-violet-900' value="bluthooth">Bluetooth module</option>
-            <option className='text-violet-900' value="capacitors">Capacitors & Transistors</option>
-            <option className='text-violet-900' value="led">LED's</option>
-            <option className='text-violet-900' value="drones">Drones</option>
-            <option className='text-violet-900' value="cars">Rc cars</option>
-            <option className='text-violet-900' value="other">other's</option>
+            <option className='text-black' value="">Browse by Category</option>
+            <option className='text-black' value="boards">Arduino Boards</option>
+            <option className='text-black' value="sensors">Sensors</option>
+            <option className='text-black' value="motors">Dc motors</option>
+            <option className='text-black' value="speakers">Buzzers & Speakers</option>
+            <option className='text-black' value="batteries">Batteries</option>
+            <option className='text-black' value="chargers">Chargers</option>
+            <option className='text-black' value="bluthooth">Bluetooth module</option>
+            <option className='text-black' value="capacitors">Capacitors & Transistors</option>
+            <option className='text-black' value="led">LED's</option>
+            <option className='text-black' value="drones">Drones</option>
+            <option className='text-black' value="cars">Rc cars</option>
+            <option className='text-black' value="other">other's</option>
             </select>
         
-            <button onClick={addtodo} className='bg-violet-900 inline-block duration-200 w-9 h-9 rounded-tr-md rounded-br-md '><SearchIcon fontSize="medium" color="primary" style={{ padding: '1px', color: 'white' }}/></button>
+            <button onClick={addtodo} className='bg-black inline-block duration-200 w-9 h-9 rounded-tr-md rounded-br-md '><SearchIcon fontSize="medium" color="primary" style={{ padding: '1px', color: 'white' }}/></button>
             </div>
         </div>
     </>

@@ -111,7 +111,7 @@ const handleNextSlide = () => {
       <LoginPopup open={active}/>
       <div className='lide w-32 absolute z-10'>
         {slides.map((slide) => (
-          <button key={slide.id} onClick={() => setCurrentSlideIndex(slide.id -1)}  className={`sm:w-5 w-4 sm:h-5 h-4 border border-white  rounded-2xl ml-2  ${currentSlideIndex=== (slide.id - 1) ? 'bg-white' : 'bg-gray-400'}`}></button>
+          <button key={slide.id} onClick={() => setCurrentSlideIndex(slide.id -1)}  className={`sm:w-5 w-4 sm:h-5 h-4 border border-black  rounded-2xl ml-2  ${currentSlideIndex=== (slide.id - 1) ? 'bg-black' : 'bg-white'}`}></button>
         ))}
       </div>
       

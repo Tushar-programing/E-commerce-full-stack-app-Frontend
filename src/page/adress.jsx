@@ -75,7 +75,7 @@ function adress() {
   return (
     <div id='width' className='mx-auto'>
         <div className=' flex justify-center'>
-            <button onClick={openDialog} className='w-96 text-2xl font-semibold bg-green-500 pb-2 pt-2 rounded-md my-8 text-white'>+ Add new  address</button>
+            <button onClick={openDialog} className='w-96 text-2xl font-semibold bg-green-500 pb-2 pt-2 rounded-xl my-8 text-white rounded-t-none'>+ Add new  address</button>
         </div>
         <Dialog open={isDialogOpen} onClose={closeDialog}>
           <DialogTitle>Enter Here your  Address</DialogTitle>
