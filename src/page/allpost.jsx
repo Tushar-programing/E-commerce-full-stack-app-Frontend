@@ -233,24 +233,24 @@ const handleNextSlide = () => {
               {posts.filter((post) => post.category === "sensors").length > (isSmallScreen? 1 : 4) && <button onClick={handleNextSlid} className={`margin absolute mt-40 bg-violet-900 ${blockRight? 'hidden' : ''}`}><img className='sm:w-6 w-5 sm:ml-3 ml-2' src={slider} style={{ transform: `rotate(-90deg)` }} /></button>}
             </div>
       </div>
-      <section className="bg-gray-100 py-10 mx-24 mt-10">
+      <section className="bg-gray-100 py-10 sm:mx-24 mx-4 mt-10 border">
           <div className="container mx-auto ">
-              <div className="flex justify-center ">
-                  <div className="w-full md:w-1/2 xl:w-1/4 "> 
+              <div className="flex flex-wrap justify-center ">
+                  <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6"> 
                       <div className=' flex'>
                         <div className=' w-16 h-10'><img src={shipping} className="h-10 mx-auto  my-auto" /></div>
                         <h2 className="text-xl font-bold mb-2 ">Free Shipping</h2>
                       </div>
                       <p className="text-lg ml-16">Free Shipping on all prepaid <br /> orders above Rs. 999</p>
                   </div>
-                  <div className="w-full md:w-1/2 xl:w-1/4  ">
+                  <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
                       <div className=' flex'>
                         <div className=' w-16 h-10'><img src={carts} className='h-10 mx-auto my-auto' /></div>
                         <h2 className="text-xl font-bold mb-2">Quality Assurance</h2>
                       </div>
                       <p className="text-lg ml-16">Enjoy 100% premium quality <br /> products</p>
                   </div>
-                  <div className="w-full md:w-1/2 xl:w-1/4 ">
+                  <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
                       <div className=' flex'>
                         <div className=' w-16 h-10'><img src={support} className="h-10 mx-auto my-auto" /></div>
                         <h2 className="text-xl font-bold mb-2">Top-notch Support</h2>
@@ -259,7 +259,7 @@ const handleNextSlide = () => {
                       <p className="text-lg ml-16">Mail: <a href="mailto:ttushar476@gmail.com" className="text-blue-600 hover:text-blue-900">support@electrobazar.in</a></p>
                       <p className="text-lg ml-16">Timings: 9am to 9pm, <br /> Days: Mon-Sun</p>
                   </div>
-                  <div className="w-full md:w-1/2 xl:w-1/4 ">
+                  <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
                       <div className=' flex'>
                         <div className=' w-16 h-10'><img src={secure} className="h-10 mx-auto my-auto" /></div>
                         <h2 className="text-xl font-bold mb-2">Secure Payments</h2>

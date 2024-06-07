@@ -91,8 +91,8 @@ function resultCard({status, brand, category, createdAt, description, height, im
             </div></Link>
             <Link to={`/post/${_id}`}><div className=' w-[528px] ml-4'>
                 <div className='mt-5 text-red-600 mx-3 text-lg mr-20'>{title.length > 46? (<span>{title.slice(0, 46)}...</span>) : (<span>{title}</span>)}</div>
-                <div className='mt-2  mx-3 text-black text-lg'><span className=''>Brand : </span>{brand}</div>
-                <div className='mt-2  mx-3 text-black'><span className='text-violet-900'>Use of : </span>{use}</div>
+                <div className='mt-2 mx-3 text-black text-lg'><span className=''>Brand : </span>{brand}</div>
+                <div className='mt-2 mx-3 text-black'><span className='text-violet-900'>Use of : </span>{use}</div>
                 <div className='mt-2 mx-3 text-black  mr-20'><span className='text-black'>Description : </span>{description.length > 90? (<span>{description.slice(0, 90)}...</span>): (<span>{description}</span>)}</div>
                 <div className='mt-2 text-violet-900 ml-3 '>Category : <span className='text-black'>{category}</span></div>
             
@@ -101,7 +101,7 @@ function resultCard({status, brand, category, createdAt, description, height, im
                 <div className=' h-10 flex justify-end '><button onClick={wish} ><img src={like? img1 : img} className='w-6 h-6 mt-2 mr-2'/></button></div>
                 <div className=' text-center mt-8 text-red-600 text-xl mr-4'><span className='text-black text-lg'>Price : </span>₹ {price}</div>
                 <div className=' text-center  text- mr-4 mt-1'><span className='line-through text-green-600'>₹ {(price/8) + price} </span> 20% off</div>
-                <div className=' text-center'><button onClick={onclick} className='border text-center mt-5 w-36 py-1 px-1 bg-green-600 text-white'>Add to Cart</button></div>
+                <div className=' text-center'><button onClick={onclick} className='border text-center mt-5 w-36 py-1 px-1 bg-green-600 text-white rounded-t-none rounded-lg'>Add to Cart</button></div>
             </div>
         </div>
   )
