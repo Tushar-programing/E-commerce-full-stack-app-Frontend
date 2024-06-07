@@ -54,7 +54,7 @@ function Cart() {
                     ><div className='mr-5'>Fetching Cart Details</div>
                     <CircularProgress color="inherit" />
                   </Backdrop>
-                ) : ((userData && post?.length > 0) ? (
+                ) : ((post?.length > 0) ? (
                         post?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
                         .map((post) => (
                             <div key={post._id} className='p-2'>
@@ -68,7 +68,7 @@ function Cart() {
                     )    
                 )}
             </div>
-            {(userData && post.length > 0)? <div className='mx-auto '><Cartcalc /></div> : null}
+            {(post.length > 0)? <div className='mx-auto '><Cartcalc /></div> : null}
         </div>
        
     ); 
