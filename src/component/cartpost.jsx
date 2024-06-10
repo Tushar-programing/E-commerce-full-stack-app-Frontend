@@ -74,7 +74,7 @@ function cartpost({_id, product_details, quantity, updatedAt}) {
                   <option value={10}>10</option>
               </select>
           </div>
-          <div className=' w-36 my-auto text-center'>₹ {product_details?.price * quantity}</div>
+          <div className=' w-36 my-auto text-center'>₹ {product_details?.price * quant}</div>
           <div className=' w-20 my-auto text-center text-3xl'><button onClick={remove} className=' px-2'>×</button></div>
       </div>
     </div> 
