@@ -103,7 +103,6 @@ function header() {
                 id="age-select"
                 value={age}
                 onChange={handleChange}
-                onKeyPress={handleKeyPress}
                 className="sm:block hidden sm:w-auto w-20 h-10 mt-3 border border-gray-300 bg-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
             >
             <option className='text-black' value="">Browse by Category</option>
