@@ -40,7 +40,7 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
           </div></Link>
           <div className='w-44  text-center'>
             
-            {!(status === "cancel") ? <button className='border mt-6 w-28 py-1 text-red-600 bg-gray-100'>Cancel</button> : <div className='mt-6 text-red-500'>Order Cancelled</div>}
+            {!(status === "cancel") ? <button onClick={cancel} className='border mt-6 w-28 py-1 text-red-600 bg-gray-100'>Cancel</button> : <div className='mt-6 text-red-500'>Order Cancelled</div>}
 
           </div>
         </div>
