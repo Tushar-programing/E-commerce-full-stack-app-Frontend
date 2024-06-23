@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, } from 'react'
 import { Link } from 'react-router-dom'
 import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux'
@@ -42,14 +42,16 @@ function postcard({ _id, title, image, price, description}) {
   }
 
   const wish = async() => {
+    
     if (active) {
       try {
+        setLike(!like)
         await axios.post(`${conf.apiUrl}/wishlist/addWishlist/${_id}`, {}, {
           withCredentials: true
         }).then((wish) => {
           if (wish) {
             // console.log("wish", wish);
-            setLike(wish.data.data)
+            // setLike(wish.data.data)
             toast.success(wish.data.message)
           }
         })

@@ -104,6 +104,19 @@ const handleNextSlide = () => {
         if (newIndex === 0) setBlockLeft(true) 
         if (newIndex >= 0) setCurrentIndex(newIndex);
     }
+
+
+  const getlike = async(_id) =>{
+    axios.post(`${conf.apiUrl}/wishlist/getWishlistById/${_id}`, {}, {
+      withCredentials: true
+    }).then((lk) => {
+      // console.log("lk", lk);
+      if (lk) {
+        // console.log(lk);
+        return (lk.data.data)
+      }
+    }, [])
+  }
     
 
   return (
@@ -211,8 +224,8 @@ const handleNextSlide = () => {
                   {posts.filter((post) => post.status === true)
                   
                   .map((post) => (                     
-                      <div key={post.$id} className='sm:p-2 p-0 sm:w-1/4 w-1/2 '>
-                          <Postcard {...post} />
+                      <div key={post._id} className='sm:p-2 p-0 sm:w-1/4 w-1/2 '>
+                          <Postcard {...post} wis={getlike(post._id)}/>
                       </div>   
                   ))}
           </div>
@@ -223,7 +236,7 @@ const handleNextSlide = () => {
                 <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 4 * 64}px)` }}>
                 {posts.filter((post) => post.category === "sensors")
                   .map((post) => (                     
-                        <div key={post.$id} className='w-64 h-auto border '>
+                        <div key={post._id} className='w-64 h-auto border '>
                           {/* $id, title, image, price, brand, description */}
                           <Postcard1 {...post} />
                         </div>
