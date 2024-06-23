@@ -48,18 +48,19 @@ function wishlist({userId, product_details, createdAt, _id}) {
   return (
         <div className='bg-white sm:h-20 h-auto sm:flex block  sm:mt-5 mt-4 sm:mx-auto mx-8 shadow-md font-light'>
             <Link to={`/post/${product_details?._id}`}><div className='  width sm:h-20 h-auto sm:w-[730px] w-auto sm:flex  block'>
-              <div className='  sm:w-32 w-52 overflow-hidden ml-2  my-1'>
+              <div className=' sm:w-32 w-52 overflow-hidden ml-2  my-1'>
                 <img src={product_details?.image[0]} className='sm:h-20 sm:mx-auto sm:my-auto mx-5 h-40  ' />
               </div>
-              <div className='w-[480px]  my-auto'>
-                <p className=' sm:mt-0 mt-1 ml-8 mx-2 hover:text-red-600 transform sm:hover:translate-x-[-6px] duration-300 cursor-pointer'>{product_details?.title.length > 90 ? (<span>{product_details?.title.slice(0, 90)}...</span>) : (<span>{product_details?.title}</span>)}</p>
+              <div className='sm:w-[480px] w-auto  my-auto sm:mr-0 mr-5'>
+                <p className=' sm:flex hidden sm:mt-0 mt-1 ml-8 mx-2 hover:text-red-600 transform sm:hover:translate-x-[-6px] duration-300 cursor-pointer'>{product_details?.title.length > 90 ? (<span>{product_details?.title.slice(0, 90)}...</span>) : (<span>{product_details?.title}</span>)}</p>
+                <p className=' sm:hidden flex  sm:mt-0 mt-1 ml-8 mx-2 hover:text-red-600 transform sm:hover:translate-x-[-6px] duration-300 cursor-pointer'>{product_details?.title.length > 40 ? (<span>{product_details?.title.slice(0, 40)}...</span>) : (<span>{product_details?.title}</span>)}</p>
               </div>
             </div></Link>
             <div className='  sm:flex hidden h-20 w-32 '>
               <p className='  my-auto w-40 '>{createdAt?.slice(0, 10)}</p>
             </div>
-            <div className='  sm:h-20 h-auto w-28 '>
-              <p className='  my-7 sm:mx-0 mx-4 text-center '>₹ {product_details?.price}</p>
+            <div className=' sm:h-20 h-10 w-28 '>
+              <p className='  sm:my-7 my-4 sm:mx-0 mx-4 text-center '>₹ {product_details?.price}</p>
             </div>
             <div className='  sm:block hidden h-20 w-40 '>
               <select value={selectedNumber} onChange={handleSelectChange} className='border my-auto w-24 outline-none px-4 py-1 mt-6 ml-8'>
@@ -76,11 +77,11 @@ function wishlist({userId, product_details, createdAt, _id}) {
               </select>
             </div>
             <div className=' flex justify-between'>
-              <div className='  sm:h-20 h-auto w-40'>
-                <button onClick={() => onclick()} className='sm:mt-6 mt-1 w-28 ml-6 bg-gray-50 text-black py-[2px] font-medium border'>Add to Cart</button>
+              <div className='  sm:h-20 h-auto w-40 '>
+                <button onClick={() => onclick()} className='border sm:mt-6 mt-1 sm:w-28 w-32 ml-6 bg-gray-50 text-black py-[2px] font-medium border'>Add to Cart</button>
               </div> 
               <div className=' sm:h-20 h-auto sm:w-24 w-16 sm:mr-auto mr-2 text-center'>
-                <button onClick={() => delt()} className=' text-4xl mt-5'>×</button>
+                <button onClick={() => delt()} className=' text-4xl sm:mt-5 mt-0 sm:mb-0 mb-2'>×</button>
               </div>
             </div>
         </div>

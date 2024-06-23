@@ -16,6 +16,7 @@ import ClientOrder from './clientOrder'
 import LoginPopup from "./loginPopup";
 import ResultCard from "./resultCard";
 import EmptyComp from "./emptyComp";
+import Chart from "./chart"
 
 export {
     Signup,
@@ -36,4 +37,5 @@ export {
     LoginPopup,
     ResultCard,
     EmptyComp,
+    Chart,
 }

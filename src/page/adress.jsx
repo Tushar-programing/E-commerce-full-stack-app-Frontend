@@ -57,7 +57,7 @@ function adress() {
         setOpen(false)
       }
     })
-  }, [isDialogOpen])
+  }, [isDialogOpen, create])
   // console.log("post", posts);
 
   if ( open ) {

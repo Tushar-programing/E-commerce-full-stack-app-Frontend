@@ -25,6 +25,8 @@ import ClientOrderPro from './page/clientOrderPro.jsx';
 import UserOrderPro from './page/userOrderPro.jsx'
 import { Authlayout } from './component/index.js'
 
+import Dashboard from './page/dashboard.jsx';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -104,6 +106,10 @@ const router = createBrowserRouter([
         path: "/result",
         element: <Result />,
       },
+      {
+        path: "/dashboard",
+        element: <Dashboard />
+      }
     ],
   },
 ])
@@ -113,7 +119,6 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Bahnschrift ', // Customize the font family here
   },
-  
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(

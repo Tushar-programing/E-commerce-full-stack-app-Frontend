@@ -34,14 +34,14 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
             {/* <p className='mt-1 ml-2 '>Status : <span className={` text-xl ${status === "cancel"? 'text-red-600': 'text-green-600'}`}>{status}</span></p> */}
           </div></Link>
           <Link to={`/userpro/${_id}`}><div className=' w-28 '>
-            <p className='mt-6 text-green-500 text-center '>{quantity} pcs</p>
+            <p className='mt-6 text-gray-800 text-center '>{quantity} pcs</p>
             {/* <p className='mt-2 ml-4 '>price : <span className='text-gray-800'>₹ {product_details?.price}</span></p>
             <p className='mt-2 ml-4'>Total : <span className='text-red-600  text-lg'>₹ {product_details.price * quantity}</span></p> */}
           </div></Link>
           <div className='w-44  text-center'>
             
-            {!(status === "cancel") ? <button onClick={cancel} className='border mt-6 w-28 py-1 text-red-600 bg-gray-100'>Cancel</button> : <div className='mt-6 text-red-500'>Order Cancelled</div>}
-
+            {(status === "cancel") ? <div className='mt-6 text-red-500'>Order Cancelled</div> :(status === "delivered")? <div className='mt-6 text-green-500'>Order delivered</div> : <button onClick={cancel} className='border mt-6 w-28 py-1 text-red-600 bg-gray-100'>Cancel</button>}
+            
           </div>
         </div>
         <div className=' h-3 bg-gray-100'></div>
