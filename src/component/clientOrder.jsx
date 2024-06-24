@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 function order({adress1, adress2, city, company, country, createdAt, name, owner, paymentStatus, phone, zip, product_details, quantity, state, status, _id}) {
 
   const [shippingStatus, setShippingStatus] = useState(status);
-  console.log(shippingStatus);
+  const [sta, setSta] = useState(status)
+  // console.log(shippingStatus);
 
     const handleChange = async(e) => {
         const selectedStatus = e.target.value;
@@ -16,6 +17,8 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
           withCredentials: true
         }).then((cancel) => {
           if (cancel) {
+            // console.log(cancel.data.data.status);
+            setShippingStatus(cancel.data.data.status)
             toast.success("Successfully updated your order")
             // window.location.reload()
           }
@@ -23,23 +26,28 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
     };
 
     const cancel = async() => {
+      setSta("cancel")
       await axios.post(`${conf.apiUrl}/order/updateOrder/${_id}`, {status: "cancel"}, {
         withCredentials: true
       }).then((cancel) => {
         if (cancel) {
+          console.log("this is cancel data", cancel.data.data.status);
+          setSta(cancel.data.data.status)
           toast.success("Successfully updated your order")
-          window.location.reload()
+          // window.location.reload()
         }
       })
     }
 
     const update = async() => {
+      setSta("accept")
       await axios.post(`${conf.apiUrl}/order/updateOrder/${_id}`, {status: "accept"}, {  //Accept
         withCredentials: true
       }).then((cancel) => {
         if (cancel) {
+          setSta(cancel.data.data.status)
           toast.success("Successfully updated your order")
-          window.location.reload()
+          // window.location.reload()
         }
       })
     }
@@ -84,9 +92,9 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
             {/* {status === "cancel" && <div className='text-base text-red-500 font-semibold mt-7 ml-6 mx-auto'>Order Cancelled</div>} */}
           </div>
           <div className=' w-56'>
-          {status === "confirm"? <><button disabled={status === "cancel"} onClick={cancel} className={`w-20 mt-7 ml-2 border py-[2px] bg-gray-50 text-red-500`}>Reject</button>
-            <button disabled={status === "cancel"} onClick={update} className={`w-20 mt-7 ml-6 border py-[2px] bg-gray-50 text-green-500`}>Accept</button>
-            </> : <div>{status === "cancel"? <p className='mt-7 ml-7 text-red-600'>Order Cancelled</p> : <p className='mt-7 ml-7 text-green-500'>Order Accepted</p>}</div>}
+          {sta === "confirm"? <><button disabled={sta === "cancel"} onClick={cancel} className={`w-20 mt-7 ml-2 border py-[2px] bg-gray-50 text-red-500`}>Reject</button>
+            <button disabled={sta === "cancel"} onClick={update} className={`w-20 mt-7 ml-6 border py-[2px] bg-gray-50 text-green-500`}>Accept</button>
+            </> : <div>{sta === "cancel"? <p className='mt-7 ml-7 text-red-600'>Order Cancelled</p> : <p className='mt-7 ml-7 text-green-500'>Order Accepted</p>}</div>}
           </div>
         </div>
         <div className=' h-3 bg-gray-100'></div>

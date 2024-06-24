@@ -1,21 +1,27 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import {Link } from 'react-router-dom'
 import conf from "./conf/conf";
 
 function order({adress1, adress2, city, company, country, createdAt, name, owner, paymentStatus, phone, zip, product_details, quantity, state, status, _id}) {
+  const [can, setCan] = useState(status)
 
   const cancel = async() => {
+    setCan("cancel")
     await axios.post(`${conf.apiUrl}/order/updateOrder/${_id}`, {status: "cancel"}, {
       withCredentials: true
     }).then((cancel) => {
       if (cancel) {
+        console.log("thos snerkd : ", cancel);
         toast.success("Successfully canceled your order")
-        window.location.reload()
+        setCan(cancel.data.data.status)
+        // window.location.reload()
       }
     })
   }
+
+
   return (
     <div className='border'>
         <div className=' h-20 flex justify-between'>
@@ -40,7 +46,7 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
           </div></Link>
           <div className='w-44  text-center'>
             
-            {(status === "cancel") ? <div className='mt-6 text-red-500'>Order Cancelled</div> :(status === "delivered")? <div className='mt-6 text-green-500'>Order delivered</div> : <button onClick={cancel} className='border mt-6 w-28 py-1 text-red-600 bg-gray-100'>Cancel</button>}
+            {(can === "cancel") ? <div className='mt-6 text-red-500'>Order Cancelled</div> :(can === "delivered")? <div className='mt-6 text-green-500'>Order delivered</div> : <button onClick={cancel} className='border mt-6 w-28 py-1 text-red-600 bg-gray-100'>Cancel</button>}
             
           </div>
         </div>
