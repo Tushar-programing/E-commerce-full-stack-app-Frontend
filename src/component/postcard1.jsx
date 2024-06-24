@@ -47,25 +47,27 @@ function postcard1({image, title, description, price, _id }) {
     
     }
 
-  useEffect(() => {
-    axios.post(`${conf.apiUrl}/wishlist/getWishlistById/${_id}`, {}, {
-      withCredentials: true
-    }).then((lk) => {
-      // console.log("lk", lk);
-      if (lk) {
-        setLike(lk.data.data)
-      }
-    })
-  } )
+    useEffect(() => {
+      axios.post(`${conf.apiUrl}/wishlist/getWishlistById/${_id}`, {}, {
+        withCredentials: true
+      }).then((lk) => {
+        // console.log("lk", lk);
+        if (lk) {
+          // console.log(lk);
+          setLike(lk.data.data)
+        }
+      })
+    }, [_id])
 
   const wish = async() => {
     if (active) {
       try {
+        setLike(!like)
         await axios.post(`${conf.apiUrl}/wishlist/addWishlist/${_id}`, {}, {
           withCredentials: true
         }).then((wish) => {
           if (wish) {
-            // console.log("wish", wish);
+            console.log("wish", wish);
             setLike(wish.data.data)
             toast.success(wish.data.message)
           }

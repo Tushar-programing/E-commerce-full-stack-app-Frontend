@@ -52,7 +52,7 @@ function postcard({ _id, title, image, price, description, wis}) {
         }).then((wish) => {
           if (wish) {
             // console.log("wish", wish);
-            // setLike(wish.data.data)
+            setLike(wish.data.data)
             toast.success(wish.data.message)
           }
         })
