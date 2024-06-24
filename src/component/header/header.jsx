@@ -160,16 +160,29 @@ function header() {
                     </li>
                     <div className='sm:mr-14 mr-0 text-base sm:ml-4 ml-2'> 
                       {userData && (<p className='sm:flex hidden text-green-500 font-medium sm:text-lg text-sm'>Hey {userData?.fullName}</p>)}
-                      <div className="dropdown">
-                        <button className="sm:flex hidden dropbtn text-black font-semibold">My account &nbsp;<ArrowDropDownIcon />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                        <button onClick={(e) => setOpen(!open)} className="sm:hidden sm:mr-auto mr-5 flex text-violet-900 font-semibold">My account<ArrowDropDownIcon /></button>
-                        <div className={`${open? "block" : " "} dropdown-content sm:w-auto `}>
+                      <div className="dropdown sm:block hidden">
+                        <button className=" dropbtn text-black font-semibold">My account &nbsp;<ArrowDropDownIcon />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+                        <div className="dropdown-content sm:w-auto ">
                           <Link to="/orderpage" className='sm:text-base text-sm'>My orders</Link>
                           <Link to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
                           <Link to="/address" className='sm:text-base text-sm'>My address</Link>
                           <a className='sm:text-base text-sm' ><Logoutbtn /></a>
                           <Link to="/list" className='sm:text-base text-sm'>List Product</Link>
                           <Link to="/clientorder" className='sm:text-base text-sm'>Client Order</Link>
+                        </div>
+                      </div>
+
+                      <div className=" sm:hidden block">
+                        <button onClick={(e) => setOpen(!open)} className="sm:hidden sm:mr-auto mr-5 flex text-black font-semibold">My account<div className=' mt-6 '><ArrowDropDownIcon /></div></button>
+
+                        <div className={`${open? "block" : " "} dropdown-content sm:w-auto `}>
+                          <Link to="/orderpage" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>My orders</Link>
+                          <Link to="/wishlist" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>Wishlist</Link>
+                          <Link to="/address" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>My address</Link>
+                          <a onClick={(e) => setOpen(false)} className='sm:text-base text-sm' ><Logoutbtn /></a>
+                          <Link onClick={(e) => setOpen(false)} to="/list" className='sm:text-base text-sm'>List Product</Link>
+                          <Link onClick={(e) => setOpen(false)} to="/clientorder" className='sm:text-base text-sm'>Client Order</Link>
                         </div>
                       </div>
                     </div>
