@@ -105,18 +105,6 @@ const handleNextSlide = () => {
         if (newIndex >= 0) setCurrentIndex(newIndex);
     }
 
-
-  const getlike = async(_id) =>{
-    axios.post(`${conf.apiUrl}/wishlist/getWishlistById/${_id}`, {}, {
-      withCredentials: true
-    }).then((lk) => {
-      // console.log("lk", lk);
-      if (lk) {
-        // console.log(lk);
-        return (lk.data.data)
-      }
-    }, [])
-  }
     
 
   return (
@@ -225,7 +213,7 @@ const handleNextSlide = () => {
                   
                   .map((post) => (                     
                       <div key={post._id} className='sm:p-2 p-0 sm:w-1/4 w-1/2 '>
-                          <Postcard {...post} wis={getlike(post._id)}/>
+                          <Postcard {...post}/>
                       </div>   
                   ))}
           </div>

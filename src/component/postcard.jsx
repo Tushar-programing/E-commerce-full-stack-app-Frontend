@@ -13,7 +13,8 @@ import imgcart from "./images/cart.png"
 import cart from "./images/cart1.png"
 
 
-function postcard({ _id, title, image, price, description}) {
+function postcard({ _id, title, image, price, description, wis}) {
+  console.log(wis);
   // console.log(image);
   const userData = useSelector(state  => state.auth.userData);
   const  navigate = useNavigate();
@@ -66,16 +67,16 @@ function postcard({ _id, title, image, price, description}) {
 
 
   useEffect(() => {
-    axios.post(`${conf.apiUrl}/wishlist/getWishlistById/${_id}`, {}, {
-      withCredentials: true
-    }).then((lk) => {
-      // console.log("lk", lk);
-      if (lk) {
-        // console.log(lk);
-        setLike(lk.data.data)
-      }
-    }, [])
-  })
+        axios.post(`${conf.apiUrl}/wishlist/getWishlistById/${_id}`, {}, {
+          withCredentials: true
+        }).then((lk) => {
+          // console.log("lk", lk);
+          if (lk) {
+            // console.log(lk);
+            setLike(lk.data.data)
+          }
+        })
+  }, [_id])
 
   const handleMouseover = () => {
     if (image.length > 1) {
