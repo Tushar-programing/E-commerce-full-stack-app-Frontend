@@ -170,6 +170,7 @@ function header() {
                           <a className='sm:text-base text-sm' ><Logoutbtn /></a>
                           <Link to="/list" className='sm:text-base text-sm'>List Product</Link>
                           <Link to="/clientorder" className='sm:text-base text-sm'>Client Order</Link>
+                          <Link to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link>
                         </div>
                       </div>
 
@@ -178,7 +179,6 @@ function header() {
 
                         <div className={`${open? "block" : " "} dropdown-content sm:w-auto `}>
                           <Link to="/orderpage" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>My orders</Link>
-                          <Link to="/wishlist" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>Wishlist</Link>
                           <Link to="/address" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>My address</Link>
                           <a onClick={(e) => setOpen(false)} className='sm:text-base text-sm' ><Logoutbtn /></a>
                           <Link onClick={(e) => setOpen(false)} to="/list" className='sm:text-base text-sm'>List Product</Link>
