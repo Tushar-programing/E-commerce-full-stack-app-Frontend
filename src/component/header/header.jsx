@@ -162,7 +162,7 @@ function header() {
                       {userData && (<p className='sm:flex hidden text-green-500 font-medium sm:text-lg text-sm'>Hey {userData?.fullName}</p>)}
                       <div className="dropdown">
                         <button className="sm:flex hidden dropbtn text-black font-semibold">My account &nbsp;<ArrowDropDownIcon />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                        <button onClick={(e) => setOpen(!open)} className="sm:hidden sm:mr-auto mr-5 flex text-violet-900 font-semibold">My account&nbsp;&#717;</button>
+                        <button onClick={(e) => setOpen(!open)} className="sm:hidden sm:mr-auto mr-5 flex text-violet-900 font-semibold">My account<ArrowDropDownIcon /></button>
                         <div className={`${open? "block" : " "} dropdown-content sm:w-auto `}>
                           <Link to="/orderpage" className='sm:text-base text-sm'>My orders</Link>
                           <Link to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
