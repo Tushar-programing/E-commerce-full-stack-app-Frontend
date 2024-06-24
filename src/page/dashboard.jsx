@@ -28,6 +28,7 @@ function dashboard() {
           <a href="#" className="flex py-2 px-2 text-white hover:bg-gray-700 mt-4  "><img src='https://res.cloudinary.com/dpzh4qlkg/image/upload/v1719208545/lbdt6twlyzcbvrd8h6ko.png' className='w-8 h-8 rounded-full bg-white p-1' /><span className=' my-auto ml-2'>Your Products</span></a>
           <a href="#" className="flex py-2 px-2 text-white hover:bg-gray-700 mt-24 "><img src='https://res.cloudinary.com/dpzh4qlkg/image/upload/v1719208581/qv876qc9yq8pyernd01d.png' className='w-8 h-8 rounded-full bg-white p-1 ' /><span className=' py-[6px] ml-2  w-full'><Logoutbtn /></span></a>
         </div>
+        
         <div className="flex-1 bg-gray-100">
           <div className="grid grid-cols-1 gap-4">
             <div className="px-8 text-xl text-black mt-1">
