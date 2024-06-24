@@ -100,7 +100,7 @@ function clientOrderPro() {
       <div className='mx-44 mt-5 '>
         <div className="flex flex-col items-center">
             <div className="flex items-center justify-between w-full max-w-2xl">
-              {statuses.map((status, index) => (
+              {order && statuses.map((status, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div className={`h-10 w-10 rounded-full flex items-center justify-center ${index <= currentStatusIndex ? 'bg-green-500 text-white' : 'bg-gray-300 text-gray-600'}`}>
                     {index + 1}
@@ -110,7 +110,7 @@ function clientOrderPro() {
               ))}
             </div>
             <div className="flex w-full max-w-2xl mt-4">
-              {statuses.map((status, index) => (
+              {order && statuses.map((status, index) => (
                 index < statuses.length - 1 && (
                   <div key={index} className="flex-1">
                     <div className={`h-1 ${index < currentStatusIndex ? 'bg-green-500' : 'bg-gray-300'}`}></div>
