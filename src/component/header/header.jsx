@@ -12,6 +12,8 @@ import img from "../images/tds1.png"
 import conf from "../conf/conf";
 import '../signup.css';
 
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 function header() {
     const navigate = useNavigate()
     const [value, setValue] = useState('')
@@ -20,6 +22,8 @@ function header() {
     const [age, setAge] = useState('');
 
     const [post, setPost] = useState([]);
+
+    const [open , setOpen] = useState(false);
 
     useEffect(() => {
         axios.post(`${conf.apiUrl}/cart/getAllCart`, {}, {
@@ -157,9 +161,9 @@ function header() {
                     <div className='sm:mr-14 mr-0 text-base sm:ml-4 ml-2'> 
                       {userData && (<p className='sm:flex hidden text-green-500 font-medium sm:text-lg text-sm'>Hey {userData?.fullName}</p>)}
                       <div className="dropdown">
-                        <button className="sm:flex hidden dropbtn text-black font-semibold">My account&nbsp;&#717;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                        <button className="sm:hidden sm:mr-auto mr-5 flex dropbtn text-violet-900 font-semibold">My account&nbsp;&#717;</button>
-                        <div className="dropdown-content sm:w-auto ">
+                        <button className="sm:flex hidden dropbtn text-black font-semibold">My account &nbsp;<ArrowDropDownIcon />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                        <button onClick={(e) => setOpen(!open)} className="sm:hidden sm:mr-auto mr-5 flex text-violet-900 font-semibold">My account&nbsp;&#717;</button>
+                        <div className={`${open? "block" : " "} dropdown-content sm:w-auto `}>
                           <Link to="/orderpage" className='sm:text-base text-sm'>My orders</Link>
                           <Link to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
                           <Link to="/address" className='sm:text-base text-sm'>My address</Link>

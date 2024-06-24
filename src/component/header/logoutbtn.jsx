@@ -20,7 +20,7 @@ function logoutbtn() {
   return (
     <>
         <button 
-        onClick={logoutHandler}>
+        onClick={logoutHandler} className='w-full text-start'>
             Logout
         </button>
     </>
