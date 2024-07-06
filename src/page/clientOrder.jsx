@@ -39,14 +39,14 @@ function orderPage() {
     // console.log(wishs?.length);
     if ( order?.length <= 0 ) {
       return  <div >
-                <EmptyComp size="w-0" line1="Your client order is Empty" line2="You have no client orders yet. Start Adding " />
+                <EmptyComp classes="ml-96" size="w-0" line1="Your client order is Empty" line2="You have no client orders yet. Start Adding " />
               </div>
     }
 
   return (
     <div className='w-full' >
       <div className=' h-auto bg-white w-full'>
-        <div className='text-2xl font-semibold mt-2 text-center mb-5'>Client Order History</div>
+        <div className='text-2xl font-semibold mt-2 text-center mb-10'>Client Order History</div>
 
         {order?.length > 0? 
         <div className=' h-8 grid grid-cols-12 border mx-10 mb-5'>

@@ -6,10 +6,11 @@ function emptyComp({
     title,
     size,
     line1,
-    line2
+    line2,
+    classes
 }) {
   return (
-        <div className=''>
+        <div className={classes}>
             <div className='text-center text-2xl mt-10'>{title}</div>
             <hr className={`mx-auto mt-2 border border-gray-300 ${size} `} />
             <img src={img} className=' mx-auto mt-24 '/>

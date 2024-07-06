@@ -6,6 +6,8 @@ import {useNavigate} from "react-router-dom"
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom'
 
+import { EmptyComp } from '../component';
+
 
 function yourPro() {
   const navigate = useNavigate()
@@ -38,7 +40,11 @@ function yourPro() {
       create()
     }, [])
 
-    
+    if ( product?.length <= 0 ) {
+      return  <div >
+                <EmptyComp classes="ml-96" size="" line1="You did not list any product" line2="You have not List any products yet. Start Adding " />
+              </div>
+    }
 
   return (
     <div className='w-full '>
