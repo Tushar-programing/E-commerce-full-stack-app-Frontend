@@ -168,8 +168,6 @@ function header() {
                           <Link to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
                           <Link to="/address" className='sm:text-base text-sm'>My address</Link>
                           <a className='sm:text-base text-sm' ><Logoutbtn /></a>
-                          <Link to="/list" className='sm:text-base text-sm'>List Product</Link>
-                          <Link to="/clientorder" className='sm:text-base text-sm'>Client Order</Link>
                           <Link to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link>
                         </div>
                       </div>
@@ -182,7 +180,7 @@ function header() {
                           <Link to="/address" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>My address</Link>
                           <a onClick={(e) => setOpen(false)} className='sm:text-base text-sm' ><Logoutbtn /></a>
                           <Link onClick={(e) => setOpen(false)} to="/list" className='sm:text-base text-sm'>List Product</Link>
-                          <Link onClick={(e) => setOpen(false)} to="/clientorder" className='sm:text-base text-sm'>Client Order</Link>
+                          <Link onClick={(e) => setOpen(false)} to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link>
                         </div>
                       </div>
                     </div>

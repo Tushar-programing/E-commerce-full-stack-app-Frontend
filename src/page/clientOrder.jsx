@@ -44,25 +44,22 @@ function orderPage() {
     }
 
   return (
-    <div className='bg-gray-100'>
-      <div className=''></div>
-      <div className=' mx-10 h-auto bg-white'>
-        <div className='text-2xl font-semibold mt-8 bg-gray-100 h-14'>Client Order History</div>
+    <div className='w-full' >
+      <div className=' h-auto bg-white w-full'>
+        <div className='text-2xl font-semibold mt-2 text-center mb-5'>Client Order History</div>
 
         {order?.length > 0? 
-        <div className=' h-8 flex justify-between'>
-              <div className=' w-[470px] text-center'>Product_details</div>
-              <div className=' w-40 text-center'>Payment</div>
-              <div className=' w-40 text-center'>Date</div>
-              <div className=' w-32 text-center'>Price</div>
-              <div className=' w-28 text-center'>Quantity</div>
-              <div className=' w-44 text-center'>Action</div>
-              <div className=' w-56 text-center'></div>
+        <div className=' h-8 grid grid-cols-12 border mx-10 mb-5'>
+              <div className='col-span-5 text-center'>Product_details</div>
+              <div className='col-span-2 text-center'>Date</div>
+              <div className='col-span-1 text-center'>Payment</div>
+              <div className='col-span-2 text-center'>Price/Quantity</div>
+              <div className='col-span-2 text-center'>Action</div>
         </div> : <div className='text-center text-xl text-red-600 bg-gray-100'>No client order available yet</div>}
-        <div className='h-4 bg-gray-100'></div>
+        {/* <div className='h-4 bg-gray-100'></div> */}
         {order?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
         .map((order) => (
-          <div key={order._id}>
+          <div key={order._id} className='border mb-4 mx-10 '>
             <ClientOrder {...order}/>
           </div>
         ))}

@@ -70,8 +70,6 @@ function adress() {
             </Backdrop></div>
   }
 
-
-
   return (
     <div id='width' className='mx-auto'>
         <div className=' flex justify-center'>

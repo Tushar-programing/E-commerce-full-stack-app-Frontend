@@ -19,13 +19,17 @@ import CartOrder from './page/cartOrders.jsx'
 import Adress from './page/adress.jsx'
 import Wishlist from './page/wishlist.jsx';
 import UserOrder from './page/userOrder.jsx';
+
 import ClientOrder from './page/clientOrder.jsx'
 import Result from './page/result.jsx';
 import ClientOrderPro from './page/clientOrderPro.jsx';
 import UserOrderPro from './page/userOrderPro.jsx'
 import { Authlayout } from './component/index.js'
 
+import YourPro from './page/yourPro.jsx';
+
 import Dashboard from './page/dashboard.jsx';
+import Outlet from './App2.jsx';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -54,10 +58,10 @@ const router = createBrowserRouter([
           <Signup />
         </Authlayout>
       },
-      {
-        path: '/list',
-        element: <List />
-      },
+      // {
+      //   path: '/list',
+      //   element: <List />
+      // },
       {
         path: '/post/:slug',
         element: <Post />
@@ -70,10 +74,10 @@ const router = createBrowserRouter([
         path: '/wishlist',
         element: <Wishlist />
       },
-      {
-        path: "/edit/:slug",
-        element: <Editpost />
-      },
+      // {
+      //   path: "/edit/:slug",
+      //   element: <Editpost />
+      // },
       {
         path: "/address",
         element: <Adress />
@@ -90,10 +94,10 @@ const router = createBrowserRouter([
         path: "/orderpage",
         element: <UserOrder />
       },
-      {
-        path: "/clientorder",
-        element: <ClientOrder />,
-      },
+      // {
+      //   path: "/clientorder",
+      //   element: <ClientOrder />,
+      // },
       {
         path: "/clientpro/:slug",
         element: <ClientOrderPro />,
@@ -108,8 +112,30 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />
-      }
+        element: <Outlet />,
+        children: [
+          {
+            path: "/dashboard",
+            element: <Dashboard />,
+          },
+          {
+            path: '/dashboard/list',
+            element: <List />
+          },
+          {
+            path: "/dashboard/list/edit/:slug",
+            element: <Editpost />
+          },
+          {
+            path: "/dashboard/yourpro",
+            element: <YourPro />,
+          },
+          {
+            path: "/dashboard/clientorder",
+            element: <ClientOrder />,
+          }
+        ]
+      },
     ],
   },
 ])

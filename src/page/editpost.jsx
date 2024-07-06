@@ -26,7 +26,7 @@ function editpost() {
     }, [slug, navigate])
     
   return post ? (
-        <div>
+        <div className='w-full'>
           <List post={post}/>
         </div>
     ) : null

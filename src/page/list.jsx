@@ -3,7 +3,7 @@ import { List } from '../component'
 
 function list() {
   return (
-    <div>
+    <div className=' w-full'>
       < List />
     </div>
   )
