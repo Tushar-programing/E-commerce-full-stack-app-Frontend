@@ -12,7 +12,14 @@ import img from "../images/tds1.png"
 import conf from "../conf/conf";
 import '../signup.css';
 
+import Badge from '@mui/material/Badge';
+
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+// import { FaRegHeart } from "react-icons/fa";
+import { VscAccount } from "react-icons/vsc";
+import { IoIosSearch } from "react-icons/io";
+import { IoMdLogIn } from "react-icons/io";
+
 
 function header() {
     const navigate = useNavigate()
@@ -67,126 +74,78 @@ function header() {
     // console.log("userData", userData);
     
 
-    const navitem= [
-        {
-            name:"Wishlist",
-            url: "/wishlist",
-            status: false
-        },
-        // {
-        //     name:" cart",
-        //     url: "/cart",
-        //     status: true
-        // },
-        {
-            name:" wishlist",
-            url: "/wishlist",
-            status: false
-        },
-        {
-            name:" login",
-            url: "/login",
-            status: !active
-        },
-        {
-            name:" signup",
-            url: "/signup",
-            status: !active
-        }, 
-    ]
+    
   return (
     <>
         
-        <div className='w-full py-2 sm:pt-4 pt-1 pl-3 bg-gray-100 flex'>
+        <div className='w-full py-2 sm:pt-4 pt-1 pl-3 bg-gray-100  grid grid-cols-12'>
             
-        <Link to="/"><img src={img}  alt="logo" className='sm:mr-36 mr-24 sm:ml-6 ml-2 sm:mt-4 mt-4 sm:mb-3 mb-2 sm:w-36 w-28'/></Link>
+            <Link className=' lg:col-span-2 col-span-3 ' to="/"><img src={img}  alt="logo" className=' mx-auto mt-3 sm:w-32 lg:w-36 w-28'/></Link>
             
-            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='sm:block hidden sm:p-1 p-0 mt-3 sm:w-80 w-24 sm:h-10 h-9 border outline-none sm:pl-3 pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
-            <div className='sm:block hidden border h-10 mt-3 border-black'></div>
+            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='lg:col-span-3 col-span-2 sm:block hidden sm:p-1 p-0 mt-2 mb-3 sm:h-10 h-9 border outline-none sm:pl-3 pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
+            {/* <div className='sm:block hidden border h-10 mt-3 border-black'></div> */}
             <select
                 id="age-select"
                 value={age}
                 onChange={handleChange}
-                className="sm:block hidden sm:w-auto w-20 h-10 mt-3 border border-gray-300 bg-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+                className="col-span-2 sm:block hidden h-10 mt-2 border-l-2 border-black bg-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
             >
-            <option className='text-black' value="">Browse by Category</option>
-            <option className='text-black' value="boards">Arduino Boards</option>
-            <option className='text-black' value="sensors">Sensors</option>
-            <option className='text-black' value="motors">Dc motors</option>
-            <option className='text-black' value="speakers">Buzzers & Speakers</option>
-            <option className='text-black' value="batteries">Batteries</option>
-            <option className='text-black' value="chargers">Chargers</option>
-            <option className='text-black' value="bluthooth">Bluetooth module</option>
-            <option className='text-black' value="capacitors">Capacitors & Transistors</option>
-            <option className='text-black' value="led">LED's</option>
-            <option className='text-black' value="drones">Drones</option>
-            <option className='text-black' value="cars">Rc cars</option>
-            <option className='text-black' value="other">other's</option>
+                <option className='text-black' value="">Browse by Category</option>
+                <option className='text-black' value="boards">Arduino Boards</option>
+                <option className='text-black' value="sensors">Sensors</option>
+                <option className='text-black' value="motors">Dc motors</option>
+                <option className='text-black' value="speakers">Buzzers & Speakers</option>
+                <option className='text-black' value="batteries">Batteries</option>
+                <option className='text-black' value="chargers">Chargers</option>
+                <option className='text-black' value="bluthooth">Bluetooth module</option>
+                <option className='text-black' value="capacitors">Capacitors & Transistors</option>
+                <option className='text-black' value="led">LED's</option>
+                <option className='text-black' value="drones">Drones</option>
+                <option className='text-black' value="cars">Rc cars</option>
+                <option className='text-black' value="other">other's</option>
             </select>
         
-            <button onClick={addtodo} className='mt-3 bg-black sm:inline-block hidden duration-200 w-11 h-10 rounded-tr-md rounded-br-md '><SearchIcon fontSize="large" color="primary" style={{ padding: '1px', color: 'white' }}/></button>
+            <button onClick={addtodo} className='border mt-2 bg-black sm:inline-block hidden duration-200 w-9 h-10 rounded-tr-md rounded-br-md'><IoIosSearch className='text-white w-6 h-6 ms-1'/></button>
             
+            {!active &&<div className='md:col-span-2 sm:col-span-1 col-span-4'></div>}
+            {active &&<div className='lg:col-span-1 sm:col-span-5 col-span-3 lg:block sm:hidden ]'></div>}
 
-            <ul className='flex ml-auto'>
-                    {active && <li  className='sm:flex hidden'>
-                        <button onClick={() => navigate("/wishlist")}
-                        className='fancy-underline inline-block sm:mx-8 mx-1 mt-1 sm:px-6 px-3 sm:py-2 py-1 text-black font-medium sm:text-lg text-base duration-200 rounded-full'
-                        >
-                            Wishlist
-                        </button>
-                    </li>}
-            {navitem.map((item) =>
-                item.status ? (
-                    <li key={item.name} className=''>
-                        <button id={item.name} onClick={() => navigate(item.url)}
-                        className='fancy-underline inline-block sm:mx-10 mx-1 mt-2 sm:px-6 px-3 sm:py-2 py-1 text-violet-900 font-medium sm:text-lg text-base duration-200 rounded-full'
-                        >
-                            {item.name}
-                        </button>
-                    </li>
-                ) : null
+
+            {!active && (
+                    <button
+                        className='md:col-span-2 sm:col-span-3 col-span-5 my-1 lg:mx-9 mx-0 border sm:text-lg text-base duration-200 rounded-md border-gray-900 border-y-2 border-x-2 flex justify-center text-gray-900'
+                    >
+                        <IoMdLogIn className='my-auto me-2' /><span onClick={() => navigate("/login")} className='my-auto'>Login</span><span onClick={() => navigate("/signup")} className='my-auto'>/Signup</span>
+                    </button>
             )}
+
                     
-            {active && (
-                <>
-                    <li className='sm:mr-0 mr-3 '>
-                        <div className=' absolute z-20 text-green-600 sm:ml-[93px] ml-[25px] sm:mt-1 mt-0 sm:text-xl text-lg'>{post?.length}</div>
-                        <div className='absolute z-10 text-red-600 rounded-full sm:w-7 w-5 sm:h-7 h-5 border bg-white sm:ml-[85px] ml-[21px] sm:mt-1 mt-1'></div>
-                        <button  onClick={() => navigate("/cart")}
-                        className=' fancy-underline inline-block sm:mx-10 mx-1 sm:mr-20 mr-2 sm:mt-2 mt-1 sm:px-6  py-2 text-blue-600  duration-200 rounded-2xl sm:w-auto w-10'
-                        >
-                            <img src={cart} className='sm:w-10 '/>
-                        </button>
-                    </li>
-                    <div className='sm:mr-14 mr-0 text-base sm:ml-4 ml-2'> 
-                      {userData && (<p className='sm:flex hidden text-green-500 font-medium sm:text-lg text-sm'>Hey {userData?.fullName}</p>)}
-                      <div className="dropdown sm:block hidden">
-                        <button className=" dropbtn text-black font-semibold">My account &nbsp;<ArrowDropDownIcon />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-
-                        <div className="dropdown-content sm:w-auto ">
-                          <Link to="/orderpage" className='sm:text-base text-sm'>My orders</Link>
-                          <Link to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
-                          <Link to="/address" className='sm:text-base text-sm'>My address</Link>
-                          <a className='sm:text-base text-sm' ><Logoutbtn /></a>
-                          <Link to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link>
+            {active && 
+                <div className=' lg:col-span-1 col-span-2 text-center '>
+                    <button  onClick={() => navigate("/cart")} className='flex mx-auto' ><Badge className='my-2 ' color="primary" badgeContent={post?.length}>
+                    <img src={cart} className='sm:w-9 w-9  '/>
+                    </Badge><span className='mt-5 ms-3 sm:block hidden'>Cart</span>
+                    </button>
+                </div>}
+            {/* {active && 
+                <div  className='sm:flex hidden col-span-1 border'>
+                    <FaRegHeart />
+                </div>
+            } */}
+            {active &&
+                <div className=' text-base lg:col-span-2 sm:col-span-2 col-span-4 '> 
+                    {/* {userData && (<p className='sm:flex hidden text-green-500 font-medium sm:text-lg text-sm'>Hey {userData?.fullName}</p>)} */}
+                    <div className="dropdown  my-3 lg:mx-10 md:mx-3 mx-0 ">
+                        <button onClick={(e) => setOpen(!open)} className=" text-black font-semibold flex justify-center mx-auto "><VscAccount className='w-6 h-6 lg:me-2 me-0' /><span className='lg:block sm:hidden block'>{userData?.fullName ||"Your Account" }</span><ArrowDropDownIcon />&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                        <div className="dropdown-content sm:w-auto lg:ms-8 ms-0  pt-2">
+                            <Link onClick={(e) => setOpen(false)} to="/orderpage" className='sm:text-base text-sm'>My orders</Link>
+                            <Link onClick={(e) => setOpen(false)} to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
+                            <Link onClick={(e) => setOpen(false)} to="/address" className='sm:text-base text-sm'>My address</Link>
+                            <a onClick={(e) => setOpen(false)} className='sm:text-base text-sm' ><Logoutbtn /></a>
+                            <Link onClick={(e) => setOpen(false)} to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link>
                         </div>
-                      </div>
-
-                      <div className=" sm:hidden block">
-                        <button onClick={(e) => setOpen(!open)} className="sm:hidden sm:mr-auto mr-5 flex text-black font-semibold">My account<div className=' mt-6 '><ArrowDropDownIcon /></div></button>
-
-                        <div className={`${open? "block" : " "} dropdown-content sm:w-auto `}>
-                          <Link to="/orderpage" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>My orders</Link>
-                          <Link to="/address" onClick={(e) => setOpen(false)} className='sm:text-base text-sm'>My address</Link>
-                          <a onClick={(e) => setOpen(false)} className='sm:text-base text-sm' ><Logoutbtn /></a>
-                          <Link onClick={(e) => setOpen(false)} to="/list" className='sm:text-base text-sm'>List Product</Link>
-                          <Link onClick={(e) => setOpen(false)} to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link>
-                        </div>
-                      </div>
                     </div>
-                </>
-            )}
-            </ul>
+                </div>}
 
         </div>
         <div className='h-auto sm:hidden  flex'>
