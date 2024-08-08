@@ -111,7 +111,7 @@ function signup() {
             className2=" mb-8 focus:outline-none focus:ring-2 focus:ring-violet-900 focus:border-violet-900"
             placeholder='Confirm password'
           /> */}
-          <div className='flex justify-center mt-2 mb-7'><p className='text-xl font-normal'>Already have an Account? <Link className='font-semibold' to="/login">Sign in</Link></p></div>
+          <div className='flex justify-center mt-2 mb-7'><p className='text-xl font-normal'>Already have an Account? <Link className='font-semibold text-blue-500' to="/login">Sign in</Link></p></div>
           <div className='flex justify-center'><Button className='w-56 mt-4 mb-16 text-xl hover:bg-violet-800' type="submit">Create Account</Button></div>
           
         </form>

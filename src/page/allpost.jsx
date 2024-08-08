@@ -26,11 +26,14 @@ import carts from '../component/images/carts.png'
 import support from '../component/images/support.png'
 import secure from '../component/images/secure.png'
 
+import '@splidejs/splide/dist/css/splide.min.css';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+
 function allpost() {
     const [posts, setPosts] = useState([]);
     // console.log("posts", posts);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    // const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
     const [blockLeft, setBlockLeft] = useState(true)
     const [blockRight, setBlockRight] = useState(false)
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
@@ -63,30 +66,30 @@ function allpost() {
 
 // console.log(posts.length);
 
-const slides = [
-  { id: 1, image: img1, text: 'First slide' },
-  { id: 2, image: img2, text: 'Second slide' },
-  { id: 3, image: img3, text: 'Third slide' },
+// const slides = [
+//   { id: 1, image: img1, text: 'First slide' },
+//   { id: 2, image: img2, text: 'Second slide' },
+//   { id: 3, image: img3, text: 'Third slide' },
   
-];
+// ];
 
-console.log("currentSlideIndex", currentSlideIndex);
+// console.log("currentSlideIndex", currentSlideIndex);
 
-const slideInterval = 2000; 
+// const slideInterval = 2000; 
 
 // Function to handle changing the slide to the next one
-const handleNextSlide = () => {
-  setCurrentSlideIndex((prevIndex) => (prevIndex === 2? prevIndex -2:  prevIndex + 1));
-};
+// const handleNextSlide = () => {
+//   setCurrentSlideIndex((prevIndex) => (prevIndex === 2? prevIndex -2:  prevIndex + 1));
+// };
 
 
-    useEffect(() => {
-      const intervalId = setInterval(handleNextSlide, slideInterval);
+    // useEffect(() => {
+    //   const intervalId = setInterval(handleNextSlide, slideInterval);
      
-      return () => clearInterval(intervalId);
-    }, [slideInterval]);
+    //   return () => clearInterval(intervalId);
+    // }, [slideInterval]);
 
-    const currentSlide = slides[currentSlideIndex];
+    // const currentSlide = slides[currentSlideIndex];
 
     const handleNextSlid = () => {
         setBlockLeft(false)
@@ -109,14 +112,14 @@ const handleNextSlide = () => {
 
   return (
     <div className='bg-gray-100 pb-20 '>
-      <LoginPopup open={active}/>
-      <div className='lide w-32 absolute z-10'>
+      {/* <LoginPopup open={active}/> */}
+      {/* <div className='lide w-32 absolute z-10'>
         {slides.map((slide) => (
           <button key={slide.id} onClick={() => setCurrentSlideIndex(slide.id -1)}  className={`sm:w-5 w-4 sm:h-5 h-4 border border-black  rounded-2xl ml-2  ${currentSlideIndex=== (slide.id - 1) ? 'bg-black' : 'bg-white'}`}></button>
         ))}
-      </div>
+      </div> */}
       
-      <div className="slideshow sm:mt-8 mt-0 ">
+      {/* <div className="slideshow sm:mt-8 mt-0 ">
           <div className="flex overflow-hidden sm:mt-10 mt-3">
             <div className="flex transition-transform duration-500" style={{ transform: isSmallScreen? `translateX(-${currentSlideIndex * 4 * 96}px)` : `translateX(-${currentSlideIndex * 4 * 400}px)`}}>
               {slides.map((img) => (
@@ -126,80 +129,114 @@ const handleNextSlide = () => {
               ))}
             </div>
           </div>
-              {/* <div className="">
-                  <img src={currentSlide.image} alt={currentSlide.text} className=" w-screen" />
-              </div> */}
-      </div>
+      </div> */}
+
+      <Splide
+        options={{
+          type: 'loop',
+          perPage: 1,
+          autoplay: true,
+          interval: 2000,
+        }}
+        className="sm:mt-8 mt-0"
+      >
+        <SplideSlide className="relative ">
+          <div className="relative w-full h-full">
+            <img src={img2} className="w-full h-full" />
+            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-2 xl:right-[500px] lg:right-[380px] md:right-64 sm:right-58 right-28  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs rounded">
+              Learn More
+            </button>
+          </div>
+        </SplideSlide>
+        <SplideSlide className="relative ">
+          <div className="relative w-full h-full">
+            <img src={img1} className="w-full h-full" />
+            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-2   xl:left-40 lg:left-28 md:left-20 sm:left-12 left-10  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs  rounded">
+              Learn More
+            </button>
+          </div>
+        </SplideSlide>
+        <SplideSlide className="relative ">
+          <div className="relative w-full h-full">
+            <img src={img3} className="w-full h-full" />
+            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-2   xl:left-40 lg:left-28 md:left-20 sm:left-12 left-10  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs  rounded">
+              Learn More
+            </button>
+          </div>
+        </SplideSlide>
+      </Splide>
+
+
       <div className=' sm:max-w-7xl max-w-3xl mx-auto px-4 '>
         <div className=' h-auto sm:mt-10 mt-5 sm:mb-7 mb-0 '>
             <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
-            <div className="sm:h-auto h-[320px] grid sm:grid-cols-5 grid-cols-3 ">
+            <div className="sm:h-auto h-[320px] grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-3 ">
               <Link to="/result?cat=drones">
                 <div className="flex flex-col items-center ">
-                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="border lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 ">
                     <img
-                      src={img4}
+                      src="https://media.karousell.com/media/photos/products/2017/02/24/racing_drone_fpv_kit_1487935777_72a72e10.jpg"
                       alt="Image 1"
-                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
+                      className=" lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
                     />
                   </div>
-                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
                     Drone and Rc planes <span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=boards">
                 <div className="flex flex-col items-center">
-                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
-                      src={img5}
+                      src="https://pimylifeup.com/wp-content/uploads/2015/08/Raspberry-Pi-Vs-Arduino.jpg"
                       alt="Image 2"
-                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
+                      className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
                     />
                   </div>
-                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
                     Arduino Boards <span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=sensors">
                 <div className="flex flex-col items-center">
-                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
-                      src={img6}
+                      src="https://tutorial45.com/wp-content/uploads/2017/11/arduino-gas-sensor.jpg"
                       alt="Image 3"
-                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
+                      className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
                     />
                   </div>
-                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
                     All type Sensors <span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=led">
                 <div className="flex flex-col items-center">
-                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
-                      src={img7}
+                      src="https://ae01.alicdn.com/kf/Hc696125dd61f4c31aee47ea8e9f60ee9S/12mm-bullet-DC12V-WS2818-RGB-full-color-addressable-LED-pixel-light-IP68-all-BLACK-wire-100pcs.jpg"
                       alt="Image 4"
-                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
+                      className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
                     />
                   </div>
-                  <p className="sm:w-auto w-16 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                  <p className="sm:w-auto w-16 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
                     Pixel LED's <span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=speakers">
                 <div className="flex flex-col items-center">
-                  <div className="sm:w-52 w-20 sm:h-52 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
+                  <div className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
                     <img
-                      src={img8}
+                      src="https://m.media-amazon.com/images/I/61Ou6sDalKL._UX250_.jpg"
                       alt="Image 5"
-                      className="sm:w-52 w-20 sm:h-52 h-20 object-cover"
+                      className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
                     />
                   </div>
-                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-15px] hover:translate-x-[-10px] duration-300 cursor-pointer font-semibold">
+                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
                     Bass and Speakers <span className="font-bold">&rarr;</span>
                   </p>
                 </div>

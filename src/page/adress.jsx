@@ -54,10 +54,11 @@ function adress() {
     }).then((datas) => {
       if (datas) {
         setPosts(datas.data.data);
+        // console.log("this is all data : ", datas.data.data);
         setOpen(false)
       }
     })
-  }, [isDialogOpen, create])
+  }, [isDialogOpen])
   // console.log("post", posts);
 
   if ( open ) {
@@ -97,7 +98,7 @@ function adress() {
                   required: true,
                   validate: {
                     matchPattern: (value) => /^[0-9]{10}$/.test(value) ||
-                    "Phone number must be a valid : ",
+                    "Phone number must be a valid ! ",
                   }
                 })}
                 />
@@ -132,9 +133,9 @@ function adress() {
                   required: true,
                 })}
                 />
-                {errors.name && <p>{errors.name.message}</p>}
-                {errors.company && <p>{errors.company.message}</p>}
-                {errors.phone && <p>{errors.phone.message}</p>}
+                {errors.name && <p className='text-red-400 text-center mt-2'>{errors.name.message}</p>}
+                {errors.company && <p className='text-red-400 text-center mt-2'>{errors.company.message}</p>}
+                {errors.phone && <p className='text-red-400 text-center mt-2'>{errors.phone.message}</p>}
               </form>
             </DialogContentText>
           </DialogContent>
@@ -144,14 +145,11 @@ function adress() {
           </DialogActions>
         </Dialog>
       <div className='flex flex-wrap '>
-        {(userData && posts.length > 0)? posts?.filter((post) => userData.$id === post.userid)
-        .map((post) => (
+        {posts?.map((post) => (
           <div key={post.$id} className='p-2 w-1/4'>
             <Adress  {...post}/>
           </div>
-        )): <div className=' ml-[410px]'><EmptyComp size="w-0" line1="Your Adress is Empty" line2="You have no Adress in your Adress Page. Start Adding " /></div>
-
-        }
+        ))}
       </div>
     </div>
   )

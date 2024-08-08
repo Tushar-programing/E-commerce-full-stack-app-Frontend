@@ -100,7 +100,7 @@ function login() {
             required: true,
         })}
         />
-        <div className='flex justify-center mt-2 mb-7'><p className='text-xl font-normal'>Don't have an Account? <Link className='font-semibold' to="/signup">Sign up</Link></p></div>
+        <div className='flex justify-center mt-2 mb-7'><p className='text-xl font-normal'>Don't have an Account? <Link className='font-semibold text-blue-500' to="/signup">Sign up</Link></p></div>
         <div className='flex justify-center'>
         <Button
         type='submit'

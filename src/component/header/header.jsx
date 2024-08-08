@@ -78,7 +78,7 @@ function header() {
   return (
     <>
         
-        <div className='w-full py-2 sm:pt-4 pt-1 pl-3 bg-gray-100  grid grid-cols-12'>
+        <div className='w-full py-4 sm:pt-4 pt-1 pl-3 bg-gray-100  grid grid-cols-12'>
             
             <Link className=' lg:col-span-2 col-span-3 ' to="/"><img src={img}  alt="logo" className=' mx-auto mt-3 sm:w-32 lg:w-36 w-28'/></Link>
             
@@ -113,9 +113,9 @@ function header() {
 
             {!active && (
                     <button
-                        className='md:col-span-2 sm:col-span-3 col-span-5 my-1 lg:mx-9 mx-0 border sm:text-lg text-base duration-200 rounded-md border-gray-900 border-y-2 border-x-2 flex justify-center text-gray-900'
+                        onClick={() => navigate("/login")} className='md:col-span-2 sm:col-span-3 col-span-5 my-1 lg:mx-9 mx-0 border sm:text-lg text-base duration-200 rounded-md border-gray-900 border-y-2 border-x-2 flex justify-center text-gray-900'
                     >
-                        <IoMdLogIn className='my-auto me-2' /><span onClick={() => navigate("/login")} className='my-auto'>Login</span><span onClick={() => navigate("/signup")} className='my-auto'>/Signup</span>
+                        <IoMdLogIn className='my-auto me-2' /><span onClick={() => navigate("/login")} className='my-auto'>Login</span><span onClick={() => navigate("/login")} className='my-auto'>/Signup</span>
                     </button>
             )}
 
@@ -146,9 +146,8 @@ function header() {
                         </div>
                     </div>
                 </div>}
-
         </div>
-        <div className='h-auto sm:hidden  flex'>
+        <div className='h-auto sm:hidden  flex mb-2'>
             <div className='flex mx-auto py-2'>
             <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='p-0 w-36 h-9 border outline-none pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
             <div className='border h-9 border-black'></div>
