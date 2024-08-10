@@ -7,10 +7,9 @@ import img from "./images/whishlist1.png"
 import img1 from "./images/whishlist2.png"
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { LoginPopup } from '../component'
+import { LoginPopup } from '.'
 import conf from "./conf/conf";
 
-import img2 from "./images/cart2.png"
 import whatsappmob from "../component/images/whatsappMob.png"
 
 
@@ -98,18 +97,17 @@ function postcard1({image, title, description, price, _id }) {
 
 
   return (
-    <div className=' bg-white'>
-        
-        <div className=' h-54 overflow-hidden'>
-          <button className='ml-56' onClick={() => wish()}><img src={like? img1 : img} className='w-5 mt-2'/></button>
-          <Link to={`/post/${_id}`}><img className='mx-auto w-52 h-52' src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></Link>
+    <div className=' bg-white grid grid-cols-2'>
+      <div className='w-36 md:w-64 h-36 sm:h-56 mx-auto my-5'><img src={image[images]} className='w-36 sm:w-44 lg:w-64 max-h-36 sm:max-h-40 lg:max-h-56 object-center' onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></div>
+      <div className=''>
+        <div className='sm:hidden block mt-5 text-base sm:text-lg'>{title?.slice(0, 30)} ...</div>
+        <div className='sm:block hidden mt-8 text-lg'>{title?.slice(0, 55)}</div>
+        <div className='text-lg sm:text-xl text-black font-light sm:mt-4 mt-3'>₹ {price}</div>
+        <div className=' flex justify-between mt-4 sm:mt-6 mb-2 sm:mb-0'>
+          <img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className="h-9 sm:h-10 cursor-pointer" />
+          <button onClick={() => navigate(`/post/${_id}`)} className={`ms-auto flex rounded-r-none rounded-xl w-28 sm:w-52 bg-gray-900 hover:bg-black mb-2 h-9 sm:h-11 text-white font-semibold transition-transform ${size? 'transform scale-90' : ''} duration-200 border text-sm sm:text-base`}><span className='mx-auto my-auto'>Learn More</span></button>
         </div>
-        <Link to={`/post/${_id}`}><div className='mx-5 mt-4 text-lg font-semibold'>{title.length > 22? (<span>{title.slice(0, 22)}...</span>) : (<span>{title}</span>)}</div>
-        {/* <div className='mx-5 mr-12 mt-1'>{description.length > 25? (<span>{description.slice(0, 25)}...</span>) : (<span>{description}</span>)}</div> */}
-        </Link>
-        {/* <p className='mx-5 text-xl text-black mt-3 mb-5 font-light'>₹ {price}</p> */}
-        <div className='mx-5 text-xl text-black mt-3 mb-5 font-light flex justify-between'><div>₹ {price}</div><img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className='w-8 sm:w-8 md:w-10 h-auto me-4 cursor-pointer '/></div>
-        <button onClick={() => onclick()} className={`flex rounded-t-none rounded-2xl mx-5 w-52 bg-gray-900 hover:bg-black mb-2 h-11 text-white text-center font-semibold transition-transform ${size? 'transform scale-90' : ''} duration-200`}><img src={img2} className='w-8 h-8  my-auto ml-8 mr-2' /><span className=' my-auto'>Add to Cart</span></button>
+      </div>
     </div>
   )
 }

@@ -29,14 +29,17 @@ import secure from '../component/images/secure.png'
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
+import mob1 from "../component/images/scroller1m.png"
+import mob2 from "../component/images/scroller2m.png"
+import mob3 from "../component/images/scroller3m.png"
+
+import whatsapp from "../component/images/whatsapp.png"
+import whatsappmob from "../component/images/whatsappMob.png"
+
+import Postcard2 from '../component/postcard2'
+
 function allpost() {
     const [posts, setPosts] = useState([]);
-    // console.log("posts", posts);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    // const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-    const [blockLeft, setBlockLeft] = useState(true)
-    const [blockRight, setBlockRight] = useState(false)
-    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
 
     const active = useSelector(state => state.auth.status)
 
@@ -63,73 +66,11 @@ function allpost() {
       }
       
   }, [])
-
-// console.log(posts.length);
-
-// const slides = [
-//   { id: 1, image: img1, text: 'First slide' },
-//   { id: 2, image: img2, text: 'Second slide' },
-//   { id: 3, image: img3, text: 'Third slide' },
-  
-// ];
-
-// console.log("currentSlideIndex", currentSlideIndex);
-
-// const slideInterval = 2000; 
-
-// Function to handle changing the slide to the next one
-// const handleNextSlide = () => {
-//   setCurrentSlideIndex((prevIndex) => (prevIndex === 2? prevIndex -2:  prevIndex + 1));
-// };
-
-
-    // useEffect(() => {
-    //   const intervalId = setInterval(handleNextSlide, slideInterval);
-     
-    //   return () => clearInterval(intervalId);
-    // }, [slideInterval]);
-
-    // const currentSlide = slides[currentSlideIndex];
-
-    const handleNextSlid = () => {
-        setBlockLeft(false)
-        
-        const newIndex = currentIndex +1;
-        if (newIndex === posts.filter((post) => post.category === "sensors").length - (isSmallScreen? 1 : 4)) setBlockRight(true)
-        
-        if (newIndex <= posts.filter((post) => post.category === "sensors").length - (isSmallScreen? 1 : 4)) setCurrentIndex(newIndex);
-    };
-
-    const handleBackSlid = () => {
-      setBlockRight(false)
-      const newIndex = currentIndex -1;
-        
-        if (newIndex === 0) setBlockLeft(true) 
-        if (newIndex >= 0) setCurrentIndex(newIndex);
-    }
-
     
 
   return (
     <div className='bg-gray-100 pb-20 '>
       {/* <LoginPopup open={active}/> */}
-      {/* <div className='lide w-32 absolute z-10'>
-        {slides.map((slide) => (
-          <button key={slide.id} onClick={() => setCurrentSlideIndex(slide.id -1)}  className={`sm:w-5 w-4 sm:h-5 h-4 border border-black  rounded-2xl ml-2  ${currentSlideIndex=== (slide.id - 1) ? 'bg-black' : 'bg-white'}`}></button>
-        ))}
-      </div> */}
-      
-      {/* <div className="slideshow sm:mt-8 mt-0 ">
-          <div className="flex overflow-hidden sm:mt-10 mt-3">
-            <div className="flex transition-transform duration-500" style={{ transform: isSmallScreen? `translateX(-${currentSlideIndex * 4 * 96}px)` : `translateX(-${currentSlideIndex * 4 * 400}px)`}}>
-              {slides.map((img) => (
-                <div key={img.id} className="outline w-screen">
-                    <img src={img.image} alt={img.text} className="screen" />
-                </div>
-              ))}
-            </div>
-          </div>
-      </div> */}
 
       <Splide
         options={{
@@ -138,7 +79,7 @@ function allpost() {
           autoplay: true,
           interval: 2000,
         }}
-        className="sm:mt-8 mt-0"
+        className="sm:mt-8 mt-0 sm:block hidden"
       >
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
@@ -167,7 +108,60 @@ function allpost() {
       </Splide>
 
 
-      <div className=' sm:max-w-7xl max-w-3xl mx-auto px-4 '>
+      <Splide
+        options={{
+          type: 'loop',
+          perPage: 1,
+          autoplay: true,
+          interval: 2000,
+        }}
+        className="sm:mt-8 mt-0 sm:hidden block"
+      >
+        <SplideSlide className="relative ">
+          <div className="relative w-full h-full">
+            <img src={mob1} className="w-full h-full" />
+            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-10 xl:right-[500px] lg:right-[380px] md:right-64 sm:right-58 right-28  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs rounded">
+              Learn More
+            </button>
+          </div>
+        </SplideSlide>
+        <SplideSlide className="relative ">
+          <div className="relative w-full h-full">
+            <img src={mob2} className="w-full h-full" />
+            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-8   xl:left-40 lg:left-28 md:left-20 sm:left-12 left-9  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs  rounded">
+              Learn More
+            </button>
+          </div>
+        </SplideSlide>
+        <SplideSlide className="relative ">
+          <div className="relative w-full h-full">
+            <img src={mob3} className="w-full h-full" />
+            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-8   xl:left-40 lg:left-28 md:left-20 sm:left-12 left-8  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs  rounded">
+              Learn More
+            </button>
+          </div>
+        </SplideSlide>
+      </Splide>
+
+      <img 
+        className='lg:w-64 md:w-52 sm:w-44 sm:block hidden ms-auto sticky top-96 cursor-pointer z-30' 
+        onClick={() => window.open("https://api.whatsapp.com/send?phone=917451811626", "_blank")} 
+        src={whatsapp} 
+        alt="WhatsApp"
+      />
+
+      <img 
+        className='w-14 sm:hidden block ms-auto sticky top-40 cursor-pointer z-30' 
+        onClick={() => window.open("https://api.whatsapp.com/send?phone=917451811626", "_blank")} 
+        src={whatsappmob}
+        alt="WhatsApp"
+      />
+
+      {/* <a href="https://wa.me/12345678900" target="_blank">Chat with us on WhatsApp</a> */}
+
+
+
+      <div className=' sm:max-w-7xl max-w-3xl mx-auto px-2 '>
         <div className=' h-auto sm:mt-10 mt-5 sm:mb-7 mb-0 '>
             <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
             <div className="sm:h-auto h-[320px] grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-3 ">
@@ -245,7 +239,9 @@ function allpost() {
 
         </div>
 
-          <div className='flex flex-wrap sm:mt-12 mt-6'>
+          <div className='mt-10 sm:mt-16 md:mt-20 text-xl sm:text-2xl font-semibold text-center '>Featured Products </div>
+
+          <div className='flex flex-wrap sm:mt-10 mt-6 '>
                   {posts.filter((post) => post.status === true)
                   
                   .map((post) => (                     
@@ -255,23 +251,32 @@ function allpost() {
                   ))}
           </div>
 
-          
-          <div className="flex overflow-hidden mt-10">
+          <div className='mt-12 text-xl sm:text-2xl font-semibold'>IOT Sensors</div>
+
+          <div className="flex sm:overflow-hidden overflow-x-scroll mt-7">
                 {/* Transition container */}
-                <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 4 * 64}px)` }}>
+                <div className="flex transition-transform duration-500">
                 {posts.filter((post) => post.category === "sensors")
                   .map((post) => (                     
-                        <div key={post._id} className='w-64 h-auto border '>
+                        <div key={post._id} className='w-64 h-auto border border-r-1 bg-white '>
                           {/* $id, title, image, price, brand, description */}
                           <Postcard1 {...post} />
                         </div>
                   ))}
                 </div>
-              {posts.filter((post) => post.category === "sensors").length > (isSmallScreen? 1 : 4) && <button onClick={handleBackSlid} className={`margin absolute mt-40 bg-violet-900 ml-1 ${blockLeft? 'hidden' : ''} `}><img className='sm:w-6 w-5 sm:ml-3 ml-1' src={slider} style={{ transform: `rotate(90deg)` }} /></button>}
-              {posts.filter((post) => post.category === "sensors").length > (isSmallScreen? 1 : 4) && <button onClick={handleNextSlid} className={`margin absolute mt-40 bg-violet-900 ${blockRight? 'hidden' : ''}`}><img className='sm:w-6 w-5 sm:ml-3 ml-2' src={slider} style={{ transform: `rotate(-90deg)` }} /></button>}
-            </div>
+          </div>
+
+          <div className='mt-16 text-2xl font-semibold'>Built-in Projects</div>
+
+          <div className="grid mt-7 border grid-cols-1 md:grid-cols-2 gap-2">
+                {posts.filter((post) => post.category === "built")
+                  .map((post) => (
+                      <Postcard2 key={post._id} {...post} />
+                  ))}
+          </div>
+          
       </div>
-      <section className="bg-gray-100 py-10 sm:mx-24 mx-4 mt-10 border">
+      <section className="bg-gray-100 py-16 sm:mx-24 mx-4 mt-10 ">
           <div className="container mx-auto ">
               <div className="flex flex-wrap justify-center ">
                   <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6"> 

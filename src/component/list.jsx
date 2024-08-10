@@ -190,6 +190,7 @@ function Post({ post }) {
             <option className='text-violet-900' value="led">LED's</option>
             <option className='text-violet-900' value="drones">Drones</option>
             <option className='text-violet-900' value="cars">Rc cars</option>
+            <option className='text-violet-900' value="built">Built-in Projects</option>
             <option className='text-violet-900' value="other">other's</option>
           </select>
           <div className=' text-center'><Button className='w-44' onClick={() => setSituation('image')} variant="outlined">Next</Button></div>

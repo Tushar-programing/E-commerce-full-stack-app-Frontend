@@ -160,13 +160,7 @@ function Post() {
           <div id='post2' className='h-full  float-left bg-white'>
           <button className='widthdis ' onClick={() => wish()}><img src={like? img2 : img1} className='w-6 mt-2'/></button>
               <div className='flex justify-evenly'>
-                <h1 className=' text-2xl font-semibold ml-8 mb-3'>{post.title}</h1>
-                {isAuthor && (
-                  <div className='flex justify-evenly '>
-                    <Link to={`/edit/${slug}`}><button className='mt-4 h-10 mb-2 w-10 rounded-sm text-white mr-2'><img src={edit} className='w-8 h-8 mx-auto '/></button></Link>
-                    <Link><button onClick={() => handledelete()} className='mt-4 h-10 mb-2 w-10 rounded-sm text-white ml-2' ><img src={del} className='w-8 h-8 mx-auto '/></button></Link>
-                  </div>
-                )}
+                <h1 className=' text-xl mx-8 mb-3'>{post.title}</h1>
               </div>
               <div className='w-full border'></div>
               <p className='mx-10 mt-8 text-xl text-gray-600 font-semibold'><span className='text-white pl-3 py-1 bg-green-600'>Model : </span>&nbsp;&nbsp;&nbsp;{post.model}</p>

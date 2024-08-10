@@ -12,6 +12,8 @@ import imgcart from "./images/cart.png"
 
 import cart from "./images/cart1.png"
 
+import whatsappmob from "../component/images/whatsappMob.png"
+
 
 function postcard({ _id, title, image, price, description, wis}) {
   console.log(wis);
@@ -101,15 +103,15 @@ function postcard({ _id, title, image, price, description, wis}) {
 
   return (
       <div className='w-full bg-white sm:rounded-md rounded-none sm:p-4 p-0 border sm:mt-0 mt-4'>
-        <button className='sm:ml-60 ml-[140px] my-1' onClick={() => wish()}><img src={like? img1 : img} className='w-5'/></button>
+        <button className='sm:ml-60 ml-[140px] sm:mb-4 mb-3 sm:mt-0 mt-2' onClick={() => wish()}><img src={like? img1 : img} className='w-5'/></button>
         <Link to={`/post/${_id}`}>
         <div id='postcard' className='w-full justify-center mb-7 overflow-hidden sm:max-h-56 max-h-36 '>
-          <img src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} className='rounded-lg sm:h-48 h-36  mx-auto mt-4'></img>
+          <img src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} className='rounded-lg sm:h-48 h-36  mx-auto '></img>
         </div>
+        </Link>
         <h2 className='sm:text-lg text-base sm:px-0 px-2 text-gray-800 mb-2 font-semibold'>{title.length > 25? (<span>{title.slice(0, 25)}...</span>) : (<span>{title}</span>)}</h2>
         {/* <h2 className='mb-2 sm:flex hidden'>{description.length > 25? (<span>{description.slice(0, 28)}...</span>) : (<span>{description}</span>)}</h2> */}
-        <h2 className='text-lg sm:px-0 px-2 font-light'>₹ {price}</h2>
-        </Link>
+        <div className='text-lg sm:px-0 px-2 font-light flex justify-between'><div>₹ {price}</div><img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className='w-8 sm:w-8 md:w-10 h-auto me-5 sm:me-8 md:me-10 cursor-pointer' /></div>
         <hr className='mt-2 border border-gray-200' />
         <div  className=' mt-4 flex sm:mb-0 mb-2 '>
             <button onClick={() => onclick()} className=' bg-white transform hover:scale-110 duration-300 text-white w-1/4 '><img src={cart} className=' w-8 h-9  mx-auto' /></button>

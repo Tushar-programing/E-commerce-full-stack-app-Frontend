@@ -22,7 +22,7 @@ function result() {
 
     const [open, setOpen] = useState(true)
 
-    const [priceRange, setPriceRange] = useState({ min: 0, max: 5000 });
+    const [priceRange, setPriceRange] = useState({ min: 0, max: 10000 });
 
     console.log(products);
 
@@ -262,7 +262,7 @@ function result() {
                               onChange={handleChang}
                               valueLabelDisplay="auto"
                               min={0}
-                              max={5000}
+                              max={10000}
                             //   getAriaValueText={valuetext}
                             />
                             <span className='w-56 ml-4'>Max ₹ {queryParams.maxPrice}</span> 

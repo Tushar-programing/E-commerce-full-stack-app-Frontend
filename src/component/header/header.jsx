@@ -80,7 +80,7 @@ function header() {
         
         <div className='w-full py-4 sm:pt-4 pt-1 pl-3 bg-gray-100  grid grid-cols-12'>
             
-            <Link className=' lg:col-span-2 col-span-3 ' to="/"><img src={img}  alt="logo" className=' mx-auto mt-3 sm:w-32 lg:w-36 w-28'/></Link>
+            <Link className=' lg:col-span-2 sm:col-span-3 col-span-4' to="/"><img src={img}  alt="logo" className=' mx-auto mt-3 w-full sm:w-32 lg:w-36 '/></Link>
             
             <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='lg:col-span-3 col-span-2 sm:block hidden sm:p-1 p-0 mt-2 mb-3 sm:h-10 h-9 border outline-none sm:pl-3 pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
             {/* <div className='sm:block hidden border h-10 mt-3 border-black'></div> */}
@@ -102,20 +102,21 @@ function header() {
                 <option className='text-black' value="led">LED's</option>
                 <option className='text-black' value="drones">Drones</option>
                 <option className='text-black' value="cars">Rc cars</option>
+                <option className='text-black' value="built">Built-in Projects</option>
                 <option className='text-black' value="other">other's</option>
             </select>
         
             <button onClick={addtodo} className='border mt-2 bg-black sm:inline-block hidden duration-200 w-9 h-10 rounded-tr-md rounded-br-md'><IoIosSearch className='text-white w-6 h-6 ms-1'/></button>
             
             {!active &&<div className='md:col-span-2 sm:col-span-1 col-span-4'></div>}
-            {active &&<div className='lg:col-span-1 sm:col-span-5 col-span-3 lg:block sm:hidden ]'></div>}
+            {active &&<div className='lg:col-span-1 sm:col-span-5 col-span-2 lg:block sm:hidden ]'></div>}
 
 
             {!active && (
                     <button
-                        onClick={() => navigate("/login")} className='md:col-span-2 sm:col-span-3 col-span-5 my-1 lg:mx-9 mx-0 border sm:text-lg text-base duration-200 rounded-md border-gray-900 border-y-2 border-x-2 flex justify-center text-gray-900'
+                        onClick={() => navigate("/login")} className='md:col-span-2 sm:col-span-3 col-span-3 my-1 lg:mx-9 mx-0 border sm:text-lg text-base duration-200 rounded-md border-gray-900 border-y-2 border-x-2 flex justify-center text-gray-900'
                     >
-                        <IoMdLogIn className='my-auto me-2' /><span onClick={() => navigate("/login")} className='my-auto'>Login</span><span onClick={() => navigate("/login")} className='my-auto'>/Signup</span>
+                        <IoMdLogIn className='my-auto me-2' /><span className='my-auto'>Login</span><span className='my-auto sm:block hidden'>/Signup</span>
                     </button>
             )}
 
@@ -136,14 +137,14 @@ function header() {
                 <div className=' text-base lg:col-span-2 sm:col-span-2 col-span-4 '> 
                     {/* {userData && (<p className='sm:flex hidden text-green-500 font-medium sm:text-lg text-sm'>Hey {userData?.fullName}</p>)} */}
                     <div className="dropdown  my-3 lg:mx-10 md:mx-3 mx-0 ">
-                        <button onClick={(e) => setOpen(!open)} className=" text-black font-semibold flex justify-center mx-auto "><VscAccount className='w-6 h-6 lg:me-2 me-0' /><span className='lg:block sm:hidden block'>{userData?.fullName ||"Your Account" }</span><ArrowDropDownIcon />&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                        <div className="dropdown-content sm:w-auto lg:ms-8 ms-0  pt-2">
+                        <button onMouseOver={(e) => setOpen(true)} onClick={(e) => setOpen(!open)} className=" text-black font-semibold flex justify-center mx-auto "><VscAccount className='w-6 h-6 lg:me-2 me-0 ms-12 sm:ms-5 lg:ms-0' /><span className='lg:block hidden lock'>{userData?.fullName ||"Your Account" }</span><ArrowDropDownIcon />&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                        {open && <div className="dropdown-content sm:w-auto lg:ms-8 ms-0  pt-2">
                             <Link onClick={(e) => setOpen(false)} to="/orderpage" className='sm:text-base text-sm'>My orders</Link>
                             <Link onClick={(e) => setOpen(false)} to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
                             <Link onClick={(e) => setOpen(false)} to="/address" className='sm:text-base text-sm'>My address</Link>
                             <a onClick={(e) => setOpen(false)} className='sm:text-base text-sm' ><Logoutbtn /></a>
                             <Link onClick={(e) => setOpen(false)} to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link>
-                        </div>
+                        </div>}
                     </div>
                 </div>}
         </div>
@@ -170,6 +171,7 @@ function header() {
             <option className='text-black' value="led">LED's</option>
             <option className='text-black' value="drones">Drones</option>
             <option className='text-black' value="cars">Rc cars</option>
+            <option className='text-black' value="built">Built-in Projects</option>
             <option className='text-black' value="other">other's</option>
             </select>
         
