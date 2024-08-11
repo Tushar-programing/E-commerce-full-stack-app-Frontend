@@ -148,34 +148,34 @@ function header() {
                     </div>
                 </div>}
         </div>
-        <div className='h-auto sm:hidden  flex mb-2'>
+        <div className='h-auto sm:hidden flex mb-2'>
             <div className='flex mx-auto py-2'>
-            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='p-0 w-36 h-9 border outline-none pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
-            <div className='border h-9 border-black'></div>
-            <select
-                id="age-select"
-                value={age}
-                onChange={handleChange}
-                onKeyPress={handleKeyPress}
-                className="block w-28 h-9 border border-gray-300 bg-white py-2 px-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-            >
-            <option className='text-black' value="">Browse by Category</option>
-            <option className='text-black' value="boards">Arduino Boards</option>
-            <option className='text-black' value="sensors">Sensors</option>
-            <option className='text-black' value="motors">Dc motors</option>
-            <option className='text-black' value="speakers">Buzzers & Speakers</option>
-            <option className='text-black' value="batteries">Batteries</option>
-            <option className='text-black' value="chargers">Chargers</option>
-            <option className='text-black' value="bluthooth">Bluetooth module</option>
-            <option className='text-black' value="capacitors">Capacitors & Transistors</option>
-            <option className='text-black' value="led">LED's</option>
-            <option className='text-black' value="drones">Drones</option>
-            <option className='text-black' value="cars">Rc cars</option>
-            <option className='text-black' value="built">Built-in Projects</option>
-            <option className='text-black' value="other">other's</option>
-            </select>
-        
-            <button onClick={addtodo} className='bg-black inline-block duration-200 w-9 h-9 rounded-tr-md rounded-br-md '><SearchIcon fontSize="medium" color="primary" style={{ padding: '1px', color: 'white' }}/></button>
+                <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='p-0 w-40 h-9 border outline-none pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
+                <div className='border h-9 border-black'></div>
+                <select
+                    id="age-select"
+                    value={age}
+                    onChange={handleChange}
+                    onKeyPress={handleKeyPress}
+                    className="block w-32 h-9 border border-gray-300 bg-white py-2 px-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+                >
+                <option className='text-black' value="">Browse by Category</option>
+                <option className='text-black' value="boards">Arduino Boards</option>
+                <option className='text-black' value="sensors">Sensors</option>
+                <option className='text-black' value="motors">Dc motors</option>
+                <option className='text-black' value="speakers">Buzzers & Speakers</option>
+                <option className='text-black' value="batteries">Batteries</option>
+                <option className='text-black' value="chargers">Chargers</option>
+                <option className='text-black' value="bluthooth">Bluetooth module</option>
+                <option className='text-black' value="capacitors">Capacitors & Transistors</option>
+                <option className='text-black' value="led">LED's</option>
+                <option className='text-black' value="drones">Drones</option>
+                <option className='text-black' value="cars">Rc cars</option>
+                <option className='text-black' value="built">Built-in Projects</option>
+                <option className='text-black' value="other">other's</option>
+                </select>
+                            
+                <button onClick={addtodo} className='bg-black inline-block duration-200 w-9 h-9 rounded-tr-md rounded-br-md '><SearchIcon fontSize="medium" color="primary" style={{ padding: '1px', color: 'white' }}/></button>
             </div>
         </div>
     </>

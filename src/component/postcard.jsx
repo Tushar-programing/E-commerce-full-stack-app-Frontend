@@ -109,9 +109,9 @@ function postcard({ _id, title, image, price, description, wis}) {
           <img src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} className='rounded-lg sm:h-48 h-36  mx-auto '></img>
         </div>
         </Link>
-        <h2 className='sm:text-lg text-base sm:px-0 px-2 text-gray-800 mb-2 font-semibold'>{title.length > 25? (<span>{title.slice(0, 25)}...</span>) : (<span>{title}</span>)}</h2>
+        <h2 className='sm:text-base text-base sm:px-0 px-2 text-gray-800 mb-2 font-light'>{title.length > 30? (<span>{title.slice(0, 32)}...</span>) : (<span>{title}</span>)}</h2>
         {/* <h2 className='mb-2 sm:flex hidden'>{description.length > 25? (<span>{description.slice(0, 28)}...</span>) : (<span>{description}</span>)}</h2> */}
-        <div className='text-lg sm:px-0 px-2 font-light flex justify-between'><div>₹ {price}</div><img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className='w-8 sm:w-8 md:w-10 h-auto me-5 sm:me-8 md:me-10 cursor-pointer' /></div>
+        <div className='text-lg sm:px-0 font-normal px-2 flex justify-between'><div>₹ {price} &nbsp;<span className='text-gray-500 font-light text-sm line-through'>₹{price + 230}</span></div><abbr title="Get Product details on whatsapp"><img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className='w-8 sm:w-8 md:w-10 h-auto me-5 sm:me-8 md:me-10 cursor-pointer' /></abbr></div>
         <hr className='mt-2 border border-gray-200' />
         <div  className=' mt-4 flex sm:mb-0 mb-2 '>
             <button onClick={() => onclick()} className=' bg-white transform hover:scale-110 duration-300 text-white w-1/4 '><img src={cart} className=' w-8 h-9  mx-auto' /></button>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function footer() {
   return (
-    <div className=' bg-white w-auto '>
+    <div className=' bg-white w-auto border-t-2'>
       <div className=' md:w-1/4 sm:w-1/2 w-full  float-left text-center '>
         <a><h1 className='mt-6 sm:mt-16 text-lg font-semibold text-violet-900'>About us</h1></a>
         <div className='mt-2 sm:mt-8'><h1>falcon eye.in best online store to buy STEM Kits, Electronics, Robotics, Aeromodelling Drone Parts, IoT, Prototyping and Arts & Crafts Materials at low price.</h1></div>
