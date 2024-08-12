@@ -283,11 +283,11 @@ function Post() {
           </div>
 
           <div className="col-span-12 md:col-span-6 px-3 sm:px-5 md:px-10">
-            <div className="text-lg md:text-xl font-normal text-gray-400 mt-5">
+            <div className="text-base sm:text-lg md:text-xl font-normal text-gray-400 mt-5">
               {post?.brand?.toUpperCase()}
             </div>
-            <div className="text-lg md:text-xl font-normal text-gray-900 mt-2 sm:mt-6 ">{post?.title}</div>
-            <div className="tex-base md:text-lg font-normal text-green-500 mt-1 sm:mt-2">Special offer</div>
+            <div className="text-base sm:text-lg md:text-xl font-normal text-gray-900 mt-1 sm:mt-6 ">{post?.title}</div>
+            <div className="text-sm sm:tex-base md:text-lg font-normal text-green-500 mt-1 sm:mt-2">Special offer</div>
             <div className="text-lg md:text-3xl font-normal text-gray-900 mt-1 sm:mt-5 ">
               ₹ {post?.price} &nbsp;
               <span className="text-sm md:text-lg font-normal text-gray-500 mt-1 line-through">
@@ -296,10 +296,10 @@ function Post() {
               &nbsp;
               <span className="text-sm md:text-lg font-normal text-green-500">34% off</span>
             </div>
-            <div className='mt-5 font-semibold text-lg text-gray-700'>Available offers</div>
-            <div className='mt-4 flex'><BiSolidOffer className='text-green-500 w-6 h-6' /><span className='ml-2 text-lg '>Free shipping<span className='my-auto text-base'>&nbsp; on orders over ₹999! Shop now and save on delivery.</span></span></div>
-            <div className='mt-3 flex'><BiSolidOffer className='text-green-500 w-6 h-6' /><span className='ml-2 text-lg '>Free Gift<span className='my-auto text-base'>&nbsp;on Every Order Over ₹1200—Limited Time Only!</span></span></div>
-            <div className='mt-3 flex'><BiSolidOffer className='text-green-500 w-6 h-6' /><span className='ml-2 text-lg '>Special Deal<span className='my-auto text-base'>&nbsp;Price Drop Alert: 20% —Limited Time, 5 Days Left!</span></span></div>
+            <div className='mt-3 md:mt-5 font-semibold text-base md:text-lg text-gray-700'>Available offers</div>
+            <div className='mt-2 md:mt-4 flex'><BiSolidOffer className='text-green-500 w-6 h-6' /><span className='ml-2 text-base md:text-lg '>Free shipping<span className='my-auto text-sm md:text-base'>&nbsp; on orders over ₹999! Shop now and save on delivery.</span></span></div>
+            <div className='m-1 md:mt-3 flex'><BiSolidOffer className='text-green-500 w-6 h-6' /><span className='ml-2 text-base md:text-lg '>Free Gift<span className='my-auto text-sm md:text-base'>&nbsp;on Every Order Over ₹1200—Limited Time Only!</span></span></div>
+            <div className='m-1 md:mt-3 flex'><BiSolidOffer className='text-green-500 w-6 h-6' /><span className='ml-2 text-base md:text-lg '>Special Deal<span className='my-auto text-sm md:text-base'>&nbsp;Price Drop Alert: 20% —Limited Time, 5 Days Left!</span></span></div>
             <div className='sm:grid hidden mt-8  grid-cols-12 gap-3'>
               <button onClick={onClick} className='flex col-span-12 lg:col-span-6 border bg-gray-900 text-white py-3  justify-center'><IoBagCheckOutline className=' my- me-3 w-5 h-5' />ADD TO BAG</button>
               <button onClick={checkActive} className='flex col-span-12 lg:col-span-4 border-gray-900 py-3 border-2 font-semibold  justify-center'><BiPurchaseTag className=' my-auto me-3 w-5 h-5' />BUY NOW</button>
@@ -321,25 +321,25 @@ function Post() {
             </div>}
             {code &&<div className='border py-2 w-80 mt-4 px-2'>{code} - {pin}</div>}
             {code && <div className='mt-2 '>Dispatched Securely in<span className='text-green-500'> 2-3 Business Days!</span></div>}
-            <div className='mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2'>
+            <div className=' mt-7 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2'>
               <div className='mb-5 grid grid-cols-9'>
-                <img src='https://t4.ftcdn.net/jpg/02/27/73/93/360_F_227739395_BhszneMcufcAe9DJEBTHFFxVJM1PR8RT.jpg' className='w-12 h-10 col-span-2' />
-                <span className='mx-3 col-span-6 text-base text-gray-800'>Free delivery on orders over ₹999!</span>
+                <img src='https://t4.ftcdn.net/jpg/02/27/73/93/360_F_227739395_BhszneMcufcAe9DJEBTHFFxVJM1PR8RT.jpg' className='w-12 h-10 col-span-2  mx-auto md:my-0' />
+                <span className='mx-3 col-span-6 text-sm md:text-base text-gray-800'>Free delivery on orders over ₹999!</span>
               </div>
               <div className='mb-5 grid grid-cols-9'>
-                <img src='https://freemiumicons.com/wp-content/uploads/2023/06/cash-on-delivery-icon-1.png' className='w-10 h-10 col-span-2' />
-                <span className='mx-3 col-span-6 text-base text-gray-800'>Cash on Delivery Available!</span>
+                <img src='https://freemiumicons.com/wp-content/uploads/2023/06/cash-on-delivery-icon-1.png' className='w-10 h-10 col-span-2  mx-auto md:my-0' />
+                <span className='mx-3 col-span-6 text-sm md:text-base text-gray-800'>Cash on Delivery Available!</span>
               </div>
               <div className='mb-3 grid grid-cols-9'>
-                <img src='https://static.thenounproject.com/png/4543714-200.png' className='w-10 h-10 col-span-2 ' />
-                <span className='mx-3 col-span-6 text-base text-gray-800'>Product Available Across India!</span>
+                <img src='https://static.thenounproject.com/png/4543714-200.png' className='w-10 h-10 col-span-2  mx-auto md:my-0' />
+                <span className='mx-3 col-span-6 text-sm md:text-base text-gray-800'>Product Available Across India!</span>
               </div>
               <div className='mb-3 grid grid-cols-9'>
-                <img src='https://www.svgrepo.com/show/40440/secure-payment.svg' className='w-9 h-9 mt-1 col-span-2 ' />
-                <span className='mx-3 col-span-6 text-base text-gray-800'>Secure Payments, Every Time Guaranteed!</span>
+                <img src='https://www.svgrepo.com/show/40440/secure-payment.svg' className='w-9 h-9 mt-1 col-span-2  mx-auto md:my-0' />
+                <span className='mx-3 col-span-6 text-sm md:text-base text-gray-800'>Secure Payments, Every Time Guaranteed!</span>
               </div>
             </div>
-            <div className='mt-10'>
+            <div className='mt-6 md:mt-10'>
               <Accordion
                 expanded={expanded}
                 onChange={handleExpansion}
@@ -399,20 +399,20 @@ function Post() {
                 <AccordionDetails>
                   <Typography>
                   <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-1 '>Model</div>
-                      <div className='col-span-4 lg:col-span-2 '>{post?.model}</div>
+                      <div className='col-span-2 md:col-span-1 '>Model</div>
+                      <div className='col-span-3 md:col-span-4 lg:col-span-2 '>{post?.model}</div>
                     </div>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-1 '>Use</div>
-                      <div className='col-span-4 lg:col-span-2 '>{post?.use}</div>
+                      <div className='col-span-2 md:col-span-1 '>Use</div>
+                      <div className='col-span-3 md:col-span-4 lg:col-span-2 '>{post?.use}</div>
                     </div>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-1 '>Material</div>
-                      <div className='col-span-4 lg:col-span-2 '>{post?.material}</div>
+                      <div className='col-span-2 md:col-span-1 '>Material</div>
+                      <div className='col-span-3 md:col-span-4 lg:col-span-2 '>{post?.material}</div>
                     </div>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-1 '>Category</div>
-                      <div className='col-span-4 lg:col-span-2 '>{post?.category}</div>
+                      <div className='col-span-2 md:col-span-1 '>Category</div>
+                      <div className='col-span-3 md:col-span-4 lg:col-span-2 '>{post?.category}</div>
                     </div>
                   </Typography>
                 </AccordionDetails>
@@ -420,7 +420,7 @@ function Post() {
             </div>
           </div>
         </div>
-        <div className='my-28 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
+        <div className='my-12 md:my-28 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
           <div className=' grid grid-cols-5'>
             <img src='https://cdn.iconscout.com/icon/free/png-256/free-cash-on-delivery-1851649-1569374.png?f=webp&w=256' className=' w-14 mx-auto' />
             <div className=' col-span-3'>Hassle-Free Easy Returns on Every Order, Guaranteed!</div>
