@@ -217,7 +217,7 @@ function Post() {
               options={{
                 type: 'loop',
                 perPage: 1,
-                autoplay: true,
+                autoplay: false,
                 interval: 2000,
                 arrows: false,
                 pagination: true,
@@ -282,19 +282,19 @@ function Post() {
             </div>
           </div>
 
-          <div className="col-span-12 md:col-span-6 px-10">
-            <div className="text-xl font-normal text-gray-400 mt-5">
+          <div className="col-span-12 md:col-span-6 px-3 sm:px-5 md:px-10">
+            <div className="text-lg md:text-xl font-normal text-gray-400 mt-5">
               {post?.brand?.toUpperCase()}
             </div>
-            <div className="text-xl font-normal text-gray-900 mt-3 sm:mt-6 ">{post?.title}</div>
-            <div className="text-lg font-normal text-green-500 mt-2">Special offer</div>
-            <div className="text-3xl font-normal text-gray-900 mt-5 ">
+            <div className="text-lg md:text-xl font-normal text-gray-900 mt-2 sm:mt-6 ">{post?.title}</div>
+            <div className="tex-base md:text-lg font-normal text-green-500 mt-1 sm:mt-2">Special offer</div>
+            <div className="text-lg md:text-3xl font-normal text-gray-900 mt-1 sm:mt-5 ">
               ₹ {post?.price} &nbsp;
-              <span className="text-lg font-normal text-gray-500 mt-1 line-through">
+              <span className="text-sm md:text-lg font-normal text-gray-500 mt-1 line-through">
                 ₹ {post?.price + 230}
               </span>
               &nbsp;
-              <span className="text-lg font-normal text-green-500">34% off</span>
+              <span className="text-sm md:text-lg font-normal text-green-500">34% off</span>
             </div>
             <div className='mt-5 font-semibold text-lg text-gray-700'>Available offers</div>
             <div className='mt-4 flex'><BiSolidOffer className='text-green-500 w-6 h-6' /><span className='ml-2 text-lg '>Free shipping<span className='my-auto text-base'>&nbsp; on orders over ₹999! Shop now and save on delivery.</span></span></div>
