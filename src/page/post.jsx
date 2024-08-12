@@ -322,19 +322,19 @@ function Post() {
             {code &&<div className='border py-2 w-80 mt-4 px-2'>{code} - {pin}</div>}
             {code && <div className='mt-2 '>Dispatched Securely in<span className='text-green-500'> 2-3 Business Days!</span></div>}
             <div className=' mt-7 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2'>
-              <div className='mb-5 grid grid-cols-9'>
+              <div className='mb-2 md:mb-5 grid grid-cols-9'>
                 <img src='https://t4.ftcdn.net/jpg/02/27/73/93/360_F_227739395_BhszneMcufcAe9DJEBTHFFxVJM1PR8RT.jpg' className='w-12 h-10 col-span-2  mx-auto md:my-0' />
                 <span className='mx-3 col-span-6 text-sm md:text-base text-gray-800'>Free delivery on orders over ₹999!</span>
               </div>
-              <div className='mb-5 grid grid-cols-9'>
+              <div className='mb-2 md:mb-5 grid grid-cols-9'>
                 <img src='https://freemiumicons.com/wp-content/uploads/2023/06/cash-on-delivery-icon-1.png' className='w-10 h-10 col-span-2  mx-auto md:my-0' />
                 <span className='mx-3 col-span-6 text-sm md:text-base text-gray-800'>Cash on Delivery Available!</span>
               </div>
-              <div className='mb-3 grid grid-cols-9'>
+              <div className='mb-1 md:mb-3 grid grid-cols-9'>
                 <img src='https://static.thenounproject.com/png/4543714-200.png' className='w-10 h-10 col-span-2  mx-auto md:my-0' />
                 <span className='mx-3 col-span-6 text-sm md:text-base text-gray-800'>Product Available Across India!</span>
               </div>
-              <div className='mb-3 grid grid-cols-9'>
+              <div className='mb-1 md:mb-3 grid grid-cols-9'>
                 <img src='https://www.svgrepo.com/show/40440/secure-payment.svg' className='w-9 h-9 mt-1 col-span-2  mx-auto md:my-0' />
                 <span className='mx-3 col-span-6 text-sm md:text-base text-gray-800'>Secure Payments, Every Time Guaranteed!</span>
               </div>
@@ -422,16 +422,16 @@ function Post() {
         </div>
         <div className='my-12 md:my-28 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
           <div className=' grid grid-cols-5'>
-            <img src='https://cdn.iconscout.com/icon/free/png-256/free-cash-on-delivery-1851649-1569374.png?f=webp&w=256' className=' w-14 mx-auto' />
-            <div className=' col-span-3'>Hassle-Free Easy Returns on Every Order, Guaranteed!</div>
+            <img src='https://cdn.iconscout.com/icon/free/png-256/free-cash-on-delivery-1851649-1569374.png?f=webp&w=256' className='w-10 md:w-14 mx-auto' />
+            <div className='text-sm md:text-base col-span-3'>Hassle-Free Easy Returns on Every Order, Guaranteed!</div>
           </div>
           <div className=' grid grid-cols-5 mt-5 sm:mt-0'>
-            <IoPricetagsOutline className=' w-10 mt-1 h-10 mx-auto' />
-            <div className=' col-span-3'>Unbeatable Prices on Top-Rated Products!</div>
+            <IoPricetagsOutline className='w-8 md:w-10 mt-1 h-10 mx-auto' />
+            <div className='text-sm md:text-base col-span-3'>Unbeatable Prices on Top-Rated Products!</div>
           </div>
           <div className=' grid grid-cols-5 mt-5 md:mt-0'>
-            <img src='https://logowik.com/content/uploads/images/easy-returns7112.jpg' className=' w-20 mx-auto' />
-            <div className=' col-span-3'>Hassle-Free Easy Returns on Every Order, Guaranteed!</div>
+            <img src='https://logowik.com/content/uploads/images/easy-returns7112.jpg' className='w-16 md:w-20 mx-auto' />
+            <div className='text-sm md:text-base col-span-3'>Hassle-Free Easy Returns on Every Order, Guaranteed!</div>
           </div>
         </div>
 
