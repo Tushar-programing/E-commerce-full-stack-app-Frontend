@@ -66,19 +66,19 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
             <div className=' my-auto text-center text-3xl'><button onClick={remove} className=' px-2'>×</button></div>
         </div>
       </div>
-      <div className=' md:hidden grid grid-cols-12 shadow-sm py-3'>
-        <div className='col-span-3 h-24  grid place-items-center'>
-          <img className=' max-h-24' src={product_details?.image[0]} />
+      <div className=' md:hidden grid grid-cols-12 shadow-sm py-1'>
+        <div className='col-span-3 h-20  grid place-items-center'>
+          <img className=' max-h-20' src={product_details?.image[0]} />
         </div>
         <div className='col-span-7  my-auto'>
-          <div className='text-gray-900 mx-4 font-semibold'>{product_details?.title.slice(0, 42)}...</div>
-          <div className='text-gray-600 mx-4 mt-2 text-lg'>₹ {product_details?.price * quant}</div>
+          <div className='text-gray-900 mx-4 font-semibold text-sm'>{product_details?.title.slice(0, 42)}...</div>
+          <div className='text-gray-600 mx-4 mt-2 text-base'>₹ {product_details?.price * quant}</div>
         </div>
         <div className='col-span-2 h-24 grid place-items-center '>
           <div>
-            <IoIosAddCircleOutline className='w-6 h-6 text-blue-600 mb-1' />
-            <div className='text-blue-600 text-center text-xl'>1</div>
-            <AiOutlineMinusCircle  className='w-6 h-6 text-blue-600 mt-1' />
+            <IoIosAddCircleOutline className='w-5 h-5 text-blue-600 mb-1' />
+            <div className='text-blue-600 text-center text-base'>1</div>
+            <AiOutlineMinusCircle  className='w-5 h-5 text-blue-600 mt-1' />
           </div>
         </div>
       </div>

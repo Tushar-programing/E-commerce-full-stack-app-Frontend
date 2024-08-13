@@ -37,10 +37,10 @@ function cartcalc({total}) {
             </button></Link>
           </div>
       </div>
-      <div className='mb-2 md:hidden w-full bg-white border py-5 rounded-3xl shadow-[0_-4px_6px_rgba(0,0,0,0.1),0_4px_6px_rgba(0,0,0,0.1)]'>
+      <div className='mb-2 md:hidden w-full bg-white border py-4 rounded-3xl shadow-[0_-4px_6px_rgba(0,0,0,0.1),0_4px_6px_rgba(0,0,0,0.1)]'>
         <div className='mx-5 flex justify-between'>
-          <div className=' text-xl font-semibold my-auto'> ₹ <span className='text-2xl'>{total}</span></div>
-          <button className=' text-xl font-semibold bg-gray-900 text-white px-8 py-2 rounded-3xl flex justify-center'><MdShoppingCartCheckout className='me-2 my-auto' /> Check Out</button>
+          <div className=' text-xl font-semibold my-auto'><span className=' text-base'>₹ </span>{total}</div>
+          <button className=' text-lg font-semibold bg-gray-900 text-white px-6 py-2 rounded-3xl flex justify-center'><MdShoppingCartCheckout className='me-2 my-auto' /> Check Out</button>
         </div>
       </div>
     </>
