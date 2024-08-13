@@ -7,8 +7,10 @@ import { toast } from 'react-toastify';
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { AiOutlineMinusCircle } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
 
 function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
+  const navigate = useNavigate();
 
   const [quant, setQuant] = useState(quantity);
 
@@ -23,6 +25,50 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
         updateCart(e.target.value, _id)
       }
 
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const inc = async() => {
+    setQuant(quant + 1);
+    try {
+      const update = await axios.post(`${conf.apiUrl}/cart/updateCart/${_id}`, {quantity: quant + 1}, {
+        withCredentials: true
+      })
+      if (update) {
+        toast.success("successfully updated the cart quantity")
+        updateCart()
+      }
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const dec = async() => {
+    setQuant(quant - 1);
+    try {
+      if (quant === 1) {
+        try {
+          const update = await axios.post(`${conf.apiUrl}/cart/removeCart/${_id}`, {}, {
+              withCredentials: true
+          })
+          if (update) {
+            window.location.reload();
+          }
+        } catch (error) {
+          console.log(error.message)
+        }
+      } else {
+        const update = await axios.post(`${conf.apiUrl}/cart/updateCart/${_id}`, {quantity: quant - 1}, {
+          withCredentials: true
+        })
+        if (update) {
+          toast.success("successfully updated the cart quantity")
+          updateCart()
+        }
+      }
     } catch (error) {
       console.log(error.message)
     }
@@ -67,18 +113,18 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
         </div>
       </div>
       <div className=' md:hidden grid grid-cols-12 shadow-sm py-1'>
-        <div className='col-span-3 h-24  grid place-items-center'>
+        <div onClick={() => navigate(`/post/${product_details?._id}`)} className='col-span-3 h-24  grid place-items-center'>
           <img className=' max-h-24' src={product_details?.image[0]} />
         </div>
-        <div className='col-span-7  my-auto'>
+        <div onClick={() => navigate(`/post/${product_details?._id}`)} className='col-span-7  my-auto'>
           <div className='text-gray-900 mx-4 font-semibold text-sm'>{product_details?.title.slice(0, 42)}...</div>
           <div className='text-gray-600 mx-4 mt-2 text-base'>₹ {product_details?.price * quant}</div>
         </div>
         <div className='col-span-2 h-24 grid place-items-center '>
           <div>
-            <IoIosAddCircleOutline className='w-6 h-6 text-blue-600 mb-' />
-            <div className='text-blue-600 text-center text-lg'>1</div>
-            <AiOutlineMinusCircle  className='w-6 h-6 text-blue-600 mt-' />
+            <IoIosAddCircleOutline onClick={inc} className='w-6 h-6 text-blue-600 mb- cursor-pointer' />
+            <div className='text-blue-600 text-center text-lg'>{quant}</div>
+            <AiOutlineMinusCircle onClick={dec}  className='w-6 h-6 text-blue-600 mt- cursor-pointer' />
           </div>
         </div>
       </div>
