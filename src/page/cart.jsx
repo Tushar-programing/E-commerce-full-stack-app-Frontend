@@ -105,7 +105,7 @@ function Cart() {
                     </div>
                 </div>
 
-                <div className='text-center block md:hidden mt-3 font-semibold'>My Cart</div>
+                <div className='text-center block md:hidden mt-3 '>My Cart</div>
                     {open ? (
                         <Backdrop
                             className='w-full'
