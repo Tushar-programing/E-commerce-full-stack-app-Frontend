@@ -115,7 +115,7 @@ function postcard({ _id, title, image, price, description, wis}) {
         <hr className='mt-2 border border-gray-200' />
         <div  className=' mt-4 flex sm:mb-0 mb-2 '>
             <button onClick={() => onclick()} className=' bg-white transform hover:scale-110 duration-300 text-white w-1/4 '><img src={cart} className=' w-8 h-9  mx-auto' /></button>
-            <button onClick={checkActive} className='rounded-r-none rounded-lg bg-black  transform hover:scale-105 duration-300 text-white sm:px-8 px-4 py-[0px] sm:ml-9 ml-4 sm:w-36 w-24'>Buy now</button>
+            <button onClick={checkActive} className='rounded-r-none rounded-lg bg-gray-900  transform hover:scale-105 duration-300 text-white sm:px-8 px-4 py-[0px] sm:ml-9 ml-4 sm:w-36 w-24'>Buy now</button>
         </div>
       </div>
   )
