@@ -122,9 +122,9 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
         </div>
         <div className='col-span-2 h-24 grid place-items-center '>
           <div>
-            <IoIosAddCircleOutline onClick={inc} className='w-6 h-6 text-blue-600 mb- cursor-pointer' />
-            <div className='text-blue-600 text-center text-lg'>{quant}</div>
-            <AiOutlineMinusCircle onClick={dec}  className='w-6 h-6 text-blue-600 mt- cursor-pointer' />
+            <IoIosAddCircleOutline onClick={inc} className='w-6 h-6 text-gray-900 mb- cursor-pointer' />
+            <div className=' text-gray-900 text-center text-lg'>{quant}</div>
+            <AiOutlineMinusCircle onClick={dec}  className='w-6 h-6 text-gray-900 mt- cursor-pointer' />
           </div>
         </div>
       </div>
