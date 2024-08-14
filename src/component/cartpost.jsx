@@ -112,7 +112,7 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
             <div className=' my-auto text-center text-3xl'><button onClick={remove} className=' px-2'>×</button></div>
         </div>
       </div>
-      <div className=' md:hidden grid grid-cols-12 shadow-sm py-1'>
+      <div className=' md:hidden grid grid-cols-12 py-1'>
         <div onClick={() => navigate(`/post/${product_details?._id}`)} className='col-span-3 h-24  grid place-items-center'>
           <img className=' max-h-24' src={product_details?.image[0]} />
         </div>
