@@ -112,7 +112,7 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
             <div className=' my-auto text-center text-3xl'><button onClick={remove} className=' px-2'>×</button></div>
         </div>
       </div>
-      <div className=' md:hidden grid grid-cols-12 py-1'>
+      <div className=' md:hidden grid grid-cols-12 shadow-sm py-1'>
         <div onClick={() => navigate(`/post/${product_details?._id}`)} className='col-span-3 h-24  grid place-items-center'>
           <img className=' max-h-24' src={product_details?.image[0]} />
         </div>
@@ -122,9 +122,9 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
         </div>
         <div className='col-span-2 h-24 grid place-items-center '>
           <div>
-            <IoIosAddCircleOutline onClick={inc} className='w-6 h-6 text-gray-900 mb- cursor-pointer' />
+            <IoIosAddCircleOutline onClick={inc} className='w-5 h-5 text-gray-900 mb-1 cursor-pointer' />
             <div className=' text-gray-900 text-center text-lg'>{quant}</div>
-            <AiOutlineMinusCircle onClick={dec}  className='w-6 h-6 text-gray-900 mt- cursor-pointer' />
+            <AiOutlineMinusCircle onClick={dec}  className='w-5 h-5 text-gray-900 mt-1 cursor-pointer' />
           </div>
         </div>
       </div>
