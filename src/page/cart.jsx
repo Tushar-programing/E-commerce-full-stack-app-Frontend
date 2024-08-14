@@ -95,13 +95,20 @@ function Cart() {
                 <div className="flex-1">
 
                 <div className='h-12 mx-2 mb-4 md:block hidden'>
-                    <div className='border h-full flex shadow-md'>
+                    {/* <div className='border h-full flex shadow-md'>
                         <div className=' w-72  my-auto mx-2 text-center'>Product Description</div>
                         <div className=' text-center w-[330px] my-auto'></div>
                         <div className=' text-center my-auto w-40 text--900 ml-14'>Unit Price</div>
                         <div className=' sm:block hidden my-auto text-center w-48 '>Units</div>
                         <div className='  w-36 my-auto text-center'>SubTotal</div>
                         <div className='  w-20 my-auto text-center '>remove</div>
+                    </div> */}
+                    <div className='border h-full grid grid-cols-12 font-light'>
+                        <div className=' my-auto text-start md:col-span-7 xl:col-span-7 '><span className='ms-20'>Product details</span></div>
+                        <div className=' my-auto text-center col-span-2 lg:col-span-1'>price</div>
+                        <div className=' my-auto text-center col-span-1 lg:col-span-2 sm:block hidden'>quant</div>
+                        <div className=' my-auto text-center col-span-1'>total</div>
+                        <div className=' my-auto text-center '>remove</div>
                     </div>
                 </div>
 
@@ -128,7 +135,7 @@ function Cart() {
                         )
                     )}
                 </div>
-                {(post.length > 0)? <div className='mx-auto md:block hidden'><Cartcalc total={total} /></div> : null}
+                {(post.length > 0)? <div className='ms-auto md:block hidden'><Cartcalc total={total} /></div> : null}
                 {(post.length > 0)? <div className='mx-auto md:hidden block sticky bottom-0 bg-white w-full '><Cartcalc total={total} /></div> : null}
             </div>
         </div>

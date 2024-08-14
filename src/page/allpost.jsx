@@ -114,6 +114,7 @@ function allpost() {
           perPage: 1,
           autoplay: true,
           interval: 2000,
+          arrows: false,
         }}
         className="sm:mt-8 mt-0 sm:hidden block"
       >
@@ -164,74 +165,74 @@ function allpost() {
       <div className=' sm:max-w-7xl max-w-3xl mx-auto px-2 '>
         <div className=' h-auto sm:mt-10 mt-5 sm:mb-7 mb-0 '>
             <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
-            <div className="sm:h-auto h-[320px] grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-3 ">
+            <div className=" sm:h-auto h-auto grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-5 ">
               <Link to="/result?cat=drones">
                 <div className="flex flex-col items-center ">
-                  <div className="border lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 ">
+                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 ">
                     <img
                       src="https://media.karousell.com/media/photos/products/2017/02/24/racing_drone_fpv_kit_1487935777_72a72e10.jpg"
                       alt="Image 1"
-                      className=" lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
+                      className=" lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
                     />
                   </div>
-                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
-                    Drone and Rc planes <span className="font-bold">&rarr;</span>
+                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
+                  <span className='sm:block hidden'>Drone and Rc planes </span><span className='sm:hidden block'>Drone </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=boards">
                 <div className="flex flex-col items-center">
-                  <div className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
                       src="https://pimylifeup.com/wp-content/uploads/2015/08/Raspberry-Pi-Vs-Arduino.jpg"
                       alt="Image 2"
-                      className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
+                      className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
                     />
                   </div>
-                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
-                    Arduino Boards <span className="font-bold">&rarr;</span>
+                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
+                  <span className='sm:block hidden'>Arduino Boards </span><span className='sm:hidden block'>Boards </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=sensors">
                 <div className="flex flex-col items-center">
-                  <div className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
                       src="https://tutorial45.com/wp-content/uploads/2017/11/arduino-gas-sensor.jpg"
                       alt="Image 3"
-                      className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
+                      className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
                     />
                   </div>
-                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
-                    All type Sensors <span className="font-bold">&rarr;</span>
+                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
+                  <span className='sm:block hidden'>All type Sensors </span><span className='sm:hidden block'>Sensors </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=led">
                 <div className="flex flex-col items-center">
-                  <div className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
                       src="https://ae01.alicdn.com/kf/Hc696125dd61f4c31aee47ea8e9f60ee9S/12mm-bullet-DC12V-WS2818-RGB-full-color-addressable-LED-pixel-light-IP68-all-BLACK-wire-100pcs.jpg"
                       alt="Image 4"
-                      className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
+                      className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
                     />
                   </div>
-                  <p className="sm:w-auto w-16 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
-                    Pixel LED's <span className="font-bold">&rarr;</span>
+                  <p className="sm:w-auto w-16 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
+                    <span className='sm:block hidden'>Pixel LED's </span><span className='sm:hidden block'>LED's </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=speakers">
                 <div className="flex flex-col items-center">
-                  <div className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
+                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
                     <img
                       src="https://m.media-amazon.com/images/I/61Ou6sDalKL._UX250_.jpg"
                       alt="Image 5"
-                      className="lg:w-48 md:w-36 w-20 lg:h-48 md:h-36 h-20 object-cover"
+                      className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
                     />
                   </div>
-                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-10px] duration-200 cursor-pointer font-semibold">
-                    Bass and Speakers <span className="font-bold">&rarr;</span>
+                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
+                  <span className='sm:block hidden'>Bass and Speakers </span><span className='sm:hidden block'>Speakers </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
@@ -241,19 +242,19 @@ function allpost() {
 
           <div className='mt-10 sm:mt-16 md:mt-20 text-xl sm:text-2xl font-semibold text-center '>Featured Products </div>
 
-          <div className='flex flex-wrap sm:mt-10 mt-6 '>
+          <div className='flex flex-wrap sm:mt-10 mt-6 sm:mx-14 xl:mx-8 '>
                   {posts.filter((post) => post.status === true)
                   
                   .map((post) => (                     
-                      <div key={post._id} className='sm:p-2 p-0 sm:w-1/4 w-1/2 '>
+                      <div key={post._id} className='sm:p-2 p-0 lg:w-1/4 md:w-1/3 w-1/2 '>
                           <Postcard {...post}/>
                       </div>   
                   ))}
           </div>
 
-          <div className='mt-12 text-xl sm:text-2xl font-semibold'>IOT Sensors</div>
+          <div className='mt-12 text-xl sm:text-2xl font-semibold mx-20 xl:mx-0'>IOT Sensors</div>
 
-          <div className="flex sm:overflow-hidden overflow-x-scroll mt-7">
+          <div className="flex sm:overflow-hidden overflow-x-scroll mt-7 mx-20 xl:mx-0">
                 {/* Transition container */}
                 <div className="flex transition-transform duration-500">
                 {posts.filter((post) => post.category === "sensors")

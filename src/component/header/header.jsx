@@ -78,17 +78,17 @@ function header() {
   return (
     <>
         
-        <div className='w-full py-4 sm:pt-4 pt-1 pl-3 bg-gray-100  grid grid-cols-12'>
+        <div className='w-full py-4 sm:pt-4 pt-1 pl-3 bg-white shadow-md sticky top-0 left-0 grid grid-cols-12 z-10'>
             
             <Link className=' lg:col-span-2 sm:col-span-3 col-span-4' to="/"><img src={img}  alt="logo" className=' mx-auto mt-3 w-full sm:w-32 lg:w-36 '/></Link>
             
-            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className='lg:col-span-3 col-span-2 sm:block hidden sm:p-1 p-0 mt-2 mb-3 sm:h-10 h-9 border outline-none sm:pl-3 pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
+            <input type='text' placeholder='Search here something' onKeyPress={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} className=' lg:col-span-3 col-span-2 sm:block hidden sm:p-1 p-0 mt-2 mb-3 sm:h-10 h-9 border outline-none sm:pl-3 pl-1 focus:outline-none focus:ring-2 focus:ring-black focus:border-black'/>
             {/* <div className='sm:block hidden border h-10 mt-3 border-black'></div> */}
             <select
                 id="age-select"
                 value={age}
                 onChange={handleChange}
-                className="col-span-2 sm:block hidden h-10 mt-2 border-l-2 border-black bg-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+                className="col-span-2 sm:block hidden h-10 mt-2 border-l-black border-l-2 border py-2 px-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
             >
                 <option className='text-black' value="">Browse by Category</option>
                 <option className='text-black' value="boards">Arduino Boards</option>
@@ -106,7 +106,7 @@ function header() {
                 <option className='text-black' value="other">other's</option>
             </select>
         
-            <button onClick={addtodo} className='border mt-2 bg-black sm:inline-block hidden duration-200 w-9 h-10 rounded-tr-md rounded-br-md'><IoIosSearch className='text-white w-6 h-6 ms-1'/></button>
+            <button onClick={addtodo} className=' mt-2 bg-black sm:inline-block hidden duration-200 w-9 h-10 rounded-tr-md rounded-br-md'><IoIosSearch className='text-white w-6 h-6 ms-1'/></button>
             
             {!active &&<div className='md:col-span-2 sm:col-span-1 col-span-4'></div>}
             {active &&<div className='lg:col-span-1 sm:col-span-5 col-span-2 lg:block sm:hidden ]'></div>}

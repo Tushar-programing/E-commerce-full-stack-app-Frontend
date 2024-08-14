@@ -5,9 +5,10 @@ import conf from "../component/conf/conf"
 
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from 'react-router-dom';
 
 import { EmptyComp } from '../component';
-
+import { IoHeartOutline } from "react-icons/io5";
 
 function wishlist() {
 
@@ -46,38 +47,26 @@ function wishlist() {
   }
 
   return (
-    <div className='bg-gray-100 h-auto border'>
-      <div className="sm:mx-24 mx-4 h-auto mt-10 mb-2">
-          {/* wishs?.length > 0 &&  */(<div className="sm:flex hidden  bg-white border">
-              <div className="text-black w-[700px] py-2 text-center"><p>
-                Product</p>
-              </div>
-              <div className=" text-black w-36 py-2 text-center"><p>
-                Added on</p>
-              </div>
-              <div className=" text-black w-32 py-2 text-center"><p>
-                Unit Price</p>
-              </div>
-              <div className=" text-black w-40 py-2 text-center"><p>
-                Quantity</p>
-              </div>
-              <div className=" text-black w-40 py-2 text-center"><p>
-                Added on</p>
-              </div>
-              <div className=" text-black w-24 py-2 text-center"><p>
-                Remove</p>
-              </div>
-          </div>)
-          }
-          {wishs?.length < 1 && (<div className='my-10 text-xl font-semibold text-center text-red-600'>You did not add anything in your wishlist yet</div>)}
-          {wishs?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
-          .map((wish) => (
-            // console.log(wish._id);
-              <div key={wish._id} className=''>
-                <Wishlist {...wish} />
-              </div>
-          ))}
-      </div>
+    <div className='bg-white h-auto py-10 mt-1'>
+      <div className='flex justify-center text-2xl md:text-3xl mb-3 md:mb-8 items-center'><IoHeartOutline className=' w-10 h-10 me-5' />Wishlist</div>
+        <div className=" h-auto mb-2 bg-white rounded-2xl py-5 lg:mx-20 xl:mx-48 p-2 shadow-none md:shadow-2xl">
+            <div className=' h-full grid grid-cols-12 font-light py-1 '>
+                <div className=' my-auto md:col-span-7 xl:col-span-7  text-center'>product_details</div>
+                <div className=' my-auto col-span-2  text-center'>price</div>
+                <div className=' sm:block hidden my-auto text-center col-span-2 '>
+                  Add
+                </div>
+                <div className=' my-auto text-center'>Remove</div>
+            </div>
+            {wishs?.length < 1 && (<div className='my-10 text-xl font-semibold text-center text-red-600'>You did not add anything in your wishlist yet</div>)}
+            {wishs?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
+            .map((wish) => (
+              // console.log(wish._id);
+                <div key={wish._id} className=''>
+                  <Wishlist {...wish} />
+                </div>
+            ))}
+        </div>
     </div>
   )
 }

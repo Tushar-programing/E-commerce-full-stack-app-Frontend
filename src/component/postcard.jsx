@@ -103,7 +103,7 @@ function postcard({ _id, title, image, price, description, wis}) {
 
   return (
       <div className='w-full bg-white sm:rounded-md rounded-none sm:p-4 p-0 border sm:mt-0 mt-4'>
-        <button className='sm:ml-60 ml-[140px] sm:mb-4 mb-3 sm:mt-0 mt-2' onClick={() => wish()}><img src={like? img1 : img} className='w-5'/></button>
+        <div className='text-end'><button className='me-2 sm:mb-4 mb-3 sm:mt-0 mt-2' onClick={() => wish()}><img src={like? img1 : img} className='w-5'/></button></div>
         <Link to={`/post/${_id}`}>
         <div id='postcard' className='w-full justify-center mb-7 overflow-hidden sm:max-h-56 max-h-36 '>
           <img src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} className='rounded-lg sm:h-48 h-36  mx-auto '></img>
