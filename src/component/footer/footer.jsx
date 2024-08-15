@@ -46,8 +46,8 @@ function footer() {
       </div>
       <div className='md:hidden block my-10 '>
           <div className='text-center mt-7 mb-3 '>About us</div>
-          <div className='mx-10 mb-4'>Electrobazar in best online store to buy STEM Kits, Electronics, Robotics, Aeromodelling Drone Parts, IoT, Prototyping and Arts & Crafts Materials at low price.</div>
-          <div className='mx-10'>
+          <div className='mx-7 mb-4'>Electrobazar in best online store to buy STEM Kits, Electronics, Robotics, Aeromodelling Drone Parts, IoT, Prototyping and Arts & Crafts Materials at low price.</div>
+          <div className='mx-7'>
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -58,12 +58,12 @@ function footer() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                    <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>My Account</h1></a>
-                    <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Order History</h1></a>
-                    <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Wish List</h1></a>
-                    <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Newsletter</h1></a>
-                    <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Privacy Policy</h1></a>
-                    <Link to="/list"><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-700'>List-item</h1></Link>
+                    <a><h1 className='mt-1 '>My Account</h1></a>
+                    <a><h1 className='mt-1 '>Order History</h1></a>
+                    <a><h1 className='mt-1 '>Wish List</h1></a>
+                    <a><h1 className='mt-1 '>Newsletter</h1></a>
+                    <a><h1 className='mt-1'>Privacy Policy</h1></a>
+                    <Link to="/list"><h1 className='mt-1 '>List-item</h1></Link>
                 </Typography>
               </AccordionDetails>
             </Accordion>
