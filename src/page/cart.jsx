@@ -9,6 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import conf from "../component/conf/conf"
 
 import { EmptyComp } from '../component';
+import { IoIosHeartEmpty } from "react-icons/io";
 
 function Cart() {
     // console.log("yes working when cahnge in cart");
@@ -94,25 +95,11 @@ function Cart() {
             <div className="flex flex-col min-h-screen">
                 <div className="flex-1">
 
-                <div className='h-12 mx-2 mb-4 md:block hidden'>
-                    {/* <div className='border h-full flex shadow-md'>
-                        <div className=' w-72  my-auto mx-2 text-center'>Product Description</div>
-                        <div className=' text-center w-[330px] my-auto'></div>
-                        <div className=' text-center my-auto w-40 text--900 ml-14'>Unit Price</div>
-                        <div className=' sm:block hidden my-auto text-center w-48 '>Units</div>
-                        <div className='  w-36 my-auto text-center'>SubTotal</div>
-                        <div className='  w-20 my-auto text-center '>remove</div>
-                    </div> */}
-                    <div className='border h-full grid grid-cols-12 font-light'>
-                        <div className=' my-auto text-start md:col-span-7 xl:col-span-7 '><span className='ms-20'>Product details</span></div>
-                        <div className=' my-auto text-center col-span-2 lg:col-span-1'>price</div>
-                        <div className=' my-auto text-center col-span-1 lg:col-span-2 sm:block hidden'>quant</div>
-                        <div className=' my-auto text-center col-span-1'>total</div>
-                        <div className=' my-auto text-center '>remove</div>
-                    </div>
+                <div className='h-auto mx-2 md:mb-4 mb-0 '>
+                    <div className='my-4 md:my-8 lg:my-12 flex justify-center items-center text-lg md:text-3xl'><IoIosHeartEmpty className='md:w-12 w-7 md:h-12 h-7 md:me-5 me-3' />Cart</div>
                 </div>
 
-                <div className='text-center block md:hidden mt-3 '>My Cart</div>
+                {/* <div className='text-center block md:hidden mt-3'>My Cart</div> */}
                     {open ? (
                         <Backdrop
                             className='w-full'
@@ -124,12 +111,21 @@ function Cart() {
                         </Backdrop>
                     ) : (
                         post?.length > 0 ? (
-                            post?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
+                            <div className='md:shadow-xl rounded-lg border-gray-200'>
+                                <div className='md:grid hidden h-full  grid-cols-12 font-light shadow-sm py-3 my-8'>
+                                    <div className=' my-auto text-start md:col-span-7 xl:col-span-7 '><span className='ms-20'>Product details</span></div>
+                                    <div className=' my-auto text-center col-span-2 lg:col-span-1'>price</div>
+                                    <div className=' my-auto text-center col-span-1 lg:col-span-2 sm:block hidden'>quant</div>
+                                    <div className=' my-auto text-center col-span-1'>total</div>
+                                    <div className=' my-auto text-center '>remove</div>
+                                </div>
+                            {post?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
                             .map((post) => (
-                                <div key={post._id} className='p-3'>
+                                <div key={post._id} className='p-3 '>
                                     <Cartpost {...post} updateCart={updateCart} />
                                 </div>
-                            ))
+                            ))}
+                            </div>
                         ) : (
                             <EmptyComp size="w-0" line1="Your Cart is Empty" line2="You have no items in your Cart. Start Adding" />
                         )

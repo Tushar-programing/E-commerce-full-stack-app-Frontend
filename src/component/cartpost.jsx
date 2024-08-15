@@ -89,8 +89,8 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
       
   return (
     <>
-      <div className='md:block hidden h-24 shadow-md'>
-        <div className='border h-full grid grid-cols-12 font-light'>
+      <div className='md:block hidden h-24 shadow-sm'>
+        <div className=' h-full grid grid-cols-12 font-light'>
             <Link to={`/post/${product_details?._id}`} className=' overflow-hidden md:col-span-2 xl:col-span-1'><img src={product_details?.image[0]} className='mx-auto my-auto h-24 '/></Link>
             <Link to={`/post/${product_details?._id}`} className=' my-auto md:col-span-5 xl:col-span-6 '><div className='ml-2 lg:ml-5 my-auto  hover:text-red-600 transform sm:hover:translate-x-[-6px] duration-300 cursor-pointer'><span className='lg:block hidden'>{product_details?.title}</span> <span className='hidden md:block lg:hidden'>{product_details?.title.slice(0, 45)}</span></div></Link>
             <Link to={`/post/${product_details?._id}`} className=' my-auto col-span-2 lg:col-span-1'><div className=' text-center my-auto text--900'>₹ {product_details?.price}</div></Link>

@@ -17,7 +17,7 @@ function cartcalc({total}) {
 
   return (
     <>
-      <div className='hidden md:block w-80 md:w-80 lg:w-96 ml-auto border mr-2 mb-5 shadow-xl'>
+      <div className='hidden md:block w-80 md:w-80 lg:w-96 ml-auto border mr-2 mb-5 shadow-2xl mt-5 '>
           <div className="container mx-auto p-4">
             <h2 className="text-2xl font-bold mb-5">Cart totals</h2>
             <div className="border-b border-gray-300 mb-5">

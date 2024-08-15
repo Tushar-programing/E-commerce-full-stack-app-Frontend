@@ -162,77 +162,77 @@ function allpost() {
 
 
 
-      <div className=' sm:max-w-7xl max-w-3xl mx-auto px-2 '>
-        <div className=' h-auto sm:mt-10 mt-5 sm:mb-7 mb-0 '>
+      <div className=' px-2 2xl:mx-64 xl:mx-44 lg:mx-36 md:mx-24 sm:mx-24 mx-0'>
+        <div className=' h-auto sm:mb-7 mb-0 '>
             <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
-            <div className=" sm:h-auto h-auto grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-5 ">
+            <div className="sm:h-auto h-auto grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-5 ">
               <Link to="/result?cat=drones">
                 <div className="flex flex-col items-center ">
-                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 ">
+                  <div className=" xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 ">
                     <img
                       src="https://media.karousell.com/media/photos/products/2017/02/24/racing_drone_fpv_kit_1487935777_72a72e10.jpg"
                       alt="Image 1"
-                      className=" lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
+                      className=" xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
                     />
                   </div>
                   <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                  <span className='sm:block hidden'>Drone and Rc planes </span><span className='sm:hidden block'>Drone </span><span className="font-bold">&rarr;</span>
+                  <span className='md:block hidden'>Drone and Rc planes </span><span className='md:hidden block'>Drone </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=boards">
                 <div className="flex flex-col items-center">
-                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
                       src="https://pimylifeup.com/wp-content/uploads/2015/08/Raspberry-Pi-Vs-Arduino.jpg"
                       alt="Image 2"
-                      className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
+                      className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
                     />
                   </div>
                   <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                  <span className='sm:block hidden'>Arduino Boards </span><span className='sm:hidden block'>Boards </span><span className="font-bold">&rarr;</span>
+                  <span className='md:block hidden'>Arduino Boards </span><span className='md:hidden block'>Boards </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=sensors">
                 <div className="flex flex-col items-center">
-                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
                       src="https://tutorial45.com/wp-content/uploads/2017/11/arduino-gas-sensor.jpg"
                       alt="Image 3"
-                      className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
+                      className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
                     />
                   </div>
                   <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                  <span className='sm:block hidden'>All type Sensors </span><span className='sm:hidden block'>Sensors </span><span className="font-bold">&rarr;</span>
+                  <span className='md:block hidden'>All type Sensors </span><span className='md:hidden block'>Sensors </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=led">
                 <div className="flex flex-col items-center">
-                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
+                  <div className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
                     <img
                       src="https://ae01.alicdn.com/kf/Hc696125dd61f4c31aee47ea8e9f60ee9S/12mm-bullet-DC12V-WS2818-RGB-full-color-addressable-LED-pixel-light-IP68-all-BLACK-wire-100pcs.jpg"
                       alt="Image 4"
-                      className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
+                      className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
                     />
                   </div>
                   <p className="sm:w-auto w-16 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                    <span className='sm:block hidden'>Pixel LED's </span><span className='sm:hidden block'>LED's </span><span className="font-bold">&rarr;</span>
+                    <span className='md:block hidden'>Pixel LED's </span><span className='md:hidden block'>LED's </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
               <Link to="/result?cat=speakers">
                 <div className="flex flex-col items-center">
-                  <div className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
+                  <div className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
                     <img
                       src="https://m.media-amazon.com/images/I/61Ou6sDalKL._UX250_.jpg"
                       alt="Image 5"
-                      className="lg:w-48 md:w-36 sm:w-24 w-14 lg:h-48 md:h-36 sm:h-24 h-14 object-cover"
+                      className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
                     />
                   </div>
                   <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                  <span className='sm:block hidden'>Bass and Speakers </span><span className='sm:hidden block'>Speakers </span><span className="font-bold">&rarr;</span>
+                  <span className='md:block hidden'>Bass and Speakers </span><span className='md:hidden block'>Speakers </span><span className="font-bold">&rarr;</span>
                   </p>
                 </div>
               </Link>
@@ -240,21 +240,19 @@ function allpost() {
 
         </div>
 
-          <div className='mt-10 sm:mt-16 md:mt-20 text-xl sm:text-2xl font-semibold text-center '>Featured Products </div>
+          <div className='mt-10 sm:mt-16 text-xl sm:text-2xl font-semibold text-center '>Home Decor Products </div>
 
-          <div className='flex flex-wrap sm:mt-10 mt-6 sm:mx-14 xl:mx-8 '>
+          <div className=' grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-8 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-5 gap-3 md:mt-16 mt-8'>
                   {posts.filter((post) => post.status === true)
                   
-                  .map((post) => (                     
-                      <div key={post._id} className='sm:p-2 p-0 lg:w-1/4 md:w-1/3 w-1/2 '>
-                          <Postcard {...post}/>
-                      </div>   
+                  .map((post) => (
+                        <Postcard key={post._id} {...post}/>
                   ))}
           </div>
 
-          <div className='mt-12 text-xl sm:text-2xl font-semibold mx-20 xl:mx-0'>IOT Sensors</div>
+          <div className='mt-12 text-xl sm:text-2xl font-semibold '>IOT Sensors</div>
 
-          <div className="flex sm:overflow-hidden overflow-x-scroll mt-7 mx-20 xl:mx-0">
+          <div className="flex sm:overflow-hidden overflow-x-scroll mt-7 ">
                 {/* Transition container */}
                 <div className="flex transition-transform duration-500">
                 {posts.filter((post) => post.category === "sensors")
@@ -266,17 +264,18 @@ function allpost() {
                   ))}
                 </div>
           </div>
-
-          <div className='mt-16 text-2xl font-semibold'>Built-in Projects</div>
-
-          <div className="grid mt-7 border grid-cols-1 md:grid-cols-2 gap-2">
-                {posts.filter((post) => post.category === "built")
-                  .map((post) => (
-                      <Postcard2 key={post._id} {...post} />
-                  ))}
-          </div>
           
       </div>
+      <div className='2xl:mx-64 xl:mx-44 lg:mx-36 md:mx-0 sm:mx-20 mx-0'>
+        <div className='mt-16 text-2xl font-semibold'>Built-in Projects</div>
+        <div className="grid mt-7 border grid-cols-1 md:grid-cols-2 gap-2">
+              {posts.filter((post) => post.category === "built")
+                .map((post) => (
+                    <Postcard2 key={post._id} {...post} />
+                ))}
+        </div>
+      </div>
+
       <section className="bg-gray-100 py-16 sm:mx-24 mx-4 mt-10 ">
           <div className="container mx-auto ">
               <div className="flex flex-wrap justify-center ">

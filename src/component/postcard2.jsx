@@ -98,14 +98,14 @@ function postcard1({image, title, description, price, _id }) {
 
   return (
     <div className=' bg-white grid grid-cols-2'>
-      <div className='w-36 md:w-64 h-36 sm:h-56 mx-auto my-5'><img src={image[images]} className='w-36 sm:w-44 lg:w-64 max-h-36 sm:max-h-40 lg:max-h-56 object-center' onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></div>
+      <div className='sm:h-60 h-48 grid place-items-center px-5'><img src={image[images]} className='sm:max-h-56 max-h-44' onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></div>
       <div className=''>
         <div className='sm:hidden block mt-5 text-base sm:text-lg'>{title?.slice(0, 30)} ...</div>
         <div className='sm:block hidden mt-8 text-lg'>{title?.slice(0, 55)}</div>
         <div className='text-lg sm:text-xl text-black font-light sm:mt-4 mt-3'>₹ {price}</div>
-        <div className=' flex justify-between mt-4 sm:mt-6 mb-2 sm:mb-0'>
-          <img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className="h-9 sm:h-10 cursor-pointer" />
-          <button onClick={() => navigate(`/post/${_id}`)} className={`ms-auto flex rounded-r-none rounded-xl w-28 sm:w-52 bg-gray-900 hover:bg-black mb-2 h-9 sm:h-11 text-white font-semibold transition-transform ${size? 'transform scale-90' : ''} duration-200 border text-sm sm:text-base`}><span className='mx-auto my-auto'>Learn More</span></button>
+        <div className=' flex justify-between items-center mt-4 sm:mt-6 mb-2 sm:mb-0 '>
+          <img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className=" h-9 sm:h-10 cursor-pointer" />
+          <button onClick={() => navigate(`/post/${_id}`)} className={`ms-auto flex rounded-r-none rounded-xl w-36  md:w-36 lg:w-44 xl:w-48 2xl:w-52 bg-gray-900 hover:bg-black h-9 sm:h-11 text-white font-semibold transition-transform ${size? 'transform scale-90' : ''} duration-200 border text-sm sm:text-base`}><span className='mx-auto my-auto'>Learn More</span></button>
         </div>
       </div>
     </div>
