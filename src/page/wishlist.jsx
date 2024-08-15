@@ -50,7 +50,7 @@ function wishlist() {
     <div className='bg-white h-auto py-10 mt-1'>
       <div className='flex justify-center text-2xl md:text-3xl mb-3 md:mb-8 items-center'><IoHeartOutline className=' w-10 h-10 me-5' />Wishlist</div>
         <div className=" h-auto mb-2 bg-white rounded-2xl py-5 lg:mx-20 xl:mx-48 p-2 shadow-none md:shadow-2xl">
-            <div className=' h-full grid grid-cols-12 font-light py-1 '>
+            <div className=' md:grid hidden h-full  grid-cols-12 font-light py-1'>
                 <div className=' my-auto md:col-span-7 xl:col-span-7  text-center'>product_details</div>
                 <div className=' my-auto col-span-2  text-center'>price</div>
                 <div className=' sm:block hidden my-auto text-center col-span-2 '>

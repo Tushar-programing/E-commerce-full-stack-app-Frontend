@@ -109,7 +109,7 @@ function postcard({ _id, title, image, price, description, wis}) {
     <div className=' bg-white rounded-2xl'>
       <Link to={`/post/${_id}`}><div className='h-56 md:h-72 grid place-items-center bg-white rounded-t-xl'><img onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} src={image[images]} className='my-auto md:max-h-72 max-h-56' /></div></Link>
       <Link to={`/post/${_id}`}><div className='text-center mt-5'>{title.split('||').slice(0, 1).join(' ')}</div></Link>
-      <div className='flex justify-evenly my-4 items-center'><button onClick={() => wish()} className=' px-3 py-1'>{like?<RiHeartAddLine className='w-6 h-6' />:<RiHeartFill className='w-6 h-6' />}</button><span>₹ {price}</span><button onClick={() => onclick()} className='mx-3 my-1'><IoCartOutline className='w-6 h-6' /></button></div>
+      <div className='flex justify-evenly my-4 items-center'><button onClick={() => wish()} className=' px-3 py-1'>{!like?<RiHeartAddLine className='w-6 h-6' />:<RiHeartFill className='w-6 h-6' />}</button><span>₹ {price}</span><button onClick={() => onclick()} className='mx-3 my-1'><IoCartOutline className='w-6 h-6' /></button></div>
       <div className='mx-5'></div>
       {/* <div className='w-full bg-white sm:rounded-md rounded-none sm:p-4 p-0 border sm:mt-0 mt-4'>
         <div className='text-end'><button className='me-2 sm:mb-4 mb-3 sm:mt-0 mt-2' onClick={() => wish()}><img src={like? img1 : img} className='w-5'/></button></div>

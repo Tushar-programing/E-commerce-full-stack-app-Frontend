@@ -282,32 +282,32 @@ function allpost() {
                   <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6"> 
                       <div className=' flex'>
                         <div className=' w-16 h-10'><img src={shipping} className="h-10 mx-auto  my-auto" /></div>
-                        <h2 className="text-xl font-bold mb-2 ">Free Shipping</h2>
+                        <h2 className="font-semibold mb-2 ">Free Shipping</h2>
                       </div>
-                      <p className="text-lg ml-16">Free Shipping on all prepaid <br /> orders above Rs. 999</p>
+                      <p className=" ml-16">Free Shipping on all prepaid <br /> orders above Rs. 999</p>
                   </div>
                   <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
                       <div className=' flex'>
                         <div className=' w-16 h-10'><img src={carts} className='h-10 mx-auto my-auto' /></div>
-                        <h2 className="text-xl font-bold mb-2">Quality Assurance</h2>
+                        <h2 className="font-semibold mb-2">Quality Assurance</h2>
                       </div>
-                      <p className="text-lg ml-16">Enjoy 100% premium quality <br /> products</p>
+                      <p className=" ml-16">Enjoy 100% premium quality <br /> products</p>
                   </div>
                   <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
                       <div className=' flex'>
                         <div className=' w-16 h-10'><img src={support} className="h-10 mx-auto my-auto" /></div>
-                        <h2 className="text-xl font-bold mb-2">Top-notch Support</h2>
+                        <h2 className="font-semibold mb-2">Top-notch Support</h2>
                       </div>
-                      <p className="text-lg ml-16">Call: +91 7451811626</p>
-                      <p className="text-lg ml-16">Mail: <a href="mailto:ttushar476@gmail.com" className="text-blue-600 hover:text-blue-900">support@electrobazar.in</a></p>
-                      <p className="text-lg ml-16">Timings: 9am to 9pm, <br /> Days: Mon-Sun</p>
+                      <p className=" ml-16">Call: +91 7451811626</p>
+                      <p className=" ml-16">Mail: <a href="mailto:ttushar476@gmail.com" className="text-blue-600 hover:text-blue-900">support@electrobazar.in</a></p>
+                      <p className=" ml-16">Timings: 9am to 9pm, <br /> Days: Mon-Sun</p>
                   </div>
                   <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
                       <div className=' flex'>
                         <div className=' w-16 h-10'><img src={secure} className="h-10 mx-auto my-auto" /></div>
-                        <h2 className="text-xl font-bold mb-2">Secure Payments</h2>
+                        <h2 className="font-semibold mb-2">Secure Payments</h2>
                       </div>
-                      <p className="text-lg ml-16">100% Secure Payments by  <br /> Trusted Payment Gateways</p>
+                      <p className=" ml-16">100% Secure Payments by  <br /> Trusted Payment Gateways</p>
                   </div>
               </div>
           </div>

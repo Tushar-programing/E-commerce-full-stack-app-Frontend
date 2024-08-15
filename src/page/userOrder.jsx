@@ -9,6 +9,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { EmptyComp } from '../component';
+import { LuBox } from "react-icons/lu";
 
 
 function orderPage() {
@@ -47,39 +48,27 @@ function orderPage() {
   }
 
   return (
-    <div className='bg-gray-100'>
-      <div className=''></div>
-      <div className='mx-24 h-auto bg-white'>
-        <div className='text-2xl font-semibold mt-8 bg-gray-100  h-14'>Order History</div>
+    <div className='md:py-8 py-2 2xl:mx-52 xl:mx-40 lg:mx-24 md:mx-10 mx-0'>
+      <div className='text-xl md:text-3xl md:mt-7 mt-4 flex justify-center items-center md:mb-10 mb-5'><LuBox className='md:me-3 me-2 md:w-10 w-6 md:h-10 h-6' />Order History</div>
 
+      <div className='mb-10 md:shadow-2xl '>
         {order?.length > 0? 
-        <div className=' h-8 flex justify-between'>
-              <div className=' w-[550px] text-center'>Product_details</div>
-              <div className=' w-40 text-center'>Payment</div>
-              <div className=' w-40 text-center'>Date</div>
-              <div className=' w-32 text-center'>Price</div>
-              <div className=' w-28 text-center'>Quantity</div>
-              <div className=' w-44 text-center'>Action</div>
-        </div> : <div className='bg-gray-100'>
+          <div className='md:grid hidden 2xl:pt-6 lg:pt-4 lg:pb-2 pb-0 shadow-sm grid-cols-12 px-2'>
+            <div className='col-span-1 h-24 text-center'></div>
+            <div className='col-span-6 my-auto '>product_details</div>
+            <div className='col-span-1 my-auto text-center '>Price</div>
+            <div className='col-span-2 text-center my-auto '>Date</div>
+            <div className='col-span-2 my-auto text-center'>Status</div>
+          </div> : <div className='bg-gray-100'>
                       <div className='text-center text-xl text-red-600'>You have no order yet</div>
                       <div className='text-center'><Link to="/"><button className='text-white bg-green-500 px-3 py-2 my-8 '>Order now Something</button></Link></div>
                   </div>}
-        <div className='h-4 bg-gray-100'></div>
         {order?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
         .map((order) => (
           <div key={order._id}>
             <Order {...order}/>
           </div>
         ))}
-        {/* <div className='border h-32 flex justify-between'>
-          <div className='border w-44'></div>
-          <div className='border w-72'></div>
-          <div className='border w-72'></div>
-          <div className='border w-40'></div>
-          <div className='border w-44'></div>
-          <div className='border w-40'></div>
-        </div> */}
-
       </div>
     </div>
   )
