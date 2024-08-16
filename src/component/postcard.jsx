@@ -19,7 +19,7 @@ import { RiHeartFill } from "react-icons/ri";
 import { FaHeart } from "react-icons/fa6";
 
 
-function postcard({ _id, title, image, price, description, wis}) {
+function postcard({ _id, title, image, price, description, wis, className}) {
   console.log(wis);
   // console.log(image);
   const userData = useSelector(state  => state.auth.userData);
@@ -106,7 +106,7 @@ function postcard({ _id, title, image, price, description, wis}) {
   }
 
   return (
-    <div className=' bg-white rounded-2xl'>
+    <div className={`bg-white rounded-2xl ${className}`}>
       <Link to={`/post/${_id}`}><div className='h-56 md:h-72 grid place-items-center bg-white rounded-t-xl'><img onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} src={image[images]} className='my-auto md:max-h-72 max-h-56' /></div></Link>
       <Link to={`/post/${_id}`}><div className='text-center mt-5'>{title.split('||').slice(0, 1).join(' ')}</div></Link>
       <div className='flex justify-evenly my-4 items-center'><button onClick={() => wish()} className=' px-3 py-1'>{!like?<RiHeartAddLine className='w-6 h-6' />:<RiHeartFill className='w-6 h-6' />}</button><span>₹ {price}</span><button onClick={() => onclick()} className='mx-3 my-1'><IoCartOutline className='w-6 h-6' /></button></div>
