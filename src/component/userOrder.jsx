@@ -26,8 +26,8 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
   return (
     <div>
       <div className='md:grid hidden pt-8 pb-2 md:shadow-sm grid-cols-12 px-2'>
-        <div className='col-span-1 h-24 grid place-items-center'><img src={product_details?.image[0]} className=' max-h-24'/></div>
-        <div className='col-span-6 my-auto '><p className='ms-5'>{product_details?.title}</p></div>
+        <Link to={`/userpro/${_id}`}><div className='col-span-1 h-24 grid place-items-center'><img src={product_details?.image[0]} className=' max-h-24'/></div></Link>
+        <Link to={`/userpro/${_id}`} className='col-span-6 my-auto'><div className='col-span-6 my-auto '><p className='ms-5'>{product_details?.title}</p></div></Link>
         <div className='col-span-1 my-auto text-center '>₹ {product_details?.price * quantity}</div>
         <div className='col-span-2 text-center my-auto '>{createdAt.slice(8, 10)}{createdAt.slice(4, 8)}{createdAt.slice(0, 4)}</div>
         <div className='col-span-2 my-auto text-center'>

@@ -45,6 +45,15 @@ function adress() {
     })
     if (creste) {
       setIsDialogOpen(false)
+      axios.post(`${conf.apiUrl}/adress/getAllAdresss`, {}, {
+        withCredentials: true
+      }).then((datas) => {
+        if (datas) {
+          setPosts(datas.data.data);
+          // console.log("this is all data : ", datas.data.data);
+          setOpen(false)
+        }
+      })
     }
   }
 
