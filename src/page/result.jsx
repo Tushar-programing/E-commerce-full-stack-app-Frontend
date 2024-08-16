@@ -154,7 +154,7 @@ function result() {
         return `${value}`;
     }
 
-    const [opens, setOpens] = useState(true);
+    const [opens, setOpens] = useState(false);
 
     const toggleDrawer = (newOpen) => () => {
         setOpens(newOpen);
@@ -174,9 +174,9 @@ function result() {
 
   return (
     <div className='grid grid-cols-12 md:mt-10 mx-0 sm:mx-20 md:mx-5 lg:mx-20 xl:mx-20 2xl:mx-40 gap-5 2xl:gap-8'>
-        <div className=' md:sticky top-28 my-2 md:my-0  md:shadow-2xl col-span-12 md:col-span-5 lg:col-span-4 xl:col-span-3 2xl:col-span-3 h-min bg-white'>
+        <div className=' my-2 md:my-0  md:shadow-2xl col-span-12 md:col-span-5 lg:col-span-4 xl:col-span-3 2xl:col-span-3 h-min bg-white'>
             <div className='ml-3 text-lg my-2 md:my-4 text-center'><span className='md:block hidden'>Filter</span><button onClick={(e) => setOpens(true)} className='px-4 py-1 md:hidden block mx-auto'>Filter</button></div>
-            <Drawer open={opens} onClose={toggleDrawer(false)}>
+            <Drawer className="md:hidden block"  open={opens} onClose={toggleDrawer(false)}>
             <form className='' onSubmit={handleSearch}>
                 <div className='ml-3 mb-3 text-lg'>Browse Category</div>
                 <div className='ms-4 grid grid-cols-1 gap-0'>
@@ -305,6 +305,133 @@ function result() {
                 </div>
             </form>
             </Drawer>
+            <form className='md:block hidden' onSubmit={handleSearch}>
+                <div className='ml-3 mb-3 text-lg'>Browse Category</div>
+                <div className='ms-4 grid grid-cols-1 gap-0'>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("boards")} value="boards" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Ardiuno Boards</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("decor")} value="decor" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Home Decor</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("led")} value="led" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Led's</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("sensors")} value="sensors" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Sensors</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("motors")} value="motors" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Dc motors</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("batteries")} value="batteries" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Batteries</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("drones")} value="drones" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Drones</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("speakers")} value="speakers" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Speakers & buzzers</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("cars")} value="cars" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Rc cars</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("bluthooth")} value="bluthooth" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Bluetooth module</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("chargers")} value="chargers" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Chargers</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("capacitors")} value="capacitors" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Capacitors</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("built")} value="built" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Built in Projects</label>
+                    </div>
+                    <div className=' flex items-center'>
+                        <Checkbox name='cat' checked={exist("other")} value="other" onChange={handleChange} size="small" className='' />
+                        <label htmlFor="query">Other all</label>
+                    </div>
+                </div>
+                <div className='mx-3 text-lg mt-3 mb-3'>Sort by</div>
+                <div className='mx-3'>
+                    <select
+                        id="sortBy"
+                        name="sortBy"
+                        value={queryParams.sortBy}
+                        onChange={handleChang}
+                        className='ms-2 max-w-52 w-full mb-2 border rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 '
+                    >
+                        <option className='text-violet-900' value="price">price</option>
+                        <option className='text-violet-900' value="width">width</option>
+                        <option className='text-violet-900' value="height">height</option>
+                        <option className='text-violet-900' value="weight">weight</option>
+                    </select>
+                    <select
+                        id="sortType"
+                        name="sortType"
+                        value={queryParams.sortType}
+                        onChange={handleChang}
+                        className='ms-2 max-w-52 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 border px-2 py-1 '
+                    >
+                        <option className='text-violet-900' value="des">Low to high</option>
+                        <option className='text-violet-900' value="asc">High to low</option>
+                    </select>
+                    <div className='mt-4 mb-2 text-lg'>{queryParams.sortBy.charAt(0).toUpperCase() + queryParams.sortBy.slice(1)} Range</div>
+                    <div className='mx-5'>
+                        <Slider
+                            getAriaLabel={() => 'Temperature range'}
+                            value={value}
+                            onChange={handleSliderChange}
+                            valueLabelDisplay="auto"
+                            getAriaValueText={valuetext}
+                            min={1}    // Set minimum value to 1
+                            max={10000}
+                        />
+                    </div>
+                </div>
+                <div>
+                    {/* <div className='border mx-2 lg:mx-8  mt-3 flex justify-between'>
+                        <Slider
+                            className='w-32'
+                            getAriaLabel={() => 'Temperature range'}
+                            name='minPrice'
+                            value={queryParams.minPrice}
+                            onChange={handleChang}
+                            valueLabelDisplay="auto"
+                            min={0}
+                            max={1000}
+                        />
+                        <span className='w-56 ml-4'>Min ₹ {queryParams.minPrice}</span> 
+                    </div>
+                    <div className='border mx-2 lg:mx-8  mt-3 flex justify-between mb-10'>
+                        <Slider
+                            className='w-32'
+                            getAriaLabel={() => 'Temperature range'}
+                            name='maxPrice'
+                            value={queryParams.maxPrice}
+                            onChange={handleChang}
+                            valueLabelDisplay="auto"
+                            min={0}
+                            max={10000}
+                        //   getAriaValueText={valuetext}
+                        />
+                        <span className='w-56 ml-4'>Max ₹ {queryParams.maxPrice}</span> 
+                    </div> */}
+                </div>
+            </form>
         </div>
         <div className='col-span-12 md:col-span-7 lg:col-span-8 xl:col-span-9 2xl:col-span-9 mb-16'>
             <div className=' grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5 '>
