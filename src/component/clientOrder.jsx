@@ -5,7 +5,7 @@ import conf from "./conf/conf";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-function order({adress1, adress2, city, company, country, createdAt, name, owner, paymentStatus, phone, zip, product_details, quantity, state, status, _id}) {
+function order({adress1, adress2, city, company, country, createdAt, name, owner, paymentStatus, phone, zip, product_details, quantity, state, status, _id, returnStatus}) {
 
   const [shippingStatus, setShippingStatus] = useState(status);
   const [sta, setSta] = useState(status)
@@ -62,7 +62,7 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
 
         <Link to={`/clientpro/${_id}`}><div className='col-span-1 overflow-hidden m-2 '><img src={product_details?.image[0]} className='mx-auto my-auto h-12'/></div></Link>
 
-        <p onClick={(e) => navigate(`/clientpro/${_id}`)} className='col-span-4 text-base my-auto px-5 cursor-pointer'>{product_details?.title.length > 43? <span>{product_details?.title.slice(0, 43)}...</span> : <span>{product_details?.title}</span>}</p>
+        <p onClick={(e) => navigate(`/clientpro/${_id}`)} className='col-span-3 text-base my-auto px-5 cursor-pointer'>{product_details?.title.length > 43? <span>{product_details?.title.slice(0, 43)}...</span> : <span>{product_details?.title}</span>}</p>
 
         <p onClick={(e) => navigate(`/clientpro/${_id}`)} className='col-span-2 text-center my-auto cursor-pointer'>{createdAt.slice(8, 10)}{createdAt.slice(4, 8)}{createdAt.slice(0, 4)}</p>
         
@@ -72,6 +72,8 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
             <p className='row-span-1 text-center  my-auto '>₹ {product_details?.price}</p>
             <p className='row-span-1 text-center  my-auto text-sm text-gray-600'>Quan: {quantity}</p>
         </div>
+
+        <div className='text-center my-auto'>{returnStatus}</div>
 
         {sta === "confirm"? <div className='col-span-2  my-auto grid grid-cols-2 gap-4'>
             <button disabled={sta === "cancel"} onClick={cancel} className={`col-span-1 ml-5 border py-[2px] bg-gray-50 text-red-500`}>Reject</button>
@@ -90,10 +92,8 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
                   <option value="out For Delivery">Out for Delivery</option>
                   <option value="delivered">Delivered</option>
               </select>
-
+              
             }</div>}
-        
-
         {/* {sta === "confirm"? <div className='col-span-1 border grid grid-rows-2 gap-2'>
             <button disabled={sta === "cancel"} onClick={cancel} className={`row-span-1 w-20 border py-[2px] bg-gray-50 text-red-500`}>Reject</button>
             <button disabled={sta === "cancel"} onClick={update} className={`row-span-1 w-20 border py-[2px] bg-gray-50 text-green-500`}>Accept</button>

@@ -13,6 +13,7 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
   const navigate = useNavigate();
 
   const [quant, setQuant] = useState(quantity);
+  const [del, setDel] = useState(true)
 
   const increase = async(e) => {
     setQuant(e.target.value);
@@ -24,7 +25,6 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
         toast.success("successfully updated the cart quantity")
         updateCart(e.target.value, _id)
       }
-
     } catch (error) {
       console.log(error.message)
     }
@@ -50,12 +50,14 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
     setQuant(quant - 1);
     try {
       if (quant === 1) {
+        setDel(false)
         try {
           const update = await axios.post(`${conf.apiUrl}/cart/removeCart/${_id}`, {}, {
               withCredentials: true
           })
           if (update) {
-            window.location.reload();
+            updateCart()
+            // window.location.reload();
           }
         } catch (error) {
           console.log(error.message)
@@ -75,12 +77,14 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
   }
 
     const remove = async() => {
+      setDel(false)
       try {
         const update = await axios.post(`${conf.apiUrl}/cart/removeCart/${_id}`, {}, {
             withCredentials: true
         })
         if (update) {
-          window.location.reload();
+          updateCart()
+          // window.location.reload();
         }
       } catch (error) {
         console.log(error.message)
@@ -89,6 +93,7 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
       
   return (
     <>
+    {del &&<div className='p-3 '>
       <div className='md:block hidden h-24 shadow-sm'>
         <div className=' h-full grid grid-cols-12 font-light'>
             <Link to={`/post/${product_details?._id}`} className=' overflow-hidden md:col-span-2 xl:col-span-1'><img src={product_details?.image[0]} className='mx-auto my-auto h-24 '/></Link>
@@ -128,6 +133,7 @@ function cartpost({_id, product_details, quantity, updatedAt, updateCart}) {
           </div>
         </div>
       </div>
+    </div>}
     </>
   )
 }

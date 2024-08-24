@@ -143,7 +143,7 @@ function header() {
                             <Link onClick={(e) => setOpen(false)} to="/wishlist" className='sm:text-base text-sm'>Wishlist</Link>
                             <Link onClick={(e) => setOpen(false)} to="/address" className='sm:text-base text-sm'>My address</Link>
                             <a onClick={(e) => setOpen(false)} className='sm:text-base text-sm' ><Logoutbtn /></a>
-                            <Link onClick={(e) => setOpen(false)} to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link>
+                            {/* <Link onClick={(e) => setOpen(false)} to="/dashboard" className='sm:text-base text-sm'>Seller Dashboard</Link> */}
                         </div>}
                     </div>
                 </div>}

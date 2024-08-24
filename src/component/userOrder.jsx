@@ -14,7 +14,7 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
       withCredentials: true
     }).then((cancel) => {
       if (cancel) {
-        console.log("thos snerkd : ", cancel);
+        // console.log("thos snerkd : ", cancel);
         toast.success("Successfully canceled your order")
         setCan(cancel.data.data.status)
         // window.location.reload()
@@ -37,11 +37,11 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
         </div>
       </div>
       <div className=' md:hidden grid grid-cols-12 py-3'>
-          <div className='col-span-3 h-24  grid place-items-center'>
+          <Link className='col-span-3' to={`/userpro/${_id}`}><div className='col-span-3 h-24  grid place-items-center'>
             <img className=' max-h-24' src={product_details?.image[0]} />
-          </div>
+          </div></Link>
           <div className='col-span-9 my-auto '>
-            <div className='text-gray-900 mx-4 font-semibold text-sm'><span className='sm:block hidden '>{product_details?.title.slice(0, 58)}...</span><span className='sm:hidden block'>{product_details?.title.slice(0, 42)}...</span></div>
+            <Link to={`/userpro/${_id}`}><div className='text-gray-900 mx-4 font-semibold text-sm'><span className='sm:block hidden '>{product_details?.title.slice(0, 58)}...</span><span className='sm:hidden block'>{product_details?.title.slice(0, 42)}...</span></div></Link>
             <div className='text-gray-600 mx-4 mt-2 text-base flex justify-between items-center'>
               <span>₹ {product_details?.price * quantity}</span>
               <div className=' text-gray-900'>{(can === "cancel") ? <div className='py-[2px] px-3 text-black '>Cancelled</div> :(can === "delivered")? <div className='py-[2px] px-4 text-black'>Delivered</div> : <button onClick={cancel} className='py-[2px] px-6 bg-gray-900 text-gray-100'>Cancel</button>}</div>

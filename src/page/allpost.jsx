@@ -163,7 +163,7 @@ function allpost() {
 
 
       <div className=' px-2 2xl:mx-64 xl:mx-44 lg:mx-36 md:mx-24 sm:mx-24 mx-0'>
-        <div className=' h-auto sm:mb-7 mb-0 '>
+        <div className='sm:block hidden h-auto sm:mb-7 mb-0 '>
             <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
             <div className="sm:h-auto h-auto grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-5 ">
               <Link to="/result?cat=drones">
@@ -240,7 +240,7 @@ function allpost() {
 
         </div>
 
-          <div className='mt-10 sm:mt-16 text-xl sm:text-2xl font-semibold text-center '>Home Decor Products </div>
+          <div className='mt-3 sm:mt-16 text-lg sm:text-2xl font-semibold text-center '>Home Decor Products </div>
 
           <div className=' grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-8 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-5 gap-3 md:mt-16 mt-8'>
                   {posts.filter((post) => post.status === true)
@@ -256,11 +256,8 @@ function allpost() {
                 {/* Transition container */}
                 <div className="flex transition-transform duration-500">
                 {posts.filter((post) => post.category === "sensors")
-                  .map((post) => (                     
-                        <div key={post._id} className='w-64 h-auto border border-r-1 bg-white '>
-                          {/* $id, title, image, price, brand, description */}
-                          <Postcard1 {...post} />
-                        </div>
+                  .map((post) => (
+                          <Postcard1 key={post?._id} {...post} />
                   ))}
                 </div>
           </div>

@@ -107,25 +107,10 @@ function postcard({ _id, title, image, price, description, wis, className}) {
 
   return (
     <div className={`bg-white rounded-2xl ${className}`}>
-      <Link to={`/post/${_id}`}><div className='h-56 md:h-72 grid place-items-center bg-white rounded-t-xl'><img onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} src={image[images]} className='my-auto md:max-h-72 max-h-56' /></div></Link>
+      <Link to={`/post/${_id}`}><div className='h-52 md:h-72 grid place-items-center bg-white rounded-t-xl'><img onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} src={image[images]} className='my-auto md:max-h-72 max-h-52' /></div></Link>
       <Link to={`/post/${_id}`}><div className='text-center mt-5'>{title.split('||').slice(0, 1).join(' ')}</div></Link>
       <div className='flex justify-evenly my-4 items-center'><button onClick={() => wish()} className=' px-3 py-1'>{!like?<RiHeartAddLine className='w-6 h-6' />:<RiHeartFill className='w-6 h-6' />}</button><span>₹ {price}</span><button onClick={() => onclick()} className='mx-3 my-1'><IoCartOutline className='w-6 h-6' /></button></div>
       <div className='mx-5'></div>
-      {/* <div className='w-full bg-white sm:rounded-md rounded-none sm:p-4 p-0 border sm:mt-0 mt-4'>
-        <div className='text-end'><button className='me-2 sm:mb-4 mb-3 sm:mt-0 mt-2' onClick={() => wish()}><img src={like? img1 : img} className='w-5'/></button></div>
-        <Link to={`/post/${_id}`}>
-        <div id='postcard' className='w-full justify-center mb-7 overflow-hidden sm:max-h-56 max-h-36 '>
-          <img src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()} alt={title} className='rounded-lg sm:h-48 h-36  mx-auto '></img>
-        </div>
-        </Link>
-        <h2 className='sm:text-base text-base sm:px-0 px-2 text-gray-800 mb-2 font-light'>{title.length > 30? (<span>{title.slice(0, 32)}...</span>) : (<span>{title}</span>)}</h2>
-        <div className='text-lg sm:px-0 font-normal px-2 flex justify-between'><div>₹ {price} &nbsp;<span className='text-gray-500 font-light text-sm line-through'>₹{price + 230}</span></div><abbr title="Get Product details on whatsapp"><img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className='w-8 sm:w-8 md:w-10 h-auto me-5 sm:me-8 md:me-10 cursor-pointer' /></abbr></div>
-        <hr className='mt-2 border border-gray-200' />
-        <div  className=' mt-4 flex sm:mb-0 mb-2 '>
-            <button onClick={() => onclick()} className=' bg-white transform hover:scale-110 duration-300 text-white w-1/4 '><img src={cart} className=' w-8 h-9  mx-auto' /></button>
-            <button onClick={checkActive} className='rounded-r-none rounded-lg bg-gray-900  transform hover:scale-105 duration-300 text-white sm:px-8 px-4 py-[0px] sm:ml-9 ml-4 sm:w-36 w-24'>Buy now</button>
-        </div>
-      </div> */}
     </div>
   )
 }

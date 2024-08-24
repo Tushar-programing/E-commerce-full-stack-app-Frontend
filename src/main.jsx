@@ -25,6 +25,8 @@ import Result from './page/result.jsx';
 import ClientOrderPro from './page/clientOrderPro.jsx';
 import UserOrderPro from './page/userOrderPro.jsx'
 import { Authlayout } from './component/index.js'
+import Authlayout2 from './component/authlayout2.jsx';
+import OrderReturn from './page/orderReturn.jsx';
 
 import YourPro from './page/yourPro.jsx';
 
@@ -111,28 +113,51 @@ const router = createBrowserRouter([
         element: <Result />,
       },
       {
-        path: "/dashboard",
-        element: <Outlet />,
+        path: "/admin",
+        element:
+          <Outlet />,
         children: [
           {
-            path: "/dashboard",
-            element: <Dashboard />,
+            path: "/admin",
+            element:
+            <Authlayout2 >
+              <Dashboard />
+            </Authlayout2>,
           },
           {
-            path: '/dashboard/list',
-            element: <List />
+            path: '/admin/list',
+            element:
+            <Authlayout2 >
+              <List />
+            </Authlayout2>,
           },
           {
-            path: "/dashboard/list/edit/:slug",
-            element: <Editpost />
+            path: "/admin/list/edit/:slug",
+            element:
+            <Authlayout2 >
+              <Editpost />
+            </Authlayout2>,
           },
           {
-            path: "/dashboard/yourpro",
-            element: <YourPro />,
+            path: "/admin/yourpro",
+            element:
+            <Authlayout2 >
+              <YourPro />
+            </Authlayout2>,
           },
           {
-            path: "/dashboard/clientorder",
-            element: <ClientOrder />,
+            path: "/admin/clientorder",
+            element:
+            <Authlayout2 >
+              <ClientOrder />
+            </Authlayout2>,
+          },
+          {
+            path: "/admin/orderReturn",
+            element:
+            <Authlayout2 >
+              <OrderReturn />
+            </Authlayout2>,
           }
         ]
       },

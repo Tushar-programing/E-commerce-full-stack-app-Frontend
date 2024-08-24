@@ -50,10 +50,11 @@ function orderPage() {
 
         {order?.length > 0? 
         <div className=' h-8 grid grid-cols-12 border mx-10 mb-5'>
-              <div className='col-span-5 text-center'>Product_details</div>
+              <div className='col-span-4 text-center'>Product_details</div>
               <div className='col-span-2 text-center'>Date</div>
               <div className='col-span-1 text-center'>Payment</div>
               <div className='col-span-2 text-center'>Price/Quantity</div>
+              <div className='col-span-1 text-center'>Replacement</div>
               <div className='col-span-2 text-center'>Action</div>
         </div> : <div className='text-center text-xl text-red-600 bg-gray-100'>No client order available yet</div>}
         {/* <div className='h-4 bg-gray-100'></div> */}
