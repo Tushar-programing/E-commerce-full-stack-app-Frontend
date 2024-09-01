@@ -130,7 +130,7 @@ function header() {
             <div className="flex items-center space-x-2 md:space-x-4 xl:w-[50%] lg:w-[60%] md:w-[72%] justify-between">
                 <button onClick={e => navigate('/')} className="text-2xl font-bold me-6 ">LUXLOOM</button>
                 <ul className="md:flex hidden space-x-10 justify-center ">
-                <div className="relative inline-block ">
+                    <div className="relative inline-block ">
                         <div className="group ">
                             <button className=" justify-center text-sm font-semibold text-black">
                                 Collections
@@ -161,8 +161,8 @@ function header() {
             </div>
             <div className="flex items-center space-x-4 ">
                 <ul className="flex sm:space-x-4 space-x-2">
-                    <button onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer md:px-1 px-0 "><GrSearch className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>
-                    <Link to={"/cart"} className="text-sm font-semibold cursor-pointer md:px-1 px-0 "><MdOutlineShoppingCart className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
+                    <Link onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer md:px-1 px-0 "><GrSearch className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
+                    <Link to={"/cart"} className="text-sm font-semibold cursor-pointer md:px-1 px-0"><MdOutlineShoppingCart className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
                     <li className="text-sm font-semibold cursor-pointer md:px-1 px-0 ">
                         <DropdownMenu.Root>
                             <DropdownMenu.Trigger>
