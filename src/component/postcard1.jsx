@@ -98,7 +98,7 @@ function postcard1({image, title, description, price, _id }) {
 
 
   return (
-    <div className='md:w-64 w-52 h-auto border border-r-1 bg-white'>
+    <div className='md:w-64 w-52 h-auto border border-r-1 bg-gray-100'>
         <div className=' h-54 overflow-hidden'>
           <div className='text-end'><button className=' px-3' onClick={() => wish()}><img src={like? img1 : img} className='w-5 mt-2'/></button></div>
           <Link to={`/post/${_id}`}><img className='mx-auto w-44 md:w-52 h-44 md:h-52 ' src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></Link>

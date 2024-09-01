@@ -3,9 +3,9 @@ import { Postcard } from '../component'
 import { Postcard1 } from '../component'
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import img1 from "../component/images/scroller1.1.png";
-import img2 from "../component/images/scroller2.png";
-import img3 from "../component/images/scroller3.png";
+import img1 from "../component/images/splide1.png";
+import img2 from "../component/images/splide2.png";
+import img3 from "../component/images/splide3.png";
 import img31 from "../component/images/scroller4.png"
 import img4 from "../component/images/drone.png";
 import img5 from "../component/images/board.jpeg";
@@ -29,9 +29,9 @@ import secure from '../component/images/secure.png'
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
-import mob1 from "../component/images/scroller1m.png"
-import mob2 from "../component/images/scroller2m.png"
-import mob3 from "../component/images/scroller3m.png"
+import mob1 from "../component/images/splideM1.png"
+import mob2 from "../component/images/splideM2.png"
+import mob3 from "../component/images/splideM3.png"
 
 import whatsapp from "../component/images/whatsapp.png"
 import whatsappmob from "../component/images/whatsappMob.png"
@@ -69,7 +69,7 @@ function allpost() {
     
 
   return (
-    <div className='bg-gray-100 pb-20 '>
+    <div className='bg-gray-100 pb-20 max-w-[1536px] mx-auto'>
       {/* <LoginPopup open={active}/> */}
 
       <Splide
@@ -77,32 +77,41 @@ function allpost() {
           type: 'loop',
           perPage: 1,
           autoplay: true,
-          interval: 2000,
+          interval: 4000,
         }}
-        className="sm:mt-8 mt-0 sm:block hidden"
+        className=" mt-0 sm:block hidden mx-auto"
       >
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
-            <img src={img2} className="w-full h-full" />
-            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-2 xl:right-[500px] lg:right-[380px] md:right-64 sm:right-58 right-28  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs rounded">
-              Learn More
-            </button>
+            <img src={img1} className="w-full h-full" />
+            <div className='absolute top-[35%] left-[42%] text-white sm:text-xl md:text-2xl lg:text-4xl text-center'>
+              <div>Tag line here</div>
+              <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
+                Buy now
+              </button>
+            </div>
           </div>
         </SplideSlide>
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
-            <img src={img1} className="w-full h-full" />
-            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-2   xl:left-40 lg:left-28 md:left-20 sm:left-12 left-10  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs  rounded">
-              Learn More
-            </button>
+            <img src={img2} className="w-full h-full" />
+            <div className='absolute top-[35%] left-[42%] text-white sm:text-xl md:text-2xl lg:text-4xl text-center'>
+              <div>Best Indoor light</div>
+              <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
+                Buy now
+              </button>
+            </div>
           </div>
         </SplideSlide>
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
             <img src={img3} className="w-full h-full" />
-            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-2   xl:left-40 lg:left-28 md:left-20 sm:left-12 left-10  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs  rounded">
-              Learn More
-            </button>
+            <div className='absolute top-[40%] right-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-right'>
+              <div>Tag line here</div>
+              <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
+                Buy now
+              </button>
+            </div>
           </div>
         </SplideSlide>
       </Splide>
@@ -121,25 +130,34 @@ function allpost() {
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
             <img src={mob1} className="w-full h-full" />
-            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-10 xl:right-[500px] lg:right-[380px] md:right-64 sm:right-58 right-28  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs rounded">
-              Learn More
-            </button>
+            <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
+              <div>Tag line here</div>
+              <button className=" text-base px-4 py-1 bg-black text-white rounded-full mt-3">
+                Buy now
+              </button>
+            </div>
           </div>
         </SplideSlide>
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
             <img src={mob2} className="w-full h-full" />
-            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-8   xl:left-40 lg:left-28 md:left-20 sm:left-12 left-9  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs  rounded">
-              Learn More
-            </button>
+            <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
+              <div>Tag line here</div>
+              <button className=" text-base px-4 py-1 bg-black text-white rounded-full mt-3">
+                Buy now
+              </button>
+            </div>
           </div>
         </SplideSlide>
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
             <img src={mob3} className="w-full h-full" />
-            <button className="absolute xl:bottom-24 lg:bottom-16 md:bottom-10 sm:bottom-6 bottom-8   xl:left-40 lg:left-28 md:left-20 sm:left-12 left-8  bg-blue-500 text-white xl:px-8 md:px-6 sm:px-4 px-2 lg:py-3 md:py-2 py-1 lg:text-base md:text-sm text-xs  rounded">
-              Learn More
-            </button>
+            <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
+              <div>Tag line here</div>
+              <button className=" text-base px-4 py-1 bg-black text-white rounded-full mt-3">
+                Buy now
+              </button>
+            </div>
           </div>
         </SplideSlide>
       </Splide>
@@ -162,7 +180,7 @@ function allpost() {
 
 
 
-      <div className=' px-2 2xl:mx-64 xl:mx-44 lg:mx-36 md:mx-24 sm:mx-24 mx-0'>
+      <div className=' '>
         <div className='sm:block hidden h-auto sm:mb-7 mb-0 '>
             <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
             <div className="sm:h-auto h-auto grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-5 ">
@@ -240,30 +258,27 @@ function allpost() {
 
         </div>
 
-          <div className='mt-3 sm:mt-16 text-lg sm:text-2xl font-semibold text-center '>Home Decor Products </div>
-
-          <div className=' grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-8 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-5 gap-3 md:mt-16 mt-8'>
-                  {posts.filter((post) => post.status === true)
-                  
-                  .map((post) => (
-                        <Postcard key={post._id} {...post}/>
-                  ))}
-          </div>
-
-          <div className='mt-12 text-xl sm:text-2xl font-semibold '>IOT Sensors</div>
-
-          <div className="flex sm:overflow-hidden overflow-x-scroll mt-7 ">
-                {/* Transition container */}
-                <div className="flex transition-transform duration-500">
-                {posts.filter((post) => post.category === "sensors")
-                  .map((post) => (
-                          <Postcard1 key={post?._id} {...post} />
-                  ))}
-                </div>
-          </div>
+        <div className='mt-3 sm:mt-16 text-lg sm:text-2xl font-semibold text-center '>Home Decor Products </div>
+        <div className=' grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-8 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-5 gap-3 md:mt-16 mt-8'>
+                {posts.filter((post) => post.status === true)
+                
+                .map((post) => (
+                      <Postcard key={post._id} {...post}/>
+                ))}
+        </div>
+        <div className='mt-12 text-xl sm:text-2xl font-semibold '>IOT Sensors</div>
+        <div className="flex sm:overflow-hidden overflow-x-scroll mt-7 ">
+              {/* Transition container */}
+              <div className="flex transition-transform duration-500">
+              {posts.filter((post) => post.category === "sensors")
+                .map((post) => (
+                        <Postcard1 key={post?._id} {...post} />
+                ))}
+              </div>
+        </div>
           
       </div>
-      <div className='2xl:mx-64 xl:mx-44 lg:mx-36 md:mx-0 sm:mx-20 mx-0'>
+      <div className=''>
         <div className='mt-16 text-2xl font-semibold'>Built-in Projects</div>
         <div className="grid mt-7 border grid-cols-1 md:grid-cols-2 gap-2">
               {posts.filter((post) => post.category === "built")
@@ -273,7 +288,7 @@ function allpost() {
         </div>
       </div>
 
-      <section className="bg-gray-100 py-16 sm:mx-24 mx-4 mt-10 ">
+      <section className="bg-gray-100 py-16 mt-10 ">
           <div className="container mx-auto ">
               <div className="flex flex-wrap justify-center ">
                   <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6"> 
