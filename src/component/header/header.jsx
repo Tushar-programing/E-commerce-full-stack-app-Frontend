@@ -161,7 +161,7 @@ function header() {
             </div>
             <div className="flex items-center space-x-4 ">
                 <ul className="flex sm:space-x-4 space-x-2">
-                    <Link onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer md:px-1 px-0 "><GrSearch className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
+                    <Link onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer md:px-1 px-0 "><RiSearchLine className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
                     <Link to={"/cart"} className="text-sm font-semibold cursor-pointer md:px-1 px-0"><MdOutlineShoppingCart className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
                     <li className="text-sm font-semibold cursor-pointer md:px-1 px-0 ">
                         <DropdownMenu.Root>
