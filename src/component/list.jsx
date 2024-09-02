@@ -42,6 +42,7 @@ function Post({ post }) {
   const [situation, setSituation] = useState('category');
 
   const [category, setCategory] = useState(post?.category || 'brand');
+  const [subCategory, setSubCategory] = useState(post?.subCategory || '');
 
   const [selectedFiles, setSelectedFiles] = useState([]);
 
@@ -52,6 +53,10 @@ function Post({ post }) {
       setCategory(selectedCategory);
   };
 
+  const subhandleChange = (e) => {
+    const subCategory = e.target.value;
+    setSubCategory(subCategory);
+  };
 
   const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
     defaultValues: {
@@ -90,6 +95,7 @@ function Post({ post }) {
     formData.append('height', data.height);
     formData.append('weight', data.weight);
     formData.append('category', category)
+    formData.append('subCategory', subCategory)
     formData.append('price', data.price);
 
     // Append all images from the form input to the FormData object
@@ -174,10 +180,10 @@ function Post({ post }) {
       <form onSubmit={handleSubmit(List)} className=' mx-10 mt-5'>
 
           {situation === 'category' && <><label className='mt-5 text-violet-900 font-semibold' >Choose category :</label>
-          <select  className='px-3 mb-10 mt-4 py-2 rounded-lg bg-white text-black outline-none
-           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 duration-200 border border-gray-200 w-full' 
-           value={category}
-           onChange={handleChange}
+          <select  className='px-3 mb-2 mt-4 py-2 rounded-lg bg-white text-black outline-none
+            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 duration-200 border border-gray-200 w-full' 
+            value={category}
+            onChange={handleChange}
           >
             <option className='text-violet-900' value="boards">Boards</option>
             <option className='text-violet-900' value="sensors">Sensors</option>
@@ -193,6 +199,17 @@ function Post({ post }) {
             <option className='text-violet-900' value="built">Built-in Projects</option>
             <option className='text-violet-900' value="other">other's</option>
           </select>
+
+          <select  className='px-3 mb-10 py-2 rounded-lg bg-white text-black outline-none
+            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 duration-200 border border-gray-200 w-full max-w-64' 
+            value={subCategory}
+            onChange={subhandleChange}
+          >
+            <option className='text-violet-900' value="">Category</option>
+            <option className='text-violet-900' value="trend">Trend</option>
+            <option className='text-violet-900' value="new">new</option>
+          </select>
+
           <div className=' text-center'><Button className='w-44' onClick={() => setSituation('image')} variant="outlined">Next</Button></div>
           </>}
 

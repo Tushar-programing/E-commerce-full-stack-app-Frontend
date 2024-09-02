@@ -81,9 +81,11 @@ function header() {
         if ((value === '') && (age === '')) {
             toast.error("please enter some keywords or select the category")
         } else if (value) {
+            setOpen(false)
             navigate(`/result?searchQuery=${value}`)
             window.location.reload()
         } else {
+            setOpen(false)
             navigate(`/result?cat=${age}`)
             window.location.reload()
         }
@@ -250,7 +252,7 @@ function header() {
                         <div className='flex '>
                             <button onClick={e=> setOpen(false)} className='md:hidden block me-5 mb-1'><IoArrowBack className='text-2xl ' /></button>
                             <div className="relative flex items-center w-full md:w-[650px] ">
-                                <span className="text-gray-500 ">
+                                <span onClick={addtodo} className="text-gray-500 cursor-pointer">
                                     <RiSearchLine className='md:w-6 w-5 md:h-6 h-5 my-auto mx-auto mb-1' />
                                 </span>
                                 <input 
@@ -267,12 +269,12 @@ function header() {
                         </div>
                         <div className='min-h-60'>
                             <div className='text-gray-800 mt-4 text-lg'>Popular keywords</div>
-                            <div className='text-gray-500 mt-4'>Galaxy S24 Ultra</div>
-                            <div className='text-gray-500 mt-1'>Galaxy S23</div>
-                            <div className='text-gray-500 mt-1'>Charger</div>
-                            <div className='text-gray-500 mt-1'>How to check the firmware</div>
-                            <div className='text-gray-500 mt-1'>Customer care</div>
-                            <div className='text-gray-500 mt-1'>Galaxy S23 plus</div>
+                            <div onClick={e=> setValue("Galaxy S24 Ultra")} className='cursor-pointer text-gray-500 mt-4'>Galaxy S24 Ultra</div>
+                            <div onClick={e=> setValue("Galaxy S23")} className='cursor-pointer text-gray-500 mt-1'>Galaxy S23</div>
+                            <div onClick={e=> setValue("Charger")} className='cursor-pointer text-gray-500 mt-1'>Charger</div>
+                            <div onClick={e=> setValue("How to check the firmware")} className='cursor-pointer text-gray-500 mt-1'>How to check the firmware</div>
+                            <div onClick={e=> setValue("Customer care")} className='cursor-pointer text-gray-500 mt-1'>Customer care</div>
+                            <div onClick={e=> setValue("Galaxy S23 plus")} className='cursor-pointer text-gray-500 mt-1'>Galaxy S23 plus</div>
                             
                         </div>
                     </DialogContentText>

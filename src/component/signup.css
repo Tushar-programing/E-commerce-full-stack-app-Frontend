@@ -163,4 +163,12 @@
   
   }
 
+  .hide-scrollbar {
+    /* Hide scrollbar for Webkit browsers */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
   
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }

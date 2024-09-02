@@ -30,6 +30,7 @@ import { IoPricetagsOutline } from "react-icons/io5";
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
+
 function Post() {
   const divRef = useRef(null);
   const [divWidth, setDivWidth] = useState(0);

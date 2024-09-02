@@ -168,7 +168,16 @@ const router = createBrowserRouter([
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Bahnschrift ', // Customize the font family here
+    fontFamily: 'Futura, Garamond, Bahnschrift, sans-serif', 
+    h1: {
+      fontFamily: 'Futura',
+    },
+    h2: {
+      fontFamily: 'Garamond',
+    },
+    body1: {
+      fontFamily: 'Bahnschrift',
+    },
   },
 });
 

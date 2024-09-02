@@ -37,6 +37,8 @@ import whatsapp from "../component/images/whatsapp.png"
 import whatsappmob from "../component/images/whatsappMob.png"
 
 import Postcard2 from '../component/postcard2'
+import TrendyPro from '../component/trendyPro'
+
 
 function allpost() {
     const [posts, setPosts] = useState([]);
@@ -69,7 +71,7 @@ function allpost() {
     
 
   return (
-    <div className='bg-gray-100 pb-20 max-w-[1536px] mx-auto'>
+    <div className='bg-white pb-20 max-w-[1536px] mx-auto'>
       {/* <LoginPopup open={active}/> */}
 
       <Splide
@@ -162,7 +164,7 @@ function allpost() {
         </SplideSlide>
       </Splide>
 
-      <img 
+      {/* <img 
         className='lg:w-64 md:w-52 sm:w-44 sm:block hidden ms-auto sticky top-96 cursor-pointer z-30' 
         onClick={() => window.open("https://api.whatsapp.com/send?phone=917451811626", "_blank")} 
         src={whatsapp} 
@@ -174,11 +176,98 @@ function allpost() {
         onClick={() => window.open("https://api.whatsapp.com/send?phone=917451811626", "_blank")} 
         src={whatsappmob}
         alt="WhatsApp"
-      />
+      /> */}
 
       {/* <a href="https://wa.me/12345678900" target="_blank">Chat with us on WhatsApp</a> */}
+      
 
+      <div className='text-center mt-10 md:mt-16 text-xl md:text-2xl'>Lux Loom Collections</div>
 
+      <Splide
+      className="md:mt-7 mt-5 md:mb-10 mb-7 md:hidden"
+      options={{
+        // gap        : 30,
+        // perPage    : 3,
+        // focus      : 'center',
+        // pagination : true,
+        // breakpoints: {
+        //   600: {
+        //     perPage: 3,
+        //   },
+        // },
+        // breakpoints: {
+        //   600: {
+        //     fixedWidth : 250,
+        //     fixedHeight: 250,
+        //   },
+        // },
+
+        fixedWidth : 200,
+        fixedHeight: 200,
+        gap        : 10,
+        arrows: false,
+        pagination : false,
+      }}
+      aria-label="Beautiful Images"
+      >
+        <SplideSlide>
+          <div className='relative border'>
+            <img src="https://images-cdn.ubuy.co.in/634d0f039b41f53d1522b115-crystal-flush-mount-led-ceiling-light.jpg?_gl=1*gdmnco*_gcl_au*MTMyNDk4NDY3Ny4xNzI1MjE5OTMw" className='w-full h-full' />
+            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Ceiling Fixtures</div>
+          </div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className='relative border'>
+            <img src="https://m.media-amazon.com/images/I/71GmM4--DdL._AC_UF894,1000_QL80_.jpg" className='w-full h-full' />
+            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Chandeliers</div>
+          </div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className='relative border'>
+            <img src="https://m.media-amazon.com/images/I/81FMq3e3BZL._AC_SX679_.jpg" className='w-full h-full' />
+            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Lamps & Lighting</div>
+          </div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className='relative border'>
+            <img src="https://img.lazcdn.com/g/p/5d06742dba5d36409c5e5b9a95594516.jpg_720x720q80.jpg_.webp" className='w-full h-full' />
+            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Outdoor Lighting</div>
+          </div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className='relative border'>
+            <img src="https://m.media-amazon.com/images/I/71vrVCqbWZL.jpg" className='w-full h-full' />
+            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Plants & Botanicals</div>
+          </div>
+        </SplideSlide>
+      </Splide>
+
+      <div className='md:grid hidden grid-cols-5 gap-3 lg:gap-6 my-10 '>
+          <div>
+            <img src="https://images-cdn.ubuy.co.in/634d0f039b41f53d1522b115-crystal-flush-mount-led-ceiling-light.jpg?_gl=1*gdmnco*_gcl_au*MTMyNDk4NDY3Ny4xNzI1MjE5OTMw" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Ceiling Fixtures</div>
+          </div>
+          <div>
+            <img src="https://m.media-amazon.com/images/I/71GmM4--DdL._AC_UF894,1000_QL80_.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Chandeliers</div>
+          </div>
+          <div>
+            <img src="https://m.media-amazon.com/images/I/81FMq3e3BZL._AC_SX679_.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Lamps & Lighting</div>
+          </div>
+          <div>
+            <img src="https://img.lazcdn.com/g/p/5d06742dba5d36409c5e5b9a95594516.jpg_720x720q80.jpg_.webp" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Outdoor Lighting</div>
+          </div>
+          <div>
+            <img src="https://m.media-amazon.com/images/I/71vrVCqbWZL.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Plants & Botanicals</div>
+          </div>
+      </div>
+
+      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Ultimate Trendy Treasure Collections</div>
+      
+      <TrendyPro post={posts.filter(pr => pr.subCategory === "new")} />
 
       <div className=' '>
         <div className='sm:block hidden h-auto sm:mb-7 mb-0 '>
