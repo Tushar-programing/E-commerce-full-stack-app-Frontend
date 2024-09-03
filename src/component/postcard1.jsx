@@ -25,6 +25,8 @@ function postcard1({image, title, description, price, _id }) {
     const [size, setSize] = useState(false)
     const [like, setLike] = useState(false)
 
+    const [isLoaded, setIsLoaded] = useState(false);
+
     const active = useSelector(state => state.auth.status)
 
     const onclick = async() => {
@@ -46,7 +48,7 @@ function postcard1({image, title, description, price, _id }) {
         toast.error(error.message)
       }
     } else {
-         toast.error("Login to add something in Cart")
+        toast.error("Login to add something in Cart")
       }
     
     }
@@ -116,9 +118,13 @@ function postcard1({image, title, description, price, _id }) {
               />
           </div>
           <img
+            // onMouseOver={handleMouseover}
+            // onMouseOut={handleMouseout}
             src={image[images]}
             className="w-full h-full object-cover"
             alt="Product"
+            onLoad={() => setIsLoaded(true)}
+            style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}
           />
           <div className="absolute bottom-0 left-0 w-full opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-2 transition-all duration-500 ease-in-out flex justify-center">
             <button 

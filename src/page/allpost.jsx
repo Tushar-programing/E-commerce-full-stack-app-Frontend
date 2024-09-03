@@ -39,6 +39,9 @@ import whatsappmob from "../component/images/whatsappMob.png"
 import Postcard2 from '../component/postcard2'
 import TrendyPro from '../component/trendyPro'
 
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+
 
 function allpost() {
     const [posts, setPosts] = useState([]);
@@ -265,13 +268,13 @@ function allpost() {
           </div>
       </div>
 
-      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Ultimate Trendy Treasure Collections</div>
+      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Ultimate New Treasure Collections</div>
       
-      <TrendyPro post={posts.filter(pr => pr?.subCategory === "new")} />
+      <TrendyPro posts={posts} />
 
       <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Chandeliers Collections</div>
 
-      {posts?.length > 0 ? <Splide
+      {posts.length > 0 ? <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
         // focus      : 'center',
@@ -305,7 +308,86 @@ function allpost() {
             <Postcard1 {...fr} />
           </SplideSlide>
         )}
-      </Splide> : <p>Loading...</p>}
+      </Splide> : 
+      <Splide
+      className="md:mt-7 mt-4 md:mb-10 mb-7 "
+      options={{
+        // focus      : 'center',
+        // pagination : true,
+        // fixedWidth : 120,
+        // fixedHeight: 150,
+
+        gap    : 20,
+        perPage: 4,
+        pagination : false,
+        breakpoints: {
+          1100: {
+            perPage: 3,
+          },
+          700: {
+            perPage: 2,
+          },
+        },
+
+        // focus  : 0,
+        // omitEnd: true,
+
+        // type    : 'loop',
+        // autoplay: 'pause',
+      }}
+      aria-label="Beautiful Images"
+      >
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+      </Splide>
+      }
+
+    <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Trendy Lux Arrivals</div>
+
+      {posts?.filter(pr => pr?.subCategory === "trend").slice(0,3)
+      .map((post) =>
+        <div key={post?._id} className='grid grid-cols-5 gap-10 md:mt-7 mt-4 md:mb-10 mb-7 bg-black'>
+          <div className='col-span-3'>
+            <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-6 text-white mt-[8%] sm:mt-[12%] md:mt-[24%]  ml-[10%]">
+              Discover Trends Luxury Lighting
+            </h1>
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-3xl mb-3 sm:mb-6 text-white ml-[10%] md:block hidden">
+              Elevate your space with our curated collection of the season's most designs.
+            </h2>
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-3 sm:mb-6 text-white ml-[10%] md:hidden">
+              Elevate your space with our Lights 
+            </h2>
+            <Link to={"/"} className="inline-block px-2 sm:px-4 md:px-6 py-1 sm:py-2 md:py-3 bg-white text-black text-base md:text-lg font-semibold rounded hover:bg-gray-300 transition ml-[10%]">
+              Explore Now
+            </Link>
+          </div>
+          <img src={post?.image[0]} className='w-full h-full md:py-10 sm:py-10 py-5 col-span-2'/>
+          {/* <div className='hidden md:block col-span-1'></div> */}
+        </div>
+      )}
+    
 
       <div className=' '>
         <div className='sm:block hidden h-auto sm:mb-7 mb-0 '>
