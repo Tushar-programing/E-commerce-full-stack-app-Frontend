@@ -185,19 +185,18 @@ function Post({ post }) {
             value={category}
             onChange={handleChange}
           >
-            <option className='text-violet-900' value="boards">Boards</option>
-            <option className='text-violet-900' value="sensors">Sensors</option>
-            <option className='text-violet-900' value="motors">Dc motors</option>
-            <option className='text-violet-900' value="speakers">Buzzers & Speakers</option>
-            <option className='text-violet-900' value="batteries">Batteries</option>
-            <option className='text-violet-900' value="chargers">Chargers</option>
-            <option className='text-violet-900' value="bluthooth">Bluetooth module</option>
-            <option className='text-violet-900' value="capacitors">Capacitors & Transistors</option>
-            <option className='text-violet-900' value="led">LED's</option>
-            <option className='text-violet-900' value="drones">Drones</option>
-            <option className='text-violet-900' value="cars">Rc cars</option>
-            <option className='text-violet-900' value="built">Built-in Projects</option>
-            <option className='text-violet-900' value="other">other's</option>
+            <option className='text-violet-900' value="ceiling">Ceiling Fixtures</option>
+            <option className='text-violet-900' value="chandelier">Chandeliers</option>
+            <option className='text-violet-900' value="lamp">Lamps & Lighting</option>
+            <option className='text-violet-900' value="outdoor">Outdoor Lighting</option>
+            <option className='text-violet-900' value="plants">Plants & Botanicals</option>
+            <option className='text-violet-900' value="wall">Wall Lamps</option>
+            <option className='text-violet-900' value="garden">Garden Lighting</option>
+            <option className='text-violet-900' value="floor">Floor Lamp</option>
+            <option className='text-violet-900' value="diwali">Diwali Light</option>
+            <option className='text-violet-900' value="mood">Mood Lighting</option>
+            <option className='text-violet-900' value="patio">Patio Lights</option>
+            <option className='text-violet-900' value="other">Other's</option>
           </select>
 
           <select  className='px-3 mb-10 py-2 rounded-lg bg-white text-black outline-none

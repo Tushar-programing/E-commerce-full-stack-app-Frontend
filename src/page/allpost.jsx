@@ -181,10 +181,10 @@ function allpost() {
       {/* <a href="https://wa.me/12345678900" target="_blank">Chat with us on WhatsApp</a> */}
       
 
-      <div className='text-center mt-10 md:mt-16 text-xl md:text-2xl'>Lux Loom Collections</div>
+      <div className='text-center mt-10 md:mt-16 text-lg md:text-2xl'>Lux Loom Collections</div>
 
       <Splide
-      className="md:mt-7 mt-5 md:mb-10 mb-7 md:hidden"
+      className="md:mt-7 mt-4 md:mb-10 mb-7 md:hidden"
       options={{
         // gap        : 30,
         // perPage    : 3,
@@ -202,8 +202,8 @@ function allpost() {
         //   },
         // },
 
-        fixedWidth : 200,
-        fixedHeight: 200,
+        fixedWidth : 120,
+        fixedHeight: 150,
         gap        : 10,
         arrows: false,
         pagination : false,
@@ -211,33 +211,33 @@ function allpost() {
       aria-label="Beautiful Images"
       >
         <SplideSlide>
-          <div className='relative border'>
+          <div>
             <img src="https://images-cdn.ubuy.co.in/634d0f039b41f53d1522b115-crystal-flush-mount-led-ceiling-light.jpg?_gl=1*gdmnco*_gcl_au*MTMyNDk4NDY3Ny4xNzI1MjE5OTMw" className='w-full h-full' />
-            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Ceiling Fixtures</div>
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Ceiling Fixtures</div>
           </div>
         </SplideSlide>
         <SplideSlide>
-          <div className='relative border'>
+          <div>
             <img src="https://m.media-amazon.com/images/I/71GmM4--DdL._AC_UF894,1000_QL80_.jpg" className='w-full h-full' />
-            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Chandeliers</div>
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Chandeliers</div>
           </div>
         </SplideSlide>
         <SplideSlide>
-          <div className='relative border'>
+          <div>
             <img src="https://m.media-amazon.com/images/I/81FMq3e3BZL._AC_SX679_.jpg" className='w-full h-full' />
-            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Lamps & Lighting</div>
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Lamps & Lighting</div>
           </div>
         </SplideSlide>
         <SplideSlide>
-          <div className='relative border'>
+          <div>
             <img src="https://img.lazcdn.com/g/p/5d06742dba5d36409c5e5b9a95594516.jpg_720x720q80.jpg_.webp" className='w-full h-full' />
-            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Outdoor Lighting</div>
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Outdoor Lighting</div>
           </div>
         </SplideSlide>
         <SplideSlide>
-          <div className='relative border'>
+          <div>
             <img src="https://m.media-amazon.com/images/I/71vrVCqbWZL.jpg" className='w-full h-full' />
-            <div className='absolute bottom-0 w-full text-center text-black bg-white p-1 z-10'>Plants & Botanicals</div>
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Plants light</div>
           </div>
         </SplideSlide>
       </Splide>
@@ -267,7 +267,45 @@ function allpost() {
 
       <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Ultimate Trendy Treasure Collections</div>
       
-      <TrendyPro post={posts.filter(pr => pr.subCategory === "new")} />
+      <TrendyPro post={posts.filter(pr => pr?.subCategory === "new")} />
+
+      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Chandeliers Collections</div>
+
+      {posts?.length > 0 ? <Splide
+      className="md:mt-7 mt-4 md:mb-10 mb-7 "
+      options={{
+        // focus      : 'center',
+        // pagination : true,
+        // fixedWidth : 120,
+        // fixedHeight: 150,
+
+        gap    : 20,
+        perPage: 4,
+        pagination : false,
+        breakpoints: {
+          1100: {
+            perPage: 3,
+          },
+          700: {
+            perPage: 2,
+          },
+        },
+
+        // focus  : 0,
+        // omitEnd: true,
+
+        // type    : 'loop',
+        // autoplay: 'pause',
+      }}
+      aria-label="Beautiful Images"
+      >
+        {posts?.filter(pr => pr?.category === "chandelier")
+        .map((fr, index) =>
+          <SplideSlide key={fr._id}>
+            <Postcard1 {...fr} />
+          </SplideSlide>
+        )}
+      </Splide> : <p>Loading...</p>}
 
       <div className=' '>
         <div className='sm:block hidden h-auto sm:mb-7 mb-0 '>
