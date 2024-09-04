@@ -795,22 +795,22 @@ function allpost() {
       </div> */}
 
       
-      <div className=' grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:mt-20 md:mt-14 sm:mt-8 gap-10'>
-        <div className='text-center '>
-          <img src="https://cdn.iconscout.com/icon/free/png-256/free-cash-on-delivery-icon-download-in-svg-png-gif-file-formats--payment-hand-food-services-pack-icons-1569374.png?f=webp&w=256" alt='image' className='w-12 md:w-20 xl:w-24 mx-auto'/>
-          <div className='mt-2'>Cash on Delivery Available</div>
+      <div className=' grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:mt-20 md:mt-14 sm:mt-8 gap-4'>
+        <div className='text-center bg-gray-100 md:bg-white sm:py-0 py-2'>
+          <img src="https://cdn.iconscout.com/icon/free/png-256/free-cash-on-delivery-icon-download-in-svg-png-gif-file-formats--payment-hand-food-services-pack-icons-1569374.png?f=webp&w=256" alt='image' className='w-10 md:w-16 xl:w-20 mx-auto'/>
+          <div className='mt-2 sm:text-base text-sm'>Cash on Delivery Available</div>
         </div>
-        <div className='text-center '>
-          <img src="https://cdn-icons-png.flaticon.com/256/1067/1067566.png" alt='image' className='w-12 md:w-20 xl:w-24 mx-auto' />
-          <div className='mt-2'>24/7 Customer Support</div>
+        <div className='text-center bg-gray-100 md:bg-white sm:py-0 py-2'>
+          <img src="https://cdn-icons-png.flaticon.com/256/1067/1067566.png" alt='image' className='w-10 md:w-16 xl:w-20 mx-auto' />
+          <div className='mt-2 sm:text-base text-sm'>24/7 Customer Support</div>
         </div>
-        <div className='text-center '>
-          <img src="https://cdn-icons-png.flaticon.com/512/1212/1212158.png" alt='image' className='w-12 md:w-20 xl:w-24 mx-auto' />
-          <div className='mt-2'>Premium quality products</div>
+        <div className='text-center bg-gray-100 md:bg-white sm:py-0 py-2'>
+          <img src="https://cdn-icons-png.flaticon.com/512/1212/1212158.png" alt='image' className='w-10 md:w-16 xl:w-20 mx-auto' />
+          <div className='mt-2 sm:text-base text-sm'>Premium quality products</div>
         </div>
-        <div className='text-center '>
-          <img src="https://www.svgrepo.com/show/40440/secure-payment.svg" alt='image' className='w-12 md:w-20 xl:w-24 mx-auto' />
-          <div className='mt-2'>Secure Payments</div>
+        <div className='text-center bg-gray-100 md:bg-white sm:py-0 py-2'>
+          <img src="https://www.svgrepo.com/show/40440/secure-payment.svg" alt='image' className='w-10 md:w-16 xl:w-20 mx-auto' />
+          <div className='mt-2 sm:text-base text-sm'>Secure Payments</div>
         </div>
       </div>
 
