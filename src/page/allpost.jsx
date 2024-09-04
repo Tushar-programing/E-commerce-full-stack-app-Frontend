@@ -41,6 +41,12 @@ import TrendyPro from '../component/trendyPro'
 
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import { MdPadding } from 'react-icons/md'
+
+import { FaFacebook } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io5";
+import { MdWhatsapp } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
 
 
 function allpost() {
@@ -184,10 +190,10 @@ function allpost() {
       {/* <a href="https://wa.me/12345678900" target="_blank">Chat with us on WhatsApp</a> */}
       
 
-      <div className='text-center mt-10 md:mt-16 text-lg md:text-2xl'>Lux Loom Collections</div>
+      <div className='text-center mt-6 md:mt-16 text-lg md:text-2xl'>Lux Loom Collections</div>
 
       <Splide
-      className="md:mt-7 mt-4 md:mb-10 mb-7 md:hidden"
+      className="md:mt-7 mt-2 md:hidden"
       options={{
         // gap        : 30,
         // perPage    : 3,
@@ -268,20 +274,20 @@ function allpost() {
           </div>
       </div>
 
-      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Ultimate New Treasure Collections</div>
+      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Ultimate New Treasure Collections</div>
       
       <TrendyPro posts={posts} />
 
-      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Chandeliers Collections</div>
+      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Chandeliers Collections</div>
 
-      {posts.length > 0 ? <Splide
+      <div className='mx-1'>
+        {posts.length > 0 ? <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
         // focus      : 'center',
         // pagination : true,
         // fixedWidth : 120,
         // fixedHeight: 150,
-
         gap    : 20,
         perPage: 4,
         pagination : false,
@@ -308,8 +314,8 @@ function allpost() {
             <Postcard1 {...fr} />
           </SplideSlide>
         )}
-      </Splide> : 
-      <Splide
+        </Splide> : 
+        <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
         // focus      : 'center',
@@ -361,14 +367,15 @@ function allpost() {
             <Skeleton variant="rounded" height={30} width={170} />
           </Stack>
         </SplideSlide>
-      </Splide>
-      }
+        </Splide>
+        }
+      </div>
 
-      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Trendy Lux Arrivals</div>
+      <div className='text-center mt-5 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Trendy Lux Arrivals</div>
 
       {posts?.length > 0 ? posts?.filter(pr => pr?.subCategory === "trend").slice(0,1)
       .map((post) =>
-        <Link to={`/post/${post?._id}`} key={post?._id} className='grid grid-cols-3 gap-10 md:mt-7 mt-4 md:mb-10 mb-7 bg-black sm:py-0 py-5'>
+        <Link to={`/post/${post?._id}`} key={post?._id} className='grid grid-cols-3 gap-10 md:mt-7 mt-2 bg-black sm:py-0 py-5'>
           <div className='col-span-2'>
             <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-6 text-white mt-[8%] sm:mt-[8%] md:mt-[16%]  ml-[10%]">
               Discover Trends Luxury Lighting
@@ -387,8 +394,9 @@ function allpost() {
         </Link>
       ): <Skeleton variant="rounded" height={200} className='my-7'/>}
     
-      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore Luxe Outdoor Lights</div>
+      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore Luxe Outdoor Lights</div>
 
+      <div className='mx-1'>
       {posts.length > 0 ? <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
@@ -478,9 +486,11 @@ function allpost() {
         </SplideSlide>
       </Splide>
       }
+      </div>
 
-      <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Festive Radiance</div>
+      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Festive(Diwali) Radiance</div>
           
+      <div className='mx-1'>
       {posts.length > 0 ? <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
@@ -570,106 +580,211 @@ function allpost() {
         </SplideSlide>
       </Splide>
       }
-
-      <div className=' '>
-        <div className='sm:block hidden h-auto sm:mb-7 mb-0 '>
-            <p className='sm:text-2xl text-lg font-semibold mb-7'>Our Collections</p>
-            <div className="sm:h-auto h-auto grid lg:grid-cols-5 sm:grid-cols-5 grid-cols-5 ">
-              <Link to="/result?cat=drones">
-                <div className="flex flex-col items-center ">
-                  <div className=" xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 ">
-                    <img
-                      src="https://media.karousell.com/media/photos/products/2017/02/24/racing_drone_fpv_kit_1487935777_72a72e10.jpg"
-                      alt="Image 1"
-                      className=" xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
-                    />
-                  </div>
-                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                  <span className='md:block hidden'>Drone and Rc planes </span><span className='md:hidden block'>Drone </span><span className="font-bold">&rarr;</span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="/result?cat=boards">
-                <div className="flex flex-col items-center">
-                  <div className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
-                    <img
-                      src="https://pimylifeup.com/wp-content/uploads/2015/08/Raspberry-Pi-Vs-Arduino.jpg"
-                      alt="Image 2"
-                      className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
-                    />
-                  </div>
-                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                  <span className='md:block hidden'>Arduino Boards </span><span className='md:hidden block'>Boards </span><span className="font-bold">&rarr;</span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="/result?cat=sensors">
-                <div className="flex flex-col items-center">
-                  <div className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
-                    <img
-                      src="https://tutorial45.com/wp-content/uploads/2017/11/arduino-gas-sensor.jpg"
-                      alt="Image 3"
-                      className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
-                    />
-                  </div>
-                  <p className="sm:w-auto w-24 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                  <span className='md:block hidden'>All type Sensors </span><span className='md:hidden block'>Sensors </span><span className="font-bold">&rarr;</span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="/result?cat=led">
-                <div className="flex flex-col items-center">
-                  <div className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-white">
-                    <img
-                      src="https://ae01.alicdn.com/kf/Hc696125dd61f4c31aee47ea8e9f60ee9S/12mm-bullet-DC12V-WS2818-RGB-full-color-addressable-LED-pixel-light-IP68-all-BLACK-wire-100pcs.jpg"
-                      alt="Image 4"
-                      className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
-                    />
-                  </div>
-                  <p className="sm:w-auto w-16 sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                    <span className='md:block hidden'>Pixel LED's </span><span className='md:hidden block'>LED's </span><span className="font-bold">&rarr;</span>
-                  </p>
-                </div>
-              </Link>
-              <Link to="/result?cat=speakers">
-                <div className="flex flex-col items-center">
-                  <div className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 outline outline-10 outline-white">
-                    <img
-                      src="https://m.media-amazon.com/images/I/61Ou6sDalKL._UX250_.jpg"
-                      alt="Image 5"
-                      className="xl:w-40 lg:w-32 md:w-28 sm:w-20 w-14 xl:h-40 lg:h-32 md:h-28 sm:h-20 h-14 object-cover"
-                    />
-                  </div>
-                  <p className="sm:text-base text-sm text-center mt-4 text-gray-800 hover:text-red-600 transform sm:hover:translate-x-[-6px] hover:translate-x-[-3px] duration-200 cursor-pointer font-semibold">
-                  <span className='md:block hidden'>Bass and Speakers </span><span className='md:hidden block'>Speakers </span><span className="font-bold">&rarr;</span>
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-        </div>
-
-        <div className='mt-3 sm:mt-16 text-lg sm:text-2xl font-semibold text-center '>Home Decor Products </div>
-        <div className=' grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-8 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-5 gap-3 md:mt-16 mt-8'>
-                {posts.filter((post) => post.status === true)
-                
-                .map((post) => (
-                      <Postcard key={post._id} {...post}/>
-                ))}
-        </div>
-        <div className='mt-12 text-xl sm:text-2xl font-semibold '>IOT Sensors</div>
-        <div className="flex sm:overflow-hidden overflow-x-scroll mt-7 ">
-              {/* Transition container */}
-              <div className="flex transition-transform duration-500">
-              {posts.filter((post) => post.category === "sensors")
-                .map((post) => (
-                        <Postcard1 key={post?._id} {...post} />
-                ))}
-              </div>
-        </div>
-          
       </div>
-      <div className=''>
+
+      <div className='text-center mt-0 md:mt-12 text-base md:text-xl bg-gray-100 py-2'>Follow us on Social Media</div>
+      
+      <div className=' grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-2'>
+        <a href='https://www.linkedin.com/in/tushar-saini-60bb242a3/' className='bg-gray-100 text-center flex justify-center items-center'>
+          <FaFacebook className='my-6 lg:w-14 sm:w-12 w-10 lg:h-14 sm:h-12 h-10 me-4' />
+          <div className='text-start'>
+            <div className='text-base'>Facebook</div>
+            <div className='text-sm text-gray-700'>Join us</div>
+            <div className='text-sm text-gray-700'>@luxloom</div>
+          </div>
+        </a>
+        <a href='https://www.instagram.com/_.tusharsaini' className='bg-gray-100 text-center flex justify-center items-center'>
+          <IoLogoInstagram className='my-6 lg:w-14 sm:w-12 w-10 lg:h-14 sm:h-12 h-10 me-4' />
+          <div className='text-start'>
+            <div className='text-base'>Instagram</div>
+            <div className='text-sm text-gray-700'>Join our Page</div>
+            <div className='text-sm text-gray-700'>@luxloom</div>
+          </div>
+        </a>
+        <button onClick={() => window.open("https://api.whatsapp.com/send?phone=917451811626", "_blank")}  className='bg-gray-100 text-center flex justify-center items-center'>
+          <MdWhatsapp className='my-6 lg:w-14 sm:w-12 w-10 lg:h-14 sm:h-12 h-10 me-4' />
+          <div className='text-start'>
+            <div className='text-base'>WhatsApp</div>
+            <div className='text-sm text-gray-700'>Reach us at</div>
+            <div className='text-sm text-gray-700'>+91-7451811626</div>
+          </div>
+        </button>
+        <a href='https://www.linkedin.com/in/tushar-saini-60bb242a3/' className='bg-gray-100 text-center flex justify-center items-center'>
+          <FaLinkedin className='my-6 lg:w-14 sm:w-12 w-10 lg:h-14 sm:h-12 h-10 me-4' />
+          <div className='text-start'>
+            <div className='text-base'>Linkedin</div>
+            <div className='text-sm text-gray-700'>Conact us</div>
+            <div className='text-sm text-gray-700'>@luxloom</div>
+          </div>
+        </a>
+      </div>
+
+      <div className='text-center mt-6 sm:mt-10 md:mt-16 text-lg md:text-2xl lg:text-3xl'>Shop From Our Instagram</div>
+
+      <div className='mx-1 md:block hidden'>
+      {posts.length > 0 ? <Splide
+      className="md:mt-7 mt-4 md:mb-10 mb-7 "
+      options={{
+        gap    : 20,
+        perPage: 6,
+        pagination : false,
+        breakpoints: {
+          1300: {
+            perPage: 5,
+          },
+          100: {
+            perPage: 4,
+          },
+          800: {
+            perPage: 3,
+          },
+          600: {
+            perPage: 2,
+          },
+        },
+      }}
+      aria-label="Beautiful Images"
+      >
+        {posts?.filter(pr => pr?.instagram === true)
+        .map((fr, index) =>
+          <SplideSlide key={fr._id}>
+            <Postcard2 {...fr} />
+          </SplideSlide>
+        )}
+      </Splide> :
+      <Splide
+      className="md:mt-7 mt-4 md:mb-10 mb-7 "
+      options={{
+        // focus      : 'center',
+        // pagination : true,
+        // fixedWidth : 120,
+        // fixedHeight: 150,
+      
+        gap    : 20,
+        perPage: 4,
+        pagination : false,
+        breakpoints: {
+          1100: {
+            perPage: 3,
+          },
+          700: {
+            perPage: 2,
+          },
+        },
+      
+        // focus  : 0,
+        // omitEnd: true,
+      
+        // type    : 'loop',
+        // autoplay: 'pause',
+      }}
+      aria-label="Beautiful Images"
+      >
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+      </Splide>
+      }
+      </div>
+
+      <div className='mx-1 md:hidden'>
+      {posts.length > 0 ? <Splide
+      className="md:mt-7 mt-4 md:mb-10 mb-7 "
+      options={{
+        fixedWidth : 150,
+        fixedHeight: 150,
+        gap        : 10,
+        arrows: false,
+        pagination : false,
+      }}
+      aria-label="Beautiful Images"
+      >
+        {posts?.filter(pr => pr?.instagram === true)
+        .map((fr, index) =>
+          <SplideSlide key={fr._id}>
+            <Postcard2 {...fr} />
+          </SplideSlide>
+        )}
+      </Splide> :
+      <Splide
+      className="md:mt-7 mt-4 md:mb-10 mb-7 "
+      options={{
+        // focus      : 'center',
+        // pagination : true,
+        // fixedWidth : 120,
+        // fixedHeight: 150,
+      
+        gap    : 20,
+        perPage: 4,
+        pagination : false,
+        breakpoints: {
+          1100: {
+            perPage: 3,
+          },
+          700: {
+            perPage: 2,
+          },
+        },
+      
+        // focus  : 0,
+        // omitEnd: true,
+      
+        // type    : 'loop',
+        // autoplay: 'pause',
+      }}
+      aria-label="Beautiful Images"
+      >
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+        <SplideSlide>
+          <Stack spacing={1}>
+            <Skeleton variant="rounded" height={350} />
+            <Skeleton variant="rounded" height={30} width={170} />
+          </Stack>
+        </SplideSlide>
+      </Splide>
+      }
+      </div>
+
+      
+      {/* <div className=''>
         <div className='mt-16 text-2xl font-semibold'>Built-in Projects</div>
         <div className="grid mt-7 border grid-cols-1 md:grid-cols-2 gap-2">
               {posts.filter((post) => post.category === "built")
@@ -677,44 +792,60 @@ function allpost() {
                     <Postcard2 key={post._id} {...post} />
                 ))}
         </div>
+      </div> */}
+
+      
+      <div className=' grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:mt-20 md:mt-14 sm:mt-8 gap-10'>
+        <div className='text-center '>
+          <img src="https://cdn.iconscout.com/icon/free/png-256/free-cash-on-delivery-icon-download-in-svg-png-gif-file-formats--payment-hand-food-services-pack-icons-1569374.png?f=webp&w=256" alt='image' className='w-12 md:w-20 xl:w-24 mx-auto'/>
+          <div className='mt-2'>Cash on Delivery Available</div>
+        </div>
+        <div className='text-center '>
+          <img src="https://cdn-icons-png.flaticon.com/256/1067/1067566.png" alt='image' className='w-12 md:w-20 xl:w-24 mx-auto' />
+          <div className='mt-2'>24/7 Customer Support</div>
+        </div>
+        <div className='text-center '>
+          <img src="https://cdn-icons-png.flaticon.com/512/1212/1212158.png" alt='image' className='w-12 md:w-20 xl:w-24 mx-auto' />
+          <div className='mt-2'>Premium quality products</div>
+        </div>
+        <div className='text-center '>
+          <img src="https://www.svgrepo.com/show/40440/secure-payment.svg" alt='image' className='w-12 md:w-20 xl:w-24 mx-auto' />
+          <div className='mt-2'>Secure Payments</div>
+        </div>
       </div>
 
-      <section className="bg-gray-100 py-16 mt-10 ">
-          <div className="container mx-auto ">
-              <div className="flex flex-wrap justify-center ">
-                  <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6"> 
-                      <div className=' flex'>
-                        <div className=' w-16 h-10'><img src={shipping} className="h-10 mx-auto  my-auto" /></div>
-                        <h2 className="font-semibold mb-2 ">Free Shipping</h2>
-                      </div>
-                      <p className=" ml-16">Free Shipping on all prepaid <br /> orders above Rs. 999</p>
-                  </div>
-                  <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
-                      <div className=' flex'>
-                        <div className=' w-16 h-10'><img src={carts} className='h-10 mx-auto my-auto' /></div>
-                        <h2 className="font-semibold mb-2">Quality Assurance</h2>
-                      </div>
-                      <p className=" ml-16">Enjoy 100% premium quality <br /> products</p>
-                  </div>
-                  <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
-                      <div className=' flex'>
-                        <div className=' w-16 h-10'><img src={support} className="h-10 mx-auto my-auto" /></div>
-                        <h2 className="font-semibold mb-2">Top-notch Support</h2>
-                      </div>
-                      <p className=" ml-16">Call: +91 7451811626</p>
-                      <p className=" ml-16">Mail: <a href="mailto:ttushar476@gmail.com" className="text-blue-600 hover:text-blue-900">support@electrobazar.in</a></p>
-                      <p className=" ml-16">Timings: 9am to 9pm, <br /> Days: Mon-Sun</p>
-                  </div>
-                  <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
-                      <div className=' flex'>
-                        <div className=' w-16 h-10'><img src={secure} className="h-10 mx-auto my-auto" /></div>
-                        <h2 className="font-semibold mb-2">Secure Payments</h2>
-                      </div>
-                      <p className=" ml-16">100% Secure Payments by  <br /> Trusted Payment Gateways</p>
-                  </div>
+      <div className="flex flex-wrap justify-center mt-24 hidden">
+          <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6"> 
+              <div className=' flex'>
+                <div className=' w-16 h-10'><img src={shipping} className="h-10 mx-auto  my-auto" /></div>
+                <h2 className="font-semibold mb-2 ">Free Shipping</h2>
               </div>
+              <p className=" ml-16">Free Shipping on all prepaid <br /> orders above Rs. 999</p>
           </div>
-      </section>
+          <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
+              <div className=' flex'>
+                <div className=' w-16 h-10'><img src={carts} className='h-10 mx-auto my-auto' /></div>
+                <h2 className="font-semibold mb-2">Quality Assurance</h2>
+              </div>
+              <p className=" ml-16">Enjoy 100% premium quality <br /> products</p>
+          </div>
+          <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
+              <div className=' flex'>
+                <div className=' w-16 h-10'><img src={support} className="h-10 mx-auto my-auto" /></div>
+                <h2 className="font-semibold mb-2">Top-notch Support</h2>
+              </div>
+              <p className=" ml-16">Call: +91 7451811626</p>
+              <p className=" ml-16">Mail: <a href="mailto:ttushar476@gmail.com" className="text-blue-600 hover:text-blue-900">support@electrobazar.in</a></p>
+              <p className=" ml-16">Timings: 9am to 9pm, <br /> Days: Mon-Sun</p>
+          </div>
+          <div className="w-full md:w-1/2 xl:w-1/4 sm:mt-0 mt-6">
+              <div className=' flex'>
+                <div className=' w-16 h-10'><img src={secure} className="h-10 mx-auto my-auto" /></div>
+                <h2 className="font-semibold mb-2">Secure Payments</h2>
+              </div>
+              <p className=" ml-16">100% Secure Payments by  <br /> Trusted Payment Gateways</p>
+          </div>
+      </div>
     </ div>
   )
 }

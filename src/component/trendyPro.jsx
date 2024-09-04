@@ -19,7 +19,7 @@ function trendyPro({posts}) {
 return (
     <>
         {post?.length > 0 ?
-            <div className={`md:my-10 my-7 grid ${post?.length >= 2 ? "sm:grid-cols-2": "grid-cols-1"}  grid-cols-1 gap-10`}>
+            <div className={`md:my-10 my-3 grid ${post?.length >= 2 ? "sm:grid-cols-2": "grid-cols-1"}  grid-cols-1 md:gap-10 sm:gap-5 gap-3`}>
 
                 <Link to={`/post/${post[0]?._id}`} className="relative overflow-hidden border group">
                     <img
@@ -37,7 +37,7 @@ return (
                     </div>
                 </Link>
 
-                {post?.length >=2 && <div className={` grid ${post?.length >= 3 ? "grid-cols-2" : "grid-cols-1"} gap-7`}>
+                {post?.length >=2 && <div className={` grid ${post?.length >= 3 ? "grid-cols-2" : "grid-cols-1"} md:gap-7 sm:gap-5 gap-3`}>
                     <Link to={`/post/${post[1]?._id}`} className="relative overflow-hidden border group">
                         <img
                             src={post[1]?.image[0]}

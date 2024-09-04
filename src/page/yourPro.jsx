@@ -66,7 +66,7 @@ function yourPro() {
                 <div className=' col-span-1 my-auto text-center'>{pro?.price}</div>
                 <div className=' col-span-2 my-auto text-center'>{pro?.createdAt.slice(0, 10)}</div>
                 <div className=' col-span-2 my-auto text-center flex '>
-                    <div><button onClick={() => navigate(`/dashboard/list/edit/${pro?._id}`)} className='w-20 text-white bg-green-500 py-[1px] mt-[7px] ml-12'>Edit</button></div>
+                    <div><button onClick={() => navigate(`/admin/list/edit/${pro?._id}`)} className='w-20 text-white bg-green-500 py-[1px] mt-[7px] ml-12'>Edit</button></div>
                     <button onClick={() => remove(pro?._id)} className='w-10 text-3xl ml-5 text-black'>×</button>
                 </div>
 

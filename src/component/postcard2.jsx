@@ -41,10 +41,9 @@ function postcard1({image, title, description, price, _id }) {
         console.log(error.message)
         toast.error(error.message)
       }
-    } else {
-         toast.error("Login to add something in Cart")
+      } else {
+        toast.error("Login to add something in Cart")
       }
-    
     }
 
     useEffect(() => {
@@ -97,8 +96,9 @@ function postcard1({image, title, description, price, _id }) {
 
 
   return (
-    <div className=' bg-white grid grid-cols-2'>
-      <div className='sm:h-60 h-48 grid place-items-center px-5'><img src={image[images]} className='sm:max-h-56 max-h-44' onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></div>
+    <Link to={`/post/${_id}`} className=' bg-white '>
+      <img src={image[0]} alt='image' />
+      {/* <div className='sm:h-60 h-48 grid place-items-center px-5'><img src={image[images]} className='sm:max-h-56 max-h-44' onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></div>
       <div className=''>
         <div className='sm:hidden block mt-5 text-base sm:text-lg'>{title?.slice(0, 30)} ...</div>
         <div className='sm:block hidden mt-8 text-lg'>{title?.slice(0, 55)}</div>
@@ -107,8 +107,8 @@ function postcard1({image, title, description, price, _id }) {
           <img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className=" h-9 sm:h-10 cursor-pointer" />
           <button onClick={() => navigate(`/post/${_id}`)} className={`ms-auto flex rounded-r-none rounded-xl w-36  md:w-36 lg:w-44 xl:w-48 2xl:w-52 bg-gray-900 hover:bg-black h-9 sm:h-11 text-white font-semibold transition-transform ${size? 'transform scale-90' : ''} duration-200 border text-sm sm:text-base`}><span className='mx-auto my-auto'>Learn More</span></button>
         </div>
-      </div>
-    </div>
+      </div> */}
+    </Link>
   )
 }
 

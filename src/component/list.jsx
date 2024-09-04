@@ -43,6 +43,7 @@ function Post({ post }) {
 
   const [category, setCategory] = useState(post?.category || 'brand');
   const [subCategory, setSubCategory] = useState(post?.subCategory || '');
+  const [instagram, setInstagram] = useState(post?.instagram || '');
 
   const [selectedFiles, setSelectedFiles] = useState([]);
 
@@ -56,6 +57,11 @@ function Post({ post }) {
   const subhandleChange = (e) => {
     const subCategory = e.target.value;
     setSubCategory(subCategory);
+  };
+
+  const handleInstagram = (e) => {
+    const subCategory = e.target.value;
+    setInstagram(subCategory);
   };
 
   const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
@@ -96,6 +102,7 @@ function Post({ post }) {
     formData.append('weight', data.weight);
     formData.append('category', category)
     formData.append('subCategory', subCategory)
+    formData.append('instagram', instagram)
     formData.append('price', data.price);
 
     // Append all images from the form input to the FormData object
@@ -207,6 +214,15 @@ function Post({ post }) {
             <option className='text-violet-900' value="">Category</option>
             <option className='text-violet-900' value="trend">Trend</option>
             <option className='text-violet-900' value="new">new</option>
+          </select>
+
+          <select  className='ms-3 px-3 mb-10 py-2 rounded-lg bg-white text-black outline-none
+            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 duration-200 border border-gray-200 w-full max-w-64' 
+            value={instagram}
+            onChange={handleInstagram}
+          >
+            <option className='text-violet-900' value="false">false</option>
+            <option className='text-violet-900' value="true">true</option>
           </select>
 
           <div className=' text-center'><Button className='w-44' onClick={() => setSituation('image')} variant="outlined">Next</Button></div>
