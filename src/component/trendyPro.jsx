@@ -38,7 +38,7 @@ return (
                 </Link>
 
                 {post?.length >=2 && <div className={` grid ${post?.length >= 3 ? "grid-cols-2" : "grid-cols-1"} gap-7`}>
-                    <Link to={`/post/${post[0]?._id}`} className="relative overflow-hidden border group">
+                    <Link to={`/post/${post[1]?._id}`} className="relative overflow-hidden border group">
                         <img
                             src={post[1]?.image[0]}
                             className="w-full h-auto object-cover"
@@ -57,7 +57,7 @@ return (
                     </Link>
 
                     {post?.length >=3 && 
-                        <Link to={`/post/${post[0]?._id}`} className="relative overflow-hidden border group">
+                        <Link to={`/post/${post[2]?._id}`} className="relative overflow-hidden border group">
                             <img
                                 src={post[2]?.image[0]}
                                 className="w-full h-auto object-cover"
@@ -74,7 +74,7 @@ return (
                         </Link>}
 
                     {post?.length >=4 && 
-                        <Link to={`/post/${post[0]?._id}`} className="relative overflow-hidden border group">
+                        <Link to={`/post/${post[3]?._id}`} className="relative overflow-hidden border group">
                             <img
                                 src={post[3]?.image[0]}
                                 className="w-full h-auto object-cover"
@@ -90,7 +90,7 @@ return (
                             </div>
                         </Link>}
                     {post?.length >=5 && 
-                        <Link to={`/post/${post[0]?._id}`} className="relative overflow-hidden border group">
+                        <Link to={`/post/${post[4]?._id}`} className="relative overflow-hidden border group">
                             <img
                                 src={post[4]?.image[0]}
                                 className="w-full h-auto object-cover"
