@@ -368,23 +368,23 @@ function allpost() {
 
       {posts?.length > 0 ? posts?.filter(pr => pr?.subCategory === "trend").slice(0,1)
       .map((post) =>
-        <div key={post?._id} className='grid grid-cols-3 gap-10 md:mt-7 mt-4 md:mb-10 mb-7 bg-black'>
+        <Link to={`/post/${post?._id}`} key={post?._id} className='grid grid-cols-3 gap-10 md:mt-7 mt-4 md:mb-10 mb-7 bg-black sm:py-0 py-5'>
           <div className='col-span-2'>
-            <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-0 sm:mb-6 text-white mt-[6%] sm:mt-[8%] md:mt-[16%]  ml-[10%]">
+            <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-6 text-white mt-[8%] sm:mt-[8%] md:mt-[16%]  ml-[10%]">
               Discover Trends Luxury Lighting
             </h1>
-            <h2 className="text-base sm:text-lg md:text-xl lg:text-3xl mb-1 sm:mb-6 text-white ml-[10%] md:block hidden">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-3xl mb-1 sm:mb-6 text-white ml-[10%]">
               Elevate your space with our curated collection of the season's most designs.
             </h2>
-            <h2 className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-6 text-white ml-[10%] md:hidden">
+            {/* <h2 className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-6 text-white ml-[10%] md:hidden sm:hidden">
               Elevate your space with our Lights
-            </h2>
-            <Link to={`/post/${post?._id}`} className="inline-block px-2 sm:px-4 md:px-6 py-1 sm:py-2 md:py-3 bg-white text-black text-base md:text-lg font-semibold rounded hover:bg-gray-200 transition ml-[10%] ">
+            </h2> */}
+            <Link to={`/post/${post?._id}`} className="px-2 sm:px-4 md:px-6 py-1 sm:py-2 md:py-3 bg-white text-black text-base md:text-lg font-semibold rounded hover:bg-gray-200 transition ml-[10%] sm:inline-block  hidden">
               Explore Now
             </Link>
           </div>
           <img src={post?.image[0]} className='w-full h-full md:py-10 sm:py-10 py-5 col-span-1'/>
-        </div>
+        </Link>
       ): <Skeleton variant="rounded" height={200} className='my-7'/>}
     
       <div className='text-center mt-10 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore Luxe Outdoor Lights</div>
@@ -515,7 +515,7 @@ function allpost() {
             <Postcard1 {...fr} />
           </SplideSlide>
         )}
-      </Splide> : 
+      </Splide> :
       <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
