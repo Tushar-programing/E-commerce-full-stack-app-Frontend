@@ -1,89 +1,110 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { FaFacebook, FaInstagram, FaPinterest, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaWhatsapp } from "react-icons/fa6";
 
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Fade from '@mui/material/Fade';
+const Footer = () => {
+  const [customerServiceOpen, setCustomerServiceOpen] = useState(false);
+  const [aboutUsOpen, setAboutUsOpen] = useState(false);
 
-import { IoLogoWhatsapp } from "react-icons/io5";
-import { FaInstagram } from "react-icons/fa";
-import { CiLinkedin } from "react-icons/ci";
-import { IoCallOutline } from "react-icons/io5";
-
-function footer() {
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpansion = () => {
-    setExpanded((prevExpanded) => !prevExpanded);
-  };
   return (
-    <div className='bg--100 md:bg-white border'>
-      <div className=' bg-white w-auto border-t-2 md:block hidden'>
-        <div className=' md:w-1/3 sm:w-1/2 w-full float-left text-center '>
-          <a><h1 className='mt-6 sm:mt-16 text-lg font-semibold text-violet-900'>About us</h1></a>
-          <div className='mt-2 sm:mt-8'><h1>Electrobazar in best online store to buy STEM Kits, Electronics, Robotics, Aeromodelling Drone Parts, IoT, Prototyping and Arts & Crafts Materials at low price.</h1></div>
-        </div>
-        <div className=' md:w-1/3 sm:w-1/2 w-full float-left text-start ps-6 sm:ms-0 sm:text-center'>
-          <a><h1 className='mt-4 sm:mt-6 text-lg font-semibold text-violet-900'>My Account</h1></a>
-          <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>My Account</h1></a>
-          <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Order History</h1></a>
-          <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Wish List</h1></a>
-          <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Newsletter</h1></a>
-          <a><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Privacy Policy</h1></a>
-          <Link to="/list"><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-700'>List-item</h1></Link>
-
-        </div>
-        <div className=' md:w-1/3 sm:w-1/2 w-full float-left text-start ps-6 sm:ms-0 sm:text-center'>
-          <a><h1 className='mt-4 sm:mt-6 text-lg font-semibold text-violet-900'>Connect With Us</h1></a>
-          <a href='https://www.linkedin.com/in/tushar-saini-60bb242a3/'><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Linked in</h1></a>
-          <a href='https://www.instagram.com/tusharsaini4678/'><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Instagram</h1></a>
-          <a href='https://whatsapp.com/dl/code=1WjxHdWwtW'><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Whatsapp</h1></a>
-        </div>
-
-      </div>
-      <div className='md:hidden block my-10 '>
-          <div className='text-center mt-7 mb-3 '>About us</div>
-          <div className='mx-7 mb-4'>Electrobazar in best online store to buy STEM Kits, Electronics, Robotics, Aeromodelling Drone Parts, IoT, Prototyping and Arts & Crafts Materials at low price.</div>
-          <div className='mx-7'>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2-content"
-                id="panel2-header"
-              >
-                <Typography>My Account</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                    <a><h1 className='mt-1 '>My Account</h1></a>
-                    <a><h1 className='mt-1 '>Order History</h1></a>
-                    <a><h1 className='mt-1 '>Wish List</h1></a>
-                    <a><h1 className='mt-1 '>Newsletter</h1></a>
-                    <a><h1 className='mt-1'>Privacy Policy</h1></a>
-                    <Link to="/list"><h1 className='mt-1 '>List-item</h1></Link>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
+    <footer className="bg-black text-white py-10 md:px-10">
+      <div className="px-4 md:px-0 max-w-[1200px] mx-auto">
+        {/* Desktop View */}
+        <div className="hidden md:flex justify-between">
+          <div>
+            <h3 className="font-bold text-lg">Customer Service</h3>
+            <ul className="mt-2">
+              <li className=" mb-1"><a href="#" className="hover:underline">Track Your Order</a></li>
+              <li className=" mb-1"><a href="#" className="hover:underline">Shipping and Returns Policy</a></li>
+              <li className=" mb-1"><a href="#" className="hover:underline">Submit a Return Request</a></li>
+              <li className=" mb-1"><a href="#" className="hover:underline">Buy in Bulk</a></li>
+              <li className=" mb-1"><a href="#" className="hover:underline">Contact us</a></li>
+            </ul>
           </div>
-          <div className='text-center mt-7 mb-3 text-xl'>Connect with us</div>
-          <div className='grid grid-cols-4 px-5 mt-5'>
-              <a  target='_blank' href='https://www.linkedin.com/in/tushar-saini-60bb242a3/'><IoLogoWhatsapp className='mx-auto w-8 h-8' /></a>
-              <a  target='_blank' href='https://www.instagram.com/_.tusharsaini/'><FaInstagram    className='mx-auto w-8  h-8'/></a>
-              <a  target='_blank' href='https://www.linkedin.com/in/tushar-saini-60bb242a3/'><CiLinkedin     className='mx-auto w-9 h-9'/></a>
-              <a  target='_blank' href='href="tel+91 7451811626'><IoCallOutline  className='mx-auto w-8 h-8'/></a>
+          <div>
+            <h3 className="font-bold text-lg">About Us</h3>
+            <ul className="mt-2">
+              <li className="mb-1"><a href="#" className="hover:underline">Our Story</a></li>
+              <li className="mb-1"><a href="#" className="hover:underline">Our Blog - The Artisan's Journal</a></li>
+              <li className="mb-1"><a href="#" className="hover:underline">Privacy Policy</a></li>
+              <li className="mb-1"><a href="#" className="hover:underline">Terms of Service</a></li>
+            </ul>
           </div>
-          {/* <div className=' md:w-1/3 sm:w-1/2 w-full float-left text-start ps-6 sm:ms-0 sm:text-center'>
-            <a><h1 className='mt-4 sm:mt-6 text-lg font-semibold text-violet-900'>Connect With Us</h1></a>
-            <a href='https://www.linkedin.com/in/tushar-saini-60bb242a3/'><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Linked in</h1></a>
-            <a href='https://www.instagram.com/tusharsaini4678/'><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Instagram</h1></a>
-            <a href='https://whatsapp.com/dl/code=1WjxHdWwtW'><h1 className='mt-1 sm:mt-4 text-lg font-semibold text-gray-600'>Whatsapp</h1></a>
-          </div> */}
-      </div>
-    </div>
-  )
-}
+          <div>
+            <p className="max-w-xs">
+              Imagined in India, Home Artisan offers a unique selection of modern and elegant home décor products.
+              From Scandinavian design inspired lanterns to geometric photo frames, we design and curate products that
+              exude superior craftsmanship and reflect global trends.
+            </p>
+            <div className="mt-4 flex space-x-4">
+              <a href='https://www.linkedin.com/in/tushar-saini-60bb242a3/' target="_blank" className="hover:underline"><FaLinkedin size={24} className="text-white"  /></a>
+              <a href='https://www.instagram.com/_.tusharsaini' target="_blank" className="hover:underline"><FaInstagram size={24} className="text-white" /></a>
+              <button onClick={() => window.open("https://api.whatsapp.com/send?phone=917451811626", "_blank")} className="hover:underline"><FaWhatsapp size={24} className="text-white" /></button>
+              <a href="mailto:ttushar476@gmail.com" className="hover:underline"><FaEnvelope size={24} className="text-white"  /></a>
+            </div>
+          </div>
+        </div>
 
-export default footer
+        {/* Mobile/Tablet View */}
+        <div className="md:hidden">
+          <div className="border-t border-gray-700 pt-4">
+            <button
+              className="flex justify-between w-full py-2"
+              onClick={() => setCustomerServiceOpen(!customerServiceOpen)}
+            >
+              <span>Customer Service</span>
+              <span>{customerServiceOpen ? "-" : "+"}</span>
+            </button>
+            {customerServiceOpen && (
+              <ul className="pl-4 mt-2">
+                <li><a href="#" className="hover:underline block py-1">Track Your Order</a></li>
+                <li><a href="#" className="hover:underline block py-1">Shipping and Returns Policy</a></li>
+                <li><a href="#" className="hover:underline block py-1">Submit a Return Request</a></li>
+                <li><a href="#" className="hover:underline block py-1">Buy in Bulk</a></li>
+                <li><a href="#" className="hover:underline block py-1">Contact us</a></li>
+              </ul>
+            )}
+          </div>
+
+          <div className="border-t border-gray-700 pt-4">
+            <button
+              className="flex justify-between w-full py-2"
+              onClick={() => setAboutUsOpen(!aboutUsOpen)}
+            >
+              <span>About Us</span>
+              <span>{aboutUsOpen ? "-" : "+"}</span>
+            </button>
+            {aboutUsOpen && (
+              <ul className="pl-4 mt-2 ">
+                <li><a href="#" className="hover:underline block py-1">Our Story</a></li>
+                <li><a href="#" className="hover:underline block py-1">Our Blog - The Artisan's Journal</a></li>
+                <li><a href="#" className="hover:underline block py-1">Privacy Policy</a></li>
+                <li><a href="#" className="hover:underline block py-1">Terms of Service</a></li>
+              </ul>
+            )}
+          </div>
+
+          <div className="border-t border-gray-700 pt-4">
+            <p className="text-sm">
+              Imagined in India, Home Artisan offers a unique selection of modern and elegant home décor products. From
+              Scandinavian design inspired lanterns to geometric photo frames, we design and curate products that exude
+              superior craftsmanship and reflect global trends.
+            </p>
+            <div className="mt-4 flex space-x-4">
+              <a href='https://www.linkedin.com/in/tushar-saini-60bb242a3/' target="_blank" className="hover:underline"><FaLinkedin size={24} className="text-white"  /></a>
+              <a href='https://www.instagram.com/_.tusharsaini' target="_blank" className="hover:underline"><FaInstagram size={24} className="text-white" /></a>
+              <button onClick={() => window.open("https://api.whatsapp.com/send?phone=917451811626", "_blank")} className="hover:underline"><FaWhatsapp size={24} className="text-white" /></button>
+              <a href="mailto:ttushar476@gmail.com" className="hover:underline"><FaEnvelope size={24} className="text-white"  /></a>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center text-sm mt-8">
+          <p>© 2024 Home Artisan. Powered by Shopify</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

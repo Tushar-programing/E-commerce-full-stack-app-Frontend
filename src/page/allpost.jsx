@@ -48,24 +48,20 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { MdWhatsapp } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+
 
 function allpost() {
     const [posts, setPosts] = useState([]);
 
     const active = useSelector(state => state.auth.status)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 640);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
 
     useEffect(() => {
       try {
@@ -78,6 +74,17 @@ function allpost() {
       
   }, [])
     
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className='bg-white pb-20 max-w-[1536px] mx-auto'>

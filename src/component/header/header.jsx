@@ -49,6 +49,8 @@ import { RxCross1 } from "react-icons/rx";
 import { RiSearchLine } from "react-icons/ri";
 import { IoArrowBack } from "react-icons/io5";
 
+import LoginPopup from './loginPopup';
+
 function header() {
     const navigate = useNavigate()
     const [value, setValue] = useState('')
@@ -125,6 +127,17 @@ function header() {
             }
         },100)
     }, [open]);
+
+    const [open2, setOpen2] = React.useState(false);
+    const fullScreen2 = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const handleClickOpen2 = () => {
+        setOpen2(true);
+    };
+
+    const handleClose2 = () => {
+        setOpen2(false);
+    };
     
   return (
     <nav >
@@ -166,7 +179,8 @@ function header() {
                     <Link onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer md:px-1 px-0 "><RiSearchLine className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
                     <Link to={"/cart"} className="text-sm font-semibold cursor-pointer md:px-1 px-0"><MdOutlineShoppingCart className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
                     <li className="text-sm font-semibold cursor-pointer md:px-1 px-0 ">
-                        <DropdownMenu.Root>
+                        {!active && <button onClick={handleClickOpen2}><LuUser className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>}
+                        {active && <DropdownMenu.Root>
                             <DropdownMenu.Trigger>
                                 <LuUser className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' />
                             </DropdownMenu.Trigger>
@@ -209,11 +223,11 @@ function header() {
                                 )}
 
                             </DropdownMenu.Content>
-                        </DropdownMenu.Root>
+                        </DropdownMenu.Root>}
                     </li>
                     <Link className=" md:hidden block">
                         <DropdownMenu.Root>
-
+                            
                             <DropdownMenu.Trigger>
                                 <RxHamburgerMenu className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' />
                             </DropdownMenu.Trigger>
@@ -288,9 +302,25 @@ function header() {
                     </Button>
                 </DialogActions> */}
         </Dialog>
-    </nav>
 
-  )
+        {/* <Button variant="outlined" onClick={handleClickOpen2}>
+            Open responsive dialog
+        </Button> */}
+        <Dialog
+            fullScreen={fullScreen2}
+            // maxWidth={maxWidth}
+            open={open2}
+            onClose={handleClose2}
+            aria-labelledby="responsive-dialog-title"
+        >
+            <DialogContent>
+                <DialogContentText>
+                    <LoginPopup onClose={handleClose2}  />
+                </DialogContentText>
+            </DialogContent>
+        </Dialog>
+    </nav>
+    )
 }
 
 export default header
