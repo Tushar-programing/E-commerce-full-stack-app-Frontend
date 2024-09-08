@@ -269,7 +269,7 @@ function result() {
                         name="sortType"
                         value={queryParams.sortType}
                         onChange={handleChang}
-                        className='border rounded-md outline-none text-sm md:text-base px-1 md:px-3 py-2 md:py-3 md:me-5 2xl:me-0 bg-white'
+                        className='border rounded-md outline-none text-sm md:text-base px-1 md:px-3 py-2 md:py-3 md:me-5 2xl:me-0 bg-white border-gray-700'
                     >
                         <option className='text-black' value="asc">Low to high</option>
                         <option className='text-black' value="des">High to low</option>
