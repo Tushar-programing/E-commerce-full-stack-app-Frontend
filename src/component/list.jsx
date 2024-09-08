@@ -45,6 +45,8 @@ function Post({ post }) {
   const [subCategory, setSubCategory] = useState(post?.subCategory || '');
   const [instagram, setInstagram] = useState(post?.instagram || '');
 
+  const [selectedColor, setSelectedColor] = useState(post?.color || 'white');
+
   const [selectedFiles, setSelectedFiles] = useState([]);
 
   const [allImages, setAllImages] = useState([])
@@ -103,6 +105,7 @@ function Post({ post }) {
     formData.append('category', category)
     formData.append('subCategory', subCategory)
     formData.append('instagram', instagram)
+    formData.append('color', selectedColor)
     formData.append('price', data.price);
 
     // Append all images from the form input to the FormData object
@@ -167,6 +170,17 @@ function Post({ post }) {
     }
   };
 
+  const colors = [
+    { name: 'Red', code: '#ff0000' },
+    { name: 'Green', code: '#00ff00' },
+    { name: 'Blue', code: '#0000ff' },
+    { name: 'Black', code: '#000000' },
+    { name: 'White', code: '#ffffff' },
+    { name: 'Yellow', code: '#ffff00' },
+    { name: 'Silver', code: '#c0c0c0' },
+    { name: 'Gold', code: '#ffd700' }
+  ];
+
   // title#, keyword#, status#, brand$, model$, use$, material$, width@, height@, weight@, userid(), price, image
   return (
     <div className='w-full h-auto '>
@@ -224,6 +238,34 @@ function Post({ post }) {
             <option className='text-violet-900' value="false">false</option>
             <option className='text-violet-900' value="true">true</option>
           </select>
+
+          <div className="flex flex-row items-center p-5 border gap-16">
+            <div>
+              <h2 className="text-lg font-bold mb-4">Select a Color</h2>
+              <div className="grid grid-cols-3 gap-5">
+                {colors.map((color) => (
+                  <Button
+                    key={color.name}
+                    variant="contained"
+                    onClick={() => setSelectedColor(color.code)}
+                    style={{ backgroundColor: color.code, color: '#fff' }}
+                    className="w-10 h-10"
+                  >
+                    {color.name}
+                  </Button>
+                ))}
+              </div>
+            </div>
+            
+            <div
+              className="mt-6 w-40 h-40 rounded-lg shadow-lg"
+              style={{ backgroundColor: selectedColor }}
+            >
+              <p className="text-center pt-16 text-white text-lg font-semibold">
+                {selectedColor === '#ffffff' ? 'White' : selectedColor}
+              </p>
+            </div>
+          </div>
 
           <div className=' text-center'><Button className='w-44' onClick={() => setSituation('image')} variant="outlined">Next</Button></div>
           </>}

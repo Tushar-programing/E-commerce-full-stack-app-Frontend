@@ -199,7 +199,24 @@ function Post() {
 
   const isAuthor = userData?._id && post?.owner ? userData._id === post.owner : false;
   
+  const colors = [
+    { name: 'Red', code: '#ff0000' },
+    { name: 'Green', code: '#00ff00' },
+    { name: 'Blue', code: '#0000ff' },
+    { name: 'Black', code: '#000000' },
+    { name: 'White', code: '#ffffff' },
+    { name: 'Yellow', code: '#ffff00' },
+    { name: 'Silver', code: '#c0c0c0' },
+    { name: 'Gold', code: '#ffd700' }
+  ];
 
+  const mainColor = () => {
+    const color = colors.find(cl => cl.code === post?.color);
+    return color ? color.name : 'Unknown'; // Return the color name or 'Unknown' if not found
+  };
+
+  console.log("this is maincolor: ", mainColor());
+  
 
   return (
     <div>
@@ -375,15 +392,15 @@ function Post() {
                 <AccordionDetails>
                   <Typography>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-2 lg:col-span-1 '>Width</div>
+                      <div className='col-span-2 lg:col-span-2 '>Width/Length</div>
                       <div className='col-span-2 lg:col-span-1 '>{post?.width} cm</div>
                     </div>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-2 lg:col-span-1 '>Height</div>
+                      <div className='col-span-2 lg:col-span-2 '>Height/Radius</div>
                       <div className='col-span-2 lg:col-span-1 '>{post?.height} cm</div>
                     </div>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-2 lg:col-span-1 '>Weight</div>
+                      <div className='col-span-2 lg:col-span-2 '>Weight</div>
                       <div className='col-span-2 lg:col-span-1 '>{post?.weight} gm</div>
                     </div>
                   </Typography>
@@ -400,21 +417,25 @@ function Post() {
                 <AccordionDetails>
                   <Typography>
                   <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-2 md:col-span-1 '>Model</div>
-                      <div className='col-span-3 md:col-span-4 lg:col-span-2 '>{post?.model}</div>
+                      <div className='col-span-2 md:col-span-2 '>Model</div>
+                      <div className='col-span-3 md:col-span-3 lg:col-span-2 '>{post?.model}</div>
                     </div>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-2 md:col-span-1 '>Use</div>
-                      <div className='col-span-3 md:col-span-4 lg:col-span-2 '>{post?.use}</div>
+                      <div className='col-span-2 md:col-span-2 '>Use</div>
+                      <div className='col-span-3 md:col-span-3 lg:col-span-2 '>{post?.use}</div>
                     </div>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-2 md:col-span-1 '>Material</div>
-                      <div className='col-span-3 md:col-span-4 lg:col-span-2 '>{post?.material}</div>
+                      <div className='col-span-2 md:col-span-2 '>Material</div>
+                      <div className='col-span-3 md:col-span-3 lg:col-span-2 '>{post?.material}</div>
                     </div>
                     <div className=' grid grid-cols-5 mb-3'>
-                      <div className='col-span-2 md:col-span-1 '>Category</div>
-                      <div className='col-span-3 md:col-span-4 lg:col-span-2 '>{post?.category}</div>
+                      <div className='col-span-2 md:col-span-2 '>Category</div>
+                      <div className='col-span-3 md:col-span-3 lg:col-span-2 '>{post?.category}</div>
                     </div>
+                    {post?.color && <div className=' grid grid-cols-5 mb-3'>
+                      <div className='col-span-2 md:col-span-2 '>Color</div>
+                      <div className='col-span-3 md:col-span-3 lg:col-span-2 '>{mainColor()}</div>
+                    </div>}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
