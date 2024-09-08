@@ -263,13 +263,13 @@ function result() {
             <div className='md:flex justify-between py-2 sm:py-1 md:py-3 lg:py-5 mb-1 md:mb-2 px-2 md:px-0 md:relative sticky top-0 bg-white z-20'>
                 <div className='text-base md:text-lg lg:text-xl my-auto ml-8 text-center md:text-start md:mb-0 mb-1'>{products.length} Result Found for '{queryParams.searchQuery.trim() === "" ? "Categories" : queryParams.searchQuery}'</div>
                 <div className='flex justify-between items-center gap-4'>
-                    <button className='flex justify-evenly items-center text-sm sm:text-base md:text-lg px-3 py-2 bg-gray-100' onClick={handleShowFilter}><CiFilter className='text-lg md:text-2xl me-1' /><span className='md:block hidden'>{showFilter ? "Hide" : "Show"}</span><span className='md:hidden'>Show&nbsp;</span> Filter</button>
+                    <button className='flex justify-evenly items-center text-sm sm:text-base md:text-lg px-3 py-2 bg-black text-white rounded-md' onClick={handleShowFilter}><CiFilter className='text-lg md:text-2xl me-1' /><span className='md:block hidden'>{showFilter ? "Hide" : "Show"}</span><span className='md:hidden'>Show&nbsp;</span> Filter</button>
                     <select
                         id="sortType"
                         name="sortType"
                         value={queryParams.sortType}
                         onChange={handleChang}
-                        className='border rounded-md outline-none text-sm md:text-base px-1 md:px-3 py-2 md:py-3 md:me-5 2xl:me-0'
+                        className='border rounded-md outline-none text-sm md:text-base px-1 md:px-3 py-2 md:py-3 md:me-5 2xl:me-0 bg-white'
                     >
                         <option className='text-black' value="asc">Low to high</option>
                         <option className='text-black' value="des">High to low</option>
