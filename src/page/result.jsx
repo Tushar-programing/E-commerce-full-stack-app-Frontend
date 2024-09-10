@@ -20,6 +20,7 @@ import { CiFilter } from "react-icons/ci";
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { TfiLayoutGrid3 } from "react-icons/tfi";
 import { RxCross2 } from "react-icons/rx";
+import { TfiLayoutGrid4 } from "react-icons/tfi";
 
 
 function result() {
@@ -215,7 +216,6 @@ function result() {
     };
 
     const handleShowFilter = () => {
-        setShowFilter(!showFilter)
         setState((prevState) => ({
             ...prevState,
             bottom: true,
@@ -223,7 +223,6 @@ function result() {
     }
 
     const handleCloseFilter = () => {
-        setShowFilter(false)
         setState((prevState) => ({
             ...prevState,
             bottom: false,
@@ -260,10 +259,11 @@ function result() {
 
     return (
         <div className=' mx-auto max-w-[1536px] border-t-2 pb-20'>
-            <div className='md:flex justify-between py-2 sm:py-1 md:py-3 lg:py-5 mb-1 md:mb-2 px-2 md:px-0 md:relative sticky top-0 bg-white z-20'>
+            <div className='md:flex justify-between py-2 sm:py-1 md:py-3 lg:py-5 mb-1 md:mb-2 px-2 md:px-0 md:relative sticky top-0 bg-white z-10'>
                 <div className='text-base md:text-lg lg:text-xl my-auto ml-8 text-center md:text-start md:mb-0 mb-1'>{products.length} Result Found for '{queryParams.searchQuery.trim() === "" ? "Categories" : queryParams.searchQuery}'</div>
                 <div className='flex justify-between items-center gap-4'>
-                    <button className='flex justify-evenly items-center text-sm sm:text-base md:text-lg px-3 py-2 bg-gray-900 text-gray-100 rounded-md' onClick={handleShowFilter}><CiFilter className='text-lg md:text-2xl me-1' /><span className='md:block hidden'>{showFilter ? "Hide" : "Show"}</span><span className='md:hidden'>Show&nbsp;</span> Filter</button>
+                    <button className='md:flex hidden justify-evenly items-center text-sm sm:text-base md:text-lg px-3 py-2 bg-gray-900 text-gray-100 rounded-md' onClick={e=> setShowFilter(!showFilter)}><CiFilter className='text-lg md:text-2xl me-1' /><span className='md:block hidden'>{showFilter ? "Hide" : "Show"}</span><span className='md:hidden'>Show&nbsp;</span> Filter</button>
+                    <button className='md:hidden flex justify-evenly items-center text-sm sm:text-base md:text-lg px-3 py-2 bg-gray-900 text-gray-100 rounded-md' onClick={handleShowFilter}><CiFilter className='text-lg md:text-2xl me-1' /><span className='md:block hidden'>{showFilter ? "Hide" : "Show"}</span><span className='md:hidden'>Show&nbsp;</span> Filter</button>
                     <select
                         id="sortType"
                         name="sortType"
@@ -277,7 +277,7 @@ function result() {
                 </div>
             </div>
             <div className='grid grid-cols-12 mt-0 border-t'>
-                <div className={` lg:col-span-3 col-span-4 overflow-y-auto ${!showFilter ? "hidden" : "md:block hidden"} md:sticky top-0 z-10`}>
+                <div className={` lg:col-span-3 col-span-4 overflow-y-auto max-h-screen ${!showFilter ? "hidden" : "md:block hidden"} md:sticky top-0 z-10`}>
                     <div className="xl:w-60 lg:w-56 w-60 mx-auto mt-10 ">
                         <div className="border-b pb-2">
                             <div
@@ -444,7 +444,10 @@ function result() {
                                 </button>
                             )}
                         </div>
-                        <div className='flex text-xl items-center ms-auto md:ms-8 md:mt-0 mt-1'><button onClick={e => setDeskCol(3)}><BsGrid3X3Gap className='me-2 w-6 h-6' /></button><button onClick={e => setDeskCol(4)}><TfiLayoutGrid3 /></button></div>
+                        <div className='flex text-xl items-center ms-auto md:ms-8 md:mt-0 mt-1 gap-2'>
+                            <button onClick={e => setDeskCol(3)}><TfiLayoutGrid3 /></button>
+                            <button onClick={e => setDeskCol(4)}><TfiLayoutGrid4 className='w-[22px] h-[22px]' /></button>
+                        </div>
                     </div>
                     <div className={`grid ${deskCol === 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"} md:gap-6 gap-3 px-5 pt-2`}>
                         {products.map((pro) => (
@@ -455,14 +458,13 @@ function result() {
             </div>
 
 
-            <div className='md:hidden'>
+            <div className=''>
                 {['left', 'right', 'top', 'bottom'].map((anchor) => (
                     <React.Fragment key={anchor}>
                         <Drawer
                             anchor={anchor}
                             open={state[anchor]}
                             onClose={toggledrawer(anchor, false)}
-                            className='md:hidden'
                         >
                             <button onClick={handleCloseFilter} className='mt-3 me-3 ms-auto '><RxCross2 className='w-7 h-7' /></button>
                             <div className=" w-60 mx-auto mt-10 h-screen">

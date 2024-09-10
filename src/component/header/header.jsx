@@ -178,7 +178,7 @@ function header() {
                 <ul className="flex sm:space-x-4 space-x-2">
                     <Link onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer md:px-1 px-0 "><RiSearchLine className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
                     <Link to={"/cart"} className="text-sm font-semibold cursor-pointer md:px-1 px-0"><MdOutlineShoppingCart className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
-                    <li className="text-sm font-semibold cursor-pointer md:px-1 px-0 ">
+                    <li className="text-sm font-semibold cursor-pointer md:px-1 px-0 z-30">
                         {!active && <button onClick={handleClickOpen2}><LuUser className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>}
                         {active && <DropdownMenu.Root>
                             <DropdownMenu.Trigger>
@@ -225,7 +225,7 @@ function header() {
                             </DropdownMenu.Content>
                         </DropdownMenu.Root>}
                     </li>
-                    <Link className=" md:hidden block">
+                    <Link className=" md:hidden block z-30">
                         <DropdownMenu.Root>
                             
                             <DropdownMenu.Trigger>
