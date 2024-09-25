@@ -60,6 +60,8 @@ import { useTheme } from '@mui/material/styles';
 
 function allpost() {
     const [posts, setPosts] = useState([]);
+    console.log("im checking about post : ", posts);
+    
 
     const active = useSelector(state => state.auth.status)
 
@@ -67,11 +69,13 @@ function allpost() {
       try {
         axios.post(`${conf.apiUrl}/product/products`, {}, {
           withCredentials: true,
-      }).then((post) => setPosts(post.data.data))
+      }).then((post) => {
+        setPosts(post.data.data)
+        console.log("this is post ; this", post.data.data);
+      })
       } catch (error) {
         console.log(error);
       }
-      
   }, [])
     
   const [open, setOpen] = React.useState(false);
@@ -227,58 +231,58 @@ function allpost() {
       aria-label="Beautiful Images"
       >
         <SplideSlide>
-          <div>
+          <Link to={"/result?cat=ceiling"}>
             <img src="https://images-cdn.ubuy.co.in/634d0f039b41f53d1522b115-crystal-flush-mount-led-ceiling-light.jpg?_gl=1*gdmnco*_gcl_au*MTMyNDk4NDY3Ny4xNzI1MjE5OTMw" className='w-full h-full' />
             <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Ceiling Fixtures</div>
-          </div>
+          </Link>
         </SplideSlide>
         <SplideSlide>
-          <div>
+          <Link to={"/result?cat=chandelier"}>
             <img src="https://m.media-amazon.com/images/I/71GmM4--DdL._AC_UF894,1000_QL80_.jpg" className='w-full h-full' />
             <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Chandeliers</div>
-          </div>
+          </Link>
         </SplideSlide>
         <SplideSlide>
-          <div>
+          <Link to={"/result?cat=lamp"}>
             <img src="https://m.media-amazon.com/images/I/81FMq3e3BZL._AC_SX679_.jpg" className='w-full h-full' />
             <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Lamps & Lighting</div>
-          </div>
+          </Link>
         </SplideSlide>
         <SplideSlide>
-          <div>
-            <img src="https://img.lazcdn.com/g/p/5d06742dba5d36409c5e5b9a95594516.jpg_720x720q80.jpg_.webp" className='w-full h-full' />
+          <Link to={"/result?cat=outdoor"}>
+            <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/7d37deed710d0d4a73af6f298112ab56b4e41605/Gama-Sonic-Solar-LED-Motion-Sensor-Security-Dual-Color-Light-2-PK.jpg" className='w-full h-full' />
             <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Outdoor Lighting</div>
-          </div>
+          </Link>
         </SplideSlide>
         <SplideSlide>
-          <div>
-            <img src="https://m.media-amazon.com/images/I/71vrVCqbWZL.jpg" className='w-full h-full' />
-            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Plants light</div>
-          </div>
+          <Link to={"/result?cat=diwali"}>
+            <img src="https://m.media-amazon.com/images/I/51jI2BY1UeL._SL500_.jpg" className='w-full h-full' />
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Occational(Diwali) Light</div>
+          </Link>
         </SplideSlide>
       </Splide>
 
       <div className='md:grid hidden grid-cols-5 gap-3 lg:gap-6 my-10 '>
-          <div>
+          <Link to={"/result?cat=ceiling"}>
             <img src="https://images-cdn.ubuy.co.in/634d0f039b41f53d1522b115-crystal-flush-mount-led-ceiling-light.jpg?_gl=1*gdmnco*_gcl_au*MTMyNDk4NDY3Ny4xNzI1MjE5OTMw" className='w-full' alt="Product" />
             <div className='mt-2 text-center'>Ceiling Fixtures</div>
-          </div>
-          <div>
+          </Link>
+          <Link to={"/result?cat=chandelier"}>
             <img src="https://m.media-amazon.com/images/I/71GmM4--DdL._AC_UF894,1000_QL80_.jpg" className='w-full' alt="Product" />
             <div className='mt-2 text-center'>Chandeliers</div>
-          </div>
-          <div>
+          </Link>
+          <Link to={"/result?cat=lamp"}>
             <img src="https://m.media-amazon.com/images/I/81FMq3e3BZL._AC_SX679_.jpg" className='w-full' alt="Product" />
             <div className='mt-2 text-center'>Lamps & Lighting</div>
-          </div>
-          <div>
-            <img src="https://img.lazcdn.com/g/p/5d06742dba5d36409c5e5b9a95594516.jpg_720x720q80.jpg_.webp" className='w-full' alt="Product" />
+          </Link>
+          <Link to={"/result?cat=outdoor"}>
+            <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/7d37deed710d0d4a73af6f298112ab56b4e41605/Gama-Sonic-Solar-LED-Motion-Sensor-Security-Dual-Color-Light-2-PK.jpg" className='w-full' alt="Product" />
             <div className='mt-2 text-center'>Outdoor Lighting</div>
-          </div>
-          <div>
-            <img src="https://m.media-amazon.com/images/I/71vrVCqbWZL.jpg" className='w-full' alt="Product" />
-            <div className='mt-2 text-center'>Plants & Botanicals</div>
-          </div>
+          </Link>
+          <Link to={"/result?cat=diwali"}>
+            <img src="https://m.media-amazon.com/images/I/51jI2BY1UeL._SL500_.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Occational(Diwali) Light</div>
+          </Link>
       </div>
 
       <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Ultimate New Treasure Collections</div>

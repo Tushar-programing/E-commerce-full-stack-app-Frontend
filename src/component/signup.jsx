@@ -40,7 +40,6 @@ function signup() {
       setError(error.response.data.message);
       setWorking(false)
       toast.error("this user is already exist with this email")
-
     }
   }
 

@@ -147,22 +147,43 @@ function header() {
                 <ul className="md:flex hidden space-x-10 justify-center ">
                     <div className="relative inline-block ">
                         <div className="group ">
-                            <button className=" justify-center text-sm font-semibold text-black">
+                            <a to={"/result"} className="justify-center text-sm font-semibold text-black">
                                 Collections
-                            </button>
+                            </a>
                             <div className="absolute z-20 border hidden w-40 mt-0 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg group-hover:block">
                                 <div className="py-1">
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Account settings
+                                    <a href={"/result?cat=diwali"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Diwali Light
                                     </a>
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Support
+                                    <a href={"/result?cat=chandelier"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Chandeliers
                                     </a>
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        License
+                                    <a href={"/result?cat=ceiling"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Ceiling Fixtures
                                     </a>
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Sign out
+                                    <a href={"/result?cat=lamp"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Lamps & Lighting
+                                    </a>
+                                    <a href={"/result?cat=outdoor"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Outdoor Lighting
+                                    </a>
+                                    <a href={"/result?cat=wall"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Wall Lamps
+                                    </a>
+                                    <a href={"/result?cat=garden"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Garden Lighting
+                                    </a>
+                                    <a href={"/result?cat=floor"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Floor Lamp
+                                    </a>
+                                    <a href={"/result?cat=mood"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Mood Lighting
+                                    </a>
+                                    <a href={"/result?cat=patio"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Patio Lights
+                                    </a>
+                                    <a href={"/result?cat=other"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Other all
                                     </a>
                                 </div>
                             </div>
@@ -176,7 +197,7 @@ function header() {
             </div>
             <div className="flex items-center space-x-4 ">
                 <ul className="flex sm:space-x-4 space-x-2">
-                    <Link onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer md:px-1 px-0 "><RiSearchLine className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
+                    <button onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer mb-[6px]"><RiSearchLine className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>
                     <Link to={"/cart"} className="text-sm font-semibold cursor-pointer md:px-1 px-0"><MdOutlineShoppingCart className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
                     <li className="text-sm font-semibold cursor-pointer md:px-1 px-0 z-30">
                         {!active && <button onClick={handleClickOpen2}><LuUser className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>}

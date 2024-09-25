@@ -9,7 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import conf from "../component/conf/conf"
 
 import { EmptyComp } from '../component';
-import { IoIosHeartEmpty } from "react-icons/io";
+import { LuShoppingCart } from "react-icons/lu";
 
 function Cart() {
     // console.log("yes working when cahnge in cart");
@@ -51,12 +51,12 @@ function Cart() {
     }
 
     return (
-        <div className={`min-h-[776px] mt-2 md:mt-10 2xl:mx-36 xl:mx-28 lg:mx-20 md:mx-12 sm:mx-4 mx-0 sm:h-auto ${open ? 'h-screen' : ''}`}>
+        <div className={`max-w-[1536px] mt-2 md:mt-10 sm:h-auto ${open ? 'h-screen' : ''} mx-auto`}>
             <div className="flex flex-col min-h-screen">
                 <div className="flex-1">
 
                 <div className='h-auto mx-2 md:mb-4 mb-0 '>
-                    <div className='my-4 md:my-8 lg:my-12 flex justify-center items-center text-lg md:text-3xl'><IoIosHeartEmpty className='md:w-12 w-7 md:h-12 h-7 md:me-5 me-3' />Cart</div>
+                    <div className='my-4 md:my-8 lg:my-12 flex justify-center items-center text-lg md:text-3xl'><LuShoppingCart className='md:w-10 w-7 md:h-10 h-7 md:me-5 me-3' />Cart</div>
                 </div>
 
                 {/* <div className='text-center block md:hidden mt-3'>My Cart</div> */}
@@ -95,8 +95,6 @@ function Cart() {
                 {(post.length > 0)? <div className='mx-auto md:hidden block sticky bottom-0 bg-white w-full '><Cartcalc total={total} /></div> : null}
             </div>
         </div>
-
-       
     ); 
     
 }

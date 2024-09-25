@@ -37,6 +37,9 @@ function Post() {
   const [brd, setBrd] = useState(0);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top
+  }, []);
 
   const scrollToIndex = (index) => {
     setBrd(index);

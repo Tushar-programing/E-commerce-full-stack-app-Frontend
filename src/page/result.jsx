@@ -16,11 +16,16 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 
-import { CiFilter } from "react-icons/ci";
+import { CiFilter, CiGrid2H } from "react-icons/ci";
 import { BsGrid3X3Gap } from "react-icons/bs";
-import { TfiLayoutGrid3 } from "react-icons/tfi";
+import { TfiLayoutGrid2, TfiLayoutGrid3 } from "react-icons/tfi";
 import { RxCross2 } from "react-icons/rx";
 import { TfiLayoutGrid4 } from "react-icons/tfi";
+import { IoGridOutline } from "react-icons/io5";
+import { MdCheckBoxOutlineBlank } from "react-icons/md";
+
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 
 
 function result() {
@@ -37,6 +42,8 @@ function result() {
     const [open, setOpen] = useState(true)
 
     const [value, setValue] = useState([0, 10000]);
+
+    const [loading, setLoading] = useState(false)
 
     const [state, setState] = React.useState({
         top: false,
@@ -91,6 +98,7 @@ function result() {
 
 
     const fetchProducts = async () => {
+        setLoading(true)
         try {
             const response = await axios.post(`${conf.apiUrl}/product/products`, {}, { params: queryParams }, {
                 withCredentials: true
@@ -98,9 +106,10 @@ function result() {
             if (response) {
                 setProducts(response.data.data);
                 setOpen(false)
+                setLoading(false)
             }
         } catch (error) {
-            
+            setLoading(false)
         }
     };
 
@@ -244,23 +253,24 @@ function result() {
         { name: 'Gold', code: '#ffd700' }
     ];
 
+    const skeletonItems = Array(6).fill(0);
 
-    if (open) {
-        return <div className='w-full h-[800px]'>
-            <Backdrop
-                className='w-full h-[800px]'
-                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                open={open}
-            ><div className='mr-5'>Please wait while searching the product</div>
-                <CircularProgress color="inherit" />
-            </Backdrop></div>
-    }
+    // if (open) {
+    //     return <div className='w-full h-[800px]'>
+    //         <Backdrop
+    //             className='w-full h-[800px]'
+    //             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+    //             open={open}
+    //         ><div className='mr-5'>Please wait while searching the product</div>
+    //             <CircularProgress color="inherit" />
+    //         </Backdrop></div>
+    // }
 
 
     return (
         <div className=' mx-auto max-w-[1536px] border-t-2 pb-20'>
             <div className='md:flex justify-between py-2 sm:py-1 md:py-3 lg:py-5 mb-1 md:mb-2 px-2 md:px-0 md:relative sticky top-0 bg-white z-10'>
-                <div className='text-base md:text-lg lg:text-xl my-auto ml-8 text-center md:text-start md:mb-0 mb-1'>{products.length} Result Found for '{queryParams.searchQuery.trim() === "" ? "Categories" : queryParams.searchQuery}'</div>
+                <div className='text-base md:text-lg lg:text-xl my-auto ml-8 text-center md:text-start md:mb-0 mb-1'>{products?.length} Result Found for '{queryParams?.searchQuery.trim() === "" ? "Categories" : queryParams?.searchQuery}'</div>
                 <div className='flex justify-between items-center gap-4'>
                     <button className='md:flex hidden justify-evenly items-center text-sm sm:text-base md:text-lg px-3 py-2 bg-gray-900 text-gray-100 rounded-md' onClick={e=> setShowFilter(!showFilter)}><CiFilter className='text-lg md:text-2xl me-1' /><span className='md:block hidden'>{showFilter ? "Hide" : "Show"}</span><span className='md:hidden'>Show&nbsp;</span> Filter</button>
                     <button className='md:hidden flex justify-evenly items-center text-sm sm:text-base md:text-lg px-3 py-2 bg-gray-900 text-gray-100 rounded-md' onClick={handleShowFilter}><CiFilter className='text-lg md:text-2xl me-1' /><span className='md:block hidden'>{showFilter ? "Hide" : "Show"}</span><span className='md:hidden'>Show&nbsp;</span> Filter</button>
@@ -277,9 +287,10 @@ function result() {
                 </div>
             </div>
             <div className='grid grid-cols-12 mt-0 border-t'>
-                <div className={` lg:col-span-3 col-span-4 overflow-y-auto max-h-screen ${!showFilter ? "hidden" : "md:block hidden"} md:sticky top-0 z-10`}>
-                    <div className="xl:w-60 lg:w-56 w-60 mx-auto mt-10 ">
-                        <div className="border-b pb-2">
+                <div className={`lg:col-span-3 col-span-4 overflow-y-auto max-h-screen ${!showFilter ? "hidden" : "md:block hidden"} md:sticky top-0 z-10`}>
+                    <div className="xl:w-60 lg:w-56 w-60 mx-auto mt-10">
+                        <div className='text-center h-7'>{loading && <CircularProgress size={20} disableShrink sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }}/>}</div>
+                        <div className="border-b pb-2 mb-2">
                             <div
                                 onClick={() => toggleDropdown('hsnCode')}
                                 className="flex justify-between items-center cursor-pointer py-2"
@@ -306,7 +317,7 @@ function result() {
                         </div>
 
                         {/* Product Category */}
-                        <div className="border-b pb-2">
+                        <div className="border-b pb-2 mb-2">
                             <div
                                 onClick={() => toggleDropdown('productCategory')}
                                 className="flex justify-between items-center cursor-pointer py-2"
@@ -365,7 +376,7 @@ function result() {
                         </div>
 
                         {/* Color */}
-                        <div className="border-b pb-2">
+                        <div className="border-b pb-2 mb-2">
                             <div
                                 onClick={() => toggleDropdown('color')}
                                 className="flex justify-between items-center cursor-pointer py-2"
@@ -392,7 +403,7 @@ function result() {
                         </div>
 
                         {/* Material */}
-                        <div className="border-b pb-2">
+                        <div className="border-b pb-2 mb-2">
                             <div
                                 onClick={() => toggleDropdown('material')}
                                 className="flex justify-between items-center cursor-pointer py-2"
@@ -415,7 +426,7 @@ function result() {
                         </div>
 
                         {/* Sub Category */}
-                        <div className="border-b pb-2">
+                        <div className="border-b pb-2 mb-2">
                             <div
                                 onClick={() => toggleDropdown('subCategory')}
                                 className="flex justify-between items-center cursor-pointer py-2"
@@ -445,13 +456,21 @@ function result() {
                             )}
                         </div>
                         <div className='flex text-xl items-center ms-auto md:ms-8 md:mt-0 mt-1 gap-2'>
-                            <button onClick={e => setDeskCol(3)}><TfiLayoutGrid3 /></button>
-                            <button onClick={e => setDeskCol(4)}><TfiLayoutGrid4 className='w-[22px] h-[22px]' /></button>
+                            <div className='border me-5 md:hidden'>{loading && <CircularProgress size={12} disableShrink sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }}/>}</div>
+                            <button onClick={e => setDeskCol(3)}><TfiLayoutGrid3 className='lg:block hidden'/><TfiLayoutGrid2 className='sm:block lg:hidden hidden'/><CiGrid2H className='sm:hidden w-[22px] h-[22px]'/></button>
+                            <button onClick={e => setDeskCol(4)}><TfiLayoutGrid4 className='lg:block hidden w-[22px] h-[22px] '/><TfiLayoutGrid3 className='sm:block lg:hidden hidden'/><TfiLayoutGrid2 className='sm:hidden'/></button>
+                            {/* <button onClick={e => setDeskCol(4)}><TfiLayoutGrid4 className='w-[22px] h-[22px] '/></button> */}
                         </div>
                     </div>
                     <div className={`grid ${deskCol === 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"} md:gap-6 gap-3 px-5 pt-2`}>
-                        {products.map((pro) => (
+                        {!open ? products?.map((pro) => (
                             <Postcard1 key={pro?._id} {...pro} />
+                        )): 
+                        skeletonItems.map((_, index) => (
+                            <Stack spacing={1} key={index}>
+                                <Skeleton variant="rectangular" width={210} height={200} />
+                                <Skeleton variant="rounded" width={100} height={30} />
+                            </Stack>
                         ))}
                     </div>
                 </div>
