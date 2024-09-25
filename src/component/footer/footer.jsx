@@ -100,7 +100,7 @@ const Footer = () => {
         </div>
 
         <div className="text-center text-sm mt-8">
-          <p>© 2024 Home Artisan. Powered by Shopify</p>
+          <p>© 2024 Home Artisan. Build in React/Node.js technology's</p>
         </div>
       </div>
     </footer>
