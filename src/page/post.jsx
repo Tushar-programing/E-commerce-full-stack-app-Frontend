@@ -190,11 +190,7 @@ function Post() {
 
 
   const checkActive = () => {
-    if (active) {
       navigate(`/order/${post._id}?quantity=${1}`);
-    } else {
-      toast.error('First Login to order something');
-    }
   };
   
   const [expanded, setExpanded] = React.useState(false);
