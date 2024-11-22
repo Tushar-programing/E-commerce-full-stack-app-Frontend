@@ -33,22 +33,40 @@ function postcard1({image, title, description, price, _id }) {
       setSize(true)
       setTimeout(() => {
         setSize(false);
-    }, 200);  
-    if (active === true) {
-      try {
-        const cart = await axios.post(`${conf.apiUrl}/cart/create/${_id}`, {quantity: 1}, {
-          withCredentials: true
-        })
-        if (cart) {
-          // navigate('/cart');
-          toast.success(cart.data.message)
+      }, 200);  
+      if (active === true) {
+        try {
+          const cart = await axios.post(`${conf.apiUrl}/cart/create/${_id}`, {quantity: 1}, {
+            withCredentials: true
+          })
+          if (cart) {
+            // navigate('/cart');
+            toast.success(cart.data.message)
+          }
+        } catch (error) {
+          console.log(error.message)
+          toast.error(error.message)
         }
-      } catch (error) {
-        console.log(error.message)
-        toast.error(error.message)
-      }
-    } else {
-        toast.error("Login to add something in Cart")
+      }  else {
+        // Save cart data to local storage if user is not active
+        const localCart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Check if the item already exists in the local cart
+        const itemIndex = localCart.findIndex(item => item._id === _id);
+        
+        if (itemIndex !== -1) {
+          // If item already exists, update its quantity
+          if (localCart[itemIndex].quantity < 10 ) {
+            localCart[itemIndex].quantity += 1;
+          }
+        } else {
+          // If item doesn't exist, add it to the cart
+          localCart.push({ _id, product_details: {image, title, description, price}, quantity: 1 });
+        }
+        
+        // Save the updated cart back to local storage
+        localStorage.setItem('cart', JSON.stringify(localCart));
+        toast.success(" Item saved to local storage.");
       }
     
     }

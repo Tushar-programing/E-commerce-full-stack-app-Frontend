@@ -55,7 +55,7 @@ function wishlist({userId, product_details, createdAt, _id}) {
             <Link to={`/post/${product_details?._id}`} className=' my-auto md:col-span-5 xl:col-span-6 '><div className='ml-2 lg:ml-5 my-auto  hover:text-red-600 transform sm:hover:translate-x-[-6px] duration-300 cursor-pointer font-normal text-gray-900'><span className='lg:block hidden'>{product_details?.title}</span> <span className='hidden md:block lg:hidden'>{product_details?.title.slice(0, 45)}</span></div></Link>
             <Link to={`/post/${product_details?._id}`} className=' my-auto col-span-2 '><div className=' text-center my-auto text-gray-900 text-lg'>₹ {product_details?.price}</div></Link>
             <div className=' sm:block hidden my-auto text-center col-span-2'>
-                <button className=' px-4 py-2 flex justify-center items-center mx-auto bg-gray-900 text-white rounded-md text-sm'><MdOutlineShoppingCart className='w-4 h-4 me-1' />Add to cart</button>
+                <button onClick={onclick} className=' px-4 py-2 flex justify-center items-center mx-auto bg-gray-900 text-white rounded-md text-sm'><MdOutlineShoppingCart className='w-4 h-4 me-1' />Add to cart</button>
             </div>
             <div className=' my-auto text-center text-3xl'><button onClick={delt} className=' px-2'>×</button></div>
         </div>
@@ -68,7 +68,7 @@ function wishlist({userId, product_details, createdAt, _id}) {
           <div className='text-gray-900 mx-4 font-semibold text-sm'><span className='sm:block hidden '>{product_details?.title.slice(0, 58)}...</span><span className='sm:hidden block'>{product_details?.title.slice(0, 42)}...</span></div>
           <div className='text-gray-600 mx-4 mt-2 text-base flex justify-between items-center'>
             <span>₹ {product_details?.price}</span>
-            <button className=' px-4 py-1 rounded-md text-gray-900'><MdOutlineShoppingCart className='w-6 h-6' /></button>
+            <button onClick={onclick} className=' px-4 py-1 rounded-md text-gray-900'><MdOutlineShoppingCart className='w-6 h-6' /></button>
           </div>
         </div>
         <div className='col-span-1 h-24 grid place-items-center '>

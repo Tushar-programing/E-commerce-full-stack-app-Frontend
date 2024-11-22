@@ -56,13 +56,43 @@ function loginPopup({ onClose }) {
         }
     }
 
+    const updateCart = async() => {
+      
+      const localCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      if (localCart.length === 0) return; // No items in local storage cart
+    
+      try {
+        // { _id, product_details: {image, title, description, price} }
+        localCart.map(async(item) => {
+          const cart = await axios.post(`${conf.apiUrl}/cart/create/${item._id}`, { quantity: item.quantity }, {
+            withCredentials: true
+          });
+        
+          if (cart) {
+            toast.success(`Item with ID ${item._id} added to server cart.`);
+          }
+        })
+      
+        // Clear the local storage cart once items are successfully synced
+        localStorage.removeItem('cart');
+        toast.success("Local cart synced to server successfully.");
+      
+        // Optionally, navigate to the cart page
+        // navigate('/cart');
+      } catch (error) {
+        console.log(error.message);
+        toast.error("Failed to sync local cart to server.");
+      }
+    }
+
     const already = async(data) => {
         // setError("")
         console.log("working clearing");
         
         try {
             const session = await axios.post(`${conf.apiUrl}/users/login`, data, {
-                withCredentials: true
+                withCredentials: true 
             })
             if (session) {
                 console.log("this is wolihgnvf");
@@ -75,8 +105,9 @@ function loginPopup({ onClose }) {
                 dispatch(authlogin(userData.data.data))
                 setLoading(false)
                 toast.success("You are login sucessfully.")
-                navigate("/")
+                // navigate("/")
                 onClose()
+                updateCart()
                 }
             }
         } catch (error) {
@@ -123,7 +154,7 @@ function loginPopup({ onClose }) {
             })}
             />
             {errors.password && <p className="text-red-500 text-xs italic mt-1 w-full">{errors.password.message}</p>}
-            <div className='text-center mt-14'>{login ? "Don't have account ?" : "Already have an account?"} &nbsp;<button onClick={e => {e.preventDefault(), setLogin(!login)}} className='text-lg text-blue-500'>{login ? "Sign up" : "Sign in"}</button></div>
+            <div className='text-center mt-14'>{login ? "Don't have account ?" : "Already have an account?"} &nbsp;<span onClick={e => {e.preventDefault(), setLogin(!login)}} className='text-lg text-blue-500 cursor-pointer'>{login ? "Sign up" : "Sign in"}</span></div>
             {/* <div className='mt-5 text-center mb-4'><button className='bg-black py-1 text-lg rounded-md px-12 text-white'>{login ? "Sign in" : "Sign up"}</button></div> */}
             <div className='mt-5 text-center mb-4'>
                 <button

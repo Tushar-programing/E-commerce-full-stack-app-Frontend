@@ -186,7 +186,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Provider store={store}>
-      <ToastContainer theme="dark" autoClose={3000} />
+      <ToastContainer theme="dark" autoClose={2000} />
       <RouterProvider router={router} />
       </Provider>
     </ThemeProvider>

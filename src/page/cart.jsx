@@ -11,14 +11,21 @@ import conf from "../component/conf/conf"
 import { EmptyComp } from '../component';
 import { LuShoppingCart } from "react-icons/lu";
 
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+
+
 function Cart() {
     // console.log("yes working when cahnge in cart");
+
+    const active = useSelector(state => state.auth.status)
     
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(true);
     const [total, setTotal] = useState();
 
     const [post, setPost] = useState([]);
+    // console.log("this is local cart post :: ", post);
     // console.log("posy", post);
     // const [loading, setLoading] = useState(true);
     // console.log("this is cart post", post);
@@ -26,28 +33,44 @@ function Cart() {
     const userData = useSelector((state) => state.auth.userData);
 
     useEffect(() => {
-        axios.post(`${conf.apiUrl}/cart/getAllCart`, {}, {
-            withCredentials: true
-        }).then((post) => {
-            if (post) {
-                // console.log(post.data.data);
-                setPost(post.data.data); 
-                setOpen(false);
-            }
-        })
+        if (active) {
+            axios.post(`${conf.apiUrl}/cart/getAllCart`, {}, {
+                withCredentials: true
+            }).then((post) => {
+                if (post) {
+                    // console.log(post.data.data);
+                    setPost(post.data.data); 
+                    setOpen(false);
+                    console.log("this is cart posts ha : ", post.data.data);
+                }
+            })
+        } else {
+            const localCart = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log(localCart);
+            
+            setPost(localCart);
+            // console.log("this is local cart : ", localCart);
+            setOpen(false);
+
+        }
         updateCart()
     },  []);
 
     const updateCart = async() => {
-        await axios.post(`${conf.apiUrl}/cart/getAllCart`, {}, {
-            withCredentials: true
-        }).then((post) => {
-            if (post) {
-                setPost(post.data.data);
-                // console.log("changing", post);
-                setTotal( post.data.data?.reduce((acc, post) => acc + post.quantity * (post.product_details? post.product_details?.price :  0), 0))
-            }
-        })
+        if (active) {
+            await axios.post(`${conf.apiUrl}/cart/getAllCart`, {}, {
+                withCredentials: true
+            }).then((post) => {
+                if (post) {
+                    setPost(post.data.data);
+                    setTotal( post.data.data?.reduce((acc, post) => acc + post.quantity * (post.product_details? post.product_details?.price :  0), 0))
+                }
+            })
+        } else {
+            const localCart = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log("this is local cart", localCart);
+            setTotal( localCart?.reduce((acc, post) => acc + post.quantity * (post.product_details? post.product_details?.price :  0), 0))
+        }
     }
 
     return (
@@ -61,14 +84,22 @@ function Cart() {
 
                 {/* <div className='text-center block md:hidden mt-3'>My Cart</div> */}
                     {open ? (
-                        <Backdrop
-                            className='w-full'
-                            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                            open={open}
-                        >
-                            <div className='mr-5'>Fetching Cart Details</div>
-                            <CircularProgress color="inherit" />
-                        </Backdrop>
+                        <Stack spacing={2}>
+                            <Skeleton variant="rounded" style={{ maxWidth: '1536px', height: 80 }} />
+                            <Skeleton variant="rounded" style={{ maxWidth: '1536px', height: 80 }} />
+                            <Skeleton variant="rounded" style={{ maxWidth: '1536px', height: 80 }} />
+                            <Skeleton variant="rounded" style={{ maxWidth: '1536px', height: 80 }} />
+                            <Skeleton variant="rounded" style={{ maxWidth: '1536px', height: 80 }} />
+                            <Skeleton variant="rounded" style={{ maxWidth: '1536px', height: 80 }} />
+                        </Stack>
+                        // <Backdrop
+                        //     className='w-full'
+                        //     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                        //     open={open}
+                        // >
+                        //     <div className='mr-5'>Fetching Cart Details</div>
+                        //     <CircularProgress color="inherit" />
+                        // </Backdrop>
                     ) : (
                         post?.length > 0 ? (
                             <div className='md:shadow-xl rounded-lg border-gray-200'>

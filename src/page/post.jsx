@@ -26,6 +26,7 @@ import { TbFileDescription } from "react-icons/tb";
 import { TbRulerMeasure } from "react-icons/tb";
 import { BsInfoLg } from "react-icons/bs";
 import { IoPricetagsOutline } from "react-icons/io5";
+import { IoShareSocialOutline } from "react-icons/io5";
 
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -145,7 +146,24 @@ function Post() {
         console.log(error.message);
       }
     } else {
-      toast.error('First login to add something in Cart');
+      const localCart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Check if the item already exists in the local cart
+      const itemIndex = localCart.findIndex(item => item._id === post?._id);
+      
+      if (itemIndex !== -1) {
+        // If item already exists, update its quantity
+        if (localCart[itemIndex].quantity < 10 ) {
+          localCart[itemIndex].quantity += 1;
+        }
+      } else {
+        // If item doesn't exist, add it to the cart
+        localCart.push({ _id: post?._id, product_details: {image: post?.image, title: post?.title, description: post?.description, price: post?.price}, quantity: 1 });
+      }
+      
+      // Save the updated cart back to local storage
+      localStorage.setItem('cart', JSON.stringify(localCart));
+      toast.success(" Item saved to local storage.");
     }
   };
 
@@ -219,6 +237,24 @@ function Post() {
   };
 
   console.log("this is maincolor: ", mainColor());
+
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "A Glow You'll Love!",
+          text: 'I found these amazing lights that bring charm to any room. Take a look!',
+          url: window.location.href, // The current page URL
+        });
+        console.log('Content shared successfully!');
+      } catch (error) {
+        console.error('Error sharing content:', error);
+      }
+    } else {
+      alert('Sharing not supported on this browser. Please copy the link manually.');
+    }
+  };
   
 
   return (
@@ -228,12 +264,9 @@ function Post() {
           <button onClick={checkActive} className='col-span-6 sm:col-span-12 lg:col-span-4 border-gray-900 py-3 border-2 font-semibold flex justify-center bg-white'><BiPurchaseTag className=' my-auto me-3 w-5 h-5' />BUY NOW</button>
       </div>
       <div className='sm:ml-20 md:ml-10 xl:ml-36 2xl:ml-72 sm:mr-20 md:mr-10 xl:mr-28 2xl:mr-56'>
-        <div className="bg-white grid grid-cols-12 mt-1 sm:mt-8 mb-5 ">
+        <div className="bg-white grid grid-cols-12 mt-1 sm:mt-8 mb-5">
           <div className='col-span-12'>
-              <button
-                onClick={wish}
-                className='sm:hidden block p-2 absolute right-5 mt-4 z-20 rounded-full '
-              ><FavoriteIcon className={` ${like ? "text-black" : "text-gray-300 "} `}  /></button>
+              
             <Splide
               options={{
                 type: 'loop',
@@ -243,13 +276,13 @@ function Post() {
                 arrows: false,
                 pagination: true,
               }}
-              className=" mt-0 sm:hidden block "
+              className=" mt-0 sm:hidden block"
             >
               {post?.image?.map((img, index) => (
-                    <SplideSlide key={index} className="relative ">
+                    <SplideSlide key={index} className="relative">
                       <div
                       key={index}
-                      className=" px-12 h-[450px] w-full flex items-center justify-center overflow-hidden"
+                      className=" h-[410px] w-full overflow-hidden"
                       // style={{ width: `${divWidth}px` }}
                     >
                       <img src={img} alt="product" className="w-full h-auto object-cover my-auto" />
@@ -304,8 +337,16 @@ function Post() {
           </div>
 
           <div className="col-span-12 md:col-span-6 px-3 sm:px-5 md:px-10">
-            <div className="text-base sm:text-lg md:text-xl font-normal text-gray-400 mt-5">
-              {post?.brand?.toUpperCase()}
+            <div className="text-base sm:text-lg md:text-xl font-normal text-gray-400 mt-5 flex justify-between py-1">
+              <div className=''>{post?.brand?.toUpperCase()}</div>
+              <div className=' flex items-center md:hidden'>
+                <button onClick={wish} >
+                  <FavoriteIcon className={` ${like ? "text-black" : "text-gray-300 "} mx-1 ` } />
+                </button>
+                <button onClick={handleShare} >
+                  <IoShareSocialOutline className='h-5 w-5 mx-1' />
+                </button>
+              </div>
             </div>
             <div className="text-base sm:text-lg md:text-xl font-normal text-gray-900 mt-1 sm:mt-6 ">{post?.title}</div>
             <div className="text-sm sm:tex-base md:text-lg font-normal text-green-500 mt-1 sm:mt-2">Special offer</div>

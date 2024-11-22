@@ -32,7 +32,7 @@ function cartcalc({total}) {
                 <span className="text-gray-700"> ₹ {total}</span>
               </div>
             </div>
-            <Link to="/order"><button className="bg-gray-800 w-full text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline">
+            <Link to="/order/cart"><button className="bg-gray-800 w-full text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline">
               PROCEED TO CHECKOUT
             </button></Link>
           </div>

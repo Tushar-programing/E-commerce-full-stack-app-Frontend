@@ -25,6 +25,49 @@ function login() {
     const [working, setWorking] = useState(false);
     // console.log(conf.apiUrl);
 
+
+    const updateCart = async() => {
+      console.log("statr working properly");
+      
+      const localCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      if (localCart.length === 0) return; // No items in local storage cart
+    
+      try {
+
+        localCart.map(async(item) => {
+          const cart = await axios.post(`${conf.apiUrl}/cart/create/${item._id}`, { quantity: item.quantity }, {
+            withCredentials: true
+          });
+        
+          if (cart) {
+            toast.success(`Item with ID ${item._id} added to server cart.`);
+          }
+        })
+
+        // for (const item of localCart) {
+        //   const cart = await axios.post(`${conf.apiUrl}/cart/create/${item._id}`, { quantity: item.quantity }, {
+        //     withCredentials: true
+        //   });
+        
+        //   if (cart) {
+        //     toast.success(`Item with ID ${item._id} added to server cart.`);
+        //   }
+        // }
+      
+        // Clear the local storage cart once items are successfully synced
+        localStorage.removeItem('cart');
+        toast.success("Local cart synced to server successfully.");
+      
+        // Optionally, navigate to the cart page
+        // navigate('/cart');
+      } catch (error) {
+        console.log(error.message);
+        toast.error("Failed to sync local cart to server.");
+      }
+    }
+
+
     const already = async(data) => {
       setWorking(true)
       setSize(true)
@@ -40,13 +83,14 @@ function login() {
             if (session) {
               console.log("this is working");
               console.log("this is apiurl", `${conf.apiUrl}/users/getCurrentUser`)
-                const userData = await axios.post(`${conf.apiUrl}/users/getCurrentUser`, {}, {
-                  withCredentials: true
-                })
-                if (userData) dispatch(authlogin(userData.data.data))
-                console.log(userData)
-                setWorking(false)
-                navigate("/")
+              const userData = await axios.post(`${conf.apiUrl}/users/getCurrentUser`, {}, {
+                withCredentials: true
+              })
+              if (userData) dispatch(authlogin(userData.data.data))
+              console.log(userData)
+              setWorking(false)
+              navigate("/")
+              updateCart()
             }
         } catch (error) {
             toast.error("email id or password must be valid")
