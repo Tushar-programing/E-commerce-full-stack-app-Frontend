@@ -120,7 +120,7 @@ function loginPopup({ onClose }) {
 
 
   return (
-    <div className=''>
+    <div className='text-gray-800'>
         <div className='text-center text-xl mt-2 flex justify-between sm:justify-center'><button onClick={onClose}><FaArrowLeft className=' sm:hidden'/></button>LUXLOOM<div className='sm:hidden'></div></div>
         <div className='mt-6 text-lg'>{login ? "Welcome Back!" : "Create new Account"}</div>
         <form  onSubmit={handleSubmit(logReg)}>
@@ -134,12 +134,29 @@ function loginPopup({ onClose }) {
             })}
             />}
             {errors.fullName && !login && <p className="text-red-500 text-xs italic mt-1 w-full block">{errors.fullName.message}</p>}
-            <input type='email' className='mt-5 w-full border py-2 px-2 rounded-md' placeholder='Email Address' autoComplete="false"
+            <input type='text' className='mt-5 w-full border py-2 px-2 rounded-md' placeholder='Email Mobile no' autoComplete="false"
             {...register("email", {
-                required: 'Email is required',
+                required: "Phone Number or Email is required",
                 validate: {
-                    matchPattern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) ||
-                        "Email address must be a valid format"
+                    isValidMobileOrEmail: (value) => {
+                        // Check if input is all numeric but not 10 digits
+                        if (/^\d+$/.test(value) && value.length !== 10) {
+                            return "Mobile number must be exactly 10 digits";
+                        }
+            
+                        // Check if it's a valid mobile number
+                        if (/^\d{10}$/.test(value)) {
+                            return true; // Valid mobile number
+                        }
+            
+                        // Check if it's a valid email
+                        if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
+                            return true; // Valid email
+                        }
+            
+                        // If none match, return the error message
+                        return "Enter a valid 10-digit mobile number or a valid email address";
+                    }
                 }
             })}
             />

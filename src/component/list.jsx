@@ -48,8 +48,10 @@ function Post({ post }) {
   const [selectedColor, setSelectedColor] = useState(post?.color || 'white');
 
   const [selectedFiles, setSelectedFiles] = useState([]);
-
   const [allImages, setAllImages] = useState([])
+
+  const [bannerSelectedFiles, setBannerSelectedFiles] = useState([]);
+  const [bannerAllImages, setBannerAllImages] = useState([])
 
   const handleChange = (e) => {
       const selectedCategory = e.target.value;
@@ -114,6 +116,12 @@ function Post({ post }) {
         formData.append('images', file);
       });
     }
+
+    if (bannerSelectedFiles?.length > 0) {
+      bannerSelectedFiles.forEach(file => {
+        formData.append('bannerImages', file);
+      });
+    }
     
 
     if (post) {
@@ -160,15 +168,31 @@ function Post({ post }) {
     setAllImages(imageUrls);
   };
 
+  const handleBannerFileChange = (event) => {
+    const files = Array.from(event.target.files);
+    setBannerSelectedFiles(files);
+    const imageUrls = files.map((file) => URL.createObjectURL(file));
+    setBannerAllImages(imageUrls);
+  };
+
 
   const handleImageChange = () => {
     console.log(post?.image?.length);
-    if (selectedFiles.length > 0 || post?.image?.length > 0) {
+    if ((selectedFiles.length > 0 || post?.image?.length > 0) && (bannerSelectedFiles.length > 0 || post?.bannerImage?.length > 0)) {
       setSituation('about');
     } else {
       toast.error('Please upload at least one image');
     }
   };
+
+  // const handleBannerImageChange = () => {
+  //   console.log(post?.bannerImage?.length);
+  //   if (bannerSelectedFiles.length > 0 || post?.bannerImage?.length > 0) {
+  //     setSituation('about');
+  //   } else {
+  //     toast.error('Please upload at least one image');
+  //   }
+  // };
 
   const colors = [
     { name: 'Red', code: '#ff0000' },
@@ -206,17 +230,17 @@ function Post({ post }) {
             value={category}
             onChange={handleChange}
           >
-            <option className='text-violet-900' value="ceiling">Ceiling Fixtures</option>
-            <option className='text-violet-900' value="chandelier">Chandeliers</option>
-            <option className='text-violet-900' value="lamp">Lamps & Lighting</option>
-            <option className='text-violet-900' value="outdoor">Outdoor Lighting</option>
-            <option className='text-violet-900' value="plants">Plants & Botanicals</option>
-            <option className='text-violet-900' value="wall">Wall Lamps</option>
-            <option className='text-violet-900' value="garden">Garden Lighting</option>
-            <option className='text-violet-900' value="floor">Floor Lamp</option>
-            <option className='text-violet-900' value="diwali">Diwali Light</option>
-            <option className='text-violet-900' value="mood">Mood Lighting</option>
-            <option className='text-violet-900' value="patio">Patio Lights</option>
+            <option className='text-violet-900' value="spoons">Spoons</option>
+            <option className='text-violet-900' value="forks">Forks & Knives</option>
+            <option className='text-violet-900' value="spoon-stands">Spoon Stands</option>
+            <option className='text-violet-900' value="cutlery-holders">Cutlery Holders</option>
+            <option className='text-violet-900' value="dish-racks">Dish Racks</option>
+            <option className='text-violet-900' value="plate-holders">Plate Holders</option>
+            <option className='text-violet-900' value="food-storage">Food Storage Containers</option>
+            <option className='text-violet-900' value="serving-bowls">Serving Bowls & Trays</option>
+            <option className='text-violet-900' value="coffee-mugs">Tea & Coffee Mugs</option>
+            <option className='text-violet-900' value="knife-holder">Magnetic Knife Holder</option>
+            <option className='text-violet-900' value="cup-holder">Wall-Mounted Glass & Cup Holder</option>
             <option className='text-violet-900' value="other">Other's</option>
           </select>
 
@@ -271,6 +295,7 @@ function Post({ post }) {
           </>}
 
           {situation === 'image' && <div className='mb-8'>
+
             <Button
               component="label"
               role={undefined}
@@ -290,11 +315,37 @@ function Post({ post }) {
               ))}
               {(!allImages.length > 0 && !post?.image?.length > 0) && <div className='border col-span-2 h-56'></div>}
             </div>
+            {/* <div className=' text-center mt-5  mx-96 grid grid-cols-2 gap-5'>
+                <Button onClick={() => setSituation('category')} variant="outlined">Back</Button>
+                <Button onClick={handleImageChange} variant="outlined">Next</Button>
+            </div> */}
+
+
+            <Button
+              component="label"
+              role={undefined}
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUploadIcon />}
+            >
+              Upload Bannner file
+              <VisuallyHiddenInput type="file" multiple="multiple" onChange={handleBannerFileChange} 
+              />
+            </Button>
+            <div className=' h-auto my-5 mt-10 grid grid-cols-12 gap-3'>
+              {((bannerAllImages.length > 0 && bannerAllImages) || post?.bannerImage)?.map((img, index) => (
+                <div key={index} className='border col-span-2'>
+                  <img src={img} alt={`img-${index}`} className='h-full w-full object-cover' />
+                </div>
+              ))}
+              {(!bannerAllImages.length > 0 && !post?.bannerImage?.length > 0) && <div className='border col-span-2 h-56'></div>}
+            </div>
             <div className=' text-center mt-5  mx-96 grid grid-cols-2 gap-5'>
                 <Button onClick={() => setSituation('category')} variant="outlined">Back</Button>
                 <Button onClick={handleImageChange} variant="outlined">Next</Button>
             </div>
-            {/* <div className=' text-center'><Button onClick={() => setSituation('about')} variant="outlined">Next</Button></div> */}
+
+
           </div>}
 
           {situation === "about" && <div>

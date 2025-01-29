@@ -18,6 +18,8 @@ import Adressfill from '../component/adressfill';
 import ClipLoader from "react-spinners/ClipLoader";
 
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
+import Avatar from '@mui/material/Avatar';
 
 function Orders() {
     const active = useSelector(state => state.auth.status)
@@ -41,6 +43,10 @@ function Orders() {
 
     const [selectedAddress, setSelectedAddress] = useState(adress[0]?._id); 
     const [selectedPayment, setSelectedPayment] = useState("cod"); 
+
+    const [loadLogin, setLoadLogin] =useState(false)
+    
+    const [loadAdress, setLoadAdress] =useState(false)
 
     // const checkhandle = () => {
     //   setcheck(!check);
@@ -80,17 +86,25 @@ function Orders() {
         }
       }, [active])
         
-      const getAdress = (e) => {
-        axios.post(`${conf.apiUrl}/adress/getAllAdress`, {}, {
-          withCredentials: true
-        }).then((data) => {
-          if (data) {
-            console.log("this is all adress: ", data.data.data);
-            setAdress(data.data.data);
-            setSelectedAddress(e? e : data?.data?.data[0]?._id)
+      const getAdress = async (e) => {
+        try {
+          setLoadAdress(true); // Start loading
+          const response = await axios.post(`${conf.apiUrl}/adress/getAllAdress`, {}, {
+            withCredentials: true,
+          });
+      
+          if (response?.data?.data) {
+            console.log("This is all address:", response.data.data);
+            setAdress(response.data.data);
+            setSelectedAddress(e ? e : response?.data?.data[0]?._id);
           }
-        })
-      }
+        } catch (error) {
+          console.error("Error fetching address:", error);
+        } finally {
+          setLoadAdress(false); // End loading
+        }
+      };
+      
 
       useEffect(() => {
         getAdress()
@@ -100,27 +114,35 @@ function Orders() {
 
       const create = async() => {
         setLoad(true)
-        if (adress?.length > 0 && active) {
-          if (slug === "cart") {
-              await axios.post(`${conf.apiUrl}/order/createCartOrder`, { adress: selectedAddress? selectedAddress : adress[0]?._id, status: "confirm", paymentStatus: "COD"}, {
+        try {
+          if (adress?.length > 0 && active) {
+            if (slug === "cart") {
+                await axios.post(`${conf.apiUrl}/order/createCartOrder`, { adress: selectedAddress? selectedAddress : adress[0]?._id, status: "confirm", paymentStatus: "COD"}, {
+                withCredentials: true
+                }).then((order) => {
+                console.log(order);
+                setLoad(false)
+                toast.success(order.data.message)
+                navigate("/orderpage")
+                })
+            } else {
+              await axios.post(`${conf.apiUrl}/order/createOrder/${slug}`, {quantity: quantity? quantity : 1, adress: selectedAddress? selectedAddress : adress[0]?._id, status: "confirm", paymentStatus: "COD"}, {
               withCredentials: true
               }).then((order) => {
-              console.log(order);
-              setLoad(false)
-              toast.success(order.data.message)
-              navigate("/orderpage")
+                setLoad(false)
+                console.log("this is new order", order);
+                navigate(`/userpro/${order?.data?.data?._id}`)
+                toast.success(order.data.message)
               })
+            }
           } else {
-            await axios.post(`${conf.apiUrl}/order/createOrder/${slug}`, {quantity: quantity? quantity : 1, adress: selectedAddress? selectedAddress : adress[0]?._id, status: "confirm", paymentStatus: "COD"}, {
-            withCredentials: true
-            }).then((order) => {
-              setLoad(false)
-              console.log(order);
-              toast.success(order.data.message)
-            })
+            toast.error("First add ADRESS/LOGIN then order")
+            setLoad(false)
           }
-        } else {
-          toast.error("First add ADRESS/LOGIN then order")
+        } catch (error) {
+          console.log(error.message);
+          toast.error(error.message)
+        } finally {
           setLoad(false)
         }
       }
@@ -130,20 +152,27 @@ function Orders() {
       //   setSelectedOption(selectedAddressId);
       // };
       
-      const fetchUserData = () => {
-        axios.post(`${conf.apiUrl}/users/getCurrentUser`, {}, {
-          withCredentials: true,
-        }).then((userDat) => {
-            const userData = userDat.data.data;
-            // console.log("this is userData", userData);
-            if (userData) {
-              setUserData(userData)
-              setIsLoginOpen(false)
-            } else {
-              setIsLoginOpen(true)
-            }
-        })
-      }
+      const fetchUserData = async () => {
+        try {
+          setLoadLogin(true); // Start loading
+          const response = await axios.post(
+            `${conf.apiUrl}/users/getCurrentUser`, {}, { withCredentials: true }
+          );
+          const userData = response?.data?.data;
+          if (userData) {
+            setUserData(userData);
+            setIsLoginOpen(false);
+          } else {
+            setIsLoginOpen(true);
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          setIsLoginOpen(true); // Open login if fetching fails
+        } finally {
+          setLoadLogin(false); // End loading in all cases
+        }
+      };
+
       useEffect(() => {
         fetchUserData()
       }, [])
@@ -300,25 +329,44 @@ function Orders() {
                           {isLoginOpen ? "Close" : "Change"}
                         </button>
                     </div>
-
-                    {(!isLoginOpen ) && <div className="bg-gray-100 p-4 rounded-b-lg space-y-4">
-                            <div className="flex justify-between items-center">
-                              <div className='text-start text-lg flex items-center '>
-                                <FaUserCheck className='me-4 md:w-8 w-6 md:h-8 h-6 text-gray-600' />
-                                <div>
-                                  <div className='font-bold md:text-lg text-base'>{userData?.fullName?.charAt(0).toUpperCase() + userData?.fullName?.slice(1)}</div>
-                                  <div className=' md:text-base text-sm'>{userData?.email}</div>
+                    {loadLogin ? 
+                      <div className="bg-gray-100 p-4 rounded-b-lg space-y-4">
+                        <div className="flex justify-between items-center">
+                          <div className='text-start text-lg flex items-center '>
+                            {/* <FaUserCheck className='me-4 md:w-8 w-6 md:h-8 h-6 text-gray-600' /> */}
+                            <Skeleton
+                              variant="circular"
+                              height={60}
+                              width={60}
+                            />
+                            <div className='ms-5'>
+                            <Skeleton variant="rectangular" height={20} width={80} className='mb-2' />
+                            <Skeleton variant="rectangular" height={20} width={150} />
+                            </div>
+                          </div>
+                        </div>
+                      </div> :
+                    <>
+                      {(!isLoginOpen ) && <div className="bg-gray-100 p-4 rounded-b-lg space-y-4">
+                              <div className="flex justify-between items-center">
+                                <div className='text-start text-lg flex items-center '>
+                                  <FaUserCheck className='me-4 md:w-8 w-6 md:h-8 h-6 text-gray-600' />
+                                  <div>
+                                    <div className='font-bold md:text-lg text-base'>{userData?.fullName?.charAt(0).toUpperCase() + userData?.fullName?.slice(1)}</div>
+                                    {userData?.mobile && <div className=' md:text-base text-sm'>{userData?.mobile}</div>}
+                                    {userData?.email && <div className=' md:text-base text-sm'>{userData?.email}</div>}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                    </div>}
+                      </div>}
 
 
-                    {isLoginOpen && (
-                      <div className="bg-gray-100 p-4 rounded-b-lg">
-                        <LoginPopup onClose={e => {setIsLoginOpen(false), fetchUserData()}}  />
-                      </div>
-                    )}
+                      {isLoginOpen && (
+                        <div className="bg-gray-100 p-4 rounded-b-lg">
+                          <LoginPopup onClose={e => {setIsLoginOpen(false), fetchUserData()}}  />
+                        </div>
+                      )} </>
+                    }
                   </div>
                   {/* LOGIN SECTION */}
 
@@ -352,40 +400,47 @@ function Orders() {
 
                     {isDeliveryOpen && (
                       <div className="bg-gray-100 md:p-4 p-2 px-4 rounded-b-lg space-y-4">
-                        {adress.map((address) => (
-                          <button
-                            onClick={() => setSelectedAddress(address?._id)}
-                            key={address?._id}
-                            className={`md:p-4 p-2 px-4 border rounded-lg w-full ${
-                              selectedAddress == address?._id
-                                ? "border-gray-800 bg-white shadow-lg"
-                                : "border-gray-300"
-                            }`}
-                          >
-                            <div className="flex justify-between items-center">
-                              <div className='text-start'>
-                                <p className="font-bold">{address?.name}</p>
-                                {address?.type && (
-                                  <span className="text-gray-600 text-sm">
-                                    {address?.type}
-                                  </span>
-                                )}
-                                <p>{address?.phone}</p>
-                                <p className="text-gray-600 text-sm">{address?.adress1} {address?.adress2} {address?.city}-{address?.zip}</p>
+                        {loadAdress ?
+                          // <button
+                          //   className={`md:p-4 p-2 px-4 border rounded-lg w-full border-gray-800 bg-white shadow-lg`}
+                          // >
+                          // </button>
+                          <div>
+                            <Skeleton variant="rounded" width="100%" height={50} className='mb-2' />
+                            <Skeleton variant="rounded" width="100%" height={50} className='mb-2' />
+                            <Skeleton variant="rounded" width="100%" height={50} className='mb-2' />
+                          </div>
+                        :
+                          adress?.map((address) => (
+                            <button
+                              onClick={() => setSelectedAddress(address?._id)}
+                              key={address?._id}
+                              className={`md:p-4 p-2 px-4 border rounded-lg w-full ${
+                                selectedAddress == address?._id
+                                  ? "border-gray-800 bg-white shadow-lg"
+                                  : "border-gray-300"
+                              }`}
+                            >
+                              <div className="flex justify-between items-center">
+                                <div className='text-start'>
+                                  <p className="font-bold">{address?.name}</p>
+                                  {address?.type && (
+                                    <span className="text-gray-600 text-sm">
+                                      {address?.type}
+                                    </span>
+                                  )}
+                                  <p>{address?.phone}</p>
+                                  <p className="text-gray-600 text-sm">{address?.adress1} {address?.adress2} {address?.city}-{address?.zip}</p>
+                                </div>
+                                  <button
+                                    onClick={() => setIsDeliveryOpen(false)}
+                                    className="text-gray-600 hidden md:block"
+                                  >
+                                    Select
+                                  </button>
                               </div>
-                              {/* Mohalla=subhashpuri Garhi Pukhta (Shamli), Village=Garhi Pukhta near=Amrita Bharat Gas Agency and Ramilia Chowk, Shamli, Uttar Pradesh - 247776", */}
-                                {/* <button className="bg-black text-white px-4 py-2 rounded">
-                                  Deliver Here
-                                </button> */}
-                                <button
-                                  onClick={() => setIsDeliveryOpen(false)}
-                                  className="text-gray-600 hidden md:block"
-                                >
-                                  Select
-                                </button>
-                            </div>
-                          </button>
-                        ))}
+                            </button>
+                          ))}
                         <div className='flex justify-between'>
                           <button onClick={openDialog} className="border border-gray-400 text-gray-600 md:px-4 px-2 md:py-2 py-2 rounded hover:bg-gray-200">
                             + Add a new address

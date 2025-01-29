@@ -103,7 +103,7 @@ function header() {
 
     const active = useSelector(state => state.auth.status)
     const userData = useSelector(state => state.auth.userData);
-    // console.log("userData", userData);
+    // 
     
     const [maxWidth, setMaxWidth] = React.useState('md');
 
@@ -199,53 +199,61 @@ function header() {
                 <ul className="flex sm:space-x-4 space-x-2">
                     <button onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer mb-[6px]"><RiSearchLine className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>
                     <Link to={"/cart"} className="text-sm font-semibold cursor-pointer md:px-1 px-0"><MdOutlineShoppingCart className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
-                    <li className="text-sm font-semibold cursor-pointer md:px-1 px-0 z-30">
-                        {!active && <button onClick={handleClickOpen2}><LuUser className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>}
-                        {active && <DropdownMenu.Root>
-                            <DropdownMenu.Trigger>
-                                <LuUser className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' />
-                            </DropdownMenu.Trigger>
-                            <DropdownMenu.Content className="bg-white border border-gray-200 rounded-md shadow-lg z-10 mt-3 me-12">
-                                <DropdownMenu.Item className="p-0">
-                                    <Link 
-                                        to={!active ? "/login" : "/orderpage"} 
-                                        className="block w-full px-4 py-2 text-sm text-gray-700"
-                                    >
-                                        {!active ? "Login" : "My Orders"}
-                                    </Link>
-                                </DropdownMenu.Item>
+                    {active && <Link to="/userpannel" className='lg:hidden block '><LuUser className=" md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5 " /></Link>}
 
-                                <DropdownMenu.Item className="p-0">
-                                    <Link 
-                                        to={!active ? "/signup" : "/address"} 
-                                        className="block w-full px-4 py-2 text-sm text-gray-700"
-                                    >
-                                        {!active ? "Sign-up" : "Address"}
-                                    </Link>
-                                </DropdownMenu.Item>
+                    {!active && 
+                    <button
+                    onClick={handleClickOpen2}
+                    className=" m-0 p-0 flex items-start"
+                    >
+                        <LuUser className="m-0 p-0  md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5" />
+                    </button>
+                    }
 
-                                {active && (
-                                    <DropdownMenu.Item className="p-0">
-                                        <Link 
-                                            to="/wishlist" 
-                                            className="block w-full px-4 py-2 text-sm text-gray-700"
-                                        >
-                                            Wishlist
-                                        </Link>
-                                    </DropdownMenu.Item>
-                                )}
-
-                                {active && (
-                                    <DropdownMenu.Item className="p-0">
-                                        <div className="block w-full px-4 py-2 text-sm text-gray-700">
-                                            <Logoutbtn />
+                    {active && <li className=" text-sm font-semibold cursor-pointer px-0 z-30 lg:block hidden">
+                        <div className="relative inline-block">
+                            <div className="group">
+                                <a to={"/result"} className="justify-center text-sm font-semibold text-black ">
+                                    <LuUser className=" md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5" />
+                                </a>
+                                {/* Dropdown menu */}
+                                <div className="absolute z-20 hidden w-40 mt-0 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg group-hover:block right-0">
+                                    <div className="pt-2">
+                                        <div className='border py-2 rounded-md'>
+                                            <Link
+                                                to={"/userpannel"}
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            >
+                                                MY PROFILE
+                                            </Link>
+                                            <Link
+                                                to={"/orderpage"}
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            >
+                                                MY ORDERS
+                                            </Link>
+                                            <Link
+                                                to={"/address"}
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            >
+                                                MY ADDRESS
+                                            </Link>
+                                            <Link
+                                                to={"/wishlist"}
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            >
+                                                MY WISHLIST
+                                            </Link>
+                                            <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                <Logoutbtn />
+                                            </Link>
                                         </div>
-                                    </DropdownMenu.Item>
-                                )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            </DropdownMenu.Content>
-                        </DropdownMenu.Root>}
-                    </li>
+                    </li>}
                     <Link className=" md:hidden block z-30">
                         <DropdownMenu.Root>
                             
@@ -292,7 +300,7 @@ function header() {
                                 </span>
                                 <input 
                                     type="text"
-                                    placeholder="Selling light" 
+                                    placeholder="What are looking for ?" 
                                     className="w-full text-lg border-none py-1 ml-4 outline-none transition duration-300 ease-in-out"
                                     ref={inputRef} 
                                     onKeyPress={handleKeyPress}
@@ -304,12 +312,12 @@ function header() {
                         </div>
                         <div className='min-h-60'>
                             <div className='text-gray-800 mt-4 text-lg'>Popular keywords</div>
-                            <div onClick={e=> setValue("Galaxy S24 Ultra")} className='cursor-pointer text-gray-500 mt-4'>Galaxy S24 Ultra</div>
-                            <div onClick={e=> setValue("Galaxy S23")} className='cursor-pointer text-gray-500 mt-1'>Galaxy S23</div>
-                            <div onClick={e=> setValue("Charger")} className='cursor-pointer text-gray-500 mt-1'>Charger</div>
-                            <div onClick={e=> setValue("How to check the firmware")} className='cursor-pointer text-gray-500 mt-1'>How to check the firmware</div>
-                            <div onClick={e=> setValue("Customer care")} className='cursor-pointer text-gray-500 mt-1'>Customer care</div>
-                            <div onClick={e=> setValue("Galaxy S23 plus")} className='cursor-pointer text-gray-500 mt-1'>Galaxy S23 plus</div>
+                            <div onClick={e=> setValue("Marble Handle Spoon")} className='cursor-pointer text-gray-500 mt-4'>Marble Handle Spoon</div>
+                            <div onClick={e=> setValue("Curtley Hanging Stand")} className='cursor-pointer text-gray-500 mt-1'>Curtley Hanging Stand</div>
+                            <div onClick={e=> setValue("Golden Spoon")} className='cursor-pointer text-gray-500 mt-1'>Golden Spoon</div>
+                            <div onClick={e=> setValue("Watermelon Spoon")} className='cursor-pointer text-gray-500 mt-1'>Watermelon Spoon</div>
+                            <div onClick={e=> setValue("Bowl set")} className='cursor-pointer text-gray-500 mt-1'>Bowl set</div>
+                            <div onClick={e=> setValue("Plate set")} className='cursor-pointer text-gray-500 mt-1'>Plate set</div>
                             
                         </div>
                     </DialogContentText>
@@ -345,3 +353,50 @@ function header() {
 }
 
 export default header
+
+
+// {!active && <button onClick={handleClickOpen2}><LuUser className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>}
+//                         {active && <DropdownMenu.Root>
+//                             <DropdownMenu.Trigger>
+//                                 <LuUser className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' />
+//                             </DropdownMenu.Trigger>
+//                             <DropdownMenu.Content className="bg-white border border-gray-200 rounded-md shadow-lg z-10 mt-3 me-12">
+//                                 <DropdownMenu.Item className="p-0">
+//                                     <Link 
+//                                         to={!active ? "/login" : "/orderpage"} 
+//                                         className="block w-full px-4 py-2 text-sm text-gray-700"
+//                                     >
+//                                         {!active ? "Login" : "My Orders"}
+//                                     </Link>
+//                                 </DropdownMenu.Item>
+
+//                                 <DropdownMenu.Item className="p-0">
+//                                     <Link 
+//                                         to={!active ? "/signup" : "/address"} 
+//                                         className="block w-full px-4 py-2 text-sm text-gray-700"
+//                                     >
+//                                         {!active ? "Sign-up" : "Address"}
+//                                     </Link>
+//                                 </DropdownMenu.Item>
+
+//                                 {active && (
+//                                     <DropdownMenu.Item className="p-0">
+//                                         <Link 
+//                                             to="/wishlist" 
+//                                             className="block w-full px-4 py-2 text-sm text-gray-700"
+//                                         >
+//                                             Wishlist
+//                                         </Link>
+//                                     </DropdownMenu.Item>
+//                                 )}
+
+//                                 {active && (
+//                                     <DropdownMenu.Item className="p-0">
+//                                         <div className="block w-full px-4 py-2 text-sm text-gray-700">
+//                                             <Logoutbtn />
+//                                         </div>
+//                                     </DropdownMenu.Item>
+//                                 )}
+
+//                             </DropdownMenu.Content>
+//                         </DropdownMenu.Root>}

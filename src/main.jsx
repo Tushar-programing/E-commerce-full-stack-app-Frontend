@@ -27,8 +27,13 @@ import UserOrderPro from './page/userOrderPro.jsx'
 import { Authlayout } from './component/index.js'
 import Authlayout2 from './component/authlayout2.jsx';
 import OrderReturn from './page/orderReturn.jsx';
+import CustomerCancel from './page/customerCancel.jsx'
+import CartDataFetcher from './page/adminCartFetcher.jsx';
+import GetAllUserData from './page/adminUserFetcher.jsx';
+import AdminBuyNow from './page/adminBuyNow.jsx';
 
 import YourPro from './page/yourPro.jsx';
+import UserPannel from './component/header/userPannel.jsx';
 
 import Dashboard from './page/dashboard.jsx';
 import Outlet from './App2.jsx';
@@ -75,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: '/wishlist',
         element: <Wishlist />
+      },
+      {
+        path: '/userpannel',
+        element: <UserPannel />
       },
       // {
       //   path: "/edit/:slug",
@@ -139,6 +148,27 @@ const router = createBrowserRouter([
             </Authlayout2>,
           },
           {
+            path: "/admin/clientCart",
+            element:
+            <Authlayout2 >
+              <CartDataFetcher />
+            </Authlayout2>,
+          },
+          {
+            path: "/admin/clientUser",
+            element:
+            <Authlayout2 >
+              <GetAllUserData />
+            </Authlayout2>,
+          },
+          {
+            path: "/admin/clientBuyNow",
+            element:
+            <Authlayout2 >
+              <AdminBuyNow />
+            </Authlayout2>,
+          },
+          {
             path: "/admin/yourpro",
             element:
             <Authlayout2 >
@@ -157,6 +187,13 @@ const router = createBrowserRouter([
             element:
             <Authlayout2 >
               <OrderReturn />
+            </Authlayout2>,
+          },
+          {
+            path: "/admin/customercancel",
+            element:
+            <Authlayout2 >
+              <CustomerCancel />
             </Authlayout2>,
           }
         ]

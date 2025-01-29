@@ -21,6 +21,8 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
+import { MdCancelPresentation } from "react-icons/md";
+
 const steps = [
   'Select master blaster campaign settings',
   'Create an ad group',
@@ -111,8 +113,36 @@ function clientOrderPro() {
               </Step>
             ))}
           </Stepper>
-          <div className='text-end mx-16 mt-5'>
-            {!(order?.status === "delivered") ? (!(order?.status === "cancel") &&<button onClick={cancel} className='ms-auto py-1 px-4 border border-red-700 text-red-700'>Cancel order</button>):
+          
+        </div>
+
+        <div className=' px-6 py-3 bg-white mt-5'>
+          <p className='mt-2 text-lg'>Order ID : {order?._id}</p>
+        </div>
+
+        <div className=' px-6 py-3 bg-white mt-5'>
+          <p className='mt-2 text-lg'>Delivery Address</p>
+          <p className='mt-2 font-medium'>{order?.name} | {order?.phone}</p>
+          <p className='mt-'>{order?.company}{order?.adress1}, {order?.adress2}, {order?.city}-{order?.zip}, {order?.state},</p>
+        </div>
+        <div className=' px-6 py-3 bg-white mt-5'>
+        <p className='mt-2 flex justify-between items-center'>
+            <div className=''>Item price</div>
+            <div className=' '>₹ {order?.product_details?.price * order?.quantity}</div>
+          </p>
+          <p className='mt-2 flex justify-between items-center'>
+            <div className=' w-80'>Shipping ({order?.paymentStatus === "delivery" || order?.paymentStatus === "COD" ? "Delivery" : "Post Office"}/Courier Charges({order?.paymentStatus === "delivery" || order?.paymentStatus === "post office" ? "Online payment/Prepaid" : "COD"})) </div>
+            <div className=' '>₹ {order?.paymentStatus === "delivery"? 50 : order?.paymentStatus === "Post Office"? 80 : 0}</div>
+          </p>
+          <p className='mt-2 flex justify-between items-center font-medium text-lg'>
+            <div>Total Order Price</div>
+            <div className=''>₹ {order?.product_details?.price * order?.quantity + (order?.paymentStatus === "delivery"? 50 : order?.paymentStatus === "Post Office"? 80 : 0)}</div>
+          </p>
+          <div className='py-2 bg-gray-100 rounded-md mt-3 px-2 font-light'>
+            {order?.paymentStatus === "delivery" || order?.paymentStatus === "post office" ? <span className='flex justify-center items-center '><HiCash className='me-2' />Prepaid</span> : <span className='flex justify-center items-center '><HiCash className='me-2'/>Pay on delivery</span>}
+          </div>
+          <div className='py-2 bg-gray-200 rounded-md mt-3 px-2 font-light text-center'>
+            {!(order?.status === "delivered") ? (!(order?.status === "cancel") &&<button onClick={cancel} className='flex justify-center items-center gap-2 mx-auto'><MdCancelPresentation /> Cancel order</button>):
             !(order?.returnStatus === "replace" || order?.returnStatus === "refund" || order?.returnStatus === "resolved") ?<div>
               <Button
                 id="basic-button"
@@ -142,29 +172,7 @@ function clientOrderPro() {
             </div> : <div>{(order?.returnStatus === "refund" || order?.returnStatus === "replace") ? <p>{order?.returnStatus} request is raised we will contact you within 24 hours.</p> : <p>Your problem has {order?.returnStatus}</p> }</div>}
           </div>
         </div>
-        <div className=' px-6 py-3 bg-white mt-5'>
-          <p className='mt-2 text-lg'>Delivery Address</p>
-          <p className='mt-2 font-medium'>{order?.name} | {order?.phone}</p>
-          <p className='mt-'>{order?.company}{order?.adress1}, {order?.adress2}, {order?.city}-{order?.zip}, {order?.state},</p>
-        </div>
-        <div className=' px-6 py-3 bg-white mt-5'>
-        <p className='mt-2 flex justify-between items-center'>
-            <div className=''>Item price</div>
-            <div className=' '>₹ {order?.product_details?.price * order?.quantity}</div>
-          </p>
-          <p className='mt-2 flex justify-between items-center'>
-            <div className=' w-80'>Shipping ({order?.paymentStatus === "delivery" || order?.paymentStatus === "COD" ? "Delivery" : "Post Office"}/Courier Charges({order?.paymentStatus === "delivery" || order?.paymentStatus === "post office" ? "Online payment/Prepaid" : "COD"})) </div>
-            <div className=' '>₹ {order?.paymentStatus === "delivery"? 50 : order?.paymentStatus === "Post Office"? 80 : 100}</div>
-          </p>
-          <p className='mt-2 flex justify-between items-center font-medium text-lg'>
-            <div>Total Order Price</div>
-            <div className=''>₹ {order?.product_details?.price * order?.quantity + (order?.paymentStatus === "delivery"? 50 : order?.paymentStatus === "Post Office"? 80 : 100)}</div>
-          </p>
-          <div className='py-2 bg-gray-100 rounded-md mt-3 px-2 font-light'>
-            {order?.paymentStatus === "delivery" || order?.paymentStatus === "post office" ? <span className='flex justify-center items-center '><HiCash className='me-2' />Prepaid</span> : <span className='flex justify-center items-center '><HiCash className='me-2'/>Pay on delivery</span>}
-          </div>
-        </div>
-      </div>: 
+      </div> : 
       <div>
         <Skeleton className='sm:mx-16 md:mx-32 lg:mx-52 xl:mx-80 2xl:mx-[420px] mx-0' variant="rounded" height={500} />
         <Skeleton className='sm:mx-16 md:mx-32 lg:mx-52 xl:mx-80 2xl:mx-[420px] mx-0 mt-5' variant="rounded" height={100} />

@@ -110,6 +110,8 @@ function result() {
             }
         } catch (error) {
             setLoading(false)
+        }finally {
+            setLoading(false)
         }
     };
 
@@ -327,45 +329,49 @@ function result() {
                             </div>
                             {isOpen.productCategory && (
                                 <div className="pl-4 mt-2 transition-all duration-500 ease-in-out">
-                                    <div className=' flex items-center text-base'>
-                                        <Checkbox name='cat' checked={exist("diwali")} value="diwali" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Diwali Light</label>
+                                    <div className=' flex items-center text-sm'>
+                                        <Checkbox name='cat' checked={exist("spoons")} value="spoons" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">spoons</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("chandelier")} value="chandelier" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Chandeliers</label>
+                                        <Checkbox name='cat' checked={exist("forks")} value="forks" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Forks & Knives</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("ceiling")} value="ceiling" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Ceiling Fixtures</label>
+                                        <Checkbox name='cat' checked={exist("spoon-stands")} value="spoon-stands" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Spoon Stands</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("lamp")} value="lamp" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Lamps & Lighting</label>
+                                        <Checkbox name='cat' checked={exist("cutlery-holders")} value="cutlery-holders" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Cutlery Holders</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("outdoor")} value="outdoor" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Outdoor Lighting</label>
+                                        <Checkbox name='cat' checked={exist("dish-racks")} value="dish-racks" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Dish Racks</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("wall")} value="wall" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Wall Lamps</label>
+                                        <Checkbox name='cat' checked={exist("plate-holders")} value="plate-holders" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Plate Holders</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("garden")} value="garden" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Garden Lighting</label>
+                                        <Checkbox name='cat' checked={exist("food-storage")} value="food-storage" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Food Storage Containers</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("floor")} value="floor" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Floor Lamp</label>
+                                        <Checkbox name='cat' checked={exist("serving-bowls")} value="serving-bowls" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Serving Bowls & Trays</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("mood")} value="mood" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Mood Lighting</label>
+                                        <Checkbox name='cat' checked={exist("coffee-mugs")} value="coffee-mugs" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Tea & Coffee Mugs</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
-                                        <Checkbox name='cat' checked={exist("patio")} value="patio" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
-                                        <label htmlFor="query">Patio Lights</label>
+                                        <Checkbox name='cat' checked={exist("knife-holder")} value="knife-holder" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Magnetic Knife Holder</label>
+                                    </div>
+                                    <div className=' flex items-center text-sm'>
+                                        <Checkbox name='cat' checked={exist("cup-holder")} value="cup-holder" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />
+                                        <label htmlFor="query">Wall-Mounted Glass & Cup Holder</label>
                                     </div>
                                     <div className=' flex items-center text-sm'>
                                         <Checkbox name='cat' checked={exist("other")} value="other" onChange={handleChange} size="small" className='' sx={{ color: 'black', '&.Mui-checked': { color: '#242424', }, }} />

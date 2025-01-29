@@ -96,7 +96,7 @@ function postcard1({image, title, description, price, _id }) {
 
 
   return (
-    <Link to={`/post/${_id}`} className=' bg-white '>
+    <Link to={`/post/${_id}`} target="_blank" className=' bg-white '>
       <img src={image[0]} alt='image' />
       {/* <div className='sm:h-60 h-48 grid place-items-center px-5'><img src={image[images]} className='sm:max-h-56 max-h-44' onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></div>
       <div className=''>

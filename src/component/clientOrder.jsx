@@ -75,25 +75,26 @@ function order({adress1, adress2, city, company, country, createdAt, name, owner
 
         <div className='text-center my-auto'>{returnStatus}</div>
 
-        {sta === "confirm"? <div className='col-span-2  my-auto grid grid-cols-2 gap-4'>
+        {/* {sta === "confirm"? <div className='col-span-2  my-auto grid grid-cols-2 gap-4'>
             <button disabled={sta === "cancel"} onClick={cancel} className={`col-span-1 ml-5 border py-[2px] bg-gray-50 text-red-500`}>Reject</button>
             <button disabled={sta === "cancel"} onClick={update} className={`col-span-1 mr-5 border py-[2px] bg-gray-50 text-green-500`}>Accept</button>
             </div> :
             <div className='col-span-2 text-center my-auto'>{sta === "cancel"? <p className=' text-red-600'>Order Cancelled</p> : 
-            
+             */}
               <select
                     id="shippingStatus"
                     className={`col-span-2 py-1 rounded-sm bg-white text-black outline-none focus:bg-gray-50 duration-200 border border-gray-200 w-40`}
                     value={shippingStatus}
                     onChange={handleChange}
                 >
-                  <option value="accept" className='text-sm' disabled={true}>- Status -</option>
+                  <option value="accept">Accept</option>
                   <option value="shipped">Shipped</option>
                   <option value="out For Delivery">Out for Delivery</option>
                   <option value="delivered">Delivered</option>
+                  <option value="cancel">Cancel</option>
               </select>
               
-            }</div>}
+        {/* }</div>} */}
         {/* {sta === "confirm"? <div className='col-span-1 border grid grid-rows-2 gap-2'>
             <button disabled={sta === "cancel"} onClick={cancel} className={`row-span-1 w-20 border py-[2px] bg-gray-50 text-red-500`}>Reject</button>
             <button disabled={sta === "cancel"} onClick={update} className={`row-span-1 w-20 border py-[2px] bg-gray-50 text-green-500`}>Accept</button>

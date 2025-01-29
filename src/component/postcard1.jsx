@@ -7,14 +7,23 @@ import img from "./images/whishlist1.png"
 import img1 from "./images/whishlist2.png"
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { LoginPopup } from '../component'
+import LoginPopup from './header/loginPopup'
 import conf from "./conf/conf";
-
-import img2 from "./images/cart2.png"
-import whatsappmob from "../component/images/whatsappMob.png"
 
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+
+import { RxCross1 } from "react-icons/rx";
+import { RiSearchLine } from "react-icons/ri";
+import { IoArrowBack } from "react-icons/io5";
 
 
 function postcard1({image, title, description, price, _id }) {
@@ -25,9 +34,16 @@ function postcard1({image, title, description, price, _id }) {
     const [size, setSize] = useState(false)
     const [like, setLike] = useState(false)
 
+    const [open, setOpen] = useState(false);
+
     const [isLoaded, setIsLoaded] = useState(false);
 
     const active = useSelector(state => state.auth.status)
+
+    const [maxWidth, setMaxWidth] = React.useState('sm');
+
+    const theme = useTheme();
+    const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     const onclick = async() => {
       setSize(true)
@@ -83,8 +99,7 @@ function postcard1({image, title, description, price, _id }) {
       })
     }, [_id])
 
-  const wish = async() => {
-    if (active) {
+    const createLike = async() => {
       try {
         setLike(!like)
         await axios.post(`${conf.apiUrl}/wishlist/addWishlist/${_id}`, {}, {
@@ -100,75 +115,85 @@ function postcard1({image, title, description, price, _id }) {
         console.log(error)
         toast.error(error.message)
       }
+    }
+
+  const wish = () => {
+    if (active) {
+      createLike()
     } else {
-      toast.error("First login add acess wishlist")
+      setOpen(true)
     }
     
   }
 
-  const handleMouseover = () => {
-    if (image.length > 1) {
-      setTimeout(() => {    
-        setImages(1)
-      }, 200)
-    }
-  }
-  const handleMouseout = () => {
-    setTimeout(() => {
-      setImages(0)
-    }, 200)
-  }
+  const handleClose = () => {
+    setOpen(false);
+};
 
 
   return (
-    <Link to={`/post/${_id}`}>
-        <div className="relative group overflow-hidden">
-          <div className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transform transition-all duration-500 ease-in-out flex justify-center">
-              <BottomNavigationAction
-                className='border'
-                onClick={e => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  wish()
-                }}
-                label="Favorites"
-                icon={<FavoriteIcon className={` ${like ? "text-[#D4AF37]" : "text-[#B1946C] "} `}  />}
-              />
+    <div>
+      <Link to={`/post/${_id}`} target="_blank">
+          <div className="relative group overflow-hidden">
+            <div className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transform transition-all duration-500 ease-in-out flex justify-center">
+                <BottomNavigationAction
+                  className='border'
+                  onClick={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    wish()
+                  }}
+                  label="Favorites"
+                  icon={<FavoriteIcon className={` ${like ? "text-[#D4AF37]" : "text-[#B1946C] "} `}  />}
+                />
+            </div>
+            <img
+              // onMouseOver={handleMouseover}
+              // onMouseOut={handleMouseout}
+              src={image[images]}
+              className="w-full h-full object-cover"
+              alt="Product"
+              onLoad={() => setIsLoaded(true)}
+              style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}
+            />
+            <div className="absolute bottom-0 left-0 w-full opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-2 transition-all duration-500 ease-in-out flex justify-center">
+              <button 
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onclick();
+              }}
+              className="py-1 bg-[#F7E7CE] text-[#2C3E50] font-bold w-full mb-1 mx-1">
+                Add to Cart
+              </button>
+            </div>
           </div>
-          <img
-            // onMouseOver={handleMouseover}
-            // onMouseOut={handleMouseout}
-            src={image[images]}
-            className="w-full h-full object-cover"
-            alt="Product"
-            onLoad={() => setIsLoaded(true)}
-            style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}
-          />
-          <div className="absolute bottom-0 left-0 w-full opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-2 transition-all duration-500 ease-in-out flex justify-center">
-            <button 
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onclick();
-            }}
-            className="py-1 bg-[#F7E7CE] text-[#2C3E50] font-bold w-full mb-1 mx-1">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-        <div className='text-sm md:text-base text-black bg-white mt-1'>{title}</div>
-        <div className='text-sm md:text-lg font-semibold text-black bg-white mt-0'>₹ {price}</div>
-    </Link>
-    // <div className='md:w-64 w-52 h-auto border border-r-1 bg-gray-100'>
-    //     <div className=' h-54 overflow-hidden'>
-    //       <div className='text-end'><button className=' px-3' onClick={() => wish()}><img src={like? img1 : img} className='w-5 mt-2'/></button></div>
-    //       <Link to={`/post/${_id}`}><img className='mx-auto w-44 md:w-52 h-44 md:h-52 ' src={image[images]} onMouseOver={() => handleMouseover()} onMouseOut={() => handleMouseout()}/></Link>
-    //     </div>
-    //     <Link to={`/post/${_id}`}><div className='mx-5 mt-2'>{title.split('||').slice(0, 1).join(' ')}</div>
-    //     </Link>
-    //     <div className='mx-5 text-black mt-2 mb-5 flex justify-between'><div>₹ {price}</div><img src={whatsappmob} onClick={() => window.open(`https://wa.me/917451811626?text=${_id}`, "_blank")} className='w-8 sm:w-8 md:w-10 h-auto me-4 cursor-pointer '/></div>
-    //     <button onClick={() => onclick()} className={`flex rounded-t-none rounded-2xl mx-5 w-44 bg-gray-900 hover:bg-black mb-2 h-11 text-white text-center font-semibold transition-transform ${size? 'transform scale-90' : ''} duration-200`}><img src={img2} className='w-8 h-8  my-auto ml-8 mr-2' /><span className=' my-auto'>Add to Cart</span></button>
-    // </div>
+          <div className='text-sm md:text-base text-black mt-1'>{title}</div>
+          <div className='text-sm md:text-lg font-semibold text-black mt-0'>₹ {price}</div>
+      </Link>
+
+      <Dialog
+              fullScreen={fullScreen}
+              maxWidth={maxWidth}
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="responsive-dialog-title"
+              className='md:mb-32'
+          >
+                  <DialogContent>
+                      <DialogContentText>
+                          <div className='flex '>
+                              <div className="relative flex items-center w-full md:w-[500px] ">
+                              </div>
+                              <button onClick={e=> setOpen(false)} className='md:block hidden'><RxCross1 className='md:text-2xl text-base' /></button>
+                          </div>
+                          <div className='min-h-60'>
+                              <LoginPopup onClose={e => {createLike(), setOpen(false)}} />
+                          </div>
+                      </DialogContentText>
+                  </DialogContent>
+          </Dialog>
+    </div>
   )
 }
 

@@ -39,7 +39,7 @@ function Cart() {
             }).then((post) => {
                 if (post) {
                     // console.log(post.data.data);
-                    setPost(post.data.data); 
+                    setPost(post?.data?.data); 
                     setOpen(false);
                     console.log("this is cart posts ha : ", post.data.data);
                 }
@@ -54,7 +54,7 @@ function Cart() {
 
         }
         updateCart()
-    },  []);
+    },  [active]);
 
     const updateCart = async() => {
         if (active) {

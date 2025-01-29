@@ -21,7 +21,7 @@ function logoutbtn() {
     <>
         <button 
         onClick={logoutHandler} className='w-full text-start'>
-            Logout
+            LOGOUT
         </button>
     </>
     

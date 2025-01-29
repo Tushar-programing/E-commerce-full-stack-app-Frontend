@@ -3,16 +3,9 @@ import { Postcard } from '../component'
 import { Postcard1 } from '../component'
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import img1 from "../component/images/splide1.png";
-import img2 from "../component/images/splide2.png";
-import img3 from "../component/images/splide3.png";
-import img31 from "../component/images/scroller4.png"
-import img4 from "../component/images/drone.png";
-import img5 from "../component/images/board.jpeg";
-import img6 from "../component/images/ultra.jpg";
-import img7 from "../component/images/pixel.jpg"
-import img8 from "../component/images/speaker.jpg"
-import slider from "../component/images/rslider.png"
+import img1 from "../component/images/kitchen-utensils-cooking-tools-on-600nw-1738748708.webp";
+import img2 from "../component/images/kitchen-background-mockup-eggs-rolling-260nw-1928190035.jpg";
+import img3 from "../component/images/banner 2.jpg";
 
 import delivery from "../component/images/info.png"
 import "../component/signup.css"
@@ -128,7 +121,7 @@ function allpost() {
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
             <img src={img3} className="w-full h-full" />
-            <div className='absolute top-[40%] right-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-right'>
+            <div className='absolute top-[40%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left'>
               <div>Tag line here</div>
               <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
                 Buy now
@@ -292,7 +285,7 @@ function allpost() {
       <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Chandeliers Collections</div>
 
       <div className='mx-1'>
-        {posts.length > 0 ? <Splide
+      {posts.length > 0 ? <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
         // focus      : 'center',

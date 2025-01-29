@@ -10,21 +10,34 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { EmptyComp } from '../component';
 
 function orderPage() {
-  const [order, setOrder] = useState();
-  const [open, setOpen] = useState(true)
-  console.log(order);
+  const [order, setOrder] = useState([]);
+  const [filteredOrder, setFilteredOrder] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
-    axios.post(`${conf.apiUrl}/order/ownerOrder`, {}, {
-      withCredentials: true
-    }).then((order) => {
-      if (order) {
-        setOrder(order.data.data)
-        setOpen(false)
-        // toast.success(order.data.message)
-      }
-    })
-    }, [])
+    axios
+      .post(`${conf.apiUrl}/order/ownerOrder`, {}, { withCredentials: true })
+      .then((response) => {
+        if (response) {
+          setOrder(response.data.data);
+          setFilteredOrder(response.data.data); // Set both orders and filtered orders initially
+          setOpen(false);
+        }
+      });
+  }, []);
+
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    // Filter orders by order._id
+    const filtered = order.filter((item) =>
+      item._id.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredOrder(filtered);
+  };
 
     if ( open ) {
       return <div className='w-full h-[800px]'><Backdrop
@@ -58,12 +71,26 @@ function orderPage() {
               <div className='col-span-2 text-center'>Action</div>
         </div> : <div className='text-center text-xl text-red-600 bg-gray-100'>No client order available yet</div>}
         {/* <div className='h-4 bg-gray-100'></div> */}
-        {order?.filter((postItem) => postItem.product_details !== undefined && postItem.product_details !== null)
-        .map((order) => (
-          <div key={order._id} className='border mb-4 mx-10 '>
-            <ClientOrder {...order}/>
-          </div>
-        ))}
+        
+        <input
+          type="text"
+          placeholder="Search by order ID"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="border p-2 mb-5 mx-10 w-1/3"
+        />
+
+        {filteredOrder
+          .filter(
+            (postItem) =>
+              postItem.product_details !== undefined &&
+              postItem.product_details !== null
+          )
+          .map((order) => (
+            <div key={order._id} className="border mb-4 mx-10">
+              <ClientOrder {...order} />
+            </div>
+          ))}
 
       </div>
     </div>
