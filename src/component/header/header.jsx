@@ -1,32 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
-import image from '../images/tds.png';
 import { Link, useNavigate } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import  {Logoutbtn}  from '../index';
-import SearchIcon from '@mui/icons-material/Search';
-import cart from "../images/cart1.png"
-import wish from "../images/whishlist1.png"
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import img from "../images/tds1.png"
 import conf from "../conf/conf";
 import '../signup.css';
-
-import Badge from '@mui/material/Badge';
-
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-// import { FaRegHeart } from "react-icons/fa";
-import { VscAccount } from "react-icons/vsc";
-import { IoIosSearch } from "react-icons/io";
-import { IoMdLogIn } from "react-icons/io";
-
-
-
-import logo from "../images/logo3.png"
-import { CiUser } from "react-icons/ci";
-import { CiShoppingCart } from "react-icons/ci";
-import { IoSearchOutline } from "react-icons/io5";
-import { GrSearch } from "react-icons/gr";
 
 import { LuUser } from "react-icons/lu";
 import { MdOutlineShoppingCart } from "react-icons/md";
@@ -35,16 +14,12 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
-import { RxCross2 } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 import { RiSearchLine } from "react-icons/ri";
 import { IoArrowBack } from "react-icons/io5";

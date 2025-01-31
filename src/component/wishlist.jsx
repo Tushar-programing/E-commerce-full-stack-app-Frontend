@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import del from "../component/images/delete.png"
 import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
 import conf from "./conf/conf";

@@ -31,6 +31,7 @@ import CustomerCancel from './page/customerCancel.jsx'
 import CartDataFetcher from './page/adminCartFetcher.jsx';
 import GetAllUserData from './page/adminUserFetcher.jsx';
 import AdminBuyNow from './page/adminBuyNow.jsx';
+import ThankYouPage from './page/thankyouOrder.jsx';
 
 import YourPro from './page/yourPro.jsx';
 import UserPannel from './component/header/userPannel.jsx';
@@ -40,6 +41,7 @@ import Outlet from './App2.jsx';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NotFound from './page/notFound.jsx';
 
 const router = createBrowserRouter([
   {
@@ -120,6 +122,14 @@ const router = createBrowserRouter([
       {
         path: "/result",
         element: <Result />,
+      },
+      {
+        path: "/thankYouPage/:slug",
+        element: <ThankYouPage/>,
+      },
+      {
+        path: "*",
+        element: <NotFound/>,
       },
       {
         path: "/admin",

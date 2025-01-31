@@ -3,11 +3,10 @@ import { Postcard } from '../component'
 import { Postcard1 } from '../component'
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import img1 from "../component/images/kitchen-utensils-cooking-tools-on-600nw-1738748708.webp";
-import img2 from "../component/images/kitchen-background-mockup-eggs-rolling-260nw-1928190035.jpg";
-import img3 from "../component/images/banner 2.jpg";
+import img1 from "../component/images/kitchen--slider-5.1 (1).jpg";
+import img2 from "../component/images/kitchen--slider-5.2 (1).jpg";
+import img3 from "../component/images/kitchen--slider-5.3 (1).jpg";
 
-import delivery from "../component/images/info.png"
 import "../component/signup.css"
 
 import conf from "../component/conf/conf"
@@ -22,31 +21,21 @@ import secure from '../component/images/secure.png'
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
-import mob1 from "../component/images/splideM1.png"
-import mob2 from "../component/images/splideM2.png"
-import mob3 from "../component/images/splideM3.png"
-
-import whatsapp from "../component/images/whatsapp.png"
-import whatsappmob from "../component/images/whatsappMob.png"
+import mob1 from "../component/images/splideM1.jpg"
+import mob2 from "../component/images/splideM2.jpg"
+import mob3 from "../component/images/splideM3.jpg"
 
 import Postcard2 from '../component/postcard2'
 import TrendyPro from '../component/trendyPro'
 
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
-import { MdPadding } from 'react-icons/md'
 
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { MdWhatsapp } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
@@ -87,6 +76,8 @@ function allpost() {
     <div className='bg-white pb-20 max-w-[1536px] mx-auto'>
       {/* <LoginPopup open={active}/> */}
 
+      <LoginPopup />
+
       <Splide
         options={{
           type: 'loop',
@@ -99,7 +90,7 @@ function allpost() {
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
             <img src={img1} className="w-full h-full" />
-            <div className='absolute top-[35%] left-[42%] text-white sm:text-xl md:text-2xl lg:text-4xl text-center'>
+            <div className='absolute top-[35%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left'>
               <div>Tag line here</div>
               <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
                 Buy now
@@ -110,8 +101,8 @@ function allpost() {
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
             <img src={img2} className="w-full h-full" />
-            <div className='absolute top-[35%] left-[42%] text-white sm:text-xl md:text-2xl lg:text-4xl text-center'>
-              <div>Best Indoor light</div>
+            <div className='absolute top-[35%] left-[38%] text-white sm:text-xl md:text-2xl lg:text-4xl text-center'>
+              <div style={{ textShadow: "2px 2px 4px black", color: "white" }}>Best Indoor light</div>
               <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
                 Buy now
               </button>
@@ -121,7 +112,7 @@ function allpost() {
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
             <img src={img3} className="w-full h-full" />
-            <div className='absolute top-[40%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left'>
+            <div className='absolute top-[40%] right-[15%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left'>
               <div>Tag line here</div>
               <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
                 Buy now

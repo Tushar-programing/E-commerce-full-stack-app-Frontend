@@ -131,7 +131,7 @@ function Orders() {
               }).then((order) => {
                 setLoad(false)
                 console.log("this is new order", order);
-                navigate(`/userpro/${order?.data?.data?._id}`)
+                navigate(`/ThankYouPage/${order?.data?.data?._id}`)
                 toast.success(order.data.message)
               })
             }

@@ -3,14 +3,10 @@ import { Link } from 'react-router-dom'
 import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux'
 import './signup.css'
-import img from "./images/whishlist1.png"
-import img1 from "./images/whishlist2.png"
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { LoginPopup } from '.'
 import conf from "./conf/conf";
-
-import whatsappmob from "../component/images/whatsappMob.png"
 
 
 function postcard1({image, title, description, price, _id }) {

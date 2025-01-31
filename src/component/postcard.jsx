@@ -4,19 +4,12 @@ import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux'
 import './signup.css'
 import { toast } from 'react-toastify';
-import img from "./images/whishlist1.png"
-import img1 from "./images/whishlist2.png"
 import axios from 'axios';
 import conf from "./conf/conf";
-import imgcart from "./images/cart.png"
 
-import cart from "./images/cart1.png"
-
-import whatsappmob from "../component/images/whatsappMob.png"
 import { IoCartOutline } from "react-icons/io5";
 import { RiHeartAddLine } from "react-icons/ri";
 import { RiHeartFill } from "react-icons/ri";
-import { FaHeart } from "react-icons/fa6";
 
 
 function postcard({ _id, title, image, price, description, wis, className}) {
