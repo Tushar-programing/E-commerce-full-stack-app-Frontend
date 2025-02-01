@@ -38,6 +38,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import LogoAnimation from '../component/header/logoAnimation'
 
 
 function allpost() {
@@ -72,6 +73,15 @@ function allpost() {
     setOpen(false);
   };
 
+  const [isLoaded1, setIsLoaded1] = useState(false);
+  const [isLoaded2, setIsLoaded2] = useState(false);
+  const [isLoaded3, setIsLoaded3] = useState(false);
+
+  const [isLoadedMob1, setIsLoadedMob1] = useState(false);
+  const [isLoadedMob2, setIsLoadedMob2] = useState(false);
+  const [isLoadedMob3, setIsLoadedMob3] = useState(false);
+
+
   return (
     <div className='bg-white pb-20 max-w-[1536px] mx-auto'>
       {/* <LoginPopup open={active}/> */}
@@ -88,37 +98,75 @@ function allpost() {
         className=" mt-0 sm:block hidden mx-auto"
       >
         <SplideSlide className="relative ">
-          <div className="relative w-full h-full">
-            <img src={img1} className="w-full h-full" />
-            <div className='absolute top-[35%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left'>
-              <div>Tag line here</div>
-              <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
-                Buy now
-              </button>
-            </div>
-          </div>
+              <div className="relative w-full h-full">
+                {!isLoaded1 && (
+                  <div className="w-full h-full bg-gray-300 animate-pulse absolute top-0 left-0 flex items-center justify-center">
+                    <LogoAnimation/>
+                  </div>
+                )}
+                <img
+                  src={img1}
+                  className={`w-full h-full transition-opacity duration-500 ${isLoaded1 ? "opacity-100" : "opacity-0"}`}
+                  onLoad={() => setIsLoaded1(true)}
+                  alt="Banner"
+                />
+                {isLoaded1 && (
+                  <div className="absolute top-[35%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left">
+                    <div>Tag line here</div>
+                    <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
+                      Buy now
+                    </button>
+                  </div>
+                )}
+              </div>
         </SplideSlide>
+
         <SplideSlide className="relative ">
-          <div className="relative w-full h-full">
-            <img src={img2} className="w-full h-full" />
-            <div className='absolute top-[35%] left-[38%] text-white sm:text-xl md:text-2xl lg:text-4xl text-center'>
-              <div style={{ textShadow: "2px 2px 4px black", color: "white" }}>Best Indoor light</div>
-              <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
-                Buy now
-              </button>
-            </div>
-          </div>
+              <div className="relative w-full h-full">
+                {!isLoaded2 && (
+                  <div className="w-full h-full bg-gray-300 animate-pulse absolute top-0 left-0 flex items-center justify-center">
+                    <LogoAnimation/>
+                  </div>
+                )}
+                <img
+                  src={img2}
+                  className={`w-full h-full transition-opacity duration-500 ${isLoaded2 ? "opacity-100" : "opacity-0"}`}
+                  onLoad={() => setIsLoaded2(true)}
+                  alt="Banner"
+                />
+                {isLoaded2 && (
+                  <div className="absolute top-[35%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left">
+                    <div>Tag line here</div>
+                    <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
+                      Buy now
+                    </button>
+                  </div>
+                )}
+              </div>
         </SplideSlide>
+
         <SplideSlide className="relative ">
-          <div className="relative w-full h-full">
-            <img src={img3} className="w-full h-full" />
-            <div className='absolute top-[40%] right-[15%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left'>
-              <div>Tag line here</div>
-              <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
-                Buy now
-              </button>
-            </div>
-          </div>
+              <div className="relative w-full h-full">
+                {!isLoaded3 && (
+                  <div className="w-full h-full bg-gray-300 animate-pulse absolute top-0 left-0 flex items-center justify-center">
+                    <LogoAnimation/>
+                  </div>
+                )}
+                <img
+                  src={img3}
+                  className={`w-full h-full transition-opacity duration-500 ${isLoaded3 ? "opacity-100" : "opacity-0"}`}
+                  onLoad={() => setIsLoaded3(true)}
+                  alt="Banner"
+                />
+                {isLoaded3 && (
+                  <div className="absolute top-[35%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left">
+                    <div>Tag line here</div>
+                    <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
+                      Buy now
+                    </button>
+                  </div>
+                )}
+              </div>
         </SplideSlide>
       </Splide>
 
@@ -135,35 +183,62 @@ function allpost() {
       >
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
-            <img src={mob1} className="w-full h-full" />
-            <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
+            {!isLoadedMob1 && (
+                  <div className="w-full h-full bg-gray-300 animate-pulse absolute top-0 left-0 flex items-center justify-center">
+                    <LogoAnimation/>
+                  </div>
+            )}
+            <img 
+              src={mob1} 
+              className={`w-full h-full transition-opacity duration-500 ${isLoadedMob1 ? "opacity-100" : "opacity-0"}`}
+              onLoad={() => setIsLoadedMob1(true)}
+            />
+            {isLoadedMob1 && <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
               <div>Tag line here</div>
               <button className=" text-base px-4 py-1 bg-black text-white rounded-full mt-3">
                 Buy now
               </button>
-            </div>
+            </div>}
           </div>
         </SplideSlide>
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
-            <img src={mob2} className="w-full h-full" />
-            <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
+            {!isLoadedMob2 && (
+                  <div className="w-full h-full bg-gray-300 animate-pulse absolute top-0 left-0 flex items-center justify-center">
+                    <LogoAnimation/>
+                  </div>
+            )}
+            <img 
+              src={mob2} 
+              className={`w-full h-full transition-opacity duration-500 ${isLoadedMob2 ? "opacity-100" : "opacity-0"}`}
+              onLoad={() => setIsLoadedMob2(true)}
+            />
+            {isLoadedMob2 && <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
               <div>Tag line here</div>
               <button className=" text-base px-4 py-1 bg-black text-white rounded-full mt-3">
                 Buy now
               </button>
-            </div>
+            </div>}
           </div>
         </SplideSlide>
         <SplideSlide className="relative ">
           <div className="relative w-full h-full">
-            <img src={mob3} className="w-full h-full" />
-            <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
+            {!isLoadedMob3 && (
+                  <div className="w-full h-full bg-gray-300 animate-pulse absolute top-0 left-0 flex items-center justify-center">
+                    <LogoAnimation/>
+                  </div>
+            )}
+            <img 
+              src={mob3} 
+              className={`w-full h-full transition-opacity duration-500 ${isLoadedMob3 ? "opacity-100" : "opacity-0"}`}
+              onLoad={() => setIsLoadedMob3(true)}
+            />
+            {isLoadedMob3 && <div className='absolute top-[35%] left-[34%] text-white text-2xl text-center'>
               <div>Tag line here</div>
               <button className=" text-base px-4 py-1 bg-black text-white rounded-full mt-3">
                 Buy now
               </button>
-            </div>
+            </div>}
           </div>
         </SplideSlide>
       </Splide>
@@ -185,7 +260,7 @@ function allpost() {
       {/* <a href="https://wa.me/12345678900" target="_blank">Chat with us on WhatsApp</a> */}
       
 
-      <div className='text-center mt-6 md:mt-16 text-lg md:text-2xl'>Lux Loom Collections</div>
+      <div className='text-center mt-6 md:mt-16 text-lg md:text-2xl'>Our Collections</div>
 
       <Splide
       className="md:mt-7 mt-2 md:hidden"
@@ -311,8 +386,8 @@ function allpost() {
         )}
         </Splide> : 
         <Splide
-      className="md:mt-7 mt-4 md:mb-10 mb-7 "
-      options={{
+        className="md:mt-7 mt-4 md:mb-10 mb-7 "
+        options={{
         // focus      : 'center',
         // pagination : true,
         // fixedWidth : 120,
@@ -339,28 +414,28 @@ function allpost() {
       aria-label="Beautiful Images"
       >
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         </Splide>
         }
@@ -456,28 +531,28 @@ function allpost() {
       aria-label="Beautiful Images"
       >
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
       </Splide>
       }
@@ -524,11 +599,6 @@ function allpost() {
       <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
-        // focus      : 'center',
-        // pagination : true,
-        // fixedWidth : 120,
-        // fixedHeight: 150,
-      
         gap    : 20,
         perPage: 4,
         pagination : false,
@@ -550,28 +620,28 @@ function allpost() {
       aria-label="Beautiful Images"
       >
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
       </Splide>
       }
@@ -650,13 +720,8 @@ function allpost() {
       <Splide
       className="md:mt-7 mt-4 md:mb-10 mb-7 "
       options={{
-        // focus      : 'center',
-        // pagination : true,
-        // fixedWidth : 120,
-        // fixedHeight: 150,
-      
         gap    : 20,
-        perPage: 4,
+        perPage: 6,
         pagination : false,
         breakpoints: {
           1100: {
@@ -666,38 +731,44 @@ function allpost() {
             perPage: 2,
           },
         },
-      
-        // focus  : 0,
-        // omitEnd: true,
-      
-        // type    : 'loop',
-        // autoplay: 'pause',
       }}
       aria-label="Beautiful Images"
       >
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[250px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[250px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[250px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[250px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className="flex flex-col items-center justify-center h-[250px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
+        </SplideSlide>
+        <SplideSlide>
+          <div className="flex flex-col items-center justify-center h-[250px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
       </Splide>
       }
@@ -751,28 +822,28 @@ function allpost() {
       aria-label="Beautiful Images"
       >
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
         <SplideSlide>
-          <Stack spacing={1}>
-            <Skeleton variant="rounded" height={350} />
-            <Skeleton variant="rounded" height={30} width={170} />
-          </Stack>
+          <div className="flex flex-col items-center justify-center h-[350px] w-full bg-gray-200 rounded">
+            <div className='w-40'><LogoAnimation/></div>
+          </div>
+          <div className="h-[30px] w-[170px] bg-gray-300 rounded mt-2"></div>
         </SplideSlide>
       </Splide>
       }

@@ -26,6 +26,8 @@ import { IoArrowBack } from "react-icons/io5";
 
 import LoginPopup from './loginPopup';
 
+import LogoAnimation from './logoAnimation';
+
 function header() {
     const navigate = useNavigate()
     const [value, setValue] = useState('')
@@ -116,9 +118,9 @@ function header() {
     
   return (
     <nav >
-        <div className=' bg-white flex items-center justify-between px-4 md:py-6 py-3 max-w-[1536px] mx-auto '>
-            <div className="flex items-center space-x-2 md:space-x-4 xl:w-[50%] lg:w-[60%] md:w-[72%] justify-between">
-                <button onClick={e => navigate('/')} className="text-2xl font-bold me-6 ">LUXLOOM</button>
+        <div className=' bg-white flex items-center justify-between px-4 md:py-6 py-3 max-w-[1536px] mx-auto'>
+            <div className=" flex items-center space-x-2 md:space-x-4 xl:w-[50%] lg:w-[60%] md:w-[72%] justify-between">
+                <button onClick={e => navigate('/')} className="text-2xl font-bold me-6 md:w-48 w-32"><LogoAnimation /></button>
                 <ul className="md:flex hidden space-x-10 justify-center ">
                     <div className="relative inline-block ">
                         <div className="group ">

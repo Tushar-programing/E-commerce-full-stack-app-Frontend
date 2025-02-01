@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux'
 import './signup.css'
-import img from "./images/whishlist1.png"
-import img1 from "./images/whishlist2.png"
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import LoginPopup from './header/loginPopup'
@@ -22,8 +20,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
 import { RxCross1 } from "react-icons/rx";
-import { RiSearchLine } from "react-icons/ri";
-import { IoArrowBack } from "react-icons/io5";
 
 
 function postcard1({image, title, description, price, _id }) {
