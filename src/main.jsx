@@ -42,6 +42,9 @@ import Outlet from './App2.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './page/notFound.jsx';
+import Contact from './page/contact.jsx';
+import PolicyPage from './page/policyPage.jsx';
+import KitchenStoryPage from './page/story.jsx';
 
 const router = createBrowserRouter([
   {
@@ -126,6 +129,18 @@ const router = createBrowserRouter([
       {
         path: "/thankYouPage/:slug",
         element: <ThankYouPage/>,
+      },
+      {
+        path: "/contact",
+        element: <Contact/>,
+      },
+      {
+        path: "/policy",
+        element: <PolicyPage/>,
+      },
+      {
+        path: "/story",
+        element: <KitchenStoryPage/>,
       },
       {
         path: "*",

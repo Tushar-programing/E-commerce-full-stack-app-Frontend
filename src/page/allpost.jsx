@@ -45,7 +45,6 @@ function allpost() {
     const [posts, setPosts] = useState([]);
     console.log("im checking about post : ", posts);
     
-
     const active = useSelector(state => state.auth.status)
 
     useEffect(() => {
@@ -111,7 +110,7 @@ function allpost() {
                   alt="Banner"
                 />
                 {isLoaded1 && (
-                  <div className="absolute top-[35%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left">
+                  <div className="absolute top-[40%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left">
                     <div>Tag line here</div>
                     <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
                       Buy now
@@ -135,7 +134,7 @@ function allpost() {
                   alt="Banner"
                 />
                 {isLoaded2 && (
-                  <div className="absolute top-[35%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left">
+                  <div className="absolute top-[40%] left-[40%] text-white sm:text-xl md:text-2xl lg:text-4xl text-center">
                     <div>Tag line here</div>
                     <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
                       Buy now
@@ -159,7 +158,7 @@ function allpost() {
                   alt="Banner"
                 />
                 {isLoaded3 && (
-                  <div className="absolute top-[35%] left-[16%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left">
+                  <div className="absolute top-[40%] right-[14%] text-white sm:text-xl md:text-2xl lg:text-4xl text-left">
                     <div>Tag line here</div>
                     <button className="md:text-base text-sm lg:px-5 md:px-4 sm:px-3 lg:py-3 md:py-2 sm:py-1 bg-black text-white rounded-full sm:mt-3 md:mt-6 lg:mt-8">
                       Buy now
@@ -290,57 +289,57 @@ function allpost() {
       aria-label="Beautiful Images"
       >
         <SplideSlide>
-          <Link to={"/result?cat=ceiling"}>
-            <img src="https://images-cdn.ubuy.co.in/634d0f039b41f53d1522b115-crystal-flush-mount-led-ceiling-light.jpg?_gl=1*gdmnco*_gcl_au*MTMyNDk4NDY3Ny4xNzI1MjE5OTMw" className='w-full h-full' />
-            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Ceiling Fixtures</div>
+          <Link to={"/result?cat=spoons"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738496221/website%20main/qj9mbbamavankib8lwuk.jpg" className='w-full h-full' />
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Spoons</div>
           </Link>
         </SplideSlide>
         <SplideSlide>
-          <Link to={"/result?cat=chandelier"}>
-            <img src="https://m.media-amazon.com/images/I/71GmM4--DdL._AC_UF894,1000_QL80_.jpg" className='w-full h-full' />
-            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Chandeliers</div>
+          <Link to={"/result?cat=cutlery-holders"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738496195/website%20main/vue53vwytaxax21h5zik.jpg" className='w-full h-full' />
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Cutlery Holders</div>
           </Link>
         </SplideSlide>
         <SplideSlide>
-          <Link to={"/result?cat=lamp"}>
-            <img src="https://m.media-amazon.com/images/I/81FMq3e3BZL._AC_SX679_.jpg" className='w-full h-full' />
-            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Lamps & Lighting</div>
+          <Link to={"/result?cat=plate-holders"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738507213/website%20main/nixhahy5gk5lg29rzsvm.jpg" className='w-full h-full' />
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Plate Holders</div>
           </Link>
         </SplideSlide>
         <SplideSlide>
-          <Link to={"/result?cat=outdoor"}>
-            <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/7d37deed710d0d4a73af6f298112ab56b4e41605/Gama-Sonic-Solar-LED-Motion-Sensor-Security-Dual-Color-Light-2-PK.jpg" className='w-full h-full' />
-            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Outdoor Lighting</div>
+          <Link to={"/result?cat=dish-racks"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738506184/website%20main/lqbfmnjyjrx1xsip3rvc.jpg" className='w-full h-full' />
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Dish Racks</div>
           </Link>
         </SplideSlide>
         <SplideSlide>
-          <Link to={"/result?cat=diwali"}>
-            <img src="https://m.media-amazon.com/images/I/51jI2BY1UeL._SL500_.jpg" className='w-full h-full' />
-            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Occational(Diwali) Light</div>
+          <Link to={"/result?cat=food-storage"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738506821/website%20main/ooulzssgd8lz6m5kgsj1.jpg" className='w-full h-full' />
+            <div className='text-sm md:text-base w-full text-center text-black bg-white pt-1 z-10'>Food Storage Container</div>
           </Link>
         </SplideSlide>
       </Splide>
 
       <div className='md:grid hidden grid-cols-5 gap-3 lg:gap-6 my-10 '>
-          <Link to={"/result?cat=ceiling"}>
-            <img src="https://images-cdn.ubuy.co.in/634d0f039b41f53d1522b115-crystal-flush-mount-led-ceiling-light.jpg?_gl=1*gdmnco*_gcl_au*MTMyNDk4NDY3Ny4xNzI1MjE5OTMw" className='w-full' alt="Product" />
-            <div className='mt-2 text-center'>Ceiling Fixtures</div>
+          <Link to={"/result?cat=spoons"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738496221/website%20main/qj9mbbamavankib8lwuk.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Spoons</div>
           </Link>
-          <Link to={"/result?cat=chandelier"}>
-            <img src="https://m.media-amazon.com/images/I/71GmM4--DdL._AC_UF894,1000_QL80_.jpg" className='w-full' alt="Product" />
-            <div className='mt-2 text-center'>Chandeliers</div>
+          <Link to={"/result?cat=cutlery-holders"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738496195/website%20main/vue53vwytaxax21h5zik.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Curtley Holder</div>
           </Link>
-          <Link to={"/result?cat=lamp"}>
-            <img src="https://m.media-amazon.com/images/I/81FMq3e3BZL._AC_SX679_.jpg" className='w-full' alt="Product" />
-            <div className='mt-2 text-center'>Lamps & Lighting</div>
+          <Link to={"/result?cat=plate-holders"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738507213/website%20main/nixhahy5gk5lg29rzsvm.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Plate Holders</div>
           </Link>
-          <Link to={"/result?cat=outdoor"}>
-            <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/7d37deed710d0d4a73af6f298112ab56b4e41605/Gama-Sonic-Solar-LED-Motion-Sensor-Security-Dual-Color-Light-2-PK.jpg" className='w-full' alt="Product" />
-            <div className='mt-2 text-center'>Outdoor Lighting</div>
+          <Link to={"/result?cat=dish-racks"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738506184/website%20main/lqbfmnjyjrx1xsip3rvc.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Dish Racks</div>
           </Link>
-          <Link to={"/result?cat=diwali"}>
-            <img src="https://m.media-amazon.com/images/I/51jI2BY1UeL._SL500_.jpg" className='w-full' alt="Product" />
-            <div className='mt-2 text-center'>Occational(Diwali) Light</div>
+          <Link to={"/result?cat=food-storage"}>
+            <img src="https://res.cloudinary.com/dpzh4qlkg/image/upload/v1738506821/website%20main/ooulzssgd8lz6m5kgsj1.jpg" className='w-full' alt="Product" />
+            <div className='mt-2 text-center'>Food Storage Container</div>
           </Link>
       </div>
 

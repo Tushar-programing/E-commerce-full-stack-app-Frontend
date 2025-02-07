@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaFacebook, FaInstagram, FaPinterest, FaEnvelope } from "react-icons/fa";
 import { FaLinkedin, FaWhatsapp } from "react-icons/fa6";
+import {Link} from "react-router-dom"
 
 const Footer = () => {
   const [customerServiceOpen, setCustomerServiceOpen] = useState(false);
@@ -14,27 +15,25 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg">Customer Service</h3>
             <ul className="mt-2">
-              <li className=" mb-1"><a href="#" className="hover:underline">Track Your Order</a></li>
-              <li className=" mb-1"><a href="#" className="hover:underline">Shipping and Returns Policy</a></li>
-              <li className=" mb-1"><a href="#" className="hover:underline">Submit a Return Request</a></li>
-              <li className=" mb-1"><a href="#" className="hover:underline">Buy in Bulk</a></li>
-              <li className=" mb-1"><a href="#" className="hover:underline">Contact us</a></li>
+              <li className=" mb-1"><Link to={"/policy"} className="hover:underline">Track Your Order</Link></li>
+              <li className=" mb-1"><Link to={"/policy"} className="hover:underline">Shipping and Returns Policy</Link></li>
+              <li className=" mb-1"><Link to={"/policy"} className="hover:underline">Submit a Return Request</Link></li>
+              <li className=" mb-1"><Link to={"/policy"} className="hover:underline">Buy in Bulk</Link></li>
+              <li className=" mb-1"><Link to={"/contact"} className="hover:underline">Contact us</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-lg">About Us</h3>
             <ul className="mt-2">
-              <li className="mb-1"><a href="#" className="hover:underline">Our Story</a></li>
-              <li className="mb-1"><a href="#" className="hover:underline">Our Blog - The Artisan's Journal</a></li>
-              <li className="mb-1"><a href="#" className="hover:underline">Privacy Policy</a></li>
-              <li className="mb-1"><a href="#" className="hover:underline">Terms of Service</a></li>
+              <li className="mb-1"><Link to={"/story"}  className="hover:underline">Our Story</Link></li>
+              <li className="mb-1"><Link to={"/"}  className="hover:underline">Our Blog - The Artisan's Journal</Link></li>
+              <li className="mb-1"><Link to={"/policy"}  className="hover:underline">Privacy Policy</Link></li>
+              <li className="mb-1"><Link to={"/policy"} className="hover:underline">Terms of Service</Link></li>
             </ul>
           </div>
           <div>
             <p className="max-w-xs">
-              Imagined in India, Home Artisan offers a unique selection of modern and elegant home décor products.
-              From Scandinavian design inspired lanterns to geometric photo frames, we design and curate products that
-              exude superior craftsmanship and reflect global trends.
+              At Not Just Spoons, we offer a carefully curated selection of kitchen essentials designed to enhance your cooking experience. From high-quality spoons with elegant ceramic handles to versatile kitchen tools.
             </p>
             <div className="mt-4 flex space-x-4">
               <a href='https://www.linkedin.com/in/tushar-saini-60bb242a3/' target="_blank" className="hover:underline"><FaLinkedin size={24} className="text-white"  /></a>

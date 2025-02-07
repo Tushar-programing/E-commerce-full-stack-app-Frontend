@@ -44,7 +44,8 @@ function signup() {
   }
 
   if (working) {
-    return <div className='w-full h-[800px]'><Backdrop
+    return <div className='w-full h-[800px]'>
+            <Backdrop
               className='w-full h-[800px]'
               sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
               open={open}

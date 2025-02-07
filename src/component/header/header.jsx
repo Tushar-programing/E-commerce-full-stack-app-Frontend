@@ -129,47 +129,51 @@ function header() {
                             </a>
                             <div className="absolute z-20 border hidden w-40 mt-0 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg group-hover:block">
                                 <div className="py-1">
-                                    <a href={"/result?cat=diwali"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Diwali Light
+                                    <a href={"/result?cat=spoons"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Spoons
                                     </a>
-                                    <a href={"/result?cat=chandelier"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Chandeliers
+                                    <a href={"/result?cat=forks"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Forks & Knives
                                     </a>
-                                    <a href={"/result?cat=ceiling"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Ceiling Fixtures
+                                    <a href={"/result?cat=spoon-stands"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Spoon Stands
                                     </a>
-                                    <a href={"/result?cat=lamp"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Lamps & Lighting
+                                    <a href={"/result?cat=cutlery-holders"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Cutlery Holders
                                     </a>
-                                    <a href={"/result?cat=outdoor"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Outdoor Lighting
+                                    <a href={"/result?cat=dish-racks"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Dish Racks
                                     </a>
-                                    <a href={"/result?cat=wall"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Wall Lamps
+                                    <a href={"/result?cat=plate-holders"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Plate Holders
                                     </a>
-                                    <a href={"/result?cat=garden"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Garden Lighting
+                                    <a href="/result?cat=food-storage" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Food Storage Containers
                                     </a>
-                                    <a href={"/result?cat=floor"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Floor Lamp
+                                    <a href="/result?cat=serving-bowls" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Serving Bowls & Trays
                                     </a>
-                                    <a href={"/result?cat=mood"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Mood Lighting
+                                    <a href="/result?cat=coffee-mugs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Tea & Coffee Mugs
                                     </a>
-                                    <a href={"/result?cat=patio"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Patio Lights
+                                    <a href="/result?cat=knife-holder" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Magnetic Knife Holder
                                     </a>
-                                    <a href={"/result?cat=other"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Other all
+                                    <a href="/result?cat=cup-holder" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Wall-Mounted Glass & Cup Holder
                                     </a>
+                                    <a href="/result?cat=other" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Other's
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                     {/* <Link to={"/result"} className="text-sm font-semibold cursor-pointer mt-[2px]">Collections</Link> */}
-                    <Link to={"/"} className="text-sm font-semibold cursor-pointer mt-[2px]">Our Story</Link>
+                    <Link to={"/story"} className="text-sm font-semibold cursor-pointer mt-[2px]">Our Story</Link>
                     <Link to={"/"} className="text-sm font-semibold cursor-pointer mt-[2px]">Journal</Link>
-                    <Link to={"/"} className="text-sm font-semibold cursor-pointer mt-[2px]">Contact us</Link>
+                    <Link to={"/contact"} className="text-sm font-semibold cursor-pointer mt-[2px]">Contact us</Link>
                 </ul>
             </div>
             <div className="flex items-center space-x-4 ">
@@ -177,7 +181,6 @@ function header() {
                     <button onClick={(e) => setOpen(true)} className="text-sm font-semibold cursor-pointer mb-[6px]"><RiSearchLine className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></button>
                     <Link to={"/cart"} className="text-sm font-semibold cursor-pointer md:px-1 px-0"><MdOutlineShoppingCart className='md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5' /></Link>
                     {active && <Link to="/userpannel" className='lg:hidden block '><LuUser className=" md:w-[26px] sm:w-6 w-5 md:h-[26px] sm:h-6 h-5 " /></Link>}
-
                     {!active && 
                     <button
                     onClick={handleClickOpen2}
