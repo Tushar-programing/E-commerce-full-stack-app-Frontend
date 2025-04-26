@@ -347,7 +347,7 @@ function allpost() {
       
       <TrendyPro posts={posts} />
 
-      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Chandeliers Collections</div>
+      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Dish Racks Collections</div>
 
       <div className='mx-1'>
       {posts.length > 0 ? <Splide
@@ -377,7 +377,7 @@ function allpost() {
       }}
       aria-label="Beautiful Images"
       >
-        {posts?.filter(pr => pr?.category === "chandelier")
+        {posts?.filter(pr => pr?.category === "dish-racks")
         .map((fr, index) =>
           <SplideSlide key={fr._id}>
             <Postcard1 {...fr} />
@@ -440,17 +440,17 @@ function allpost() {
         }
       </div>
 
-      <div className='text-center mt-5 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Trendy Lux Arrivals</div>
+      <div className='text-center mt-5 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Trendy NOT JUST SPOONS Arrivals</div>
 
       {posts?.length > 0 ? posts?.filter(pr => pr?.subCategory === "trend").slice(0,1)
       .map((post) =>
         <Link to={`/post/${post?._id}`} key={post?._id} className='grid grid-cols-3 gap-10 md:mt-7 mt-2 bg-black sm:py-0 py-5'>
           <div className='col-span-2'>
             <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-6 text-white mt-[8%] sm:mt-[8%] md:mt-[16%]  ml-[10%]">
-              Discover Trends Luxury Lighting
+              Discover OUR KNIFES
             </h1>
             <h2 className="text-base sm:text-lg md:text-xl lg:text-3xl mb-1 sm:mb-6 text-white ml-[10%]">
-              Elevate your space with our curated collection of the season's most designs.
+            Experience precision cutting with durable, stylish knives designed for effortless cooking and everyday kitchen excellence.
             </h2>
             {/* <h2 className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-6 text-white ml-[10%] md:hidden sm:hidden">
               Elevate your space with our Lights
@@ -463,7 +463,7 @@ function allpost() {
         </Link>
       ): <Skeleton variant="rounded" height={200} className='my-7'/>}
     
-      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore Luxe Outdoor Lights</div>
+      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore Spoons of "NOT JUST SPOONS"</div>
 
       <div className='mx-1'>
       {posts.length > 0 ? <Splide
@@ -494,7 +494,7 @@ function allpost() {
       }}
       aria-label="Beautiful Images"
       >
-        {posts?.filter(pr => pr?.category === "outdoor")
+        {posts?.filter(pr => pr?.category === "coffee-mugs")
         .map((fr, index) =>
           <SplideSlide key={fr._id}>
             <Postcard1 {...fr} />
@@ -557,7 +557,7 @@ function allpost() {
       }
       </div>
 
-      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our Festive(Diwali) Radiance</div>
+      <div className='text-center mt-6 md:mt-20 text-lg md:text-2xl lg:text-3xl'>Explore our  Knifes Collection</div>
           
       <div className='mx-1'>
       {posts.length > 0 ? <Splide
@@ -588,7 +588,7 @@ function allpost() {
       }}
       aria-label="Beautiful Images"
       >
-        {posts?.filter(pr => pr?.category === "diwali")
+        {posts?.filter(pr => pr?.category === "forks")
         .map((fr, index) =>
           <SplideSlide key={fr._id}>
             <Postcard1 {...fr} />
